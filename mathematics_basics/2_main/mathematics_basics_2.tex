@@ -3,10 +3,11 @@
 %                               PREAMBLE
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\documentclass[11pt,a4paper]{report}
+\documentclass[10pt,a4paper]{report}
 \usepackage[T1]{fontenc}
+\usepackage{lxfonts}
+\usepackage[mathcal, mathbf]{euler}
 \usepackage[utf8]{inputenc}
-\usepackage{color}
 
 \usepackage{pagecolor}
 \usepackage{xcolor}
@@ -33,9 +34,7 @@
 \usepackage{cancel}
 
 
-\setcounter{tocdepth}{1}
 \renewcommand{\thefootnote}{\fnsymbol{footnote}}
-\renewcommand{\contentsname}{Table of Contents - First Year}
 \setcounter{minitocdepth}{4}
 %\dominitoc
 
@@ -43,6 +42,54 @@
 \setlength{\headheight}{13.59999pt}
 \renewcommand{\footrulewidth}{0.5pt}
 \fancyfoot[C]{\thepage}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                            Command Definitions
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\illustration}[2]{
+    \begin{center}
+        \includegraphics[width = 0.6\linewidth]{dessins/#1}
+        \captionof{figure}{#2}
+    \end{center}    }
+
+\newcommand{\dessin}[2]{
+    \begin{center}
+        \input{dessins/#1}
+        \captionof{figure}{#2}
+    \end{center}    }
+
+
+%%%    Some command to create theorem and definition easier      %%%
+
+\theoremstyle{plain}
+\newtheorem{thm}{Théorème}[section]
+\newtheorem{lem}[thm]{Lemme}
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem*{cor}{Corollaire}
+\newcommand{\theorem}[3]{\begin{#1}\label{#3} #2 \end{#1}}
+    %commande pour créer un théorème, le premier argument est le type et le second le contenu
+        % ex : \theorem{lem}{contenu du lemme}
+
+\newcommand{\namedtheorem}[3]{
+    \newtheorem{#3}[thm]{#1}
+    \begin{#3}\label{#3}
+        #2
+    \end{#3}
+}
+
+\theoremstyle{definition}
+\newtheorem{defn}{Definition}[section]
+\newcommand{\definition}[1]{\begin{defn} #1 \end{defn}}
+    %commande pour créer une définition, le contenu passe en argument
+        % ex : \definition{contenu de la def}
+
+\theoremstyle{remark}
+\newtheorem*{nd}{Note}
+\newcommand{\remarque}[1]{\begin{nd} #1 \end{nd}}
+    %commande pour créer une remarque, le contenu passe en argument
+        % ex : \remarque{contenu de la remarque}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -128,9 +175,9 @@
 \begin{document}
 \begin{titlepage}
 \noindent
-\titlefont Maths Spé Lesson\par
+\titlefont Mathematic Course\par
 \epigraph{This document is a synthesis of the Mathematics course given by my teacher Jean-François \textsc{Mallordy} in MP* preparatory class in Blaise Pascal 
-  high school, Clermont-Ferrand in 2022-2023. It remains a complement to the Math Spé course and shall never be a replacement to it. Please study your course !}%
+high school, Clermont-Ferrand in 2022-2023. It remains a complement to the Math Spé course and shall never be a replacement to it. Please study your course !}%
 {\textit{Paris 2024}\\ \textsc{E. Sauvat}}
 \null\vfill
 \vspace*{1cm}
@@ -148,14 +195,77 @@
 \titlepagedecoration
 \end{titlepage}
 
-\shorttoc{Sommaire}{0}
-\listoffigures
+\shorttoc{Summary}{0}
+%\listoffigures
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                          DOCUMENT START
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\chapter{Suites et séries}
 
+    \input{../2_chapitres/ch2_1_fr}
+
+\chapter{Limites et continuité}
+
+    \input{../2_chapitres/ch2_2_fr}
+
+\chapter{Dérivation et intégration}
+
+    \input{../2_chapitres/ch2_3_fr}
+
+\chapter{Suites de fonctions}
+
+    \input{../2_chapitres/ch2_4_fr}
+    
+\chapter{Intégrales généralisées}
+
+    \input{../2_chapitres/ch2_5_fr}
+        
+\chapter{Intégrales paramétrées}
+
+    \input{../2_chapitres/ch2_6_fr}
+
+\chapter{Séries entières}
+
+    \input{../2_chapitres/ch2_7_fr}
+
+\chapter{Algèbre}
+
+    \input{../2_chapitres/ch2_8_fr}
+
+\chapter{Réduction des endomorphismes}
+
+    \input{../2_chapitres/ch2_9_fr}
+
+\chapter{Espaces préhilbertiens réels}
+
+    \input{../2_chapitres/ch2_10_fr}
+    
+\chapter{Espaces probabilisés}
+
+    \input{../2_chapitres/ch2_11_fr}
+        
+\chapter{Variables aléatoires discrètes}
+
+    \input{../2_chapitres/ch2_12_fr}
+
+\chapter{Équations différentielles linéaires}
+
+    \input{../2_chapitres/ch2_13_fr}
+        
+\chapter{Calcul différentiel}
+
+    \input{../2_chapitres/ch2_14_fr}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                         Table of Contents
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\setcounter{tocdepth}{1}
+
+\tableofcontents
 
 \end{document}

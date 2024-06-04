@@ -1,1 +1,14 @@
 .DS_store
+
+#Latex extensions
+
+*.aux
+*.fdb_latxmk
+*.fls
+*.log
+*.log
+*.maf
+*.mtc*
+*.out
+*.synctex.gz
+*.toc
