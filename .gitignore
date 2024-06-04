@@ -3,9 +3,9 @@
 #Latex extensions
 
 *.aux
-*.fdb_latxmk
+*.fdb_latexmk
 *.fls
-*.log
+*.lof
 *.log
 *.maf
 *.mtc*
