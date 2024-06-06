@@ -1,0 +1,493 @@
+
+% Chapitre 1 : Suites et séries 
+
+	\minitoc
+	
+\section{Norme}
+
+	\subsection{Généralités}
+	
+		\definition{
+			Une \emph{norme} sur $E$ est une application $N: E \rightarrow\mathbf{R}$ vérifiant :
+		\begin{itemize}
+			\item $\forall x\in E, ~N(x) = 0_{\mathbf{R}} ~\Leftrightarrow ~x=0_E$ 
+			\item $\forall x\in E, ~\forall \lambda \in \mathbf{K} , ~N(\lambda .x) = \abs{\lambda}N(x)$
+			\item $ \forall x,y \in E, ~N(x+y) \leq N(x)+N(y)$
+		\end{itemize} 
+		}
+	
+		\definition{
+			Une \emph{distance} sur $X$ est une application $d:X^2\rightarrow\mathbf{R}$ vérifiant:
+		\begin{itemize}
+			\item $\forall x,y\in E, ~d(x,y) = 0 ~\Leftrightarrow ~x=y$
+			\item $\forall x,y\in E, ~d(x,y)~=~d(y,x)$
+			\item $\forall x,y,z\in E, ~d(x,z)~\leq~d(x,y)+d(y,z)$
+		\end{itemize} 
+		}
+
+		\theorem{lem}{
+			Soit $(E,N)$ un espace vectoriel normé,
+			
+			Alors $\forall N\geq 0$ \hspace*{1cm} {\small (i.e. $\forall x\in E,~N(x) \geq 0$)}}
+		{NormePos}
+	
+		\theorem{lem}{
+			Soit $(E,N)$ un espace vectoriel normé.
+		
+			Si $\forall (x,y)\in E^2$, $d(x,y) = N(x-y) $ alors $d$ est une distance sur E.}
+		{LienDistNorm}
+		
+		\definition{ 
+			Soient $a\in E,~r\in\mathbf{R}$ on définit 
+		\begin{itemize}
+			\item $B(a,r) = \left\{ x\in E ~|~ d(x,a)<r\right\}$
+			\item $B_f (a,r) = \left\{ x\in E ~|~ d(x,a) \leq r\right\}$ 
+		\end{itemize}
+			Les \emph{boules} respectivement \emph{ouverte et fermée de centre $a$ et de rayon $r$}. 
+		}
+		
+		\definition{
+			Soit $E$ un $\mathbf{K}$ espace vectoriel quelconque
+			
+			-> Pour $(a,b)\in E^2$ on définit le \emph{segment} : $[a,b]=\left\{ (1-t)a +tb ~\vert ~t\in [0,1]\right\}$
+			
+			-> Une partie $\mathcal{C} \subset E$ est dite \emph{convexe} si $\forall (a,b)\in \mathcal{C}^2,~[a,b]\subset \mathcal{C}$
+		}
+		
+		\theorem{lem}{
+			Dans $E$ un EVN quelconque toutes les boules sont convexes.}
+		{BoulConvexe}
+	
+	
+	\subsection{Normes euclidiennes}
+	
+		Ici $E$ est un $\mathbf{R}$ espace vectoriel muni d'un produit scalaire\footnotemark[1] 
+		\[
+			\Phi : \appli{E^2}{x,y}{\R}{\scal{x,y}}
+		\]
+		
+		\footnotetext[1]{ Un produit scalaire est une forme bilinéaire symétrique définie positive}
+		
+		On a alors par théorème\footnotemark[2],  $x\mapsto \sqrt{\scal{x,x}}$ est une norme sur $E$.  
+		
+		\footnotetext[2]{Voir cours de sup.}
+		
+		On note alors 
+		\begin{center}
+			\highlight{$\norm{x}_2 = N_2(x) = \sqrt{\scal{x,x}}$}
+		\end{center}
+		
+		\textit{\small NB : L'inégalité triangulaire pour $\norm{.}_2$ est dite inégalité de \textsc{Minkovsky}} \\
+		
+		\theorem{lem}{
+			Si $E=\C^n ,z=(z_1,\dots ,z_n) , ~N(z) = \sqrt{\sum_{k=1}^n\abs{z_k}^2}$ est une norme.}
+		{NormEuclidC}
+			
+		\theorem{lem}{
+			L'espace $\left( \cont^0\left([a,b],\C )\right), N\right)$ est un EVN avec
+			\[
+				N(f) = \sqrt{\int_a^b \abs{f(x)}^2 dx}
+			\] \vspace{-15pt}}
+		{NormCFonc}
+		
+	\subsection{Exemple de normes}
+	
+		\paragraph{Norme $N_{\infty}$ :} 
+		\begin{itemize}
+			\item Dans $E=K^n$ soit $x=(x_1,\dots ,x_n) ,~ N_{\infty}(x) = \underset{i\in\ent{1,n}}{\max} \abs{x_i}$
+			\item Dans $E=\cont^0([a,b],K)$ soit $f\in E,~N_{\infty} (f) = \underset{x\in [a,b]}{\sup} \abs{f(x)}$
+		\end{itemize}
+		
+		\paragraph{Norme $N_1$ :} 
+		\begin{itemize}
+			\item Dans $E=K^n$ soit $x=(x_1,\dots ,x_n) ,~ N_1(x) = \sum_{i=1}^n \abs{x_i} $
+			\item Dans $E=\cont^0([a,b],K)$ soit $f\in E,~N_1 (f) = \int_a^b \abs{f(x)} \mathrm{d}x$
+		\end{itemize}
+		
+		\paragraph{Norme $N_2$ :} 
+		\begin{itemize}
+			\item Dans $E=K^n$ soit $x=(x_1,\dots ,x_n) ,~ N_2(x) = \sqrt{\sum_{i=1}^n x_i^{~2}} $
+			\item Dans $E=\cont^0([a,b],K)$ soit $f\in E,~N_2 (f) = \sqrt{\int_a^b \left( f(x)\right)^2 \mathrm{d}x}$
+		\end{itemize} \medskip
+
+
+\section{Suites}
+		
+		\definition{
+			Soit $u=\left( u_n\right)_{n\in\N} \in E^{\N}$ et $l\in E$.
+			On dit que \emph{$u$ converge vers $l$} dans $(E,d)$ et on note $u_n \underset{n\rightarrow +\infty}{\longrightarrow} l$ si 
+			\[
+				\forall \varepsilon >0 ,~\exists n_0 \in \mathbf{N} ~:~ \forall n\geq n_0,~d(u_n ,l) <\varepsilon
+			\] 
+		}	
+		
+		\namedtheorem{Lemme : Unicité de la limite}{
+			Soit $(u_n)$ une suite de $E$ telle que \\
+			\[ 
+				u_n \underset{n}{\rightarrow} \ell_1 ~\in E \text{ et } 
+				u_n \underset{n}{\rightarrow} \ell_2 ~\in E
+			\]
+			
+			Alors $l_1 = l_2$}
+		{UniqLimit}
+		
+		\begin{proof}
+		Supposons $\ell_1\neq \ell_2$.\\
+		Soit $\varepsilon = \frac{1}{2} d(\ell_1,\ell_2) >0$
+		On a alors $d(u_n, \ell_1) < \varepsilon$ et $d(u_n, \ell_2) < \varepsilon$ à partir d'un certain rang $n_0 \in \N$ ->  \textsc{impossible}
+		\end{proof} \medskip
+		
+		\theorem{lem}{
+			Soit $\left(u_n\right) _{n\in \mathbf{N} } \in E^{\mathbf{N}} ,~\ell\in E$\hspace*{0.2cm} 
+			Alors $u_n \underset{n}{\rightarrow} \ell ~\Leftrightarrow ~\norm{u_n - \ell} \underset{n}{\rightarrow} 0$}
+		{LimitDiff}
+		
+		\theorem{lem}{
+			Soient $u_n ,~v_n \in E^{\mathbf{N}} ~$ et $ \lambda\in K$ si on a 
+			$u_n \underset{n}{\rightarrow} \alpha \text{ et } v_n \underset{n}{\rightarrow} \beta$ 
+			
+			Alors $\lambda u_n + v_n \underset{n}{\rightarrow} \lambda\alpha + \beta$}
+		{LimitComp}
+		
+		\namedtheorem{Lemme : Inégalité triangulaire renversée}{
+			Soit $x,y \in E$ alors 
+			\[
+				\abs{N(x) - N(y)} \leq N(x-y)
+			\]
+			\vspace{-15pt}}
+		{InegTriRenv}
+		
+		\begin{proof}
+		$N(x) \leq N(x-y) + N(y) \Rightarrow  \underbrace{N(x) - N(y)}_{t\in \mathbf{R}} \leq N(x-y)$\\
+		Puis on conclut avec la symétrie de la norme.
+		\end{proof}
+		
+		\theorem{lem}{
+			Soit $u_n \in E^{\mathbf{N}} ,~\alpha\in K$ 
+			on a $u_n\underset{n}{\rightarrow} \alpha ~\Rightarrow ~ \norm{u_n}\underset{n}{\rightarrow}\norm{\alpha}$ }
+		{LimitDeNorm}
+		
+		{\small \textsc{Attention !} La réciproque est fausse ! }
+		
+		\definition{
+			Une suite $\left(u_n\right)_{n\in\mathbf{N}} \in E^{\mathbf{N}}$ est \emph{bornée} si
+			$\forall n, \norm{u_n}\leq M$ pour un certain $M\in \R$.
+		}
+		
+		\theorem{lem}{
+			Toute suite convergente est bornée.}
+		{BornSuitConv}
+		
+		\theorem{lem}{
+			Si $\lambda_n \underset{n}{\rightarrow} \mu \in K \text{ et } u_n \underset{n}{\rightarrow} v\in E$ alors $\lambda_n u_n \underset{n}{\rightarrow} \mu v$}
+		{LimitProdScalVect}
+		
+		\definition{
+			Soit $u \in E^{\mathbf{N}}$ on appelle \underline{suite extraite} (ou sous-suite) de $u$ toute suite
+			$\left(u_{\varphi (n)}\right)_{_{n\in \mathbf{N}}}$ où $\varphi : \mathbf{N} \rightarrow \mathbf{N}$ 
+			est une extractrice (injection croissante) \\ \textit{\small NB : en fait $\left(v_n\right)_{_{n\geq0}} = 
+			\left(u_{\varphi (n)} \right)_{_{n\geq 0}} ~\Leftrightarrow ~v= u\circ\varphi$}
+		}
+
+		\definition{
+			$l\in E$ est une valeur d'adhérence de $u$ s'il existe une suite extraite de $u$ qui converge vers $l$.
+			On notera $\mathcal{V}_u$ l'ensemble des valeurs d'adhérence de $u$.
+		}
+
+		\theorem{lem}{
+			Soit $u\in E^{\mathbf{N}}$ si $u$ \\
+			converge vers $l\in K$ 
+			alors toute suite extraite de $u$ converge vers $l$}
+		{SousSuitConv}
+
+		\begin{proof}
+			Soit $\varphi : \mathbf{N} \rightarrow \mathbf{N}$ une extractrice et 
+			$\left(v_n\right)_{_{n\geq 0}} = \left(u_{\varphi (n)} \right)_{_{n\geq 0}}$ \\
+			Soit $\varepsilon >0$ et $ n_0 \in\mathbf{N} ~:~ \forall n\geq n_0 ,~d(u_n ,l)<\varepsilon$ 
+			donc $\varphi (n) \geq n_0$ et ainsi $d\left( u_{\varphi (n)},l\right)<\varepsilon$ et $v_n \underset{n}{\rightarrow} l$
+		\end{proof}
+		
+		\theorem{cor}{
+			Toute suite admettant au moins $2$ valeurs d'adhérence est \\divergente}
+		{2valAdherDiverg} \medskip
+
+\section{Normes équivalentes}
+
+	\subsection{Définition}
+
+		\definition{
+			Soit $E$ un $K$ espace vectoriel, $N$ et $N'$ deux normes sur $E$.
+			$N$ et $N'$ sont dites \\équivalentes ($N\sim N'$) si $\exists \alpha ,\beta \in \mathbf{R} ~:~ \alpha N \leq N'\leq \beta N$
+		}
+
+		\textit{\small On peut aussi l'écrire $	N'\leq \beta N$ et $N\leq \frac{1}{\alpha} N'$}
+
+		\theorem{lem}{
+			Soit $N,N'$ des normes équivalentes sur $E$, $u\in E^{\mathbf{N}} ,~l\in E$ 
+			alors \\ {\small 1)} $u_n \underset{n}{\rightarrow}l$ dans $(E,N)$ $\Leftrightarrow$ $u_n \underset{n}{\rightarrow}l$ dans $(E,N')$\\
+			{\small 2)} $u$ est bornée dans $(E,N)$ $ \Leftrightarrow$ $u$ est bornée dans $(E,N')$}
+		{PropriSuiteNormEqui}
+
+		\theorem{lem}{
+			Sur $K^n$, $N_1$, $N_2$ et $N_{\infty}$ sont équivalentes et plus précisément
+			\\ \hspace*{2cm} $N_{\infty} \leq N_1 \leq \sqrt{n}N_2 \leq nN_{\infty}$}
+		{N12infEquiv}
+
+
+	\subsection{Cas de espaces de dimension fini}
+
+		\rappel{Un espace vectoriel $E$ est de dimension finie s'il existe une famille d'éléments de $E$ 
+		libre et génératrice, c'est alors une base de $E$.}
+
+		\theorem{thm}{
+			Sur un $K$-ev de dimension finie, 
+			toutes les normes sont équivalentes.}
+		{NormEquiDimFin}
+
+		\remarque{Sera démontré ultérieurement.}
+
+		\theorem{cor}{
+			Dans un $K$ espace vectoriel de dimension finie, la notion de convergence ne dépend pas de la norme.}
+		{ConvIndepNorm}
+
+		\\ \textsc{Attention !} C'est faux en dimension quelconque ! 
+		\theorem{lem}{
+			Soit $E$ de dimension finie, $e = (e_1,\dots ,e_p)$ une base de $E$, $\left(x_n\right)_{_{n\geq 0}} \in E^{\mathbf{N}}$ et $\alpha \in E$.
+			On écrit $
+			\begin{array}{l} 
+				x_n = x_{1,n}e_1 + \cdots + x_{p,n}e_p \\ \alpha = \alpha_1e_1 + \cdots + \alpha_pe_p 
+			\end{array}$\\
+			On a alors $x_n \underset{n}{\rightarrow} \alpha ~\Leftrightarrow ~\forall k \in \ent{1,p} ,~x_{k,n} \underset{n}{\rightarrow} \alpha_k$}
+		{LimitsCoord}
+
+		\theorem{thm}{
+			Soient $p,q,r \in \mathbf{N}^*$
+
+			$\left\{ \begin{array}{ll} A_n \underset{n}{\rightarrow} A & dans~\mathcal{M}_{p,q} (\R) \\ 
+			B_n \underset{n}{\rightarrow} B & dans~\mathcal{M}_{q,r}(\R) \end{array}\right.$ 
+			
+			Alors $A_nB_n \underset{n}{\rightarrow} AB$}
+		{ProdLimitMat}
+
+		\begin{proof}
+			Soit $(i,j)\in\ent{1,p}\times\ent{1,r}  \left(A_nB_n\right) _{i,j} = \sk{1}{q} \underbrace{\left(A_n\right)_{i,k}}_{\rightarrow a_{i,k}}
+			\underbrace{\left(B_n\right)_{k,j}}_{\rightarrow b_{k,j}}$ $\underset{n}{\rightarrow} \sk{1}{q} a_{i,k}b_{k,j} = (AB)_{i,j}$ \\soit 
+			$A_nB_n \underset{n}{\rightarrow} AB$
+		\end{proof}
+
+
+\section{Notations $o ,~\mathcal{O} ,~\sim$}
+
+		Soient $\left(u_n\right)_{_{n\geq n_0}} ,\left(v_n\right)_{_{n\geq n_0}} \in \mathbf{C}^{\mathbf{N}}$ 
+
+		\definition{
+			On dit que $u_n$ est négligeable devant $v_n$ quand $n\rightarrow +\infty$ noté $u_n \underset{n\rightarrow +\infty}{=} \circ (v_n)$ \\
+			s'il existe $n_0 \in \mathbf{N}$ et $\left(\delta_n\right)_{_{n\geq n_0}}$ tel que
+			\hspace*{0.3cm} \begin{blockarray}[t]{\{l}$~$ {\small 1)} $\forall n\geq n_0 ,~u_n = \delta_nv_n$ \\ 
+			$~$ {\small 2)} $\delta_n \underset{n\rightarrow +\infty}{\longrightarrow} 0$ \end{blockarray}
+		}
+
+		\definition{
+			On dit que $u_n$ est dominée par $v_n$ quand $n\rightarrow +\infty$ noté $u_n \underset{n\rightarrow +\infty}{=} \bigcirc (v_n)$ \\
+			s'il existe $n_0 \in \mathbf{N}$ et $\left(B_n\right)_{_{n\geq n_0}}$ tel que
+			\hspace*{0.3cm} \begin{blockarray}[t]{\{l} $~$ {\small 1)} $\forall n\geq n_0 ,~u_n = B_nv_n$ \\ 
+			$~$ {\small 2)} $\left( B_n \right)_{_{n\geq n_0}}$ est bornée \end{blockarray}
+		}
+
+		\definition{
+			On dit que $u_n$ est équivalent à $v_n$ quand $n\rightarrow +\infty$ noté $u_n \sim v_n$ 
+			si : \\ \hspace*{6cm} $ u_n - v_n \underset{n\rightarrow +\infty}{=} \circ (v_n) $
+		}
+		
+		\remarque{$u_n \sim v_n ~\Leftrightarrow ~u_n = v_n + \circ (v_n)$}
+		
+
+\section{Séries dans un K espace vectoriel de dimension finie}
+
+		\textit{\small -> On note par abus " $dim E < \infty$ " 
+		
+		-> Cas scalaire abordé en MPSI}\\
+
+		\hspace*{0.3cm} Soit $u \in E^{\mathbf{N}}$ ; pour $n \in \mathbf{N}$ on pose $U_n = \sk{1}{n} u_k$.
+		
+		\paragraph{Sommes partielles} La suite $\suite{U}$ est dite suite des \underline{sommes partielles} associée à $u$.
+
+		\definition{
+			On dit que la \underline{série de terme général $u_n$} converge si $\left(U_n\right)$ converge.
+			\\\hspace*{2cm} Dans ce cas on pose $~$ \highlight{$\sum_0^{+\infty}~=~\underset{n\rightarrow +\infty}{\mathrm{lim}} U_n~\in E$}
+		}
+
+		\theorem{lem}{
+			\hspace*{2cm}$\left( \sum u_n \mathrm{converge} \right) ~ \Rightarrow ~ 
+			\left( u_n \underset{n}{\rightarrow} 0 \right) $}
+		{SerieConv}
+
+		\\ \textsc{Attention !} La réciproque est fausse ! (ex : $(H_n)$) \traitd
+		
+		\definition{
+			Lorsque $u_n \underset{n}{\nrightarrow} 0$, la série $\sum u_n$ est dite \underline{grossièrement divergente} "$\sum u_n$ DVG" 
+			\hspace*{1cm}Ainsi : $\left(\sum u_n \mathrm{DVG} \Rightarrow \sum u_n \mathrm{DV} \right)$
+		}
+		
+		\namedtheorem{Théorème : Reste d'une série convergente}{
+			On suppose $\sum u_n$ converge 
+			et on note $S = \sk{0}{+\infty} u_n$ "limite de la somme".\\ Pour $n\in \mathbf{N}$ on pose $R_n = \sk{n+1}{+\infty} u_k$ 
+			"reste d'ordre $n$". $\left\vert \ard \forall n\in \mathbf{N}$, $S=U_n + R_n \\ R_n \ston 0 \arf \right.$}
+		{RestSérie}
+		
+		\begin{proof}
+			bien-fondé ?\\Soit $n\in\mathbf{N}$ pour $m\geq n+1$, $\sk{n+1}{m} u_k = U_m - U_n \underset{m}{\rightarrow} S-U_n$ donc $R_n$ existe 
+			avec $R_n = S-U_n$ \\d'où $S=U_n+R_n$ 
+			puis $R_n = S-U_n \ston S-S=0$
+		\end{proof}
+		
+		\theorem{lem}{
+			Soit $\suite{u} ,~ \suite{v} ~\in E^{\mathbf{N}}$ et $\lambda\in K$\\
+			On suppose que $\sum u_n$ et $\sum v_n$ convergent alors : \\ \hspace*{2cm} -> $\sum \lambda u_n + v_n$ converge \\
+			\hspace*{2cm} -> $\suminf \lambda u_n + v_n = \lambda \suminf u_n + \suminf v_n$}
+		{SommeSeriesConv}
+		
+		\definition{
+			Soit $\suite{u} ~\in E^{\mathbf{N}}$ on dit que $\sum u_n$ \underline{converge absolument} 
+			\\ si $\sum \norm{u_n}$ converge. \\
+		}
+		\remarque{Vu $dimE < \infty$, ceci ne dépend pas du choix de la norme}
+		
+		\theorem{thm}{
+			Dans un $K$ espace vectoriel de \underline{dimension finie}, 
+			toute série absolument \\ convergente est convergente {\small " CVA $\Rightarrow$ CV "}}
+		{TH-CVA}
+		
+		\textit{\small Sera démontré ultérieurement. (\ref{CVAImplCV})}
+		
+		\textsc{Attention !} Faux dans un EVN quelconque ! \\
+		
+		\theorem{lem}{
+			Soit $(E,N)$ un $K$ espace vectoriel normé de dimension finie \\ On supposons que 
+			$\sum u_n$ CVA. Alors $\norm{\suminf u_n} \leq \suminf \norm{u_n}$}
+		{InegTriCVA}	
+
+
+\section{Complément sur les séries numériques}
+
+		\rappel{Soit $z\in \mathbf{C}$ alors $\sum z^n$ CV $ \Rightarrow$ $\abs{z} <1$}\\
+
+		\hspace*{2.5cm} -> Lorsque $\abs{z} < 1$ on a \highlight{$\suminf z^n = \frac{1}{1-z}$}
+
+		\hspace*{2.5cm} -> On définie \highlight{ $\mathrm{exp}(z) = \suminf \frac{z^n}{n!}$ }
+
+
+	\subsection{Règle de \textsc{Dalembert}}
+
+		\namedtheorem{Théorème : Règle de \textsc{Dalembert}}{
+			Soit $\suite{u} \in\left(\mathbf{C}^*\right)^{\mathbf{N}}$ \\
+			On suppose l'existence de $l \in \mathbf{R}\cup \{+\infty \}$ tel que $\abs{\frac{u_{u+1}}{u_n}} \ston l$ \\
+			\underline{Alors} : \hspace*{0.9cm} {\small 1)} $l<1~\Rightarrow~\sum u_n$ CVA \\ \hspace*{2.1cm} {\small 2)} 
+			$l>1~\Rightarrow~\sum u_n$ DVG}
+		{RglDalemb}
+		
+		\begin{proof}
+			{\small 1)} On suppose $l<1$ et on note $r_n = \abs{\frac{u_{u+1}}{u_n}}$. On pose $\theta \in [l,1] $ et $\varepsilon = \theta -l$
+			On a alors \\ $\exists n_0 \in \mathbf{N} ~:~ \forall n\geq n_0 ,~\abs{r_n -l} <\varepsilon$  soit en particulier $r_n < l+\varepsilon 
+			=\theta$ Ainsi $\forall n\geq n_0 ,~\abs{u_{n+1}} < \theta\abs{u_n}$ \\ et $ \abs{u_n} \leq \theta^{n-n_0} \abs{u_{n_0}}$ {\small (REC) }
+			On a alors $\forall n\geq n_0 ,~\abs{u_n} \leq \underbrace{\theta^{-n_0} \abs{u_{n_0}}}_{\mathrm{cte}} \theta^n$ 
+			or $\sum\theta^n$ converge car $\theta \in ]0,1[$ \\donc par théorème de comparaison $\sum \abs{u_n} $ converge.
+			\vspace*{0.2cm}\\ {\small 2)} On suppose $l>1$ et on fixe $\theta \in \mathbf{R}$ tel que $ 1<\theta <l$, 
+			on a alors $\exists n_0 \in \mathbf{N} ~:~\forall n\geq n_0 ,~r_n > \theta$ (\dots)\\
+			on obtient $\abs{u_n} \ston +\infty$ donc $u_n \underset{n}{\nrightarrow} 0$ donc $\sum u_n$ DVG
+		\end{proof}
+	
+	\subsection{Séries alternées}
+		
+		\definition{
+			La série réelle $\sum u_n$ est dite \underline{alternée} si $ \forall n\in \mathbf{N} ,~u_n = (-1)^n \abs{u_n} \text{ et }
+			\forall n\in\mathbf{N},~u_n = (-1)^{n+1} \abs{u_n}$
+		}
+
+		\namedtheorem{Théorème : Critère spécial des série alternées}{
+			On suppose $\left\vert \ard 
+			{\small 1)} ~\sum u_n$ est alternée$ \\ {\small 2)}~ u_n \rightarrow 0 \\{\small 3)}~ \left( \abs{u_n}\right)_{_{n\geq 0}}$ décroit$ 
+			\arf \right.$ alors \highlight{$\sum u_n$ converge } \\ De plus, $\forall n\in \mathbf{N}$\\
+			\hspace*{2cm} -> $\abs{R_n} \leq \abs{u_{n+1}}$ \\ \hspace*{2cm} -> $R_n$ et $u_{n+1}$ ont le même signe 
+			\\ \hspace*{2cm} -> $S$ est compris entre $U_n$ et $U_{n+1}$ }
+		{CSSA}
+
+
+	\subsection{Sommation des relations de comparaisons}
+
+		\theorem{thm}{
+			Soit $\suite{u} ,~\suite{v} \in\mathbf{R}^{\mathbf{N}}$ 
+			et $v_n\geq 0,~\forall n\geq n_0$. On suppose que \\
+			$\sum u_n$ et $\sum v_n$ converge et on poe $R_n =\sk{n+1}{+\infty} u_n$ 
+			et $R'_n =\sk{n+1}{+\infty} v_n$ \\ 
+			Alors : $\ard {\small 1)} u_n = \circ_{n\rightarrow +\infty} (v_n) ~\Rightarrow ~ R_n = \circ_{n\rightarrow +\infty} (R'_n) \\ 
+			{\small 2)} u_n = \bigcirc_{n\rightarrow +\infty} (v_n) ~\Rightarrow ~ R_n= \bigcirc_{n\rightarrow +\infty} (R'_n) \\
+			{\small 3)} u_n \underset{n\rightarrow +\infty}{\sim} v_n ~\Rightarrow ~ R_n \underset{n\rightarrow +\infty}{\sim} R'_n \arf $}
+		{SumCompCV}
+
+		\theorem{thm}{
+			Soit $\suite{u} ,~\suite{v} ~\in\mathbf{R}^{\mathbf{N}}$ 
+			et $v_n\geq 0,~\forall n\geq n_0$ \\ On suppose que $\sum u_n$ et $\sum v_n$ diverge et on note $U_n = \sk{0}{n} u_n$ 
+			et $V_n = \sk{0}{n} v_n$ \\
+			Alors : $\ard {\small 1)} u_n = \circ_{n\rightarrow +\infty} (v_n) ~\Rightarrow ~ U_n = \circ_{n\rightarrow +\infty} (V_n) \\ 
+			{\small 2)} u_n = \bigcirc_{n\rightarrow +\infty} (v_n) ~\Rightarrow ~ U_n= \bigcirc_{n\rightarrow +\infty} (V_n) \\
+			{\small 3)} u_n \underset{n\rightarrow +\infty}{\sim} v_n ~\Rightarrow ~ U_n \underset{n\rightarrow +\infty}{\sim} V_n \arf $}
+		{SumCompDV}
+		
+		\namedtheorem{Théorème de \textsc{Cesàro}}{
+			Soit $\suite{u} \in\mathbf{R}^{\mathbf{N}}$\\
+			{\small 1)} Si $u_n \ston \lambda$ avec $\lambda \in\mathbf{R}$, alors $\frac{1}{n+1} \sk{0}{n} u_k \ston \lambda$ \\
+			{\small 2)} Si $u_n \ston +\infty$ alors $\frac{1}{n+1} \sk{0}{n} u_k \ston +\infty$}
+		{theoremCesaro}
+
+		\begin{proof}
+			{\small 1)} Supposons $u_n \ston \lambda$ alors $u_n - \lambda = \circ (1)$, on pose ensuite $v_n = 1$ alors $\sum v_n$ diverge 
+			et d'après le théorème de sommation en cas divergent \\ $\sk{0}{n} u_k - \lambda = \circ ( \underbrace{\sk{0}{n} 1}_{=n+1} ) ~
+			\Rightarrow ~\frac{1}{n+1} ( \sk{0}{n} u_k ) - \lambda \ston 0$ \\
+			{\small 2)} Supposons $u_n \ston +\infty$ et posons $a_n = \frac{1}{n+1} \sk{0}{n} u_k$
+			Soit $A\in\mathbf{R}$ et $A'=A+1$ \\ Soit $n_0 \in\mathbf{N} ~:~\forall n\geq n_0 ,~u_n >A'$ , puis pour $n\geq n_0$ :\\
+			$a_n = \frac{1}{n+1} ( \underbrace{\sk{0}{n_0-1} u_k}_{=C} + \underbrace{\sk{n_0}{n} u_k}_{>A'(n-n_0+1} )$ 
+			donc $a_n > \frac{C}{n+1} + A'\frac{n+1-n_0}{n+1} = A' + \frac{C-n_0A'}{n+1}$ \\ 
+			Soit $n_1\geq n_0$ tel que $\forall n\geq n_1 ,~\abs{\frac{C-A'n_0}{n+1}} <1$ alors $\forall n\geq n_1 ,~a_n > A$ d'où $a_n \ston +\infty$
+		\end{proof}
+	
+	
+\section{Produit de deux séries absolument convergentes}
+		
+		\definition{
+			Soient $\sum u_n$ et $\sum v_n$ des séries quelconques (convergentes ou non) de nombres complexes.\\
+			On pose $\forall n \in \mathbf{N}$ : $w_n = \sum\limits_{i+j=n} u_i v_j = \sk{0}{n} u_k v_{n-k}$ (somme finie !) \\
+			La série $\sum w_n$ est appelée \underline{produit de \textsc{Cauchy}} de $\sum u_n$ et $\sum v_n$.
+		}
+
+		\textbf{\textsc{Attention !} \\Lorsque $\sum u_n$ et $\sum v_n$ convergent on a pas forcément 
+		$\left(\sum u_n \right) \times \left(\sum v_n \right) = \sum w_n$}
+		
+		\theorem{thm}{
+			Si $\sum u_n$ et $\sum v_n$ \underline{convergent absolument} alors :\\
+			{\small 1)} $\sum w_n$ CVA \hspace*{2cm} {\small 2)} $\left( \suminf u_n \right) \times \left( \suminf u_n \right) = \suminf w_n$}
+		{ProdCauchyCVA}
+
+		\vspace*{0.5cm}\\\textit{\small Signalé :} \\ 
+		
+		\namedtheorem{Théorème de \textsc{Mertens}}{
+			Si $\left\{ \ard \sum u_n ~\mathrm{CVA} \\ \sum v_n ~\mathrm{converge}
+			\arf \right.$ \\alors $\sum w_n$ converge et $\left( \suminf u_n \right) \times \left( \suminf u_n \right) = \suminf w_n$ }
+		{TH-Mert}
+		
+\section{Dualité série-suite}
+		
+		\textit{Toute suite peut-être envisagée comme une série}\\
+		
+		Ici $(E,N)$ est un EVN de dimension finie.\\${}$ \\On pose $\forall n\in\mathbf{N}^* ~~ \left\{ \ard  b_0 = a_0 \\ b_n = a_n - a_{n-1} \arf
+		\right.~~$ On a alors pour $n\in \mathbf{N}$ \\
+		\[ \sk{0}{n} b_k = b_0 + \sk{1}{n} (a_k - a_{k-1} ) = a_0 +a_n - a_0 = a_n ~~~~\mathrm{soit} ~~~~ a_n = \sk{0}{n} b_k\]
+		On sait ensuite que $\suite{a}$ converge si et seulement si $\sum b_k$ converge donc 
+		
+		\begin{center}
+		\highlight{ $ \suite{a} ~\mathrm{converge} ~\Leftrightarrow ~ \sum a_n - a_{n-1} ~ \mathrm{converge}$ }
+		\end{center} ${}$ \\
+
+		\begin{center}
+		\fin
+		\end{center}

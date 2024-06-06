@@ -34,7 +34,7 @@
 \usepackage{cancel}
 
 
-\renewcommand{\thefootnote}{\fnsymbol{footnote}}
+% \renewcommand{\thefootnote}{\fnsymbol{footnote}}
 \setcounter{minitocdepth}{4}
 %\dominitoc
 
@@ -68,28 +68,70 @@
 \newtheorem{lem}[thm]{Lemme}
 \newtheorem{prop}[thm]{Proposition}
 \newtheorem*{cor}{Corollaire}
-\newcommand{\theorem}[3]{\begin{#1}\label{#3} #2 \end{#1}}
+\newcommand{\theorem}[3]{\begin{#1}\label{#3} #2 \medskip \end{#1}}
     %commande pour créer un théorème, le premier argument est le type et le second le contenu
         % ex : \theorem{lem}{contenu du lemme}
 
 \newcommand{\namedtheorem}[3]{
-    \newtheorem{#3}[thm]{#1}
+    \theoremstyle{plain}
+    \newtheorem*{#3}{#1}
     \begin{#3}\label{#3}
         #2
+        \medskip
     \end{#3}
 }
 
 \theoremstyle{definition}
 \newtheorem{defn}{Definition}[section]
-\newcommand{\definition}[1]{\begin{defn} #1 \end{defn}}
+\newcommand{\definition}[1]{\begin{defn} #1 \medskip \end{defn}}
     %commande pour créer une définition, le contenu passe en argument
         % ex : \definition{contenu de la def}
 
 \theoremstyle{remark}
 \newtheorem*{nd}{Note}
-\newcommand{\remarque}[1]{\begin{nd} #1 \end{nd}}
+\newcommand{\remarque}[1]{\begin{nd} #1 \medskip \end{nd}}
     %commande pour créer une remarque, le contenu passe en argument
         % ex : \remarque{contenu de la remarque}
+\newtheorem*{rap}{Rappel}
+\newcommand{\rappel}[1]{\begin{rap} #2 \medskip \end{rap}}
+
+
+%%%     Maths misc      %%%
+
+\newcommand{\abs}[1]{\left\vert #1 \right\vert}
+
+\newcommand{\appli}[4]{
+    \begin{blockarray}[t]{(ccccc)} 
+        & #1 & \longrightarrow & #3 & \\ 
+        & #2 & \longmapsto & #4 &
+    \end{blockarray}
+}
+
+\newcommand{\scal}[1]{\left< #1 \right>}
+
+\newcommand{\ent}[1]{{\llbracket #1 \rrbracket}}                    % Ensemble d'entiers
+\newcommand{\N}{{\mathbf{N}}}                                       % Entiers naturels
+\newcommand{\Z}{{\mathbf{Z}}}                                       % Entiers relatifs
+\newcommand{\R}{{\mathbf{R}}}                                       % Réels
+\newcommand{\C}{{\mathbf{C}}}                                       % Complexes
+\newcommand{\K}{{\mathbf{K}}}                                       % Corps K
+\newcommand{\Q}{{\mathbf{Q}}}                                       % Rationnels
+\newcommand{\KX}{{\mathbf{K}[X]}}                                   % Polynômes sur K
+\newcommand{\M}{{\mathcal{M}}}                                      % Matrices
+\newcommand{\GL}{{\mathcal{G}\hspace*{-0.05cm} \mathcal{L}}}        % Groupe Linéaire
+\newcommand{\cont}{{\mathcal{C}}}                                   % Fonctions continues   
+\newcommand{\cpm}{{\mathcal{C}_{pm}^0}}                             % Fonctions continues par morceaux
+\newcommand{\lin}{{\mathcal{L}}}                                    % Applications linéaires
+\newcommand{\Sym}{{\mathcal{S}}}                                    % Matrices symétrique
+\newcommand{\Orth}{{\mathcal{O}}}                                   % Matrices orthogonnales
+\newcommand{\Part}{\mathcal{P}}                                     % Parties
+\newcommand{\A}{{\mathscr{A}}}                                      % Tribue
+
+\newcommand{\norm}[1]{\left\Vert #1 \right\Vert}
+
+%%%     Format      %%%
+
+\newcommand{\highlight}[1]{\colorbox{lightgray}{#1}}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
