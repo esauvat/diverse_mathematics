@@ -1,10 +1,10 @@
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                               PREAMBLE
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \documentclass[10pt,a4paper]{report}
-\usepackage{gfsartemisia-euler}
+\usepackage{lxfonts}
+\usepackage[mathcal, mathbf]{euler}
 \usepackage[T1]{fontenc}
 \usepackage[french]{babel}
 \usepackage[utf8]{inputenc}
@@ -17,7 +17,7 @@
 \usepackage{epigraph}
 \usepackage{shorttoc}
 \usepackage{minitoc}
-\usepackage{fancyhdr}
+\usepackage[twoside]{fancyhdr}
 
 \usepackage{amsfonts}
 \usepackage{amsmath}
@@ -36,23 +36,20 @@
 
 % \renewcommand{\thefootnote}{\fnsymbol{footnote}}
 \setcounter{minitocdepth}{4}
-%\dominitoc
+\renewcommand{\mtctitle}{Contenu}
+\dominitoc
 
 \pagestyle{fancy}
 \setlength{\headheight}{13.59999pt}
-\renewcommand{\footrulewidth}{0.5pt}
-\fancyfoot[C]{\thepage}
+\fancyhead[LE]{\thepage}
+\fancyhead[RE]{\small \leftmark}
+\fancyhead[LO]{\small \rightmark}
+\fancyhead[RO]{\thepage}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                            Command Definitions
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\newcommand{\illustration}[2]{
-    \begin{center}
-        \includegraphics[width = 0.6\linewidth]{dessins/#1}
-        \captionof{figure}{#2}
-    \end{center}    }
 
 \newcommand{\dessin}[2]{
     \begin{center}
@@ -93,7 +90,7 @@
     %commande pour créer une remarque, le contenu passe en argument
         % ex : \remarque{contenu de la remarque}
 \newtheorem*{rap}{Rappel}
-\newcommand{\rappel}[1]{\begin{rap} #2 \medskip \end{rap}}
+\newcommand{\rappel}[1]{\begin{rap} #1 \medskip \end{rap}}
 
 
 %%%     Maths misc      %%%
@@ -124,14 +121,22 @@
 \newcommand{\lin}{{\mathcal{L}}}                                    % Applications linéaires
 \newcommand{\Sym}{{\mathcal{S}}}                                    % Matrices symétrique
 \newcommand{\Orth}{{\mathcal{O}}}                                   % Matrices orthogonnales
+\newcommand{\bigo}{{\mathcal{O}}}
 \newcommand{\Part}{\mathcal{P}}                                     % Parties
 \newcommand{\A}{{\mathscr{A}}}                                      % Tribue
 
 \newcommand{\norm}[1]{\left\Vert #1 \right\Vert}
 
+\newcommand{\suminf}{\sum_{n=0}^\infty}
+
 %%%     Format      %%%
 
 \newcommand{\highlight}[1]{\colorbox{lightgray}{#1}}
+\newcommand{\fin}{
+    \begin{center}
+        { \Large $\star$ \hspace{0.7cm} $\star$ \hspace{0.7cm} $\star$ }
+    \end{center}
+}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -231,7 +236,10 @@
 \titlepagedecoration
 \end{titlepage}
 
-\shorttoc{Sommaire}{0}
+\setcounter{tocdepth}{0}
+\renewcommand{\contentsname}{Chapitres}
+\tableofcontents
+
 %\listoffigures
 
 
@@ -243,57 +251,57 @@
 
     \input{../2_chapitres/ch2_1_fr}
 
-\chapter{Limites et continuité}
+% \chapter{Limites et continuité}
 
-    \input{../2_chapitres/ch2_2_fr}
+%     \input{../2_chapitres/ch2_2_fr}
 
-\chapter{Dérivation et intégration}
+% \chapter{Dérivation et intégration}
 
-    \input{../2_chapitres/ch2_3_fr}
+%     \input{../2_chapitres/ch2_3_fr}
 
-\chapter{Suites de fonctions}
+% \chapter{Suites de fonctions}
 
-    \input{../2_chapitres/ch2_4_fr}
+%     \input{../2_chapitres/ch2_4_fr}
     
-\chapter{Intégrales généralisées}
+% \chapter{Intégrales généralisées}
 
-    \input{../2_chapitres/ch2_5_fr}
+%     \input{../2_chapitres/ch2_5_fr}
         
-\chapter{Intégrales paramétrées}
+% \chapter{Intégrales paramétrées}
 
-    \input{../2_chapitres/ch2_6_fr}
+%     \input{../2_chapitres/ch2_6_fr}
 
-\chapter{Séries entières}
+% \chapter{Séries entières}
 
-    \input{../2_chapitres/ch2_7_fr}
+%     \input{../2_chapitres/ch2_7_fr}
 
-\chapter{Algèbre}
+% \chapter{Algèbre}
 
-    \input{../2_chapitres/ch2_8_fr}
+%     \input{../2_chapitres/ch2_8_fr}
 
-\chapter{Réduction des endomorphismes}
+% \chapter{Réduction des endomorphismes}
 
-    \input{../2_chapitres/ch2_9_fr}
+%     \input{../2_chapitres/ch2_9_fr}
 
-\chapter{Espaces préhilbertiens réels}
+% \chapter{Espaces préhilbertiens réels}
 
-    \input{../2_chapitres/ch2_10_fr}
+%     \input{../2_chapitres/ch2_10_fr}
     
-\chapter{Espaces probabilisés}
+% \chapter{Espaces probabilisés}
 
-    \input{../2_chapitres/ch2_11_fr}
+%     \input{../2_chapitres/ch2_11_fr}
         
-\chapter{Variables aléatoires discrètes}
+% \chapter{Variables aléatoires discrètes}
 
-    \input{../2_chapitres/ch2_12_fr}
+%     \input{../2_chapitres/ch2_12_fr}
 
-\chapter{Équations différentielles linéaires}
+% \chapter{Équations différentielles linéaires}
 
-    \input{../2_chapitres/ch2_13_fr}
+%     \input{../2_chapitres/ch2_13_fr}
         
-\chapter{Calcul différentiel}
+% \chapter{Calcul différentiel}
 
-    \input{../2_chapitres/ch2_14_fr}
+%     \input{../2_chapitres/ch2_14_fr}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
