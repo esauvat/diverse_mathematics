@@ -1,0 +1,282 @@
+
+% Chapitre 11 : Espaces probabilisés
+
+\minitoc
+	\section{Ensembles équipotents}
+		\traitd
+		\paragraph{Équipotence}
+			Deux ensembles $X$ et $Y$ sont dits \uline{équipotents} s'il existe une bijection $f:X\to Y$, on note alors $X\sim Y$ \trait
+		\vspace*{-1.1cm} \\ \uline{NB} : $X\sim Y ~\Rightarrow ~Y\sim X$
+		\vspace*{0.5cm} \\ \thm{ch11L1}{Lemme}{EquipotenceTransitive}{On suppose $X\sim Y$ et $Y\sim Z$\\
+		\hspace*{0.5cm} Alors $X\sim Z$ } \newpage \traitd
+		\paragraph{Dénombrabilité}
+			Un ensemble $X$ est dit \uline{dénombrable} s'il est équipotent à $\N$ \trait
+		\vspace*{-1.1cm} \\ On a alors $X=\{x_n ~;~n\in \N\}$, i.e. on peut énumérer les éléments de $X$.
+		\vspace*{0.5cm} \\
+		\hspace*{2cm} On considère comme connu que : \\
+		\hspace*{0.5cm} $\bullet$ Tout ensemble fini est vide ou équipotent à $\ent{1,n}$ pour un $n\in\N^*$\\
+		\hspace*{0.5cm} $\bullet$ Toute partie infinie de $\N$ est dénombrable
+		\vspace*{0.5cm} \\ \thm{ch11L2}{Lemme}{CNS-APD}{Un ensemble est fini ou dénombrable\footnotemark[1] si et seulement si \\ 
+		\hspace*{0.5cm} il est équipotent à une partie de $\N$}
+		\footnotetext[1]{On dit que $X$ est \uline{au plus dénombrable} (APD)}
+		\vspace*{0.5cm} \\ \thm{ch11L3}{Lemme}{InjecImplAPD}{S'il existe une injection de $X$ dans $\N$\\
+		\hspace*{0.5cm} alors $X$ est au plus dénombrable $\heartsuit$}
+		\vspace*{0.5cm} \\ \thm{ch11L4}{Lemme}{SurjAPD}{S'il existe une surjection de $\N$ dans $X$,\\
+		\hspace*{0.5cm} alors $X$ est au plus dénombrable $\heartsuit$}
+		\vspace*{0.3cm} \\ \uline{ex} -> $\N^2$ est dénombrable ({\footnotesize $(i,j)\mapsto 2^i3^j$ injection ou $(i,j)\mapsto (2i+1)2^j$ bijection})
+		\vspace*{0.5cm} \\ \thm{ch11L5}{Lemme}{ProdCartesienDenombr}{$\forall r\in \uuline{\N^*}$, un produit cartésien de $r$ ensembles dénombrables est dénombrable.}
+		\vspace*{0.5cm} \\ \thm{ch11L6}{Lemme}{QDénombr}{$\Q$ est dénombrable}
+		\vspace*{0.3cm} \\ \uline{ex} -> $\mathcal{P}(\N)$ l'ensemble des parties de $\N$ n'est pas dénombrable. Plus généralement, pour tout ensemble $X$, 
+		il n'existe aucune surjection de $X$ dans $\mathcal{P}(X)$.
+		\vspace*{0.5cm} \\ \thm{ch11th1}{Théorème}{RnonDénombr}{$\R$ n'est pas dénombrable.}
+		\begin{proof}
+		On raisonne par l'absurde et on suppose $\R$ dénombrable, ainsi $\R = \{x_n ~;~n\in \N\}$\\
+		On choisi alors $a_0<b_0$ tels que $x_0\notin [a_0,b_0]$ puis on construit une suite d'ensemble décroissante pour l'inclusion telle que $\forall k\in\N, ~x_k \notin [a_k,b_k]$. On a ainsi la suite $\suite{a}$ croissante et majorée et $\suite{b}$ décroissante et minorée. Par le théorème de la limite monotone, il existe $\alpha,\beta \in\R$ tels que $a_n \ston \alpha$ et $b_n\ston \beta$ donc $\alpha \leqslant \beta$\\
+		Ainsi $\forall k\in\N ,~ \alpha \in [a_k,b_k]$ donc $\alpha \neq x_k$ d'où $\alpha \notin\{x_n ~;~n\in \N\} = \R$ impossible\\
+		Donc $\R$ n'est pas dénombrable.
+		\end{proof}
+		En fait on peut montrer à l'aide de la décomposition en base $2$ que $\R \sim \mathcal{P}(\N)$
+		\vspace*{0.5cm} \\ \thm{ch11th2}{Théorème $\heartsuit\heartsuit\heartsuit$}{ReuAPDEnsAPDAPD}{Toute réunion au plus dénombrable d'ensembles \\
+		au plus dénombrables est au plus dénombrable.}
+		\begin{proof}
+		Soit $X=\bigcup\limits_{i\in I} X_i$ avec $I$ APD et $\forall i\in I ,~X_i$ APD\\
+		On considère $I\neq \varnothing$ et $\forall i\in I,~X_i\neq \varnothing$ (quitte à se restreindre au support.\\
+		On exhibe alors une application $\varphi$ de $\N\times \N$ dans $X$ telle que $(k,n)$ est envoyé sur $s_{\sigma(k)}(n)$ où $\sigma$ est une surjection de $\N$ 
+		dans $I$ et $\forall i\in I,~s_i$ est une surjection de $\N$ dans $X_i$. On montre alors que $\varphi$ est surjective puis vu $\N\times\N \sim \N$ on a 
+		\textsc{cqfd}
+		\end{proof}
+	\section{Familles sommables - Rappels de \textsc{mpsi}}
+		On se place dans $\K=\R$ ou $\C$, $I$ est un ensemble et $(x_i)_{_{i\in I}}$ est une famille de nombres quelconque.\\
+		Le but est de donner un sens à $\sum\limits_{i\in I} x_i$ (c'est déjà le cas si $I$ est fini)
+	\subsection{Familles positives}
+		On note $[0;+\infty] = [0;+\infty[ \cup \{+\infty\}$ avec les conventions usuelles pour les calculs et la relation d'ordre.\\
+		\traitd
+		\paragraph{Somme d'une famille}
+			Soit $(x_i)_{_{i\in I}}\in [0;+\infty]^I$, on note $\mathcal{P}_F(I) = \{J\subset I~|~J$ est fini $\}$\\
+			On pose alors \fbox{$\sum_{i\in I} x_i = \sup_{\overline{\R}}\{\sum_{i\in J} ~|~J\in \mathcal{P}_F(I) \}$ } $\in [0;+\infty]$ \vspace*{0.1cm} \trait
+		\thm{ch11L7}{Lemme de changement d'indice}{ChgtIndice}{$\bullet ~(x_i)_{_{i\in I}} \in [0;+\infty]^I $ \\ $ 
+		\bullet $ Soit $\varphi :L\to I$ une bijection alors $\sommable{i\in I} x_i = \sommable{l\in L} x_{\varphi(l)}$ } \\ \traitd
+		\paragraph{Sommabilité}
+			Une famille $(x_i)_{_{i\in I}}$ de réels positifs est dite \uline{sommable} si \[ \sommable{i\in I} x_i < +\infty \] \vspace*{-0.4cm} \trait
+		\thm{ch11L8}{Lemme}{FamSommSerieCV}{Soit $(u_n)_{_{n\in \N}}\in (\R^+)^{^\N}$ une famille de réels positifs\\
+		\hspace*{0.5cm} Alors $\ard$ \un $(u_n)_{_{n\in \N}}$ est sommable $\Leftrightarrow$ $\sum_{n\geqslant 0}u_n$ converge $ \\ $ 
+		\deux Dans ce cas : $\sommable{n\in \N}u_n = \suminf u_n \arf$ \\
+		Lorsque $\sum_{n\geqslant 0} u_n$ diverge, on a $\sum_{n\in\N}u_n = +\infty$, \\la notation $\sum_{n=0}^{+\infty} u_n = +\infty$ est permise.}
+		\vspace*{0.5cm} \\ \thm{ch11L9}{Lemme}{OpeSommable}{On se donne $(x_i)_{_{i\in I}} ,~(y_i)_{_{i\in I}} \in (\R^+)^{^{I}}$ sommables et $\lambda\in \R^+$\\
+		\hspace*{0.5cm} Alors $(\lambda x_i + y_i)_{_{i\in I}}$ est sommable et \\ 
+		\hspace*{2cm} $\sommable{i\in I}(\lambda x_i+y_i) = \lambda\sommable{i\in I} x_i + \sommable{i\in I}y_i$ }
+		\vspace*{0.5cm} \\ \thm{ch11L10}{Lemme}{SuppADP}{Soit $(x_i)_{_{i\in I}}\in r\R^+)^{^{I}}$ sommable\\
+		\hspace*{0.5cm} Alors $\{i\in I ~|~x_i\neq 0\}$ est au plus dénombrable}
+		\vspace*{0.5cm} \\ \thm{ch11th3}{Théorème de sommation par paquets $\heartsuit$}{ThSomPaquets}{Soit $(x_i)_{_{i\in I}}$ une famille de réels \uline{positifs ou nuls}\\
+		On écrit $I= \overset{\bullet}{\bigcup\limits_{\lambda \in \Lambda}} I_\lambda$ ( $I$ est la réunion disjointe de $I_\lambda$)\\
+		\hspace*{0.5cm} Alors \highlight{$\sommable{i\in I} x_i = \sommable{\lambda\in\Lambda}\Big(\sommable{i\in I_{\lambda}} x_i \Big) $} }
+		\newpage ${}$ \\
+		\thm{ch11th4}{Théorème de \textsc{Fubini} positif $\heartsuit$}{ThFubiniPos}{Soit $(x_{i,j})_{_{(i,j)\in I\times J}}$ une famille de réels 
+		positifs ou nuls \\ \hspace*{0.5cm} Alors $\sommable{(i,j)\in I\times J} x_{i,j} = \sommable{i\in I}\Big(\sommable{j\in J} x_{i,j}\Big) = 
+		\sommable{j\in J} \Big(\sommable{i\in I} x_{i,j} \Big)$ }
+	\subsection{Familles quelconques}
+		Ici $(x_i)_{_{i\in I}} \in \K^I,~\K=\R$ ou $\C$ \traitd
+		\paragraph{Sommabilité}
+			La famille $(x_i)_{_{i\in I}}\in \K^I$ est dite \uline{sommable} si $(\mc{x_i})_{_{i\in I}}$ l'est \trait
+		\vspace*{-1cm} \\ Lorsque $(x_i)_{_{i\in I}}\in \K^I$ est sommable\footnotemark[1], on définit le nombre 
+		\begin{center} 
+		\highlight{$\cm{\sommable{i\in I} x_i = \Big( \sommable{i\in I} \Re(x_i)^+ - \sommable{i\in I}\Re(x_i)^-\Big) + \imath \Big( \sommable{i\in I}\Im(x_i)^+ - \sommable{i\in I}\Im(x_i)^- \Big )}
+		$} \end{center}
+		\footnotetext[1]{C'est vrai \textsc{seulement} si la famille est sommable}
+		${}$ \\ \thm{ch11L11}{Lemme de comparaison $\heartsuit$}{LCompFamSom}{Soient $(x_i)_{_{i\in I}}\in \K^I$ et $(y_i)_{_{i\in I}}\in (\R^+)^{^{I}}$\\
+		telles que $\forall i\in I,~ \mc{x_i} \leqslant y_i$ avec $(y_i)_{_{i\in I}}$ sommable\\
+		\hspace*{0.5cm} Alors $(x_i)_{_{i\in I}}$ est sommable}
+		\vspace*{0.5cm} \\ \thm{ch11th5}{Théorème de changement d'indice $\heartsuit$}{ThChgtIndice}{Soit $(x_i)\in \K^I$ une famille sommable et $\varphi : L\to I$ 
+		une bijection \\ \hspace*{0.5cm} Alors $\ard $ $\bullet ~(x_{\varphi(l)})_{_{l\in l}}$ est sommable $ \\ 
+		~\bullet ~\sommable{l\in L}x_{\varphi(l)} =\sommable{i\in I}x_i \arf$ }
+		\vspace*{0.5cm} \\ \thm{ch11th6}{Théorème}{11-th6}{Soit $(x_i)_{_{i\in I}}\in \K^I$ sommable\\
+		\hspace*{0.5cm} Alors $\forall \varepsilon >0 ,~\exists F\subset I$ une partie finie telle que\\
+		\hspace*{2cm} $\Big| \sommable{i\in I} x_i - \sommable{i\in F} x_i \Big| \leqslant\varepsilon$ }
+		\vspace*{0.5cm} \\ \thm{ch11th7}{Théorème $\heartsuit$}{FamSomSerieCVA}{Soit $(u_n)_{_{n\in\N}} \in \K^\N$ \\
+		\hspace*{0.5cm} Alors $\ard$ \un $(u_n)_{_{n\in\N}}$ est sommable $\Leftrightarrow ~\sum_{n\geqslant 0} u_n$ converge absolument $ \\ $ 
+		\deux Dans ce cas : $\sommable{n\in\N} u_n = \suminf u_n \arf $ }
+		\subparagraph{Notation} On note $\ell^1(I)$ l'ensemble des familles $(x_i)_{_{i\in I}} \in \K^I$ qui sont sommables.
+		\vspace*{0.5cm} \\ \thm{ch11th7c}{Corollaire}{CVACommutConv}{Soit $\sommable{n\geqslant 0} u_n$ une série de nombres réels ou complexes \uline{absolument convergente}, 
+		alors $\sommable{n\geqslant 0}u_n$ est \uline{commutativement convergente}, au sens :\\
+		\hspace*{2cm} $\forall \varphi :\N\to\N$ bijection,\\
+		\hspace*{0.5cm} $\sommable{n\geqslant 0} u_{\varphi(n)}$ converge et $\sommable{n\geqslant 0} u_{\varphi(n)}$ ne dépend pas de $\varphi$}
+		\newpage
+		${}$ \\ \thm{ch11th8}{Théorème}{OpeSommable}{Soient $(x_i)_{_{i\in I}}, (y_i)_{_{i\in I}} \in \K^I$ sommables et $\lambda \in \K$\\
+		\hspace*{0.5cm} Alors $\ard \bullet ~(\lambda x_i + y_i)_{_{i\in I}}$ est sommable $ \\ 
+		\bullet ~ \sommable{i\in I}(\lambda x_i + y_i) = \lambda\sommable{i\in I} x_i + \sommable{i\in I} y_i \arf$ }
+		\vspace*{0.5cm} \\ \thm{ch11th9}{Théorème de sommation par paquets (sous réserve de sommabilité)}{ThSomPaquetSommable}{
+		Soit $(x_i)_{_{i\in I}} \in \K^I$ sommable, $I= \overset{\bullet}{\bigcup\limits_{\lambda\in\Lambda}}$ alors\\
+		\hspace*{0.5cm} $\ard \bullet ~\forall \lambda \in \Lambda ,~(x_i)_{_{i\in I_{\lambda}}}$ est sommable, on note $S_{\lambda} = \sommable{i\in I_{\lambda}}x_i 
+		\\ \bullet ~ (S_{\lambda})_{_{\lambda\in\Lambda}}$ est sommable $ \\ \bullet ~\sommable{i\in I}x_i = \sommable{\lambda\in\Lambda}\Big(\sommable{i\in I_{\lambda}} x_i\Big) \arf $}
+		\\ \textsc{Attention !} Ce théorème ne fourni pas une CNS de sommabilité !!
+		\vspace*{0.5cm} \\ \thm{ch11th10}{Théorème de \textsc{Fubini} $\heartsuit$}{ThFubini}{Soit $(x_{i,j})_{_{(i,j)\in I\times J}} \in \K^{I\times J}$ une famille sommable\\
+		\hspace*{0.5cm} Alors \highlight{$\sommable{(i,j)\in I\times J} x_{i,j} = \sommable{i\in I} \Big( \sommable{j\in J} x_{i,j} \Big) = \sommable{j\in J}\Big(\sommable{i\in I} x_{i,j} \Big)$}\\
+		on a en particulier $\ard \bullet ~\forall i\in I ,~(x_{i,j})_{_{j\in J}}$ est sommable $ \\ \bullet ~\Big( \sommable{j\in J} x_{i,j}\Big)_{_{i\in I}}$ est sommable $ \arf$ et idem symétriquement }
+		\vspace*{0.5cm} \\ \thm{ch11th11}{Théorème}{ProdFamSom}{Soient $(x_i)_{i\in I}$ et $(y_j)_{j\in J}$ des familles sommables de nombres réels ou complexes, \vspace{0.1cm} \\
+		\hspace*{0.5cm} Alors $\ard \bullet ~ (x_i y_j)_{(i,j)\in I\times J} ~est ~sommable \\ \bullet \sommable{(i,j)\in I\times J} x_iy_j = \big( \sommable{i\in I} x_i \big) . \big( \sommable{j\in J} y_j \big) \arf $ }
+	\section{Notion d'événements}
+		On cherche à modéliser une expérience aléatoire, i.e. une expérience au résultat incertain, faisant intervenir le hasard. On appelle univers, ou univers des possibles, l'ensemble $\Omega$ de tout les résultats possibles de cette expérience, appelés \uline{issues} ou \uline{éventualités}.\vspace*{0.2cm} \\
+		\hspace*{0.65cm}Au niveau intuitif, un événement est une assertion portant sur une issue $\omega$ de l'univers $\Omega$. On associe à cette assertion l'ensemble de toute les issues de $\Omega$ qui la vérifie, obtenant donc une partie de $\Omega$.\\
+		\hspace*{0.65cm}Ainsi un événement s'identifie à une partie $A\subset\Omega$. \vspace*{0.2cm} \\ 
+		\hspace*{0.65cm}On va s'attacher ici à formaliser ces notions. \\ \traitd
+		\paragraph{Tribu}
+			Soit $\Omega$ un ensemble, on appelle \uline{tribu sur $\Omega$} (ou $\sigma$-algèbre) toute partie $\A\subset\Part(\Omega)$ telle que \\
+			\hspace*{2.5cm} \un $\Omega \in \A$ \\ \hspace*{2.5cm} \deux $\forall A\in \A,~^cA (=\Omega\setminus A) \in \A$, i.e. $/A$ est stable par complémentarité\\
+			\hspace*{2.5cm} \trois $\forall (A_n)_{_{n\in\N}}\in \A^\N$ une suite d'éléments de $\A$, $\bigcup\limits_{n\in\N} \in\A$, \\
+			i.e. $\A$ est stable par réunion \highlight{dénombrable} \trait
+		\vspace*{-1cm} \\ $\bullet$ On appelle \uline{événements} les éléments $A\in\A $ \vspace*{0.2cm} \\
+		$\bullet $ Le couple $(\Omega ,\A)$ est dit \uline{espace probabilisable}\\
+		\begin{center}
+		\textit{Désormais, $(\Omega,\A)$ est un espace probabilisable}
+		\end{center}
+		${}$ \\ \thm{ch11L12}{Lemme}{PropTribu}{\un $\varnothing \in \A$ \\ \deux $\A$ est stable par intersection dénombrable \\
+		\trois $\A$ est stable par réunion finie \\ \quatre $\A$ est stable par intersection finie}
+		\subparagraph{Vocabulaire} ${}$ \\
+		\hspace*{2.5cm} $\bullet ~ \varnothing \in\A$ est l'\uline{événement impossible} \\
+		\hspace*{2.5cm} $\bullet ~ \Omega \in\A$ est l'\uline{événement certain} \\
+		\hspace*{2.5cm} $\bullet$ Si $A\in\A$, alors $^cA (\in\A)$ est dit \uline{événement contraire}\\
+		\hspace*{2.5cm} $\bullet$ Si $A,B\in\A$ ils sont dits \uline{incompatibles} si $A\cap B = \varnothing$
+	\section{Probabilité}
+		Soit $(\Omega,\A)$ un espace probabilisable. \traitd
+		\paragraph{Loi de probabilité}
+			On appelle \uline{probabilité ou loi de probabilité sur $\Omega$} toute application \[ P : \A \to [0,1] \] telle que $P(\Omega)=1$ et pour toute suite $(A_n)_{_{n\in \N}}$ d'événements deux à deux incompatibles, on a \begin{center}\highlight{ $\cm{P\Big( \bigcup_{n\in\N} A_n\Big) = \suminf P(A_n)}$ }\end{center} \trait
+			\vspace*{-1.1cm} \\ Le triplet $(\Omega,\A ,P)$ est dit \uline{espace probabilisé}.
+		\vspace*{0.5cm} \\ \thm{ch11L13}{Lemme}{ProbaVide}{$P( \varnothing) = 0$}
+		\vspace*{0.5cm} \\ \thm{ch11L14}{Lemme}{SigAddFinie}{Soit $A_0, \dots , A_N$ une suite finie d'évènements \uline{$2$ à $2$ incompatibles}  \\
+		\hspace*{0.5cm} Alors $~~ \cm{P\Big(\bigcup_{n=0}^N A_n \Big) = \sum_{n=0}^N P(A_n)}$}
+		\vspace*{0.5cm} \\ \thm{ch11L15}{Lemme}{11L15}{Soient $A,B\in \A$ avec $A\subset B$ alors \\
+		\hspace*{2cm} $P(B\setminus A) = P(B) - P(A)$}
+		\vspace*{0.3cm} \\ En particulier \highlight{$P(\overline{A}) = 1-P(A)$} {\small (On note $\Omega\setminus A = \overline{A}$ en proba)}
+		\vspace*{0.5cm} \\ 
+		\thm{ch11L15c}{Corollaire : Croissance de la probabilité}{CroissanceProba}{Soient $A,B\in \A$, alors \\
+		\hspace*{2cm} $A\subset B ~\Rightarrow ~ P(A) \leqslant P(B)$}
+		\vspace*{0.5cm} \\
+		\thm{ch11L16}{Lemme}{PUnion}{Soient $A,B\in \A $, alors \fbox{$P(A\cup B) = P(A) + P(B) - P(A\cap B)$} $\heartsuit$}
+		\vspace*{0.3cm} \\
+		\uline{Plus généralement :} 
+		\[ P(A_1\cup \cdots \cup A_n ) = \sum_i P(A_i) - \sum_{i<j} P(A_i\cap A_j) + \sum_{i<j<k} P(A_i\cap A_j\cap A_k) \pm \cdots + (-1)^{n-1}P\big( \bigcap_{i=1}^n A_i\big) \]
+		\vspace*{0.5cm} \\
+		\thm{ch11th12}{Théorème de continuité croissante $\heartsuit$}{ThContCroiss}{Soit $(A_n)_{n\in \N} \in \A^{\N}$ une suite croissante pour l'inclusion {\footnotesize ($\forall n\in \N ,~A_n \subset A_{n+1}$ )} \\
+		\hspace*{0.5cm} Alors \highlight{$\limit{n}{+\infty} P(A_n) = P\Big( \overset{+\infty}{\underset{n=0}{\cup}} A_n \Big)$} }
+		\begin{proof}
+		Posons $(B_n)_{n\in \N}$ telle que $B_0=A_0$ et $\forall n\in \N, ~B_n = A_n \setminus A_{n-1}$ ainsi $(B_n)_{n\in \N} \in \A^{\N}$ \\
+		avec $\forall n\in \N ,~ B_n \subset A_n $ et pour tout $i<j$ dans $\N$ on a $B_i\subset A_i \subset A_{j-1}$ donc $B_i\cap B_j = \varnothing$\\
+		De plus, $\forall n\in \N ,~A_n = \bigcup_{i=0}^n B_i$ (vérif. rapide) et dès lors $P(A_n) = \sum_{i=0}^n P(B_i)$ \\
+		et vu que $\bigcup\limits_{n\in\N} A_n = \bigcup\limits_{n\in\N}^{\textbf{.}} B_n$ (noté $X$)
+		alors $P(X) = \suminf P(B_n)$ i.e. $P(A_n) \underset{n\to +\infty}{\longrightarrow} P(X)$
+		\end{proof}
+		${}$ \vspace*{0.5cm} \\
+		\thm{ch11th13}{Théorème de continuité décroissante $\heartsuit$}{ThContDécroiss}{Soit $(A_n)_{n\in \N} \in \A^{\N}$ une suite décroissante pour l'inclusion {\footnotesize ($\forall n\in \N ,~A_n \supset A_{n+1}$ )} \\
+		\hspace*{0.5cm} Alors \highlight{$\limit{n}{+\infty} P(A_n) = P\Big( \overset{+\infty}{\underset{n=0}{\cap}} A_n \Big)$} }
+		\begin{proof}
+		Posons $B_n = \overline{A_n} ,~\forall n\in \N$ alors pour tout $n\in\N $, $B_n \subset B_{n+1}$ \\
+		Ainsi par théorème $P(B_n) \ston P\big( \underset{n\in\N}{\cup} B_n\big)$ donc $P(A_n) = 1-P(B_n) \ston P\big( \overline{\underset{n\in\N}{\cup} B_n}\big) = P\big( \underset{n\in\N}{\cap} A_n\big)$
+		\end{proof}
+		${}$ \vspace*{0.5cm} \\
+		\thm{ch11th13c}{Corollaire}{CorCont}{Soit $(A_n)_{n\in\N} \in \A^{\N}$ une suite d'évènements quelconque, alors\\
+		\hspace*{0.5cm} $\ard \un ~ P\big( \overset{n}{\underset{k=0}{\cup}} A_k \big) \ston P\big( \underset{k\in\N}{\cup} A_k \big) \\
+		\deux ~ P\big( \overset{n}{\underset{k=0}{\cap}} A_k \big) \ston P\big( \underset{k\in\N}{\cap} A_k \big) \arf $ }
+		\vspace*{0.5cm} \\
+		\thm{ch11th14}{Théorème de sous-additivité ou inégalité de \textsc{Boole}}{InegBoole}{Soit $(A_n)_{n\in\N} \in\A^{\N}$ alors \\
+		\hspace*{0.5cm} $P\big( \underset{n\in\N}{\cup} A_n\big) \leqslant \sum_{n=0}^{+\infty} P(A_n) $}
+		\begin{proof}
+		 $\bullet$ Si $\underset{n\geqslant 0}{\sum} P(A_n)$ diverge, OK vu $+\infty > 1$\\
+		 $\bullet$ Sinon on pose $B_0 = A_0$ puis $\forall n\in\N^* ,~ B_n = A_n\setminus \big( \underset{i<n}{\cup} A_n \big)$ ainsi $\underset{n\in\N}{\cup} A_n = \overset{\textbf{.}}{\underset{n\in\N}{\cup}} B_n$\\
+		 donc par $\sigma$-additivité $P\big( \underset{n\in\N}{\cup} A_n \big) = \suminft P(B_n)$ or $P(B_n) \leqslant P(A_n)$ par croissance de la probabilité donc $\suminft P(B_n) \leqslant \suminft P(A_n)$
+		\end{proof}
+		${}$ \\
+		\thm{ch11L17}{Lemme}{11L17}{Soit $I$ un ensemble au plus dénombrable et $(A_i)_{i\in I} \in \A^{I}$ deux à deux incompatibles\\
+		\hspace*{0.5cm} Alors $P\big( \underset{i\in I}{\cup} A_i \big) = \underset{i\in I}{\sum} P(A_i)$ }
+		\subparagraph{Vocabulaire} ${}$ \\
+		\hspace*{2.5cm} $\bullet$ $A\in\A$ tel que $P(A)=0$ est dit \uline{négligeable} (ou presque impossible)\\
+		\hspace*{2.5cm} $\bullet$ $A\in\A$ tel que $P(A) = 1$ est dit \uline{presque sûr} (ou presque certain)
+		\vspace*{0.5cm} \\
+		\thm{ch11L18}{Lemme}{11L18}{$\un$ Une réunion au plus dénombrable d'événements négligeables est négligeable.\\
+		$\deux$ Une intersection au plus dénombrable d'événements presque sûrs est presque sûre.}
+		\newpage \traitd 
+		\paragraph{Distribution de probabilité}
+		Soit $\Omega$ un ensemble quelconque, on appelle \uline{distribution de probabilité discrète} sur $\Omega$ toute famille $(p_{\omega})_{\omega\in\Omega}$ de réels positifs ou nuls de somme $1$. \trait
+		\thm{ch11th15}{Théorème}{LoiDistrib}{Soit $\Omega$ un ensemble quelconque, $\A = \Part(\Omega)$ et $(p_{\omega})$ une distribution de probabilité.\\
+		Alors il existe une unique loi de probabilité sur $(\Omega,\A)$ telle que $\forall \omega\in\Omega ,~ P(\{\omega\}) = p_{\omega}$}
+		\begin{proof}
+		\uline{Unicité} : Soit une telle loi et $S$ son support (APD), \\ on note $N=\overline{S}$ alors $S$ est presque sûr et $N$ est négligeable.\\
+		Soit $A\in\A$ alors par croissance $P(A\cap N)=0$ et $P(A) = P(A\cap S) = \underset{\omega\in A\cap S} p_{\omega}$ d'où \textsc{cqfd} \\
+		\uline{Existence} : On peut vérifier que $P~\appli{\A}{A}{[0;1]}{\sum_{\omega\in A} p_{\omega}}$ satisfait toute les conditions
+		\end{proof}
+		${}$ \\ \thm{ch11th16}{Théorème : Cas d'un univers au plus dénombrable}{UnivAPD}{Soit $\Omega$ un univers APD et $\A = \Part(\Omega)$ \\
+		Alors définir une loi de probabilité sur $(\Omega,\A)$ revient à se donner \\
+		une distribution de probabilités discrète $(p_{\omega})$ via $P(\{\omega \}) = p_{\omega} $}
+		\begin{proof}
+		On note $\mathscr{P}$ l'ensemble des lois de probabilité sur $(\Omega,\A)$ et $\mathscr{F}$ celui des distributions de probabilité.\\
+		Soit alors $\varphi ~\appli{\mathscr{P}}{P}{\mathscr{F}}{\big( P(\{\omega\})\big)_{\omega\in\Omega}}$, c'est une application bien définie et bijective par théorème.
+		\end{proof}
+	\section{Indépendance}
+		Ici, $(\Omega,\A,P)$ est un espace probabilisé.\\
+		\traitd 
+		\paragraph{Définition}
+			$A,B \in\A$ sont dits \uline{indépendants} si \highlight{$P(A\cap B) = P(A)P(B)$} \trait
+		\thm{ch11L19}{Lemme}{CalcIndep}{\hspace*{0.5cm}Soient $A,B\in\A$ alors \\
+		$\un$ $A,B$ indépendants $\Leftrightarrow$ $B,A$ indépendants \\
+		$\deux$ $A$ et $\Omega$ sont indépendants \\
+		$\trois$ $A$ et $\varnothing$ sont indépendants \\
+		$\quatre$ $A,A$ indépendants $\Leftrightarrow$ $P(A) = 0$ ou $P(A)=1$}
+		\vspace*{0.5cm} \\
+		\thm{ch11L20}{Lemme}{CalcIndép2}{Si $A,B\in\A$ sont indépendants alors \\
+		\hspace*{0.5cm} $\overline{A},B$ sont indépendants \\
+		\hspace*{0.5cm} $A,\overline{B}$ sont indépendants \\
+		\hspace*{0.5cm} $\overline{A}, \overline{B}$ sont indépendants }
+		\newpage \traitd
+		\paragraph{Indépendance mutuelle}
+			Soit $(A_i)_{i\in I} \in\A^{I}$, on dit que les $A_i$ sont \uline{indépendants dans leurs ensemble} ou \uline{mutuellement indépendants} si pour toute partie finie $J\subset I$, \[P\Big( \bigcap_{i\in J} A_i \Big)= \prod_{i\in J} P(A_i) \] \vspace*{-0.5cm}
+			\trait
+		\thm{ch11L21}{Lemme}{IndepMutCompl}{Soient $A_1, \dots ,A_n \in\A$ des événements mutuellement indépendants,\\
+		soient $B_1,\dots ,B_n$ tels que $\forall i\in \ent{1,n}, ~ B_i \in \{A_i , \overline{A_i} \}$ \\
+		\hspace*{0.5cm} Alors $B_1,\dots ,B_n$sont mutuellement indépendants }
+		\\ \uline{NB} : Ce résultat s'étend aux familles quelconques $(A_i)_{i\in I}\in\A^I$ 
+	\section{Conditionnement}
+		\traitd
+		\paragraph{Définition}
+			Soient $A,B\in\A$ avec $P(B) >0$, on pose alors \[P_B(A) = P(A\vert B) = \frac{P(A\cap B)}{P(B)} \]
+			appelée \uline{probabilité conditionnelle de $A$ sachant $B$} \trait
+		\thm{ch11L22}{Lemme}{ProbaCond}{Soit $B\in\A$ tel que $P(B)>0$ alors \\
+		\hspace*{0.5cm} $P_B :~\appli{\A}{A}{[0,1]}{\sfrac{P(A\cap B)}{P(B)}}$\\
+		est une loi de probabilité sur $(\Omega,\A )$ dite "probabilité conditionnelle sachant $B$"}
+		\vspace*{0.5cm} \\ 
+		\thm{ch11L23}{Lemme}{IndepCond}{$A,B\in\A$ tels que $P(B)>0$ alors \\
+		\hspace*{0.5cm} $A,B$ indépendants $\Leftrightarrow$ $P_B(A) = P(A)$}
+		\vspace*{0.5cm} \\
+		\thm{ch11L24}{Lemme}{11L24}{Soient $A,B\in\A$ avec $P(B)>0$\\
+		\hspace*{0.5cm} Alors $P(A\cap B) = P(B)P(A\vert B)$}
+		\vspace*{0.5cm} \\
+		\thm{ch11th17}{Théorème : Formule des probabilités composées $\heartsuit$}{ProbaComp}{Soient $A_1,\dots ,A_n \in\A$ tels que $P\big( \overset{n-1}{\underset{i=1}{\cap}} A_i \big) >0$ alors\\
+		$P\big( A_1\cap \cdots \cap A_n\big) = P\big( A_1\big) P\big( A_2\vert A_1\big) P\big( A_3 \vert A_1 \cap A_2 \big) ~\cdots ~P\big( A_n \vert A_1 \cap \cdots \cap A_{n-1} \big)$}
+		\begin{proof}
+		Par récurrence : On note $T(n)$ le théorème pour l'entier $n$\\
+		$T(2)$ est vrai par le lemme précédent. Soit alors $n\geqslant 2$, on suppose $T(n)$ et on considère $n+1$ événements satisfaisants ainsi $P\big( \overset{n+1}{\underset{i=1}{\cap}} A_i \big) = P\big( A_{n+1}\big) P\big( A_{n+1} \vert \overset{n}{\underset{i=1}{\cap}} A_i \big)$ d'où $T(n+1)$ avec l'hypothèse de récurrence.
+		\end{proof}
+		\traitd
+		\paragraph{Système complet d'événements}
+			On appelle \uline{système complet d'événements} toute famille $(A_i)_{i\in I}\in\A^I$ telle que \\
+			\hspace*{2.5cm} $\un$ $\Omega = \bigcup\limits_{i\in I} A_i$\\
+			\hspace*{2.5cm} $\deux$ $\forall (i,j)\in I^2 ,~ i\neq j \Rightarrow A_i\cap A_j = \varnothing$ \trait \newpage \traitd
+		\paragraph{Système quasi-complet d'événements}
+			On appelle \uline{système quasi-complet d'événements} toute famille $(A_i)_{i\in I} \in\A^I$ telle que \\
+			\hspace*{2.5cm} $\un$ $P\Big( \bigcup\limits_{i\in I} A_i \Big) = 1$ \\
+			\hspace*{2.5cm} $\deux$ $\forall (i,j)\in I^2 ,~ i\neq j \Rightarrow A_i\cap A_j = \varnothing$ \trait
+		\thm{ch11th18}{Théorème : Formule des probabilités totales $\heartsuit$}{ProbaTot}{Soit $B\in\A$ et $(A_i)_{i\in I}$ un système (quasi-)complet d'événements APD\\
+		\hspace*{0.5cm} Alors \highlight{$\cm{P(B) = \sum_{i\in I} P(A_i) P(B\vert A_i) }$} }
+		\begin{proof}
+		On note $S$ la réunion des $A_i$ ($P(S)=1$) et $N=\overline{S}$ ($P(N)=0$), alors $B=B\cap (S\cup N)$ \\
+		ainsi $P(B) = P(B\cap N) + P(B\cap S) = \sum_{i\in I} P(B\cap A_i)$ or $\forall i\in I, ~P(B\cap A_i) = P(A_i)P(B\vert A_i)$
+		\end{proof}
+		${}$ \\
+		\thm{ch11th19}{Théorème : Formule de \textsc{Bayes} $\heartsuit$}{Bayes}{Soient $B\in \A$ tel que $P(B)>0$ et $(A_i)_{i\in I}$ \\
+		un système (quasi-)complet d'événements au plus dénombrable\\
+		Alors $\forall i_0 \in I$ tel que $P(A_{i_0}) >0$ \\
+		\hspace*{2cm} $\cm{P(A_{i_0} \vert B) = \frac{P(A_{i_0})P(B\vert A_{i_0)}}{\sum_{i\in I} P(A_i)P(B\vert A_i} }$ }
+		\begin{proof}
+		$P(A_{i_0}\vert B) = \dfrac{P(A_{i_0} \cap B)}{P(B)} = \dfrac{P(A_{i_0})P(B\vert A_{i_0})}{P(B)}$ puis les probabilités totales.
+		\end{proof} ${}$ \\ 
+		\begin{center}
+		\fin
+		\end{center}

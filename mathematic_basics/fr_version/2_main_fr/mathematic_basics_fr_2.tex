@@ -2,22 +2,25 @@
 %                               PREAMBLE
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\documentclass[10pt,a4paper]{report}
-\usepackage{lxfonts}
+\documentclass[10pt, a4paper, twoside]{report}
+\usepackage[top = 120pt, left = 100pt, right = 100pt, bottom = 100pt]{geometry}
 \usepackage[mathcal, mathbf]{euler}
 \usepackage[T1]{fontenc}
 \usepackage[french]{babel}
 \usepackage[utf8]{inputenc}
-
-\usepackage{pagecolor}
-\usepackage{xcolor}
+\usepackage[hidelinks]{hyperref}
 \usepackage[normalem]{ulem}
+\usepackage{fancyhdr}
+\usepackage{minitoc}
+\usepackage{shorttoc}
+
+\usepackage{xcolor}
+\usepackage{pagecolor}
 \usepackage{graphicx}
 \usepackage{tikz}
 \usepackage{epigraph}
-\usepackage{shorttoc}
-\usepackage{minitoc}
-\usepackage[twoside]{fancyhdr}
+\usepackage{fancyhdr}
+\usepackage{blkarray}
 
 \usepackage{amsfonts}
 \usepackage{amsmath}
@@ -28,16 +31,11 @@
 \usepackage{amssymb}
 \usepackage{yhmath}
 \usepackage{xfrac}
-\usepackage{blkarray}
 \usepackage{dsfont}
 \usepackage{mathrsfs}
 \usepackage{cancel}
 
-
 % \renewcommand{\thefootnote}{\fnsymbol{footnote}}
-\setcounter{minitocdepth}{4}
-\renewcommand{\mtctitle}{Contenu}
-\dominitoc
 
 \pagestyle{fancy}
 \setlength{\headheight}{13.59999pt}
@@ -45,6 +43,12 @@
 \fancyhead[RE]{\small \leftmark}
 \fancyhead[LO]{\small \rightmark}
 \fancyhead[RO]{\thepage}
+
+% \setcounter{tocdepth}{3}
+
+% \setcounter{minitocdepth}{3}
+% \renewcommand{\mtctitle}{Contenu}
+% \dominitoc
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -65,24 +69,29 @@
 \newtheorem{lem}[thm]{Lemme}
 \newtheorem{prop}[thm]{Proposition}
 \newtheorem*{cor}{Corollaire}
-\newcommand{\theorem}[3]{\begin{#1}\label{#3} #2 \medskip \end{#1}}
+\newcommand{\theorem}[2]{
+    \hspace*{10pt}   
+    \begin{minipage}{0.7\textwidth} 
+        \begin{#1} ${}$ \vspace*{0.15cm}\\ 
+            \hspace*{20pt} \begin{blockarray}{|l} 
+                #2 
+            \end{blockarray} 
+        \end{#1} 
+    \end{minipage} \vspace{-10pt} ~ 
+    }
     %commande pour créer un théorème, le premier argument est le type et le second le contenu
         % ex : \theorem{lem}{contenu du lemme}
-
+    
 \newcommand{\namedtheorem}[3]{
-    \theoremstyle{plain}
-    \newtheorem*{#3}{#1}
-    \begin{#3}\label{#3}
-        #2
-        \medskip
-    \end{#3}
-}
-
-\theoremstyle{definition}
-\newtheorem{defn}{Definition}[section]
-\newcommand{\definition}[1]{\begin{defn} #1 \medskip \end{defn}}
-    %commande pour créer une définition, le contenu passe en argument
-        % ex : \definition{contenu de la def}
+    \hspace*{10pt}   \newtheorem*{#3}{#1}
+        \begin{minipage}{0.7\textwidth} 
+            \begin{#3} ${}$ \vspace*{0.15cm}\\ 
+                \hspace*{18pt} \begin{blockarray}{|l} 
+                    #2 
+                \end{blockarray} 
+            \end{#3} 
+        \end{minipage} \vspace{-10pt} ~
+    }
 
 \theoremstyle{remark}
 \newtheorem*{nd}{Note}
@@ -92,16 +101,25 @@
 \newtheorem*{rap}{Rappel}
 \newcommand{\rappel}[1]{\begin{rap} #1 \medskip \end{rap}}
 
+\newcommand{\traitd}{\begin{center} ~ \medskip  \\ \rule{0.9\textwidth}{0.75pt} \vspace{-5pt}\end{center}}
+\newcommand{\trait}{\begin{center} \rule{0.9\textwidth}{0.75pt} \end{center} ~ }
+\newcommand{\traitdouble}{\trait \vspace{-40pt} \traitd}
+
+\newcommand{\ard}{\begin{array}{l}}
+\newcommand{\arf}{\end{array}}
+
 
 %%%     Maths misc      %%%
 
 \newcommand{\abs}[1]{\left\vert #1 \right\vert}
 
 \newcommand{\appli}[4]{
-    \begin{blockarray}[t]{(ccccc)} 
+    \left(
+    \begin{array}{ccccc} 
         & #1 & \longrightarrow & #3 & \\ 
         & #2 & \longmapsto & #4 &
-    \end{blockarray}
+    \end{array}
+    \right)
 }
 
 \newcommand{\scal}[1]{\left< #1 \right>}
@@ -218,7 +236,7 @@
 \epigraph{Ce document est une synthèse du cours de mathématiques dispensé par M. Jean-François \textsc{Mallordy} 
     en classe préparatoire au lycée Blaise Pascal, Clermont-Ferrand en 2022-2023. Il s'agit d'un complément au cours de Maths Spé 
     et ne saurait en aucun cas y être un quelconque remplacement !} %
-{\textit{Paris 2024}}
+{\textit{Paris, 2024}}
 \null\vfill
 \vspace*{1cm}
 \noindent
@@ -236,12 +254,14 @@
 \titlepagedecoration
 \end{titlepage}
 
-\setcounter{tocdepth}{0}
-\renewcommand{\contentsname}{Chapitres}
-\tableofcontents
+% \renewcommand{\contentsname}{Table des matières - Deuxième année}
+% \tableofcontents
 
 %\listoffigures
 
+\shorttoc{Chapitres}{0}
+
+\theoremstyle{plain}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                          DOCUMENT START
@@ -253,7 +273,7 @@
 
 % \chapter{Limites et continuité}
 
-%     \input{../2_chapitres/ch2_2_fr}
+%     \input{../2_chapitres/ch2_2_fr.tex}
 
 % \chapter{Dérivation et intégration}
 
@@ -304,17 +324,11 @@
 %     \input{../2_chapitres/ch2_14_fr}
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%                         Table of Contents
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %                         Table of Contents
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%\setcounter{tocdepth}{1}
+\anothertoc{MPSI2}{Table des matières - Première année}{1}
+\anothertoc{MPX}{Table des matières - Deuxième année}{1}	
 
-\anothertoc{../1_main_fr/mathematic_basics_fr_1}{Table des Matières - Première année}{1}
-
-%\renewcommand{\contentsname}{Table des Matières - Deuxième année}
-%\tableofcontents
-
-\anothertoc{mathematic_basics_fr_2}{Table des Matières - Deuxième année}{1}
-
-\end{document}
+\end{document} 

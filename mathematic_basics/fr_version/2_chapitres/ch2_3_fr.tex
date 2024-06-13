@@ -1,0 +1,271 @@
+% Chapitre 3 : Dérivation et Intégration
+
+\textit{Cadre : $f:I\rightarrow E$ une fonction à valeur dans $E$ un $K$ espace vectoriel de dimension finie
+\\\hspace*{2.5cm} $I$ un intervalle réel non trivial (i.r.n.t.)}
+\minitoc	
+\section{Dérivée}
+    \traitd
+    \paragraph{Défnition}
+        Soit $a\in I$, $f$ est \underline{dérivable} en $a$ s'il existe $l\in E$ tel que $\frac{f(x) - f(a)}{x-a}
+        \underset{x\rightarrow a ; x\neq a}{\longrightarrow} l$ On pose alors \vspace*{-0.5cm}
+        \[f'(x) = \underset{x\rightarrow a ; x\neq a}{\mathrm{lim}} \frac{f(x) - f(a)}{x-a}\] \vspace*{-0.6cm}\trait \vspace*{-0.9cm}
+    \\{\small \underline{NB} : On note $\mathcal{T}_f(x,a) = \frac{f(x) - f(a)}{x-a}$ le "taux d'acroissement"\\ 
+    Rq : $\mathcal{T}_f(x,a) = \mathcal{T}_f(a,x)$
+    \newpage ${}$ \\ \thm{ch3L1}{Lemme}{DervContPt}{Soit $a\in I$, ($f$ dérivable au point $a$) $\Rightarrow$ ($f$ continue au point $a$)}
+    \traitd
+    \paragraph{Fonction dérivable}
+        $f:I\rightarrow E$ est dite \underline{dérivable} (sur $I$) si $\forall a\in I$, $f$ est dérivable au point $a$\\
+        Dans ce cas on pose $~f':\ard I\rightarrow E \\ a\mapsto f'(a) \arf$ la \underline{dérivée de $f$}.\trait ${}$ \vspace*{-1.5cm} \\ 					\traitd
+    \paragraph{Fonction continuement dérivable}
+        $f:I\rightarrow E$ est dite \underline{continuement dérivable} ou de \underline{classe $\cont^1$} \\si $\left\{ \ard $ {\tiny (1)} $f$ 
+        est dérivable $ \\ $ {\tiny (2)} $f'\in \cont^0(I,E) \arf\right. $ \hspace*{1cm} On note $\cont^1 (I,E)$ l'ensemble de ces fonctions.
+    \trait \thm{ch3L2}{Lemme}{CombLinDeriv}{$f,g : I\rightarrow E ,~\lambda \in K ,~a\in I$ Si $f$ et $g$ sont dérivables au point 
+    $a$ \\ \textsc{alors} $\ard ${\tiny (1)} $\lambda f+g$ est dérivable au point $a \\ 
+    ${\tiny (2)} $(\lambda f+g)'(a) = \lambda f'(a) + g'(a) \arf$}
+    \vspace*{0.5cm} \\ \thm{ch3L3}{Lemme}{CompoLinDeriv}{$I\overset{f}{\rightarrow} E \overset{u}{\rightarrow} F ,~a\in I$ avec $E$ et $F$ 
+    des espaces vectoriels normés de dimensions finies. On suppose $u\in\lin (E,F)$ et $f$ dérivable au point $a$ \\ \textsc{alors} $\ard $
+    {\tiny (1)} $u\circ f$ est dérivable au point $a \\ $ {\tiny (2)} $(u\circ f)'(a) = u(f'(a)) \arf$}
+    \vspace*{0.5cm} \\ \thm{ch3L4}{Lemme}{DervCoord}{Soit $a\in I$ et $\varepsilon = (\varepsilon_1 ,\dots ,\varepsilon_p )$ une base de $E$. 
+    Notons $f(x) = sum_{k=1}^p f_k(x) \varepsilon_k$ \\ \textsc{alors} $f$ est dérivable en $a$ $\Leftrightarrow$ $\forall k\in\ent{1,p} ,~
+    f_k$ est dérivable en $a$ \\ On a dans ce cas \highlight{$f'(a) = \sum_{k=1}^p f_k'(a) \varepsilon_k$}}
+    \vspace*{0.5cm} \\ \thm{ch3L5}{Lemme}{C1KEV}{$\cont^1 (I,E)$ est un $K$ espace vectoriel comme sous-espace vectoriel de $E^I$}
+    \vspace*{0.5cm} \\ \thm{ch3th1}{Théorème}{DerivePLin}{Soit $\Phi :E_1 \times \cdots \times E_p \rightarrow F$ $p$-linéaire avec 
+    $E_1,\dots ,E_p$ de dimensions finies et $a\in I$. Soit $f_1:I\rightarrow E_1 , \dots , f_p : I\rightarrow E_p$ dérivables au point $a$ 
+    \\ On pose $~~~~g:\ard I\longrightarrow F \\ x\mapsto \Phi (f_1(x) , \dots , f_p (x) \arf$ \textsc{alors} \\$\ard ${\tiny (1)} $g$ est 
+    dérivable au point $a \\ ${\tiny (2)} $g'(a) = \si{1}{p} \Phi (f_1(x) , \dots , f_i'(x) ,\dots , f_p(x)) \arf $}
+    \begin{proof}
+    \underline{Cas $p=2$ scalaire :} Soit $x\in I\backslash \{ a\}$ \vspace*{0.2cm}\\$ \mathcal{T}_g(x,a) ~=~ \frac{1}{x-a} \big[
+    B(f_1(x),f_2(x)) - B(f_1(a),f(_2(a)) \big] ~=~ B(\mathcal{T}_{f_1} (x,a),f_2(x)) + B(f_1(a),\mathcal{T}_{f_2} (x,a) $\vspace*{0.2cm}
+    \\ Puis comme $B$ est bilinéaire, $B$ est $\cont^0$ donc $\mathcal{T}_g(x,a) \underset{x\rightarrow a ; x\neq a}{\longrightarrow} 
+    B(f_1'(a),f_2(a)) + B(f_1(a) , f_2'(a))$ \\d'où $g$ est dérivable au point $a$\vspace*{0.2cm}\\
+    On a ensuite le résultat pour une application $p$-linéaire par récurrence puis dans le cas vectoriel en décomposant selon toute les bases. 
+    \end{proof}
+    ${}$ \\ \thm{ch3th2}{Théorème(rappel)}{DerivCompoScal}{$I\overset{u}{\rightarrow} J \overset{v}{\rightarrow} \mathbb{K} ,~
+    I,J ~i.r.n.t.$ \\ $a\in I,~b= u(a) \in J$ Si $u$ dérivable au point $a$ et $v$ dérivable au point $b$ \\
+    \textsc{alors}$\ard $ {\tiny (1)} $v\circ u$ est dérivable au point $a \\ $ {\tiny (2)} $(v\circ u)'(a) = v'(u(a))\times u'(a) \arf $}
+    \vspace*{0.5cm} \\ \underline{Composition vers un espace vectoriel de dimension finie} \\
+     \thm{ch3th2c}{Corollaire}{DerivCompo}{$I\overset{\varphi}{\rightarrow} J \overset{f}{\rightarrow} \mathbb{K} ,~
+    I,J ~i.r.n.t. ,~E$ un $K$ espace vectoriel de dimension finie \\ $a\in I,~b= \varphi (a) \in J$ Si $\varphi$ dérivable au point $a$ et $f$ 
+    dérivable au point $b$ \\ \textsc{alors}$\ard $ {\tiny (1)} $f\circ \varphi$ est dérivable au point $a \\ $ 
+    {\tiny (2)} $(f\circ \varphi )'(a) = f'(\varphi (a))\times \varphi'(a) \arf $}
+\section{Dérivées successives}
+    \textit{$\bullet $ On pose $f^{(0)} = f$ \\ \hspace*{0.47cm} $\bullet $ Si $f'$ est dérivable sur $I$ on pose $f^{(1)} = f'$ \\ 
+    \hspace*{0.47cm} $\bullet $ Pour $k\in \N$, si $f^{(k)}$ est bien définie \underline{et} dérivable sur $I$ on pose 
+    $f^{(k+1)} = \left(f^{(k)}\right)'$} \traitd
+    \paragraph{Classe $\cont^K$}
+        Soit $k\in\N ,~f$ est dite $k$ fois dérivable si $f^{(k)}$ existe. \\ Dans ce cas $f$ est dite de \underline{classe $\cont^k$} 
+        \textsc{si} $\left\{\ard f^{(k)}$ existe $ \\ f^{(k)} \in \cont^0 (I,E) \arf \right.$ \vspace*{0.15cm} \trait ${}$ \vspace*{-1.5cm} \\ 
+        \traitd
+    \paragraph{Classe $\cont^{\infty}$}
+        $f$ est dite de \underline{classe $\cont^{\infty }$} si $\forall k\in\N$ on a $f$ est de classe $\cont^k$ \trait
+    \thm{ch3L6}{Lemme}{3-16}{Soit $f : I\rightarrow E$ \textsc{alors} $f \in \cont^{\infty } ~\Leftrightarrow ~\forall 
+    k\in\N $, $f$ est $k$ fois dérivable}
+    \vspace*{0.5cm} \\ \thm{ch3th3}{Théorème : Formule de Leibniz}{Leibniz}{Soit $f,g : I\rightarrow E$ de classe $\cont^n$ \\ \textsc{alors} 
+    $fg$ est de classe $\cont^n$ et $(fg)^{(n)} = \sk{0}{n} \binom{n}{k} f^{(k)}g^{(n-k)} $}
+    \begin{proof} \underline{Rappel} : voir cours de sup \end{proof}
+    {\small \underline{Plus généralement :} Soit $B : E_1\times E_2 \rightarrow F$ bilinéaire avec $E_1,E_2,F$ de dimensions finies \\
+    Soit $(f,g) \in \cont^n(I,E_1)\times\cont^n(I,E_2)$ alors la formule à l'ordre $n$ avec $B$ reste valable.}
+    \vspace*{0.5cm} \\ \thm{ch3L7}{Lemme}{CoordCk}{Soit $f:I\rightarrow E$ et $e=(e_1,\dots ,e_n)$ une base de $E$ \\
+    Soit $f(x) = f_1(x)e_1 + \cdots + f_n(x)e_n ~,~\forall x\in I$ \\\textsc{alors} \hspace*{1cm} $f\in\cont^k (I,E) \Leftrightarrow \forall 
+    j\in\ent{1,p} ,~f_j \in \cont^k (I,E)$}
+    \vspace*{0.5cm} \\ \thm{ch3L8}{Lemme}{CompoCk}{Soit $I \overset{\varphi}{\rightarrow} J \overset{f}{\rightarrow} F,~I,J$ i.r.n.t. \\
+    Si $\varphi$ et $f$ sont de classe $\cont^k$ \textsc{alors} $\varphi\circ f \in\cont^k(I,F)$} \newpage
+\section{Fonctions convexes}
+    \traitd
+    \paragraph{Barycentre (HP)}
+        Soit $E$ un espace vectoriel et $x_1,\dots ,x_p \in E$ \\
+        Soit $\alpha_1 ,\dots ,\alpha_p\in \R$ tels que $\sum_{k=1}^p \alpha_k \neq 0$. On note $S = \sum_{k=1}^p \alpha_k$\\
+        On appelle \underline{barycentre du système} $\big( (x_1,\alpha_1) ,\dots ,(x_p,\alpha_p) \big)$ le point 
+        \highlight{$\sum_{k=1}^p \frac{\alpha_k}{S} x_k$}\\
+        On parle d'\underline{isobarycentre} si $\alpha_1 = \cdots = \alpha_k$ \trait \vspace*{-1.1cm}
+        \\ {\small \underline{NB} : On peut se ramener à $\sum_{k=1}^p \alpha_k=1$ en posant $\alpha_k'=\frac{\alpha_k}{S}$}
+    \vspace*{0.5cm} \\ \thm{ch3th4}{Théorème}{ConvStableBary}{Tout ensemble convexe est stable par barycentration à 
+    \underline{coefficients positifs}}
+    \begin{proof}
+    Soit $X\subset E$ convexe. On démontre la propriété par récurrence avec $\mathcal{A}(n)$ le prédicat correspondant à la propriété 
+    pour $n$ vecteurs de $X$. \\
+    On a $\mathcal{A}(1)$ et $\mathcal{A}(2)$. On suppose $\mathcal{A}(n)$ et on considére $n+1$ vecteurs de $X$ et $n+1$ scalaires 
+    quelconques. On pose $x$ le barycentre du système. \\
+    $\bullet $ Si $S = \sum_{k=1}^n \alpha_k \neq 0$ alors on pose $y$ le barycentre du système composé des $n$ premiers termes et on a 
+    $x= \mathrm{Bar} \big( (y,S),(x_{n+1},\alpha_{n+1}) \big) \in X$ d'après $\mathcal{A}(2)$ \\
+    $\bullet $ Si $S=0$ alors $\alpha_{n+1} = 1$ et $x=x_{n+1} \in X$ \\
+    D'où $\mathcal{A}(n+1)$
+    \end{proof} \traitd
+    \paragraph{Fonction convexe}
+        Soit $f:I\rightarrow \R$ avec $I$ i.r.n.t. alors $f$ est dites \underline{convexe} si 
+        \[\forall (x,y) \in I^2 ~,~\forall \lambda\in [0,1] \\ f\big( (1-\lambda )x + \lambda y \big) ~\leq ~
+        (1-\lambda )f(x) + \lambda f(y)\] \trait \vspace*{-1.2cm} \\
+    {\small \underline{Interprétation géométrique} : "L'arc reste sous la corde"} \traitd
+    \paragraph{Épigraphe}
+        Soit $f:I\rightarrow \R$ on appelle \underline{épigraphe de $f$} l'ensemble \[E(f)=\big\{(x,y)\in I\times\R ~;~f(x)\leq y\big\}\]\trait
+    \thm{ch3th5}{Théorème}{FConvEpiFConv}{Soit $f:I\rightarrow \R$ \textsc{alors} $f$ est convexe $\Leftrightarrow$ 
+    $E(f)$ est convexe}
+    \begin{proof}
+    \fbox{$\Rightarrow$} Clair avec la définition de la convexité de $f$ \\
+    \fbox{$\Leftarrow$} On suppose $E(f)$ convexe \\ Soit $x,y\in I$ et $\lambda\in [0,1] $ avec $x\leq y$ 
+    \\On pose $z=(1-\lambda )x + \lambda y \in [x,y]$ et on a $\big( x,f(x)\big) , \big( y,f'y) \big) \in E(f)$ 
+    \\ donc $c=\big( z,(1-\lambda )f(x) + \lambda f(y) \big) \in E(f) $ ainsi $ f(z) \leq (1-\lambda )f(x) + \lambda f(y) $ \\ Par 
+    définition, $f$ est convexe. \end{proof}
+    ${}$ \\ \thm{ch3th6}{Théorème : Inégalité de \textsc{Jensen}}{Jensen}{Soi t$f:I\rightarrow \R$ convexe \\ Soit 
+    $x_1,\dots ,x_n\in I$ et $\lambda_1 ,\dots ,\lambda_n \in \R^+$ tels que $\sum_{i=1}^n \lambda_i = 1$ \textsc{alors} 
+    \\\centering $ f\left( \si{1}{n} \lambda_i x_i \right) ~\leq ~\si{1}{n} \lambda_i f(x_i) $}
+    \begin{proof}
+    On pose $a_i = \big( x_i ,f(x_i) \big) \in E(f)$ donc $\sum_{i=1}^n \lambda a_i \in E(f)$ \\car $E(f)$ est stable par barycentration 
+    donc $\sum_{i=1}^n \lambda_i x_i \in I$ et $f\big( \sum_{i=1}^n \lambda_i x_i \big) \leq \sum_{i=1}^n \lambda_i f(x_i)$
+    \end{proof}
+    ${}$\\ \thm{ch3L9}{Lemme des pentes}{LemPentes}{Soit $f:I\rightarrow \R$ une application \textsc{alors} \\
+    $f$ convexe $ \Leftrightarrow $ $\big( \forall (a,b,c) \in I^3$ tels que $a<b<c ~,~ p(a,b)\leq p(a,c)\leq p(b,c)$ \\ où $p(a,b) = 
+    \frac{ f(a)-f(b) }{a-b} $ }
+    \vspace*{0.5cm} \\ \thm{ch3th7}{Théorème}{FConvF'Crois}{Soit $f:I\rightarrow \R$ dérivable sur $I$ \\ \textsc{alors} $f$ est convexe 
+    sur $I$ si et seulement si $f'$ est croissante sur $I$}
+    \begin{proof}
+    \fbox{$\Rightarrow$} On suppose $f$ convexe, soient $x,y \in I$ alors \\
+    $\forall t\in ]x,y[ ,~p(x,t)\leq p(x,y)$ puis en passant à la limite $f'(x) \leq p(x,y)$ d'où $f'(x)\leq f'(y)$ par symétrie \\
+    \fbox{$\Leftarrow$} On suppose $f'$ croissant et $a<b<c \in I$ par le théorème des accroissements finis on a\\
+    $p(a,b) = f'(x)$ et $p(b,c) = f'(y)$ avec $x$ et $y$ dans les segments respectifs $]a,b[$ et $]b,c[$\\
+    On a $f'(x) \leq f'(y)$ d'où $f$ est convexe par le Lemme des pentes (\ref{LemPentes})
+    \end{proof}
+    ${}$ \\ \thm{ch3th7c}{Corollaire}{FConvF''Pos}{Soit $f\in\mathcal{D}^2(I,\R )$ \textsc{alors} $f$ est convexe 
+    $\Leftrightarrow$ $f''\geq 0$} \traitd
+    \paragraph{Fonction concave}
+        Soit $f:I\rightarrow \R$ avec $I$ un i.r.n.t. alors $f$ est dite \underline{concave} si $-f$ est convexe. \trait
+    \thm{ch3th8}{Théorème}{Graphe>Tang}{Soit $f:I\rightarrow \R$ dérivable et convexe \textsc{alors} 
+    \\ \centering $ \forall x_0,x\in I ~,~f(x) \geq f(x_0) + (x-x_0)f'(x_0) $}
+    \\ \textit{"Le graphe de $f$ est au dessus de ses tangentes"}
+    \begin{proof}
+    Soit $x,x_0 \in I$ \\$\bullet$ Si $x=x_0$ on a le résultat.\\ $\bullet$ Si $x>x_0$ alors $p(x,x_0) = f'(\theta )$ où 
+    $\theta \in ]x,x_0[$ donc $f'(\theta ) \geq f'(x_0)$ \\ $\bullet$ Si $x<x_0$ même raisonnement.
+    \end{proof} ${}$
+\section{Intégration sur un segment}
+    \textit{\underline{Cadre} : $f:I\rightarrow E$ avec $I$ intervalle réel non trivial et $E$ de dimension \textsc{finie}.}
+\subsection{Fonctions continues par morceaux}
+    \traitd
+    \paragraph{Subdivision}
+        Soit $a<b$ réels et $f:[a,b]\rightarrow E$ 
+        \\ On appelle \underline{subdivision de $[a,b]$} toute suite finie $(\alpha_0 , \dots , \alpha_n ) = \sigma$ telle que 
+        $a=\alpha_0 < \cdots <\alpha_n = b$\trait \vspace*{-1cm}
+    \paragraph{Continuité par morceaux}
+    ${}$\vspace{-0.7cm}\\\traitd
+    \subparagraph{Définition 1}
+        Soit $a<b$ réels et $f:[a,b]\rightarrow E$ 
+        \\ $f$ est dite \underline{continue par morceaux} si il existe une subdivision $\sigma = (\alpha_0 ,\dots ,\alpha_n)$ de $[a,b]$ 
+        telle que $\forall k\in \ent{0,n-1}$ la restriction $f|_{]\alpha_k , \alpha_{k+1}[} $ est prolongeable en une fonction continue sur le 
+        segment $[\alpha_k , \alpha_{k+1}]$ \trait \newpage \traitd
+    \subparagraph{Définition 2}
+        Soit $I$ i.r.n.t. et $f:I\rightarrow E$ \\
+        On dit que f est continue par morceaux ($\cpm$) si sa restriction à tout segment de $I$ est continue par morceaux \trait
+    \thm{ch3L10}{Lemme}{CpmKev}{$\cpm \big( [a,b],E\big)$ et $\cpm \big( I,E\big)$ sont des $K$ espaces vectoriels}
+    \vspace*{0.5cm} \\ \thm{ch3L11}{Lemme}{CpmCoord}{Soit $\varepsilon = (\varepsilon_1 , \dots , \varepsilon_p)$ une base de $E$. 
+    On note $f(x) = \sum_{k=1}^p f_k(x)\varepsilon_k$ \\\textsc{alors} 
+    $f$ est continue par moreceaux $\Leftrightarrow ~\forall k\in\ent{1,p} ,~f_k \in \cpm (I,K)$} \\ \traitd
+    \paragraph{Intégrale}
+        Soit $a<b$ réels et $f\in\cpm \big( [a,b],E \big)$ \\On fixe $\varepsilon = (\varepsilon_1 , \dots , \varepsilon_p)$ une base de $E$ et
+        on note $f(x) = \sum_{k=1}^p f_k(x) \varepsilon_k ~,~\forall x\in [a,b]$ On a alors 
+        \[ \int_a^b f ~=~ \sk{1}{p} \left( \int_a^b f_k \right) \varepsilon_k \] \vspace*{-0.7cm}\trait
+\subsection{Propriétés de l'intégrale}
+    ${}$\\ \thm{ch3th9}{Théorème}{IntLin}{$\mathcal{I} : \ard \cpm \big( [a,b],E \big) \rightarrow E \\ f\mapsto \int_a^b f \arf$ est linéaire}
+    \begin{proof} On se ramène au cas scalaire en écrivant $f(x) = \sum_{k=1}^p f_k(x) \varepsilon_k$ \end{proof}
+    ${}$ \\ \thm{ch3L12}{Lemme}{IntEgales}{Soit $a<b$ réels et $f,g \in \cpm \big([a,b],E\big)$ tels que \\ $\big\{ x\in [a,b] ~|~f(x) 
+    \neq g(x) \big\}$ est \underline{fini} \textsc{alors} $\int_a^b f = \int_a^b g$}
+    \paragraph{Notations}
+        Soit $I$ i.r.n.t. , $f\in\cpm(I,E)$ et $(a,b)\in I^2$ \\ $\bullet$ Si $a<b$ on a \highlight{$ \int_a^b f(t)\dd t \in E$} 
+        \vspace*{0.2cm} \\ $\bullet$ Si $a>b$ on pose \highlight{$\int_a^b f(t) \dd t = -\int_b^a f(t) \dd t$} \vspace*{0.2cm} \\ $\bullet$ Si 
+        $a=b$ on pose \highlight{$ \int_a^b f(t) \dd t = 0$}
+    \vspace*{0.5cm} \\ \thm{ch3th10}{Théorème : Relation de Chasles}{Chasles}{Soit $f\in\cpm (I,E) ~(a,b,c)\in I^3$ \textsc{alors} 
+     \\ \hspace*{0.5cm} $\int_a^b f(t) \dd t + \int_b^c f(t) \dd t = \int_a^c f(t) \dd t $}
+    \begin{proof} Connu sur les coordonées \end{proof}
+\subsection{Inégalités}
+    ${}$\\ \thm{ch3th12}{Théorème}{InegTriInt}{Soit $a\leq b ~,~ f\in\cpm \big( [a,b],E \big)$ avec $E$ un espace vectoriel normé de dimension 
+    finie  \\ Alors $ \norm{\int_a^b f(x) \dd x} ~\leq ~\int_a^b \big\| f(x) \big\| \dd x $ }
+    \begin{proof}
+    Vu $\norm{\sum_{k=0}^{n-1} \frac{b-a}{n} f(a+k\frac{b-a}{n})} ~\leq ~\sum_{k=0}^{n-1} \frac{b-a}{n} \norm{f(a+k\frac{b-a}{n})}$ ,  
+    d'après les résultats sur les sommes de \textsc{Riemann} comme les inegalités larges passent à la limite on a 
+    $\norm{\int_a^b f} \leq \int_a^b \norm{f}$
+    \end{proof}
+    ${}$ \\ \thm{ch3th13}{Théorème de positivité amélioré}{PosAmelio}{Soit $f:[a,b] \rightarrow \R$ telle que $f\in\cont^0 \big([a,b],E\big) 
+    ~,~~ f\geq 0$ sur $[a,b]$ et $a<b$ \\ Alors $ \int_a^b f(x) \dd x = 0 ~\Leftrightarrow ~\forall x\in [a,b] ,~f(x) = 0$}
+    \begin{proof}
+    \fbox{$\Rightarrow$} Clair par linéarité. \\ \fbox{$\Leftarrow$} Comme $f$ est $\cont^0$ on sait que $\int_{[a,b]} =0 \Leftrightarrow 
+    \int_{]a,b[} =0$ puis on suppose $\exists x_0 \in ]a,b[$ tel que $f(x_0) \neq 0$\\
+    Soit $\varepsilon = \frac{1}{2} f(x_0) >0$ on considère $\delta >0$ tel que $a\leq x_0 -\delta < x_0+\delta \leq b$ et\\ $\forall 
+    x\in [a,b],~\mc{x-x_0} < \delta \Rightarrow \mc{f(x)-f(x_0)} <\varepsilon$ du coup $\int_a^b f \geq \int_{x_0-\delta}^{x_0+\delta} f \leq 
+    2\delta\varepsilon >0$ donc $\int_a^b f >0$
+    \end{proof}
+    ${}$\\ \thm{ch3th13c}{Corollaire}{PosAmCor}{Sous les même hypothèse on a \\si $f$ n'est pas identiquement nulle sur $[a,b]$ Alors
+    $\int_a^b f(x) \dd x > 0$}
+\section{Théorème fondamental}
+    ${}$ \\ \thm{ch3th14}{Théorème fondamental de l'analyse}{ThFondAnalyse}{Soit $I$ i.r.n.t. , $a\in I$ et $f\in \cont^0 (I,E)$
+    On pose $\forall x \in I ~,~ F(x) = \int_a^b f(t) \dd t$ \\Alors
+    \highlight{$F\in \cont^1 (I,\R )$ et $\forall x\in I ,~ F'(x) = f(x)$}}
+    \begin{proof}
+    Soit $x_0 \in I$ et $x\in I\backslash \{x_0\}$ \\Posons $\Delta (x) = \frac{1}{x-x_0}\big( F(x) - F(x_0)\big)$ alors si $x_0<x$, 
+    $\norm{\Delta (x) - f(x_0)} \leq  \frac{1}{\mc{x-x_0}} \int_{x_0}^x \norm{f(t) - f(x_0)}$ \\ Soit $\varepsilon >0 $, soit $\delta >0$ tel 
+    que $\forall x\in I ,~\mc{x-x_0} <\delta \Rightarrow \norm{f(x)-f(x_0)} <\varepsilon$ alors \\$\norm{\Delta (x) - f(x_0)} \leq 
+    \frac{1}{x-x_0} \int_{x_0}^x \varepsilon \dd t = \varepsilon$ \\ On a de même pour $x_0 > x$\\
+    Ainsi $\forall \varepsilon > 0 ,~\exists \delta >0$ tel que $\forall x\in I \backslash \{x_0\} ,~\mc{x-x_0} <\delta \Rightarrow 
+    \norm{f(x) - f(x_0)} \leq \varepsilon$ \\c'est à dire $\delta (x) \underset{x\rightarrow x_0 ; x\neq x_0}{\longrightarrow} f(x_0)$ donc $F$ 
+    dérivable au point $x_0$ avec $F'(x_0) = f(x_0)$
+    \end{proof}
+    ${}$ \\ \thm{ch3th14c}{Corollaire}{IntPrim}{Soit $h\in \cont^1(I,E)$ et $(a,b)\in I^2$ Alors $ \int_a^b h'(x)\dd x 
+    ~=~[h]_a^b $ }
+    \\ {\small\underline{NB} : Si $f\in\cpm (I,E) ,~a\in I$ alors $F(x) = \int_a^x f(t) \dd t$ bien définie $\forall x\in I$ et 
+    $F\in\cont^0(I,E)$}
+    \vspace*{0.5cm} \\ \thm{ch3th15}{Théorème : Inégalité des accroissements finis}{InegAccroissFini}{Soit $f\in\cont^1 \big( [a,b],E \big) ~,~
+    a<b$ et $M\in\R^+$ On suppose $\forall x\in [a,b] ,~\norm{f'(x)} \leq M$ \\ Alors $\norm{f(b)-f(a)}\leq M\mc{b-a} $}
+    \begin{proof}
+    $f(b)-f(a) = \int_a^b f'(t) \dd t $ car $f$ est $\cont^1$ donc $\norm{f(b)-f(a)} \leq \int_a^b \norm{f'(t)}\dd t \leq M(b-a)$
+    \end{proof}
+    ${}$ \\ \thm{ch3th16}{Théorème}{IntAppLin}{Soit $a<b$ réels et $f\in\cpm \big( [a,b],E\big)$\\ Soit $u\in\lin (E,F)$ avec $E,F$ de 
+    dimension finie. Alors $\int_a^b u\circ f = u\left( \int_a^b f \right)$}
+    \begin{proof}
+    \underline{Cas $1$ : soit $f\in\cont^0 \big( [a,b] ,E \big)$} Posons $\forall[a,b]$\\ $G(x) = \int_a^x u\circ f ~,~ \Phi (x) = \int_a^x f$ 
+    et $\Delta (x) = G(x) - u(\Phi (x)) $ \\ $\Delta$ est dérivable et $\forall x\in [a,b] , ~\Delta'(x) = (u\circ f)(x) - u(\Phi'(x)) = 0$ 
+    donc $\Delta (x) = \mathrm{cte} = \Delta (a) =0$ \\ \underline{Cas $2$ : soit $f\in\cpm \big( [a,b] ,E \big)$} Soit $\sigma = (\alpha_0 , 
+    \dots ,\alpha_p)$ une subdivision adaptée \\$\forall i\in \ent{0,p-1}$, $f|_{]\alpha_i , \alpha_{i+1}[} = 
+    \varphi_i|_{]\alpha_i , \alpha_{i+1}[}$ où $\varphi_i \in \cont^0 \big( [\alpha_i , \alpha_{i+1} ],E\big) $\\ alors 
+    $u\left( \int_a^b f\right) = \sk{0}{p-1} u\left( \int_{\alpha_i}^{\alpha_{i+1}} \varphi_i \right) = \sk{0}{p-1} 
+    \int_{\alpha_i}^{\alpha_{i+1}} u\circ \varphi_i = \sk{0}{p-1} \int_{\alpha_i}^{\alpha_{i+1}} u\circ f =\int_a^b u\circ f$ d'où le résultat.
+    \end{proof}
+\section{Formules de \textsc{Taylor}}
+    ${}$ \\ \thm{ch3th17}{Théorème : Formule de \textsc{Taylor} avec reste intégral}{FormTaylorRestInt}{Soit $n\in\N ,~f\in \cont^{n+1} (I,E) $ 
+    et $(a,x) \in I^2$ avec $I$ i.r.n.t. et 
+    dim$E<\infty$ \\ $~~~~$ Alors $f(x) = \sk{0}{n} \frac{(x-a)^k}{k!} f^{(k)}(a) + \mathcal{R}_n(a,x) $ \\ 
+    où $\mathcal{R}_n (a,x) = \int_a^x \frac{(x-t)^{n+1}}{(n+1)!} f^{(n+1)} (t) \dd t$ }
+    \begin{proof}
+    On montre $T(n)$ le théorème au rang $n$ par récurrence : \\ $\bullet$ $T(0)$ : Soit $f\in\cont^1(I,E)$ alors $f(x) = f(a) + 
+    \int_a^x f'(t) \dd t$ \\ $\bullet$ Soit $n\in\N$ On suppose $T(n)$ et on considère $f\in\cont^{n+2} (I,E)$ \\d'après $T(n) ~:~f(x) = 
+    \sum_{k=0}^n \frac{(x-a)^k}{k!} f^{(k)}(a) + \mathcal{R}_n(a,x)$ \\ avec $R_n(a,x) = \left[ -\frac{(x-t)^{n+1}}{(n+1)!} f^{(n+1)} (t) 
+    \right]_a^x + \int_a^x \frac{(x-t)^{n+1}}{(n+1)!} f^{(n+2)} (t) \dd t = \frac{(x-a)^{n+1}}{(n+1)!} f^{(n+1)} (a)$ d'où $T(n+1)$
+    \end{proof}
+    ${}$ \\ \thm{ch3th17c}{Corollaire : Inégalité de \textsc{Taylor-Lagrange}}{InegTaylLagr}{Sous les mêmes hypothèses on a 
+    \\ $f(x)\leq\sk{0}{n} \frac{(x-a)^k}{k!} f^{(k)} (a) + \frac{|x-a|^{n+1}}{(n+1)!} \underset{x\in [x,a]}{\mathrm{sup}} \norm{f^{(n+1)}(x)}$}
+    \traitd
+    \paragraph{Négligeabilité}
+        Soit $f:I\rightarrow E ~;~\varphi : I\rightarrow \R ~;~a\in \overline{I}$ \\ On dit que \underline{$f(x) = \circ_{x\rightarrow a} 
+        \big( \varphi (x) \big)$} s'il existe $r>0$ et $\delta : V=I\cap ]a-r,a+R[ \backslash\{a\} \rightarrow \R$ tels que \[ \ard \bullet 
+        \forall x\in V ,~\|f(x)\| = \delta (x) \times \varphi (x) \\ \bullet \delta (x) \stox{a} 0 \arf \] \vspace*{-0.7cm}\trait
+    \thm{ch3th18}{Théorème d'intégration des DL}{IntegrDL}{Soit $f\in\cont^0(I,E) ~;~ x_0\in I ~;~I$ i.r.n.t. \\$E$ un 
+    EVN de dimension finie. On suppose que $f$ admet un DL en $x_0$ \\ $ ~~~~ f(x) = a_0 + (x-x_0)a_1 + \cdots + (x-x_0)^na_n + 
+    \circ_{x\rightarrow x_0} \left( (x-x_0)^n \right) $ \\Soit $g$ une primitive de $f$ sur $I$ . Alors 
+    \\ ${}$ \\ $ ~~~~ g(x) = g(x_0) + (x-x_0)a_0 + \frac{(x-x_0)^2}{2} a_1 + \cdots + \frac{(x-x_0^{n+1}}{n+1} a_n + 
+    \circ_{x\rightarrow x_0} \left( (x-x_0)^{n+1} \right) $ \\ ${}$ \\ où $a_0,a_1,\dots ,a_n \in E$}
+    \begin{proof}
+    On note $r(x) = f(x) - \sum_{k=0}^n (x-x_0)^k a_k ~~\left(\in\cont^0 (I,E) \right)$ \\ $g(x)-g(x_0) = \int_{x_0}^x f(t)\dd t = \sk{0}{n} 
+    \frac{(x-x_0)^{k+1}}{k+1} a_k + R(x)$ où $R(x) = \int_{x_0}^x r(t) \dd t$\\
+    Soit $\varepsilon >0$ ; soit $\delta >0$ tel que $\forall t\in I ,~|t-x_0| <\delta \Rightarrow \|r(t)\| \leq \varepsilon |t-x_0|^n$ \\
+    Soit $x\in I$, on suppose $|x-x_0| <\delta$ et $x\leq x_0$ alors $\|R(x)\| \leq \int_{x_0}^x \varepsilon (t-x_0)^n \dd t = \varepsilon 
+    \frac{(x-x_0)^{n+1}}{n+1} \leq \varepsilon (x-x_0)^{n+1}$ \\ Ainsi $\forall x\in I \backslash \{x_0\} ,~|x-x_0| <\delta \Rightarrow 
+    \frac{ \|R(x)\|}{|-x_0|^{n+1}} \leq \varepsilon$ donc $R(x) = \circ_{x\rightarrow x_0} \left( (x-x_0)^{n+1} \right)$ 
+    \end{proof}
+    ${}$\\ \thm{ch3th19}{Théorème : Développement limité de \textsc{Taylor-Young}}{DLTY+}{${}$ \\ Soit $f\in\cont^n (I,E) ~;~x_0\in I$ 
+    \textsc{alors} \\ \centering $ f(x) = \sk{0}{n} \frac{(x-x_0)^k}{k!} f^{(k)} (x_0) + \circ_{x\rightarrow x_0} \left( (x-x_0)^n \right) $ }
+    \begin{proof}
+    On démontre $T(n)$ le théorème au rang $n$ par récurrence : \\ $\bullet$ $T(0)$ : $\forall f\in \cont^0(I,E),~f(x) = f(x_0) + 
+    \circ_{x\rightarrow x_0} (1)$ \\ $\bullet$ : Soit $n\in\N$, on suppose $T(n)$ et on considère $f\in\cont^{n=1}(I,E)$ \\ on a $f'(x) = 
+    \sum_{k=0}^n \frac{(x-x_0)^k}{k!} (f')^{(k)} (x_0) + \circ_{x\rightarrow x_0} \left( (x-x_0)^n \right)$ \\On applique alors le théorème 
+    précédent à $f'$ qui est bien continue sur $I$ \\ $f(x) = f(x_0) + \sum_{k=0}^n \frac{(x-x_0)^{k+1}}{(k+1)!} f^{(k+1)} (x_0) + 
+    \circ_{x\rightarrow x_0} \left( (x-x_0)^{n+1} \right)$
+    \end{proof} ${}$ \\
+    \begin{center}
+    \fin
+    \end{center}

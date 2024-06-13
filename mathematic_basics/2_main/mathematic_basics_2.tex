@@ -3,16 +3,21 @@
 %                               PREAMBLE
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\documentclass[10pt,a4paper]{report}
-%\usepackage{gfsartemisia}
-\usepackage[utf8]{inputenc}
+\documentclass[10pt, a4paper, twoside]{report}
+\usepackage[top = 120pt, left = 100pt, right = 100pt, bottom = 100pt]{geometry}
+\usepackage{lxfonts}
+\usepackage[mathcal, mathbf]{euler}
 \usepackage[T1]{fontenc}
-\usepackage{lipsum}
-%\usepackage[english]{babel}
-
-\usepackage{pagecolor}
-\usepackage{xcolor}
+\usepackage[french]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[hidelinks]{hyperref}
 \usepackage[normalem]{ulem}
+\usepackage{fancyhdr}
+% \usepackage{minitoc}
+% \usepackage{shorttoc}
+
+\usepackage{xcolor}
+\usepackage{pagecolor}
 \usepackage{graphicx}
 \usepackage{tikz}
 \usepackage{epigraph}
@@ -29,31 +34,29 @@
 \usepackage{amssymb}
 \usepackage{yhmath}
 \usepackage{xfrac}
-\usepackage{blkarray}
 \usepackage{dsfont}
 \usepackage{mathrsfs}
 \usepackage{cancel}
 
-
-\renewcommand{\thefootnote}{\fnsymbol{footnote}}
-\setcounter{minitocdepth}{4}
-%\dominitoc
+% \renewcommand{\thefootnote}{\fnsymbol{footnote}}
 
 \pagestyle{fancy}
 \setlength{\headheight}{13.59999pt}
-\renewcommand{\footrulewidth}{0.5pt}
-\fancyfoot[C]{\thepage}
+\fancyhead[LE]{\thepage}
+\fancyhead[RE]{\small \leftmark}
+\fancyhead[LO]{\small \rightmark}
+\fancyhead[RO]{\thepage}
+
+\setcounter{tocdepth}{3}
+
+% \setcounter{minitocdepth}{3}
+% \renewcommand{\mtctitle}{Contenu}
+% \dominitoc
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                            Command Definitions
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\newcommand{\illustration}[2]{
-    \begin{center}
-        \includegraphics[width = 0.6\linewidth]{dessins/#1}
-        \captionof{figure}{#2}
-    \end{center}    }
 
 \newcommand{\dessin}[2]{
     \begin{center}
@@ -69,103 +72,151 @@
 \newtheorem{lem}[thm]{Lemme}
 \newtheorem{prop}[thm]{Proposition}
 \newtheorem*{cor}{Corollaire}
-\newcommand{\theorem}[3]{\begin{#1}\label{#3} #2 \end{#1}}
+\newcommand{\theorem}[3]{
+    \begin{#1}\label{#3} 
+        #2 \medskip 
+    \end{#1}
+    }
     %commande pour créer un théorème, le premier argument est le type et le second le contenu
         % ex : \theorem{lem}{contenu du lemme}
+        
 
 \newcommand{\namedtheorem}[3]{
-    \newtheorem{#3}[thm]{#1}
+    \theoremstyle{plain}
+    \newtheorem*{#3}{#1}
     \begin{#3}\label{#3}
         #2
+        \medskip
     \end{#3}
 }
 
 \theoremstyle{definition}
 \newtheorem{defn}{Definition}[section]
-\newcommand{\definition}[1]{\begin{defn} #1 \end{defn}}
+\newcommand{\definition}[1]{\begin{defn} #1 \medskip \end{defn}}
     %commande pour créer une définition, le contenu passe en argument
         % ex : \definition{contenu de la def}
 
 \theoremstyle{remark}
 \newtheorem*{nd}{Note}
-\newcommand{\remarque}[1]{\begin{nd} #1 \end{nd}}
+\newcommand{\remarque}[1]{\begin{nd} #1 \medskip \end{nd}}
     %commande pour créer une remarque, le contenu passe en argument
         % ex : \remarque{contenu de la remarque}
+\newtheorem*{rap}{Rappel}
+\newcommand{\rappel}[1]{\begin{rap} #1 \medskip \end{rap}}
+
+
+%%%     Maths misc      %%%
+
+\newcommand{\abs}[1]{\left\vert #1 \right\vert}
+
+\newcommand{\appli}[4]{
+    \left(
+    \begin{array}{ccccc} 
+        & #1 & \longrightarrow & #3 & \\ 
+        & #2 & \longmapsto & #4 &
+    \end{array}
+    \right)
+}
+
+\newcommand{\scal}[1]{\left< #1 \right>}
+
+\newcommand{\ent}[1]{{\llbracket #1 \rrbracket}}                    % Ensemble d'entiers
+\newcommand{\N}{{\mathbf{N}}}                                       % Entiers naturels
+\newcommand{\Z}{{\mathbf{Z}}}                                       % Entiers relatifs
+\newcommand{\R}{{\mathbf{R}}}                                       % Réels
+\newcommand{\C}{{\mathbf{C}}}                                       % Complexes
+\newcommand{\K}{{\mathbf{K}}}                                       % Corps K
+\newcommand{\Q}{{\mathbf{Q}}}                                       % Rationnels
+\newcommand{\KX}{{\mathbf{K}[X]}}                                   % Polynômes sur K
+\newcommand{\M}{{\mathcal{M}}}                                      % Matrices
+\newcommand{\GL}{{\mathcal{G}\hspace*{-0.05cm} \mathcal{L}}}        % Groupe Linéaire
+\newcommand{\cont}{{\mathcal{C}}}                                   % Fonctions continues   
+\newcommand{\cpm}{{\mathcal{C}_{pm}^0}}                             % Fonctions continues par morceaux
+\newcommand{\lin}{{\mathcal{L}}}                                    % Applications linéaires
+\newcommand{\Sym}{{\mathcal{S}}}                                    % Matrices symétrique
+\newcommand{\Orth}{{\mathcal{O}}}                                   % Matrices orthogonnales
+\newcommand{\bigo}{{\mathcal{O}}}
+\newcommand{\Part}{\mathcal{P}}                                     % Parties
+\newcommand{\A}{{\mathscr{A}}}                                      % Tribue
+
+\newcommand{\norm}[1]{\left\Vert #1 \right\Vert}
+
+\newcommand{\suminf}{\sum_{n=0}^\infty}
+
+%%%     Format      %%%
+
+\newcommand{\highlight}[1]{\colorbox{lightgray}{#1}}
+\newcommand{\fin}{
+    \begin{center}
+        { \Large $\star$ \hspace{0.7cm} $\star$ \hspace{0.7cm} $\star$ }
+    \end{center}
+}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                            Cover Page Details
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\usetikzlibrary{calc}
-\tikzset{3D/.cd,
-  x/.store in=\xx, x=0,
-  y/.store in=\yy, y=0,
-  z/.store in=\zz, z=0
-}
-
-\tikzdeclarecoordinatesystem{3D}{%
-  \tikzset{3D/.cd,#1}%
-  \pgfpoint{sin(\yy)*(\xx)}{-((\xx)/75)^2+(\zz)/100*(\xx)}%
-}
 \renewcommand\epigraphflush{flushright}
 \renewcommand\epigraphsize{\normalsize}
 \setlength\epigraphwidth{0.7\textwidth}
+
 \definecolor{titlepagecolor}{cmyk}{1,.60,0,.40}
+
 \DeclareFixedFont{\titlefont}{T1}{ppl}{b}{it}{0.5in}
+
 \makeatletter                       
 \def\printauthor{%                  
     {\large \@author}}              
 \makeatother
 \author{%
-    Redaction by \\  %%%% Your Name
-    Émile Sauvat \\    %%%% Department Name
-    \texttt{emile.sauvat@ens.psl.eu}\vspace{5pt} \\ %%% Your Email Address
-    }
+    Redaction by \\
+    Émile Sauvat \\
+    \texttt{emile.sauvat@ens.psl.eu}\vspace{20pt}}
+
+% The following code is borrowed from: https://tex.stackexchange.com/a/86310/10898
+
 \newcommand\titlepagedecoration{%
-\begin{tikzpicture}[line join=round, very thin]
-  \def\e{1260}
-  \foreach \x [evaluate={\i=mod(\x+90,360); \j=int((\i<180)*2-1); \t=3;
-    \sc=\x/\e; \n=int((\e-\x)/15+5); \X=\x/\e;}] in {10,25,...,\e} {
+\begin{tikzpicture}[remember picture,overlay,shorten >= -10pt]
 
-    \path [shift={(3D cs:x=\x-\t,y={3*sin(\x-\t)})}, yslant=cos(\x)/5]
-      (-\X/2, 0)   coordinate (A')  ( \X/2, 0)   coordinate (B')
-      ( \X/2,2*\X) coordinate (C')  (-\X/2,2*\X) coordinate (D');
+\coordinate (aux1) at ([yshift=-15pt]current page.north east);
+\coordinate (aux2) at ([yshift=-410pt]current page.north east);
+\coordinate (aux3) at ([xshift=-4.5cm]current page.north east);
+\coordinate (aux4) at ([yshift=-150pt]current page.north east);
 
-    \path [shift={(3D cs:x=\x,y=3*sin \x)}, yslant=cos(\x)/5]
-      (-\X/2, 0)   coordinate (A) ( \X/2, 0)   coordinate (B)
-      ( \X/2,2*\X) coordinate (C) (-\X/2,2*\X) coordinate (D);
-
-    \filldraw [black!90] (B) -- (B') -- (C') -- (C)  -- cycle;
-    \filldraw [black!80] (A) -- (A') -- (D') -- (D)  -- cycle;
-    \filldraw [black!70] (C) -- (D)  -- (D') -- (C') -- cycle;
-    \filldraw [black]    (A) -- (B)  -- (C)  -- (D)  -- cycle;
-
-    \node [text=white, shift={($(C)!0.5!(D)$)}, anchor=north,
-      yslant=cos(\x)/5, font=\sf, scale=\sc*1.5] at (0,-.33*\X) {\n};
-  }
-  %
-  \foreach \i [evaluate={\x=\i*30-10; \X=1; \n=int(5-\i); \xsl=\x/180}]
-    in {1,...,4} {
-
-    \path [shift={(3D cs:x=\x+\e,y=-3*\x/90)}, yslant=cos \e/5, xslant=\xsl]
-      (-\X/2, 0)           coordinate (A) ( \X/2, 0)           coordinate (B)
-      ( \X/2, \X*2-\x/360) coordinate (C) (-\X/2, \X*2-\x/360) coordinate (D);
-
-    \path [shift={(3D cs:x=\x+\e,y=-3*\x/90)}, shift={(5/50,5/50-\i*2/50)},
-      yslant=cos \e/5, xslant=\xsl]
-      (-\X/2, 0)           coordinate (A') ( \X/2, 0)           coordinate (B')
-      ( \X/2, \X*2-\x/330) coordinate (C') (-\X/2, \X*2-\x/330) coordinate (D');
-
-    \filldraw [black!70] (C) -- (D)  -- (D') -- (C') -- cycle;
-    \filldraw [black!70] (A) -- (B)  -- (B') -- (A') -- cycle;
-    \filldraw [black!90] (B) -- (B') -- (C') -- (C)  -- cycle;
-    \filldraw [black]    (A) -- (B)  -- (C)  -- (D)  -- cycle;
-
-    \node [text=white, shift={($(C)!0.5!(D)$)}, anchor=north, xslant=\xsl,
-      yslant=cos \e/5, font=\sf, scale=1.5] at (0,-.33*\X) {\n};
-  }
-\end{tikzpicture}
+\begin{scope}[titlepagecolor!40,line width=12pt,rounded corners=12pt]
+\draw
+  (aux1) -- coordinate (a)
+  ++(225:5) --
+  ++(-45:5.1) coordinate (b);
+\draw[shorten <= -10pt]
+  (aux3) --
+  (a) --
+  (aux1);
+\draw[opacity=0.6,titlepagecolor,shorten <= -10pt]
+  (b) --
+  ++(225:2.2) --
+  ++(-45:2.2);
+\end{scope}
+\draw[titlepagecolor,line width=8pt,rounded corners=8pt,shorten <= -10pt]
+  (aux4) --
+  ++(225:0.8) --
+  ++(-45:0.8);
+\begin{scope}[titlepagecolor!70,line width=6pt,rounded corners=8pt]
+\draw[shorten <= -10pt]
+  (aux2) --
+  ++(225:3) coordinate[pos=0.45] (c) --
+  ++(-45:3.1);
+\draw
+  (aux2) --
+  (c) --
+  ++(135:2.5) --
+  ++(45:2.5) --
+  ++(-45:2.5) coordinate[pos=0.3] (d);   
+\draw 
+  (d) -- +(45:1);
+\end{scope}
+\end{tikzpicture}%
 }
 
 
@@ -175,6 +226,7 @@
 
 \begin{document}
 \begin{titlepage}
+
 \noindent
 \titlefont Mathematic Course\par
 \epigraph{This document is a synthesis of the Mathematics course given by my teacher Jean-François \textsc{Mallordy} in MP* preparatory class in Blaise Pascal 
@@ -184,19 +236,22 @@ high school, Clermont-Ferrand in 2022-2023. It remains a complement to the Math 
 \vspace*{1cm}
 \noindent
 \hfill
-\begin{minipage}{0.42\linewidth}
+\begin{minipage}{0.45\linewidth}
     \begin{flushright}
         \printauthor
     \end{flushright}
 \end{minipage}
 %
 \begin{minipage}{0.02\linewidth}
-    \rule{1pt}{60pt}
+    \vspace{-20pt}
+    \rule{1pt}{55pt}
 \end{minipage}
 \titlepagedecoration
 \end{titlepage}
 
-\shorttoc{Summary}{0}
+\renewcommand{\contentsname}{Table des matières - Deuxième année}
+\tableofcontents
+
 %\listoffigures
 
 
@@ -261,12 +316,17 @@ high school, Clermont-Ferrand in 2022-2023. It remains a complement to the Math 
     \input{../2_chapters/ch2_14}
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%                         Table of Contents
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %                         Table of Contents
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\setcounter{tocdepth}{1}
+% %\setcounter{tocdepth}{1}
 
-\tableofcontents
+% \anothertoc{../1_main_fr/mathematic_basics_fr_1}{Table des Matières - Première année}{1}
+
+% %\renewcommand{\contentsname}{Table des Matières - Deuxième année}
+% %\tableofcontents
+
+% \anothertoc{mathematic_basics_fr_2}{Table des Matières - Deuxième année}{1}
 
 \end{document}

@@ -1,0 +1,56 @@
+
+% Chapitre 12 : Variables aléatoires réelles
+
+\minitoc
+	\section{Variable aléatoire discrète}
+		On considère ici $(\Omega,\A,P)$ un espace probabilisé.
+		\traitd
+		\paragraph{Définition}
+			On appelle \uline{variable aléatoire discrète} (VAD) sur $(\Omega,\A)$ toute application $X:\Omega \to E$, où $E$ est un ensemble quelconque, telle que\\
+			\hspace*{2.5cm} $\un$ $X(\Omega)$ soit au plus dénombrable\\
+			\hspace*{2.5cm} $\deux$ $\forall x\in X(\Omega) ,~ X^{-1}(\{x\}) \in \A$ 
+		\trait
+		\thm{ch12L1}{Lemme}{12L1}{Soit $X:\Omega \to E$ une VAD alors\\
+		\hspace*{0.5cm} $\forall U\subset X(\Omega) ,~ X^{-1}(U) \in \A$\\
+		et plus généralement, $\forall U\in E, ~ X^{-1}(U)\in\A$}\\
+		\subparagraph{Notations} En probabilités, \\
+			\hspace*{2.5cm} L'événement $X^{-1}(U)$ se note $(X\in U)$\\
+			et en particulier pour une variable aléatoire réelle, c'est-à-dire $E\subset \R$,\\
+			\hspace*{2.5cm} $(X=a)$ désigne $\{t\in \Omega ~\vert ~ X(t)=a \}$\\
+			\hspace*{2.5cm} $(X\geqslant a)$ désigne $\{t\in\Omega ~\vert ~ X(t) \geqslant a\}$
+		\vspace*{0.5cm} \\
+		\thm{ch12L2}{Lemme}{ProbaVAD}{Soit $X:\Omega\to E$ une VAD\\
+		\hspace*{0.5cm} Alors $P_X ~\appli{\Part(E)}{U}{[0,1]}{P(X\in U)}$\\
+		est une loi de probabilité sur $\big(E,\Part(E)\big)$ }
+		\vspace*{0.5cm} \\ 
+		\thm{ch12L2c}{Corollaire}{12L2c}{$P_X : U\to P(X\in U)$ est une loi de probabilité sur $X(\Omega)$ muni de sa tribu pleine $\Part\big(X(\Omega)\big)$\\
+		On l'appelle \uline{loi de probabilité de $X$} ou \uline{loi de $X$} $\heartsuit$\\
+		\hspace*{2cm} \highlight{$P_X(U) = P(X\in U)$} }
+		\\ \uline{Rq :} Cette loi est caractérisée par la distribution de probabilité $\big(P(X=x)\big)_{x\in X(\Omega)}$
+		\\
+		\subparagraph{Notation}
+			$X\sim Y$ signifie que les VAD $X$ et $Y$ suivent la même loi, i.e. $P_X = P_Y$
+		\vspace*{0.5cm} \\
+		\thm{ch12L3}{Lemme}{12L3}{Soit $V$ un ensemble APD et $(P_x)_{x\in V}$ une distribution de probabilités discrète sur $V$\\
+		Alors il existe un espace $(\Omega ,\A,P)$ et une VAD $X$ sur cet espace telle que\\
+		\hspace*{2cm} $\big( P(X=x)\big)_{x\in X(\Omega)} = \big( P_x\big)_{x\in V}$ }
+		\vspace*{0.5cm} \\
+		\thm{ch12L4}{Lemme}{FoncVAD}{Soit $X$ une VAD à valeur dans $E$ et $f:E\to E'$ une application quelconque\\
+		\hspace*{0.5cm} Alors $f\circ X$ est une VAD sur le même espace, on la note \highlight{$f(X)$} }
+		\vspace*{0.5cm} \\
+		\thm{ch12L5}{Lemme}{FoncVADEquiv}{Soient $X,Y$ deux VAD avec $X(\Omega) = Y(\Omega)$ et $f$ une application définie sur $X(\Omega)$\\
+		\hspace*{0.5cm} Alors $X\sim Y \Rightarrow f(X)\sim f(Y)$}
+		\vspace*{0.5cm}
+	
+	\section{Couple de variables aléatoires discrètes}
+		Soient $X$ et $Y$ des variables aléatoires discrète sur un espace $(\Omega,\A,P)$
+		\vspace*{0.5cm}\\
+		\thm{ch12L6}{Lemme}{VarCouple}{L'application $Z ~\appli{\Omega}{\omega}{E\times F}{\big( X(\omega),Y(\omega)\big)}$ }
+		\\ \traitd
+		\paragraph{Lois du couple}
+			Avec les mêmes notations\\
+			\hspace*{2.5cm} $\bullet$ La loi de $Z$ est appelée \uline{loi conjointe}\\
+			\hspace*{2.5cm} $\bullet$ Les lois de $X$ et $Y$ sont appelées \uline{loi marginales}
+		\trait
+		\thm{ch12L7}{Lemme}{12L6}{$\un$ $\forall x\in X(\Omega) ,~P(X=x) = \sum_{y\in Y(\Omega)}P(X=x,Y=y)$\\
+		$\deux$ $\forall y\in Y(\Omega) ,~P(Y=y) = \sum_{x\in X(\Omega)}P(X=x,Y=y)$ }

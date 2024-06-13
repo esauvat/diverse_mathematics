@@ -1,0 +1,136 @@
+
+% Chapitre 9 : Réduction des endomorphismes
+
+On considère ici $\K$ un corps (souvent sous-corps de $\C$
+\minitoc
+	\section{Rappels et compléments d'algèbre linéaire}
+	\subsection{$\K$-espace vectoriel et sous-espace vectoriel}
+		\traitd
+		\paragraph{$\K$-espace vectoriel}
+			Le triplet $(E,+,\cdot )$ est un $\K$-espace vectoriel ($\K$-ev) si \\
+			\hspace*{2cm} $\ard $ {\scriptsize (1)} $(E,+)$ est un groupe abélien$ \\
+			$ {\scriptsize (2)} $ \left\{\ard \square ~\cdot$ est une loi externe $ \\ \square ~\forall (\lambda ,\mu,x)\in \K\times\K\times E ,~\lambda .(\mu .y) = (\lambda\mu).y \\
+			\square ~ \forall x\in E , 1_\K .x = x \arf \right. \\
+			$ {\scriptsize (3)} Distributivité : $ \ard \forall (\lambda,\mu, x) \in \K\times\K\times E ,~(\lambda +\mu).x = \lambda.x+\mu.x \\ \forall (\lambda,x,y)\in\K\times E\times E ,~ \lambda.(x+y) = \lambda.x + \lambda.y \arf \arf$ \vspace*{0.2cm} \trait ${}$ \vspace*{-0.7cm} \traitd
+		\paragraph{Sous-espace vectoriel}
+			Voir cours de sup. On le note SEV \trait
+		\thm{ch9th1}{Théorème : CNS de SEV}{CNSSEV}{Soit $(E,+,\cdot)$ un $\K$-ev et $F\Leftarrow E$ une partie quelconque de $E$ \\
+		Alors $F$ est un SEV de $E ~\Leftrightarrow ~\ard $\un  $0_E\in F \\ $\deux  $F$ est stable par combinaison linéaire.$ \arf $ }
+		\begin{proof}
+		Voir cours de sup
+		\end{proof} \newpage \traitd
+		\paragraph{Sous-espace engendré}
+			$E$ un $\K$-espace vectoriel, $A\subset E$ une partie quelconque. On appelle \uline{sous-espace vectoriel engendré par $A$} le plus petit SEV de $E$ contenant $A$. On le note $\mathrm{Vect}(A)$ \trait
+		\thm{ch9L1}{Lemme}{SommeSEV}{$E$ un $\K$-ev, $E_1,\dots ,E_r$ des SEV de $E$ 
+		\\Alors \highlight{$E_1+\cdots +E_r = \mathrm{Vect}(E_1\cup \cdots \cup E_r)$}}\\		
+		\textsc{Attention !} La réunion de SEV n'est pas un SEV en général !! \\
+		\traitd
+		\paragraph{Somme directe $\heartsuit\heartsuit$}
+			$E$  un $\K$-espace vectoriel, $E_1, \dots ,E_r$ des SEV de $E$. On dit qu'ils sont en \uline{somme directe} si 
+			\[ \forall (x_1,\dots ,x_r) \in E_1 \times \cdots \times E_r ~, ~~  x_1 + \cdots + x_r = 0 ~\Rightarrow ~ x_1=0 ,\dots ,x_r=0 \]
+			Dans ce cas on note la somme $E_1 \oplus \cdots \oplus E_r $ 
+		\trait
+		\thm{ch9L2}{Lemme}{SD2SEV}{Soient $E_1,E_2$ des SEV de $E$ alors\\
+		\hspace*{0.5cm} $E_1$ et $E_2$ en somme directe $\Leftrightarrow$ $E_1\cap E_2 = \{0\}$ }
+		\\ \uline{\textsc{Attention} !} Réservé au cas de \textbf{$2$} sous-espaces.
+		\traitd 
+		\paragraph{Supplémentarité}
+			Deux SEV $E_1$ et $E_2$ de $E$ sont dits \uline{supplémentaires dans $E$} si $E=E_1\oplus E_2$ 
+		\trait
+		\thm{ch9L3}{Lemme}{BaseAdaptée}{On suppose $E=E_1\oplus \cdots \oplus E_r$ avec les $E_i$ des SEV de dimensions finies.\\
+		Alors toute famille obtenue par concaténation de bases des $E_i$ \\
+		\hspace*{0.5cm} est une base de $E$.\\
+		Une telle base est dite \uline{adaptée à la décomposition $E=E_1\oplus\cdots \oplus E_r$} }
+		\vspace*{0.5cm} \\
+		\thm{ch9L3c}{Corollaire}{DimSD}{Soit $E$ un  $\K$-ev quelconque \\
+		$E_1,\cdots ,E_r$ des SEV de dimensions finies, en somme directe.\\
+		\hspace*{0.5cm} Alors leur somme est de dimension finie avec \\
+		\hspace*{2cm} $\dim \big( \overset{r}{\underset{i=1}{\oplus}} E_i \big) ~=~ \overset{r}{\underset{i=1}{\sum}} \dim \big( E_i \big)$ }
+		\traitd
+		\paragraph{Coordonnées dans une somme directe}
+			Soit $E$ un $\K$-ev et $E_1,\dots , E_r$ des SEV quelconques de $E$ tels que $E=E_1\oplus\cdots \oplus E_r$\\
+			\hspace*{2.5cm} Alors $\forall x\in E, ~ \exists ! (x_1,\dots x_r) \in \prodi{1}{r} E_i$ tel que $x=x_1+\cdots +x_r$\\
+			Pour $i\in \ent{1,r}$ on pose $p_i ~\appli{E}{x}{E}{x_i} ~ \in \lin (E)$ 
+		\trait
+		\thm{ch9P1}{Propriétés}{9P1}{$\un ~ \forall i\in \ent{1,r} ,~ p_i \circ p_i = p_i$\\
+		$\deux ~ \forall i\neq j ,~ p_i \circ p_j = 0$\\
+		$\trois ~ \sum_{i=1}^r p_i = \mathrm{Id}_E$ } \\
+		\subparagraph{Notations}
+			$(p_i)_{1\leqslant i\leqslant r}$ est dite famille de projecteurs associée à la décomposition $E=\overset{r}{\underset{i=1}{\oplus}} E_i$ 
+		\vspace*{0.5cm} \\
+		\thm{ch9th2}{Théorème}{9th2}{Soit $E=\overset{r}{\underset{i=1}{\oplus}} E_i$ quelconque et $F$ des $\K$-espaces vectoriels	\\
+		$\forall i\in \ent{1,r} ,~ u_i\in \lin (E_i,F)$\\
+		\hspace*{0.5cm} Alors $\exists ! u\in \lin (E,F)$ telle que $\forall i\in\ent{1,r} ,~ u\vert_{E_i} = u_i$ }
+		\begin{proof}
+		\uline{Unicité} : On suppose $u$ solution et on considère $(p_i)$ la famille de projecteurs associée à la décomposition.\\
+		Alors $\forall x\in E,~ u(x)=\sum_{i=1}^r u(p_i(x))$ par linéarité ainsi $\forall x\in E, ~ u(x) = \sum_{i=1}^r u_i(p_i(x))$ d'où l'unicité.\\
+		\uline{Existence} : On vérifie que $v ~\appli{E}{x}{F}{\sum_{i=1}^r u_i(p_i(x))}$ convient
+		\end{proof}
+		
+	\subsection{Applications linéaires}
+		${}$ \\
+		\thm{ch9th3}{Théorème}{IsoInduit}{Soient $E,F$ des $\K$-espaces vectoriels et $u\in\lin (E,F)$\\
+		on note $E= E'\oplus \ker (u)$ alors $\tilde{u} ~ \appli{E'}{x}{\Img(u)}{u(x)}$ \\
+		\hspace*{0.5cm} est un \highlight{isomorphisme} d'espace vectoriel}
+		\begin{proof} ${}$\\
+		$\bullet$ $\tilde{u}$ est linéaire car $u$ l'est.\\
+		$\bullet ~ \ker (\tilde{u}) = \{0\}$ vu la somme directe.\\
+		$\bullet$ Soit $y\in \Img (u)$, soit alors $x\in E$ tel que $u(x)=y$, on pose $x=x'+h$ avec $x'\in E' ,~h\in \ker(u)$ alors $u(x)=u(x')+u(h)=u(x')$ d'où $y=\tilde{u}(x')$ et la surjectivité.
+		\end{proof}
+		${}$\\
+		\thm{ch9th4}{Théorème : Formule du rang}{FormRg}{Soit $u\in \lin (E,F)$ avec $\dim E<+\infty$\\
+		\hspace*{0.5cm} Alors \highlight{$\dim (\Img u) +\dim (\ker u) = \dim (E)$} \\
+		et $\dim (\Img u) < +\infty$}
+		\begin{proof}
+		$\ker u$ est un SEV de $E$, de dimension finie. Il admet donc au moins un supplémentaire dans $E$, fixons $E'$ un tel SEV.\\
+		Alors par le théorème précédant $E'\simeq \Img u$ or $\dim E' <+\infty$ et $\dim (E') + \dim (\ker u) = \dim (E)$ \\
+		d'où \textsc{cqfd} vu $\dim E' = \rg u$
+		\end{proof}
+		${}$ \\
+		\thm{ch9L4}{Lemme}{DimSomme}{Soit $E$ un $\K$-espace vectoriel quelconque\\
+		$E_1,\dots ,E_r$ des SEV de $E$ de dimensions finies alors\\
+		\hspace*{0.5cm} $\un$ $\dim \big( \sum_{i=1}^r E_i \big) \leqslant \sum_{i=1}^r \dim \big( E_i\big)$\\
+		\hspace*{0.5cm} $\deux$ Il y a égalité si et seulement si les $E_i$ sont en somme directe }
+		\\ \uline{Rappel :} Formule de \textsc{Grassmann}\\
+		Lorsque $r=2$, $\dim (E_1+E_2) = \dim(E_1) +\dim(E_2) - \dim(E_1\cap E_2)$
+	
+	\subsection{Interpolation de \textsc{Lagrange}}
+		Étant donnés des éléments $a_1,\dots ,a_n$ et $b_1, \dots , b_n$ d'un corps $\K$, on cherche à déterminer les polynômes $P$ sur $\K$ qui interpolent les $b_i$ en les $a_i$ (i.e. $P(a_1)=b_1, \dots , P(a_n)=b_n$).\\
+		\uline{Hypothèse} : On suppose les $a_i$ $2$ à $2$ distincts.\vspace*{0.5cm} \\
+		On raisonne d'abord sur $\K_n[X]$ et on pose $\Phi_n ~\appli{\K_n[X]}{P}{\K^{n+1}}{\big(P(a_1),\dots ,P(a_n)\big)}$. \\
+		\thm{ch9th5}{Théorème}{InterpUni}{\hspace*{0.5cm} $\Phi_n$ est un isomorphisme.}
+		\begin{proof}
+		C'est une application linéaire bien définie (à vérifier) entre deux espaces vectoriels de même dimensions.\\
+		De plus $\Phi_n$ est injective, en effet tout éléments du noyau est de degré au plus $n$ et admet au moins $n+1$ racines, on a ainsi $\ker(\Phi_n)\subset \{0\}$.\\
+		Avec l'égalité des dimensions, on a \textsc{cqfd}.
+		\end{proof}
+		Il existe ainsi une unique solution au problème sur $\K_n[K]$. On note $Q_n$ ce polynôme.
+		\vspace*{0.5cm} \\
+		Sur $\K[X]$ : Soit $P$ un polynôme à coefficient dans $\K$.\vspace*{0.2cm}\\
+		$P$ est une solution du problème $\Longleftrightarrow$ $\forall i\in \ent{1,n} ,~ (P-Q_n)(a_i) = 0$ \vspace*{0.2cm} \\
+		$\Longleftrightarrow$ $\forall i\in\ent{1,n} ,~ (X-a_i) \vert p-Q_n$ $\Longleftrightarrow$ $ \big( \prod_{i=1}^{n} (X-a_i) \big) {\Huge\vert} P-Q$ 
+		\footnotemark[1] \footnotetext[1]{Le sens direct est vrai car les $(X-a_i)$ sont premiers entre eux vu l'hypothèse de départ.} \vspace*{0.2cm} \\
+		$\Longleftrightarrow ~ \exists H\in\K[X]$ tel que $P=Q_n + H . \big(\prod_{i=1}^{n} (X-a_i)\big) $ \vspace*{0.2cm} \\
+		\subparagraph{Calcul de $Q_n$}
+		On pose $\forall k\in \ent{1,n} ,~ L_k = \underset{i\neq k}{\underset{1\leqslant i\leqslant n}{\prod}} \dfrac{(X-a_i}{a_k-a_i}$\\
+		On a $\deg L_k = n$ et $L_k(a_k) = \delta_{k,j}$ pour tout $k$ entre $1$ et $n$. \\
+		On peut alors constater que le polynôme $\sk{1}{n} b_kL_k$ est solution du problème : \\
+		$\forall i\in\ent{1,n} ,~ \Big(\skt{1}{n} b_k L_k \Big)(a_i) = \skt{1}{n} b_k \delta_{k,i} = b_i$ \vspace*{0.2cm} \\
+		\uline{NB :} Le polynôme $L_k$ est appelé \uline{polynôme interpolateur de \textsc{Lagrange}} à $b_k$ en $a_k$.
+		\vspace*{0.5cm} \\ \hspace*{0.5cm} BREF : On a $Q_n = \sk{1}{n} b_k.L_k$ est l'unique polynôme de degré au plus $n$ solution du problème.
+		
+	\subsection{Formes linéaires}
+		Soit $\K$ un corps quelconque et $E$ un espace vectoriel sur $\K$.
+		\traitd
+		\paragraph{Espace dual et formes linéaires}
+			On appelle \uline{espace dual de $E$} l'ensemble $E*=\lin (E,\K)$\\
+			Les éléments $\varphi\in E*$ sont dits \uline{formes linéaires sur $E$}
+		\trait
+		\thm{ch9L5}{Lemme}{DecompSelonFormLin}{Soit $\varphi \in E*$ et $a\in E$ tel que $\varphi(a) \neq 0$\\
+		\hspace*{0.5cm} Alors $E=\ker \varphi \oplus a.\K$ }
+		\traitd
+		\paragraph{Hyperplan}
+			On appel \uline{hyperplan de $E$} tout noyau d'une forme linéaire non nulle sur $E$\\
+			\hspace*{2.5cm} i.e. tout $\ker \varphi$ où $\varphi\in E*\setminus\{0\}$ \trait
+		\thm{ch9th6}{Théorème}{CarHyperplan}{Soit $H$ un SEV de $E$ alors\\
+		\hspace*{0.5cm} $H$ est un hyperplan de $E$ $\Leftrightarrow$ $\exists D$ une droite vectoriel telle que $E=H \oplus D$ }
