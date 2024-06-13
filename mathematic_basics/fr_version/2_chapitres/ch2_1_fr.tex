@@ -3,7 +3,7 @@
 
 \textit{\small On considèrera comme acquis en sup les cas réel et complexe : Notament:\\ -> Théorème des gendarmes \hfill -> Théorème de la limite monotone} \hfill ${}$
 
-\minitoc
+% \minitoc
 
 \section{Norme}
 
@@ -170,17 +170,15 @@
 			u_n \underset{n}{\rightarrow} v\in E \arf\right.$ \hspace*{0.2cm} Alors $\lambda_n u_n \underset{n}{\rightarrow} \mu v$
 		} 
 		
+		\newpage
+		
 		\traitd
 		\paragraph{Suite extraite}
 			Soit $u \in E^{\mathbf{N}}$ on appelle \emph{suite extraite} (ou sous-suite) de $u$ toute suite
 			$\left(u_{\varphi (n)}\right)_{n\in \mathbf{N}}$ où $\varphi : \mathbf{N} \rightarrow \mathbf{N}$ 
 			est une extractrice (injection croissante) \\ \textit{\small NB : en fait $\left(v_n\right)_{n\geq0} = 
 			\left(u_{\varphi (n)} \right)_{n\geq 0} ~\Leftrightarrow ~v= u\circ\varphi$} 
-		\trait
-
-		\newpage
-
-		\traitd
+		\traitdouble
 		\paragraph{Valeur d'adhérence}
 			$\ell\in E$ est une valeur d'adhérence de $u$ s'il existe une suite extraite de $u$ qui converge vers $\ell$.
 			On notera $\mathcal{V}_u$ l'ensemble des valeurs d'adhérence de $u$. 
@@ -282,18 +280,18 @@
 				\item $\forall n\geq n_0 ,~u_n = \delta_nv_n$
 				\item $\delta_n \underset{n\rightarrow +\infty}{\longrightarrow} 0$
 			\end{itemize}
-		\traitdouble
+		\trait
+		
+		\newpage 
+		
+		\traitd
 		\paragraph{Domination}
 			On dit que $u_n$ est dominée par $v_n$ quand $n\rightarrow +\infty$ noté $u_n \underset{n\rightarrow +\infty}{=} \bigcirc (v_n)$ s'il existe $n_0 \in \mathbf{N}$ et $\left(B_n\right)_{_{n\geq n_0}}$ tel que
 			\begin{itemize}
 				\item $\forall n\geq n_0 ,~u_n = B_nv_n$ 
 				\item $\left( B_n \right)_{_{n\geq n_0}}$ est bornée
 			\end{itemize}
-		\trait
-
-		\newpage
-
-		\traitd
+		\traitdouble
 		\paragraph{Équivalence}
 			On dit que $u_n$ est équivalent à $v_n$, noté $u_n \sim v_n$ 
 			si : 
@@ -424,7 +422,7 @@
 			-> $S$ est compris entre $U_n$ et $U_{n+1}$ 
 		}{CSSA} 
 
-		\medskip
+		\newpage
 
 	\subsection{Sommation des relations de comparaisons}
 			
@@ -448,7 +446,7 @@
 			{\small 1)} $u_n = \circ_{n\rightarrow +\infty} (v_n) ~\Rightarrow ~ U_n = \circ_{n\rightarrow +\infty} (V_n)$ \\ 
 			{\small 2)} $u_n = \bigcirc_{n\rightarrow +\infty} (v_n) ~\Rightarrow ~ U_n= \bigcirc_{n\rightarrow +\infty} (V_n)$ \\
 			{\small 3)} $u_n \underset{n\rightarrow +\infty}{\sim} v_n ~\Rightarrow ~ U_n \underset{n\rightarrow +\infty}{\sim} V_n$
-		}{SumCompDV}
+		}{SumCompDV} \medskip \\
 			
 		\namedtheorem{Théorème de \emph{Cesàro}}{
 			Soit $(u_n) \in\mathbf{R}^{\mathbf{N}}$\\
@@ -467,7 +465,7 @@
 			Soit $n_1\geq n_0$ tel que $\forall n\geq n_1 ,~\abs{\frac{C-A'n_0}{n+1}} <1$ alors $\forall n\geq n_1 ,~a_n > A$ d'où $a_n \to +\infty$
 		\end{proof} 
 
-		\medskip 
+		\newpage 
 
 \section{Produit de deux séries absolument convergentes}
 

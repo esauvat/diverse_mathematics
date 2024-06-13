@@ -2,470 +2,841 @@
 % Chapitre 2 : Limite et continuité
 
 \textit{Cadre : $(E,N)$ est un espace vectoriel normé quelconque et $A \subset E$}
-\minitoc
-	\section{Ouverts et fermés}
+
+% \minitoc
+
+\section{Ouverts et fermés}
+	
+	On considère ici $A\subset E$ et $\alpha\in E$ 
+	
 	\subsection{Intérieurs}
-		
-		Soit $A\subset E$ et $\alpha\in E$ 
 		
 		\traitd
 		\paragraph{Point intérieur}
-			${}$\\ -> $\alpha$ esst un dit un point intérieur à $A$ s'il existe un réel $r>0$ tel que $B(\alpha ,r) \subset A$
-		\trait  
+			${}$\\ -> $\alpha$ est un dit un point intérieur à $A$ s'il existe un réel $r>0$ tel que $B(\alpha ,r) \subset A$
+		\traitdouble
+		\paragraph{Intérieur}
+			${}$\\ -> On pose $\mathring{A} = \{x\in E ~\vert ~x$ est intérieur à $A\}$ dit \emph{intérieur} de $A$ 
+		\trait
+		
+		\theorem{lem}{
+			Soit $A \subset E$ alors $\mathring{A} \subset A$
+		}
+		
+		\namedtheorem{Lemme : Croissance de l'intérieur}{Soit $A,B\in E$ alors $A\subset b ~\Rightarrow ~\mathring{A} \subset \mathring{B}$
+		}{IntéCroiss}
+		
+
+		
+	\subsection{Ouverts}
 		
 		\traitd
-		\paragraph{Intérieur}
-			${}$\\ -> On pose $\mathring{A} = \{x\in E ~\vert ~x$ est intérieur à $A\}$ dit \underline{intérieur} de $A$ \trait
-		\thm{ch2L1}{Lemme}{IntéDansA}{Soit $A \subset E$ alors $\mathring{A} \subset A$}
-		\vspace*{0.5cm} \\ \thm{ch2L2}{Lemme : Croissance de l'intérieur}{IntéCroiss}{Soit $A,B\in E$ alors 
-		$A\subset b ~\Rightarrow ~\mathring{A} \subset \mathring{B}$}
-	\subsection{Ouverts}
-		\traitd
 		\paragraph{Définition}
-			Dans $(E,N)$ on appelle \underline{ouvert} (ou \underline{partie ouverte}) \textbf{toute} réunion de boules ouvertes. \trait
-		\thm{ch2th1}{Théorème : Caractérisation des ouverts}{CarOuverts}{Soit $U\subset E$ alors\\
-		{\tiny (1)}$\left( U ~ ouvert \right) ~\Leftrightarrow ~\left( \forall x\in U ,~\exists r>0 ~:~B(x,r) \subset U \right)${\tiny(2)}}
-		\begin{proof}
-		\fbox{$\Leftarrow$} Supposons {\tiny (2)} et pour chaque $x\in U$, on choisit $r_x$ tel que $B(x,r_x) \subset U$ \\alors 
+			Dans $(E,N)$ on appelle \emph{ouvert} (ou \emph{partie ouverte}) \textbf{toute} réunion de boules ouvertes.
+		\trait
+		
+		\namedtheorem{Théorème : Caractérisation des ouverts}{Soit $U\subset E$ alors\\
+		$\left( U ~ ouvert \right) ~\Leftrightarrow ~\left( \forall x\in U ,~\exists r>0 ~:~B(x,r) \subset U \right)$
+		}{CarOuverts}
+		
+		\begin{proof}~\\
+		\fbox{$\Leftarrow$} Pour chaque $x\in U$, on choisit $r_x$ tel que $B(x,r_x) \subset U$ alors 
 		$U = \bigcup\limits_{x\in U} B(x,r_x)$ donc par définition, $U$ est un ouvert. \\
-		\fbox{$\Rightarrow$} Supposons {\tiny (1)} et écrivons $U=\bigcup\limits_{i\in I} B(x_i,r_i)$ , soit $x\in U$ et $i_0 \in I$ 
+		\fbox{$\Rightarrow$} On note $U=\bigcup B(x_i,r_i)$ , soit $x\in U$ et $i_0 \in I$ 
 		tel que $x\in B(x_{i_0},r_{i_0})$ \\ Soit $r=r_{i_0} -d(x,x_{i_0}) >0$ alors $B(x,r) \subset B(x_{i_0},r_{i_0})$ \\
-		\hspace*{0.5cm} $\left\vert \ard  $ Soit $y\in B(x,r)$ c'est-à-dire $d(x,y)<r$ alors $\\
-		d(y,x_{i_0}) \leq d(y,x) + d(x,x_{i_0}) < r_{i_0} \arf \right.$ \\ Alors $\forall x\in U ,~\exists r>0 ~:~B(x,r) \subset U$
-		\end{proof}
-		${}$ \\ \thm{ch2th1c}{Corollaire}{IntéOuvert}{Soit $U\subset E$ alors 
-		$U ~ouvert ~\Leftrightarrow~U\subset \mathring{U} ~\Leftrightarrow ~U = \mathring{U}$}
-		\\ {\small \underline{NB} : $\mathcal{T} = \{U\subset E ~\vert ~U~est~ouvert \}$ est appelé \textsc{Topologie} de $(E,N)$}
-		\vspace*{0.5cm} \\ \thm{ch2th2}{Théorème}{RéuInterOuvert}{{\small 1)} Toute réunion d'ouvert est un ouvert. \\
-		\hspace*{1.95cm} {\small 2)} Toute intersection \textsc{finie} d'ouvert est un ouvert.}
+		\hspace*{0.5cm} $\left\vert \ard  $Soit $y\in B(x,r)$ c'est-à-dire $d(x,y)<r$ alors $\\
+		d(y,x_{i_0}) \leq d(y,x) + d(x,x_{i_0}) < r_{i_0} \arf \right.$ \\ Ainsi $\forall x\in U ,~\exists r>0 ~:~B(x,r) \subset U$
+		\end{proof} \medskip
+		
+		\theorem{cor}{
+			Soit $U\subset E$ alors $U ~ouvert ~\Leftrightarrow~U\subset \mathring{U} ~\Leftrightarrow ~U = \mathring{U}$
+		} 
+		
+		\remarque{$\mathcal{T} = \{U\subset E ~\vert ~U~est~ouvert \}$ est appelé \emph{Topologie} de $(E,N)$}
+		
+		\theorem{thm}{
+			{\small 1)} Toute réunion d'ouvert est un ouvert. \\
+			{\small 2)} Toute intersection \emph{finie} d'ouvert est un ouvert.
+			}
+			
 		\begin{proof}
-		{\small 2)} -> Cas de l'intersection vide  : $\bigcap\limits_{\emptyset} = E$ \\
+		On démontre la deuxième assertion\\
+		-> Cas de l'intersection vide  : $\bigcap_{\emptyset} = E$ \\
 		-> Cas de $2$ ouverts : Soit $A,B$ deux ouverts de $E$ , soit $x\in A\cap B$, on a $\exists r_1,r_2 >0$ tels que $B(x,r_1)\subset A$ et
 		$B(x,r_2) \subset B$ alors soit $r=\mathrm{min} (r_1,r_2)$, $B(x,r) \subset A\cap B$ 
-		et par théorème (\ref{CarOuverts}), $A\cap B$ est un ouvert \\ -> Cas de $p$ ouverts, $p\in \mathbb{N}^*$, clair par récurrence sur $p$ 
-		basée sur le cas $p=2$
-		\vspace*{0.3cm}\end{proof}
+		et par théorème (\ref{CarOuverts}), $A\cap B$ est un ouvert \\ -> Cas de $p$ ouverts, $p\in \mathbf{N}^*$ : par récurrence sur $p$ avec le cas $p=2$
+		\end{proof} \medskip 
+		
+		
 	\subsection{Fermés}
-	${}$ \vspace*{-1cm}\\ 
-		\paragraph{Lois de \underline{\textsc{Morgan}}}
+	
+		\medskip
+		
+		\paragraph{Lois de \emph{\emph{Morgan}} : }
 			$^c\Big(\bigcap\limits_{i\in I} A_i \Big) ~=~ {\bigcup\limits_{i\in I}} ^cA_i ~~$et
-			$~~ ^c\Big(\bigcup\limits_{i\in I} A_i \Big) ~=~ {\bigcap\limits_{i\in I}} ^cA_i$ \vspace*{0.2cm}\traitd
+			$~~ ^c\Big(\bigcup\limits_{i\in I} A_i \Big) ~=~ {\bigcap\limits_{i\in I}} ^cA_i$ 
+			
+		\traitd
 		\paragraph{Définition}
-			On appelle \underline{fermé} de $E$ tout complémentaire d'un ouvert dans $E$ \\
-			Ainsi \highlight{$A$ est fermé $\Leftrightarrow$ $^cA$ est ouvert} ${}$ avec $^cA = C_E A$ \trait
-		\thm{ch2th3}{Théorème}{InterReuFermé}{{\small 1)} Toute intersection de fermés est fermée. \\
-		\hspace*{1.95cm} {\small 2)} Toute réunion \textsc{finie} de fermés est fermée.}
+			On appelle \emph{fermé} tout complémentaire d'un ouvert de $E$ \\
+			Ainsi \highlight{$A$ est fermé $\Leftrightarrow$ $^cA$ est ouvert} ${}$ avec $^cA = C_E A$ 
+		\trait
+		
+		\theorem{thm}{
+			{\small 1)} Toute intersection de fermés est fermée. \\
+			{\small 2)} Toute réunion \emph{finie} de fermés est fermée.
+		}
+		
 		\begin{proof}
-		{\small 1)} Soit $\left( \Phi_i \right)_{_{i\in I}}$ une famille de fermés de $E$ on a ${^c\left(\bigcap\limits_{i\in I} \Phi_i \right)} = 
-		\bigcup\limits_{i\in I} {^c\Phi_i}$ est un ouvert \\ donc l'intersection des $\Phi_i$ est fermée.
-		\end{proof}
+		{\small 1)} Soit $\left( \Phi_i \right)_{i\in I}$ une famille de fermés de $E$ on a ${^c\left(\bigcap_I \Phi_i \right)} = 
+		\bigcup_{I} {^c\Phi_i}$ est un ouvert donc l'intersection des $\Phi_i$ est fermée.
+		\end{proof} \medskip
+	
 	\subsection{Adhérence}
-		\hspace*{0.3cm} Soit $A\subset E$, $\alpha\in E$ \traitd
-		\paragraph{Point adhérent} $\alpha$ est dit adhérent à $A$ si $\forall r>0 ,~B(\alpha ,r) \cap A \neq \emptyset$ \trait ${}$ 							\vspace*{-1.5cm} \\  \traitd
-		\paragraph{Adhérence} On pose $\overline{A} = \{ x\in E ~\vert ~x$ est adhérent à $A\}$ dit adhérence de $A$. \trait
-		\thm{ch2L4}{Lemme : Croissance de l'adhérence}{AdherCroiss}{Soit $A,B\in E$ alors 
-		$A\subset b ~\Rightarrow ~\overline{A} \subset \overline{B}$}
-		\vspace*{0.5cm} \\ \thm{ch2th4}{Théorème}{SuitAdher}{Soit $\alpha \in E$ alors 
-		{\tiny (1)} $\alpha \in \overline{A} ~\Leftrightarrow ~ \exists \suite{a} \in A^{\mathbb{N}} ~:~ a_n \ston \alpha$ {\tiny (2)}}
+	
+		\traitd
+		\paragraph{Point adhérent} $\alpha$ est dit adhérent à $A$ si $\forall r>0 ,~B(\alpha ,r) \cap A \neq \emptyset$ 
+		\traitdouble
+		\paragraph{Adhérence} On pose $\overline{A} = \{ x\in E ~\vert ~x$ est adhérent à $A\}$ dit adhérence de $A$. 
+		\trait
+		
+		\namedtheorem{Lemme : Croissance de l'adhérence}{
+			Soit $A,B\in E$ alors $A\subset b ~\Rightarrow ~\overline{A} \subset \overline{B}$
+		}{AdherCroiss} \medskip
+		
+		\theorem{thm}{
+			Soit $\alpha \in E$ alors $\alpha \in \overline{A} \Leftrightarrow \exists \suite{a} \in A^{\mathbf{N}} : a_n \underset{n}{\to} \alpha$
+		}
+		
+		\begin{proof} ~\\
+		\fbox{$\Leftarrow$} Soit $r>0$ et $n_0\in\mathbf{N}$ tels que $\forall n\geq n_0 ,~d(a_n,\alpha ) <r$ 
+		alors $B(\alpha , r) \cap A \neq \emptyset$ donc $\alpha \in \overline{A}$ \\ 
+		\fbox{$\Rightarrow$} Soit $n\in \mathbf{N} , ~\exists a_n \in B(\alpha, \frac{1}{n+1} ) \cap A$ d'où $\suite{a} \in A^{\mathbf{N}}$ 
+		vérifie $a_n \underset{n}{\to} \alpha$	
+		\end{proof} \medskip
+		
+		\namedtheorem{Théorème : Caractérisation des fermés}{
+			Soit $A\subset E$, $A$ est fermé si et seulement si $A$ est stable par passage à la limite.
+		}{CarFermés} 
+		
 		\begin{proof}
-		\fbox{$\Leftarrow$} Supposons {\tiny (2)} , soit alors $r>0$ et $n_0\in\mathbb{N}$ tel que \\$\forall n\geq n_0 ,~d(a_n,\alpha ) <r$ 
-		alors $B(\alpha , r) \cap A \neq \emptyset$ donc $\alpha \in \overline{A}$ \\ \fbox{$\Rightarrow$} Supposons {\tiny (1)} alors 
-		$\forall n\in \mathbb{N} , ~\exists a_n \in B(\alpha, \frac{1}{n+1} ) \cap A$ d'où $\suite{a} \in A^{\mathbb{N}}$ 
-		vérifie $a_n \ston \alpha$ d'où {\tiny (2)}		
-		\end{proof}
-		${}$ \\ \thm{ch2th5}{Théorème : Caractérisation des fermés}{CarFermés}{Soit $A\subset E$, $A$ est fermé si et seulement si 
-		$A$ est stable par passage à la limite.}
-		\begin{proof}
-		\fbox{$\Rightarrow$} Soit $B={^cA}$ et $\suite{a} \in A^{\mathbb{N}}$ telle que $a_n \ston \alpha\in E$ \\
-		Si $\alpha \in B$, $\exists r>0$ et $n_0\in\mathbb{N}$ tels que $\forall n\geq n_0 ,~a_n\in B(\alpha ,r)$ soit $a_{n_0} \in B(\alpha ,r)~
-		\Rightarrow ~a_{n_0}\notin A$ (\textsc{impossible !}) d'où $\alpha\in A$\\
+		\fbox{$\Rightarrow$} Soit $B={^cA}$ et $\suite{a} \in A^{\mathbf{N}}$ telle que $a_n \underset{n}{\to} \alpha\in E$ \\
+		Si $\alpha \in B$, $\exists r>0$ et $n_0\in\mathbf{N}$ tels que $\forall n\geq n_0 ,~a_n\in B(\alpha ,r)$ soit $a_{n_0} \in B(\alpha ,r)~
+		\Rightarrow ~a_{n_0}\notin A$ (\emph{impossible !}) d'où $\alpha\in A$\\
 		\fbox{$\Leftarrow$} Par contraposée, on suppose que $B={^cA} $ n'est pas un ouvert donc $\exists \alpha \in B ~:~ 
 		\forall r>0, 
 		 \exists x\in B(\alpha,r)$ tel que $x\notin B$ . On a alors $\alpha\in\overline{A}$ et $\alpha\in B$ soit $\alpha \notin A$
-		d'où $\exists~\suite{a} \in A^{\mathbb{N}}$ avec $a_n \ston \alpha$. On a donc trouvé une suite convergente d'éléments de $A$ 
+		d'où $\exists~\suite{a} \in A^{\mathbf{N}}$ avec $a_n \underset{n}{\to} \alpha$. On a donc trouvé une suite convergente d'éléments de $A$ 
 		dont la limite n'est pas dan $A$.
-		\end{proof}
-		${}$ \\ \thm{ch2th5c}{Corollaire}{FermeEgalAdher}{Soit $A\subset E$, on a : $A$ femré $\Leftrightarrow$ $\overline{A}\subset A$ 
-		$\Leftrightarrow$ $\overline{A} =A$}
-		\vspace*{0.5cm} \\ \thm{ch2L5}{Lemme (HP)}{ComplAdherInte}{Soit $A\subset E$ alors $~~{^c(\overline{A})} = \mathring{\wideparen{{^cA}}}~~$ 
-		et $~~{^c(\mathring{A}) } = \overline{^cA}$}
-		\vspace*{0.5cm} \\ \thm{ch2L6}{Lemme (HP)}{InteOuvert}{{\small 1)} $\mathring{A}$ est un ouvert \\ {\small 2)} 
-		$\mathring{A}$ est le plus grand ouvert de $E$ inclu dans $A$}
-		\vspace*{0.5cm} \\ \thm{ch2L7}{Lemme (HP)}{AdherOuvert}{{\small 1)} $\overline{A}$ est un fermé \\ {\small 2)} 
-		$\overline{A}$ est le plus petit fermé de $E$ contenant $A$}
-		\vspace*{0.5cm} \\ \thm{ch2th6}{Théorème}{TopoInvarNormEqui}{Les notions suivantes, (notions topologiques) :\\
-		$\begin{array}{ll}
-		$\hspace*{1.1cm} $\bullet$ point intérieur $ & $ \hspace*{1cm} $\bullet$ ouvert $ \\ $ \hspace*{1cm} $\bullet$ point adhérent $ 
-		& $ \hspace*{1cm} $\bullet$ fermé$ 
-		\end{array}$ \\ sont invariants par passage à une norme équivalente.}
+		\end{proof} \medskip
+		
+		\theorem{cor}{
+			Soit $A\subset E$, on a : $A$ femré $\Leftrightarrow$ $\overline{A}\subset A \Leftrightarrow$ $\overline{A} =A$
+		} \medskip
+		
+		\theorem{lem}{
+			Soit $A\subset E$ alors $~~{^c(\overline{A})} = \mathring{\wideparen{{^cA}}}~~$ et $~~{^c(\mathring{A}) } = \overline{^cA}$
+		} \medskip
+		
+		\theorem{lem}{
+			{\small 1)} $\mathring{A}$ est un ouvert \\ {\small 2)} $\mathring{A}$ est le plus grand ouvert de $E$ inclu dans $A$
+		} \medskip
+		
+		\theorem{lem}{
+			{\small 1)} $\overline{A}$ est un fermé \\ 
+			{\small 2)} $\overline{A}$ est le plus petit fermé de $E$ contenant $A$
+		} \medskip
+		
+		\theorem{thm}{
+				Les notions suivantes, (notions topologiques) :\\
+			$\begin{array}{ll}
+			$\hspace*{1.1cm} $\bullet$ point intérieur $ & $ \hspace*{1cm} $\bullet$ ouvert $ \\ 
+			$ \hspace*{1cm} $\bullet$ point adhérent $ & $ \hspace*{1cm} $\bullet$ fermé$ 
+			\end{array}$ \\ 
+			sont invariants par passage à une norme équivalente.
+		}
+		
 		\begin{proof}
 		On sait que la convergence d'une suite est invariante par norme équivalente (\ref{PropriSuiteNormEqui}) donc on a l'invariance des notions 
 		"point adhérent" et "adhérence" ainsi que "point intérieur" par le complémentaire de l'adhérence (\ref{ComplAdherInte}) puis par 
 		caractérisation séquentielle des fermés on a l'invariance de la notion "fermé" ainsi que "ouvert" par le complémentaire.
 		\end{proof}
-		${}$ \\ \thm{ch2L8}{Lemme}{BoulefFerme}{{\small 1)} Toute boule fermée est fermée \\ {\small 2)} Toute sphère est fermée} \traitd
+		
+		\theorem{lem}{
+			{\small 1)} Toute boule fermée est fermée \\ 
+			{\small 2)} Toute sphère est fermée
+		} 
+		
+		\traitd
 		\paragraph{Frontière}
-			Soit $A\subset E$ on définie sa \underline{frontière} comme \fbox{$F_r(A)= \overline{A} \backslash \mathring{A}$} \trait
-		\thm{ch2L9}{Lemme (HP)}{CaractFront}{$\forall A\subset E$ , $F_r(A)$ est fermée et 
-		\fbox{$F_r(A) = \overline{A} \cap \overline{{^cA}}$}} \newpage\traitd
+			Soit $A\subset E$ on définie sa \emph{frontière} comme \fbox{$F_r(A)= \overline{A} \backslash \mathring{A}$} 
+		\trait
+		
+		\theorem{lem}{
+			$\forall A\subset E$ , $F_r(A)$ est fermée et \fbox{$F_r(A) = \overline{A} \cap \overline{{^cA}}$}
+		} 
+		
+		\traitd
 		\paragraph{Densité}
-			Soit $D\subset A\subset E$ on dit que $D$ est \underline{dense} dans $A$ si tout élément de $A$ est limite d'une suite d'éléments 
-			de $D$ soit \[\forall a\in A ,~\exists ~\suite{d} \in D^{\mathbb{N}} ~:~d_n\ston a\] \trait
-		\thm{ch2L10}{Lemme}{DensitInte}{Soit $D\subset A$ alors on a : $D$ dense dans A $\Leftrightarrow$ 
-		$A\subset \overline{D}$}
-		\paragraph{Exemple} Soit $n\in\mathbb{N}^*$ alors $GL_n(K)$ dense dans $\mathcal{M}_n (K)$
-			\begin{proof} Soit $M \in \mathcal{M}_n (K)$ et $r=\mathrm{rg}(M) \in \ent{1,n}$ par \underline{théorème} (cours de sup) \\
-			$\exists U,V \in GL_n(K) ~:~M=UJ_rV$ posons alors pour $p\in\mathbb{N}^*$ $J_r\bigl(\frac{1}{p}\bigr) = 
-			\mathrm{Diag}\bigl(\underbrace{1,\dots ,1}_r,\frac{1}{p} ,\dots ,\frac{1}{p}\bigr)$ \\ puis $M_p = UJ_r\bigl(\frac{1}{p}\bigr) V$ alors 
-			$M_p \in GL_n(K) ~\forall p\in\mathbb{N}^*$ et $M_p \underset{p\rightarrow +\infty}{\longrightarrow} M$ \end{proof}
-	\section{Limites}
+			Soit $D\subset A\subset E$ on dit que $D$ est \emph{dense} dans $A$ si tout élément de $A$ est limite d'une suite d'éléments de $D$ soit 
+			\[
+				\forall a\in A ,~\exists ~\suite{d} \in D^{\mathbf{N}} ~:~d_n\underset{n}{\to} a
+			\vspace{-20pt}
+			\] 
+		\trait
+		
+		\theorem{lem}{
+			Soit $D\subset A$ alors on a : $D$ dense dans A $\Leftrightarrow A\subset \overline{D}$
+		}
+		
+		\paragraph{Exemple} 
+			Soit $n\in\mathbf{N}^*$ alors $GL_n(K)$ dense dans $\mathcal{M}_n (K)$
+			\begin{proof} Soit $M \in \mathcal{M}_n (K)$ et $r=\mathrm{rg}(M) \in \ent{1,n}$ \\
+			Par théorème\footnote[1]{Voir cours de sup} $\exists U,V \in GL_n(K) :M=UJ_rV$ posons alors pour $p\in\mathbf{N}^*$ $J_r\big(\frac{1}{p}\bigr) = 
+			\mathrm{Diag}\bigl(\underbrace{1,\dots ,1}_r,\frac{1}{p} ,\dots ,\frac{1}{p}\bigr)$ puis $M_p = UJ_r\bigl(\frac{1}{p}\bigr) V$ alors $M_p \in GL_n(K) ~\forall p\in\mathbf{N}^*$ \\
+			et $M_p \underset{p\rightarrow +\infty}{\longrightarrow} M$
+			\end{proof} \medskip
+		
+		
+\section{Limites}
+
 	\subsection{Cas général}
-		\textit{Dans toute cette partie, $F$ est un $K$ espace vectoriel et $f:A(\subset E) \rightarrow F$} \traitd
+		
+		\textit{Dans toute cette partie, $F$ est un $K$ espace vectoriel et $f:A(\subset E) \rightarrow F$} 
+		
+		\traitd
 		\paragraph{Définition}
 			Soit $\alpha \in \overline{A} ,~ b\in F$. On dit que $f$ admet $b$ comme limite au point $\alpha$, noté $f(x)\stox{\alpha} b$ si\\
-			$\forall \varepsilon >0 ,~\exists \delta >0$ tel que $\forall x\in A , ~ d(x,\alpha )<\delta \Rightarrow d(f(x) , b)<\varepsilon$\trait
-		\thm{ch2L11}{Lemme}{CompoLimit}{Soit $A(\subset E) \overset{f}{\rightarrow} B(\subset F) \overset{g}{\rightarrow} G$ et 
-		$\alpha \in \overline{A} ~,~\beta\in \overline{B} ~,~ c\in G$ \\ Si on a $f(x)\stox{\alpha} \beta $ et $g(y) 
-		\underset{y\rightarrow \beta}{\longrightarrow} c$ \textsc{alors} $g(f(x)) \stox{\alpha} c$}
-		\vspace*{0.5cm} \\ \thm{ch2L12}{Lemme}{}{Soit $\alpha\in \overline{A} ,~b\in F ,~ \suite{a} \in A^{\N}$ avec 
-		$\left\{ \ard f(x)\stox{\alpha} b \\ a_n \ston \alpha \arf \right.$\\ \textsc{alors} $f(a_n) \ston b$}
-		\vspace*{0.5cm} \\ \thm{ch2th7}{Théorème : Caractérisation séquentielle d'un limite}{CarSeqLimit}{Soit $\alpha\in \overline{A} ,~b\in F$ \\
-		Alors $\left( f(x) \stox{\alpha} b \right) ~\Leftrightarrow ~\left( \forall \suite{a} \in A^{\N} ,~(a_n \ston \alpha) \Rightarrow 
-		(f(a_n) \ston b)\right)$}
+			$\forall \varepsilon >0 ,~\exists \delta >0$ tel que $\forall x\in A , ~ d(x,\alpha )<\delta \Rightarrow d(f(x) , b)<\varepsilon$
+		\trait
+		
+		\theorem{lem}{
+			Soit $A(\subset E) \overset{f}{\rightarrow} B(\subset F) \overset{g}{\rightarrow} G$ et $\alpha \in \overline{A} ~,~\beta\in \overline{B} ~,~ c\in G$ \\ 
+			Si on a $f(x)\stox{\alpha} \beta $ et $g(y) \underset{y\rightarrow \beta}{\longrightarrow} c$ \emph{alors} $g(f(x)) \stox{\alpha} c$
+		} \medskip
+		
+		\theorem{lem}{
+			Soit $\alpha\in \overline{A} ,~b\in F ,~ \suite{a} \in A^{\N}$ avec 
+			$\left\{ \ard 
+				f(x)\stox{\alpha} b \\ 
+				a_n \underset{n}{\to} \alpha 
+			\arf \right.$ \\ 
+			\emph{alors} $f(a_n) \underset{n}{\to} b$
+		} \medskip
+		
+		\namedtheorem{Théorème : Caractérisation séquentielle d'un limite}{
+			Soit $\alpha\in \overline{A} ,~b\in F$ \\
+			Alors $\left( f(x) \stox{\alpha} b \right) ~\Leftrightarrow ~\left( \forall \suite{a} \in A^{\N} ,~(a_n \underset{n}{\to} \alpha) \Rightarrow (f(a_n) \underset{n}{\to} b)\right)$
+		}{CarSeqLimit} 
+		
 		\begin{proof}
 		\fbox{$\Rightarrow$} Lemme \\ \fbox{$\Leftarrow$} Par contraposée on fixe $\varepsilon_0 >0$ tel que $\forall n\in\N ,~\exists a_n$ tel que 
 		$\left\{\ard d(a_n,\alpha )<\frac{1}{n+1} \\ d(f(a_n) , b) \geq \varepsilon_0 \arf \right.$\\ D'où $\suite{a} \in A^{\N}$ telle que 
-		$a_n \ston \alpha$ \textbf{et} $f(a_n) \underset{n}{\nrightarrow} b$
+		$a_n \underset{n}{\to} \alpha$ \textbf{et} $f(a_n) \underset{n}{\nrightarrow} b$
  		\end{proof}
- 		${}$ \\ \thm{ch2L13}{Lemme : Unicité de la limite}{UnicLimit}{Soit $\alpha \in\overline{A} ~,~ b_1\in F ~, ~b_2\in F$ \\
- 		Si $f(x)\stox{\alpha} b_1$ et $f(x) \stox{\alpha} b_2$ \textsc{alors} $b_1 = b_2$ }
- 		\vspace*{0.5cm} \\ \thm{ch2L14}{Lemme}{LimiNormEqui}{Soit $\alpha \in\overline{A}$ et $b\in F$ \\
- 		On suppose que $f(x)\stox{\alpha} b$ alors ceci reste vrai si \\
- 		\hspace*{1.5cm} $\bullet$ On remplace $\| \dot\|_E$ par une une norme équivalente \\
- 		\hspace*{1.5cm} $\bullet$ On remplace $\| \dot\|_F$ par une une norme équivalente}
+ 		
+ 		\namedtheorem{Lemme : Unicité de la limite}{
+ 			Soit $\alpha \in\overline{A} ~,~ b_1\in F ~, ~b_2\in F$ \\
+ 			Si $f(x)\stox{\alpha} b_1$ et $f(x) \stox{\alpha} b_2$ \emph{alors} $b_1 = b_2$ 
+ 		}{UnicLimit}
+ 		
+ 		\theorem{lem}{
+ 			Soit $\alpha \in\overline{A}$ et $b\in F$ \\
+ 			On suppose que $f(x)\stox{\alpha} b$ alors ceci reste vrai si \\
+ 			\hspace*{1.5cm} $\bullet$ On remplace $\| \dot\|_E$ par une une norme équivalente \\
+ 			\hspace*{1.5cm} $\bullet$ On remplace $\| \dot\|_F$ par une une norme équivalente
+ 		}
+ 		
  		\paragraph{Limite en $\pm \infty$}
  			On dit que $f(x) \underset{\| x\|\rightarrow +\infty}{\longrightarrow} b$ si $\forall \varepsilon >0 ,~\exists M\in\R $ tel que 
  			$\| x\| > M \Rightarrow d(f(x) , b) <\varepsilon $
+ 			
  		\paragraph{Limite infinie} 
  			Ici $f:A(\subset E ) \rightarrow \R$ et $\alpha\in\overline{A}$\\
  			On dit que $f(x) \stox{\alpha} +\infty $ si $\forall M\in\R ,~\exists \delta >0$ tel que 
- 			$\forall x\in A ,~d(x,\alpha )<\delta \Rightarrow f(x) >M$ \traitd
+ 			$\forall x\in A ,~d(x,\alpha )<\delta \Rightarrow f(x) >M$
+ 		
+ 		\traitd
  		\paragraph{Voisinage}
  			Soit $(E,N)$ un espace vectoriel normé quelconque et $\alpha\in E$ \\
- 			Soit $V\subset E$ alors $V$ est un \underline{voisinage de $\alpha$} si $\exists r>0$ tel que $B(\alpha ,r) \subset V$ \\
- 			On peut noter $\mathcal{V}_{\alpha} = \{V\subset E ~|~V$ est $v(\alpha )\} $ \trait \vspace*{-1.15cm} \\ 
- 			{\small \underline{NB} : $V\in \mathcal{V}_{\alpha} ~\Leftrightarrow~ \alpha \in \mathring{V}$ }
- 		\vspace*{0.5cm} \\ \thm{ch2L15}{Lemme}{BornLocalLimit}{On suppose que $f(x) \stox{\alpha } b\in F$ \\ Alors $f$ est 
- 		\underline{bornée localement} au voisinage de $\alpha$ {\small (noté $v(a)$)}}
+ 			Soit $V\subset E$ alors $V$ est un \emph{voisinage de $\alpha$} si $\exists r>0$ tel que $B(\alpha ,r) \subset V$ \\
+ 			On peut noter $\mathcal{V}_{\alpha} = \{V\subset E ~|~V$ est $v(\alpha )\} $ 
+ 		\trait 
+ 		
+ 		\remarque{$V\in \mathcal{V}_{\alpha} ~\Leftrightarrow~ \alpha \in \mathring{V}$ }
+ 		
+ 		\theorem{lem}{
+ 			On suppose que $f(x) \stox{\alpha } b\in F$ \\ 
+ 			Alors $f$ est \emph{bornée localement} au voisinage de $\alpha$ {\small (noté $v(a)$)}
+ 		} \medskip
+ 		
  		
  	\subsection{Produit fini d'espaces vectoriels normés}
+ 		
+ 		\vspace{-10pt}
  		\traitd
  		\paragraph{Norme produit}
- 			Soient $(E_1,N_1), \dots , (E_r,N_R)$ des $K$ espaces vectoriels normés. \\ On note $W = \prod\limits_{i=1}^r E_i = 
- 			E_1 \times\cdots\times E_r$ et $x = (x_1 ,\dots , x_r) \in W$ 
- 			\\On pose $\forall x\in W ,~N(x) = \underset{1\leq i \leq r}{\mathrm{max} } \{N_i (x_i) \}$ alors $\left\{ \ard N$ est dite 
- 			\underline{norme produit} $ \\ (E,N)$ est dit \underline{EVN produit} $ \arf \right.$ \trait
- 		\thm{ch2L16}{Lemme}{ProdFinOuvertOuvert}{$\begin{array}{ll}
- 		$Soient $& U_1$ ouvert de $(E_1,N_1) \\ & \vdots \\ & U_r$ ouvert de $(E_r,N_r)
- 		\end{array} $ \\ alors $U_1 \times \cdots \times U_r $ est un ouvert de $W$ \\
- 		\textit{Un produit fini d'ouvert est un ouvert} }
- 		\vspace*{0.5cm} \\ \thm{ch2L17}{Lemme}{ProdFiniFermeFerme}{\textit{Un produit fini de fermé est un fermé}}
- 		\vspace*{0.5cm} \\ \thm{ch2L18}{Lemme}{LimitSuitEVNProd}{Soit $u=\suite{u} \in W^{\N} ,~b\in W$ où $W = \prod_{i=1}^r E_i$ \\
- 		On note $u_n = (u_{1,n} ,\dots , u_{r,n} )$ et $b = (b_1 , \dots , b_r)$ \\ \textsc{alors} $u_n \ston b ~\Leftrightarrow ~
- 		\forall i \in \ent{1,r} ,~u_{i,n} \ston b_i$ }
- 		\vspace*{0.5cm} \\ \thm{ch2L19}{Lemme}{LimitEVNProd}{Soit $f:A(\subset E) \rightarrow W = \prod_{i=1}^r E_i ~,~\alpha\in\overline{A}$ et 
- 		$b = (b_1 , \dots , b_r) \in W$ \\ On note $\forall x\in A ~,~ f(x) = \left( f_1(x) , \dots , f_r(x) \right)$ \\ \textsc{alors}
- 		$\left( f(x) \stox{\alpha} b \right) ~\Leftrightarrow ~\left( \forall i\in \ent{1,r} ,~f_i (x) \stox{\alpha} b_i \right)$}
- 		\newpage
- 		${}$ \\ \thm{ch2L20}{Lemme}{CompoLimit}{$\ard f_1 : A\rightarrow F \\ f_2 : A\rightarrow F \arf  ~,~\alpha\in\overline{A} ~,~
- 		\lambda \in K $ et $b_1,b_2 \in F$ \\ On suppose que $\left\{\ard f_1 (x) \stox{\alpha} b_1 \\ f_2(x) \stox{\alpha} b_2 \arf\right.$ 
- 		\textsc{alors} $(\lambda f_1 + f_2)(x) \stox{\alpha} (\lambda b_1 + b_2)$}
- 		\vspace*{0.5cm} \\ \thm{ch2L21}{Lemme}{LimitCoord}{Soit $f:A(\subset E) \rightarrow F$ avec 
- 		$\varepsilon = (\varepsilon_1 ,\dots ,\varepsilon_p)$ une 
- 		\underline{base} de $F$ \\ On écrit $f(x) = \sum_{i=1}^p f_i(x) \varepsilon_i$ et $b=\sum_{i=1}^p b_i \varepsilon_i$ \\ 
- 		\textsc{alors} $f(x) \stox{\alpha} b ~\Leftrightarrow~\forall i\in \ent{1,p} ,~ f_i(x) \stox{\alpha} b_i$}
- 	\section{Continuité}
+ 			Soient $(E_1,N_1), \dots , (E_r,N_R)$ des $K$ espaces vectoriels normés. \\ 
+ 			On note $W = \prod\limits_{i=1}^r E_i = E_1 \times\cdots\times E_r$ et $x = (x_1 ,\dots , x_r) \in W$ \\
+ 			On pose $\forall x\in W ,~N(x) = \underset{1\leq i \leq r}{\mathrm{max} } \{N_i (x_i) \}$ alors 
+ 			$\left\{ \ard 
+ 				N$ est dite \emph{norme produit} $ \\ 
+ 				(E,N)$ est dit \emph{EVN produit} $
+ 			\arf \right.$ 
+ 		\trait
+ 		
+ 		\theorem{lem}{
+ 			$\begin{array}{ll}
+ 				$Soient $& U_1$ ouvert de $(E_1,N_1) \\ 
+ 				& \vdots \\ & U_r$ ouvert de $(E_r,N_r)
+ 			\end{array} $ \\ 
+ 			alors $U_1 \times \cdots \times U_r $ est un ouvert de $W$ \\
+ 			\textit{Un produit fini d'ouvert est un ouvert} 
+ 		} \medskip
+ 		
+ 		\theorem{lem}{
+ 			\textit{Un produit fini de fermé est un fermé}
+ 		} \medskip
+ 		
+ 		\theorem{lem}{
+ 			Soit $u=\suite{u} \in W^{\N} ,~b\in W$ où $W = \prod_{i=1}^r E_i$ \\
+ 			On note $u_n = (u_{1,n} ,\dots , u_{r,n} )$ et $b = (b_1 , \dots , b_r)$ \\ 
+ 			\emph{alors} $u_n \underset{n}{\to} b ~\Leftrightarrow ~ \forall i \in \ent{1,r} ,~u_{i,n} \underset{n}{\to} b_i$ 
+ 		} \medskip
+ 		
+ 		\theorem{lem}{
+ 			Soit $f:A(\subset E) \rightarrow W = \prod_{i=1}^r E_i ~,~\alpha\in\overline{A}$ et $b = (b_1 , \dots , b_r) \in W$ \\ 
+ 			On note $\forall x\in A ~,~ f(x) = \left( f_1(x) , \dots , f_r(x) \right)$ \\ 
+ 			\emph{alors} $\left( f(x) \stox{\alpha} b \right) ~\Leftrightarrow ~\left( \forall i\in \ent{1,r} ,~f_i (x) \stox{\alpha} b_i \right)$
+ 		} \medskip
+ 		
+ 		\theorem{lem}{
+ 			$\ard 
+ 				f_1 : A\rightarrow F \\ 
+ 				f_2 : A\rightarrow F 
+ 			\arf  
+ 			~,~\alpha\in\overline{A}, \lambda \in K $ et $b_1,b_2 \in F$ \\ 
+ 			On suppose que 
+ 			$\left\{\ard 
+ 				f_1 (x) \stox{\alpha} b_1 \\ 
+ 				f_2(x) \stox{\alpha} b_2 
+ 			\arf\right.$ 
+ 			\emph{alors} $(\lambda f_1 + f_2)(x) \stox{\alpha} (\lambda b_1 + b_2)$
+ 		} \medskip
+ 		
+ 		\theorem{lem}{
+ 			Soit $f:A(\subset E) \rightarrow F$ avec $\varepsilon = (\varepsilon_1 ,\dots ,\varepsilon_p)$ une \emph{base} de $F$ \\ 
+ 			On écrit $f(x) = \sum_{i=1}^p f_i(x) \varepsilon_i$ et $b=\sum_{i=1}^p b_i \varepsilon_i$ \\ 
+ 			\emph{alors} $f(x) \stox{\alpha} b ~\Leftrightarrow~\forall i\in \ent{1,p} ,~ f_i(x) \stox{\alpha} b_i$
+ 		} \medskip
+ 		
+ 		
+ \section{Continuité}
+ 
 	\subsection{Cas général}
+	
 		\traitd
 		\paragraph{Continuité en un point}
 			Soit $f : A(\subset E) \rightarrow F$ et $a\in A$ alors\\
 			$f$ est dite $\cont^0$ en $a$ si $\forall \varepsilon >0 ~,~\exists \delta >0 ~:~ \forall x\in A ~,~d(a,x)<\delta	~
-			\Rightarrow ~d(f(x),f(a))<\varepsilon$ \trait
-		\thm{ch2L22}{Lemme}{2-22}{$f ~\cont^0$ en $a ~\Leftrightarrow ~ f(x) \stox{a} f(a)$}
-		\vspace*{0.5cm} \\ \thm{ch2L23}{Lemme}{2-23}{$f ~ \cont^0 $ en $a ~\Leftrightarrow $ ($f$ admet une limite finie ai point en $a$)}
-		\vspace*{0.5cm} \\ \thm{ch2th8}{Théorème : Caractérisation séquentielle de la continuité}{CarSeqCont}{${}$\\$f : A(\subset E) 
-		\rightarrow F$ et $a\in A$ \textsc{alors} \\($f$ continue au point $a$) $\Leftrightarrow $ $\left(\forall\suite{a} \in A^{\N} ,~a_n 
-		\ston a ~\Rightarrow~f(a_n \ston f(a) \right)$}
+			\Rightarrow ~d(f(x),f(a))<\varepsilon$ 
+		\trait
+		
+		\theorem{lem}{
+			$f \cont^0$ en $a \Leftrightarrow f(x) \stox{a} f(a)$
+		} \medskip
+		
+		\theorem{lem}{
+			$f ~ \cont^0 $ en $a ~\Leftrightarrow $ ($f$ admet une limite finie ai point en $a$)
+		} \medskip
+		
+		\namedtheorem{Théorème : Caractérisation séquentielle de la continuité}{
+			Soit $f : A(\subset E) \rightarrow F$ et $a\in A$ \emph{alors} \\
+			$f$ est continue au point $a$ si et seulement si $\left(\forall\suite{a} \in A^{\N} ,~a_n 
+		\underset{n}{\to} a ~\Rightarrow~f(a_n \underset{n}{\to} f(a) \right)$
+		}{CarSeqCont}
+		
 		\begin{proof}
-		Caractérisation séquentielle d'une limite (\ref{CarSeqLimit}) et premier Lemme (\ref{2-23}).
-		\end{proof} \traitd
+		Caractérisation séquentielle d'une limite et Lemme 2.3.1.
+		\end{proof} \medskip
+		
+		\traitd
 		\paragraph{Continuité}
-			$f$ est dite continue si $\forall a\in A$, $f$ est continue au point $a$.\trait ${}$ \vspace*{-1.5cm} \\  \traitd
+			$f$ est dite continue si $\forall a\in A$, $f$ est continue au point $a$.
+		\traitdouble
 		\paragraph{Fonction lipschitzienne}
-			Soit $f:A(\subset E) \rightarrow F$ et $k\in \R^+$\\
-			\hspace*{0.5cm} $\bullet $ $f$ est dite \underline{$k$-lipschitzienne} si $\forall (x,y) \in A^2 ,~d(f(x),f(y)) \leq k.d(x,y)$ \\
-			\hspace*{0.5cm} $\bullet $ $f$ est dite \underline{lipschitzienne} s'il existe $k\in\R^+$ tel que $f$ est $k$-lipschitzienne. \trait
-		\thm{ch2L24}{Lemme}{LipImplCont}{$f$ est lipschitzienne $\Rightarrow$ $f$ est continue} \\
-		{\small \textsc{Attention !} La réciproque est fausse ! }
-		\vspace*{0.5cm} \\ \thm{ch2L25}{Lemme}{CompLip}{$A(\subset E) \overset{f_1}{\rightarrow} B(\subset F) \overset{f_2}{\rightarrow} G$ 
-		On suppose $f_1 ~k_1$-lipschitzienne \\ et $f_2 ~k_2$-lipschitzienne \textsc{alors} $f_2 \circ f_1$ est $k_1 \times k_2$-lipschitzienne}
-		\newpage \traitd
+			Soit $f:A(\subset E) \rightarrow F$ et $k\in \R^+$
+			\begin{itemize}
+				\item $\bullet $ $f$ est dite \emph{$k$-lipschitzienne} si $\forall (x,y) \in A^2 ,~d(f(x),f(y)) \leq k.d(x,y)$
+				\item $\bullet $ $f$ est dite \emph{lipschitzienne} s'il existe $k\in\R^+$ tel que $f$ est $k$-lipschitzienne.
+			\end{itemize}
+		\trait
+		
+		\theorem{lem}{
+			$f$ est lipschitzienne $\Rightarrow$ $f$ est continue
+		} \\
+		{\small \emph{Attention !} La réciproque est fausse ! }
+		
+		\theorem{lem}{
+			$A(\subset E) \overset{f_1}{\rightarrow} B(\subset F) \overset{f_2}{\rightarrow} G$. \\
+			On suppose $f_1 ~k_1$-lipschitzienne et $f_2 ~k_2$-lipschitzienne \emph{alors} $f_2 \circ f_1$ est $k_1 \times k_2$-lipschitzienne
+		}
+		
+		\traitd
 		\paragraph{Distance à un ensemble}
-			Soit $A\subset E ~,~a\neq\emptyset$ et $x\in E$ \[d(x,A) = \mathrm{inf}\{d(x,\alpha ) ~|~\alpha \in A \}\] \trait
-		\thm{ch2th9}{Théorème}{BornInfR}{Toute partie de $\R$ non vide et minorée admet une borne inférieure}
-		\vspace*{0.5cm} \\ \thm{ch2th10}{Théorème}{DistEns1Lip}{Soit $A\subset E ~,~A\neq\emptyset$ Alors
-		$\delta : \ard E\rightarrow \R \\ x\mapsto d(x,A) \arf$ est $1$-lipschitzienne}
+			Soit $A\subset E ~,~a\neq\emptyset$ et $x\in E$ 
+			\[
+				d(x,A) = \mathrm{inf}\{d(x,\alpha ) ~|~\alpha \in A \}
+			\vspace{-20pt}
+			\] 
+		\trait
+		
+		\theorem{thm}{
+			Toute partie de $\R$ non vide et minorée admet une borne inférieure
+		} \medskip
+		
+		\theorem{thm}{
+			Soit $A\subset E ~,~A\neq\emptyset$ alors $\delta : 
+			\ard 
+				E\rightarrow \R \\ 
+				x\mapsto d(x,A) 
+			\arf$ est $1$-lipschitzienne
+		}
+		
 		\begin{proof}
-		Soit $(x,y)\in E^2$ Soit $\alpha\in A$ , $d(x,\alpha ) \leq d(x,y) + d(y,\alpha )$
-		ainsi $\forall \alpha\in A , \\ \underbrace{d(x,A)-d(x,y)}_{\mu} \leq d(y,\alpha )$ donc $\mu$ est un minorant de 
-		$\{d(y,\alpha ) ~|~\alpha \in A\}$ donc $\mu\leq d(y,A)$ \\ d'où $\underbrace{d(x,A) - d(y,A)}_{\theta } \leq d(x,y)$ et on a de même pour 
-		le couple $(y,x)$ , $-\theta \leq d(y,x) = d(x,y)$\\ En bref : $|d(x,A) - d(y,A) | \leq d(x,y)$
-		\end{proof}
-		${}$ \\ \thm{ch2L26}{Lemme}{CompoCont}{La composée de deux applications continues est continue}
-		\vspace*{0.5cm} \\ \thm{ch2L27}{Lemme}{RestriCont}{Pour $f:A(\subset E) \rightarrow F$ et $B\subset F$ on note $f|_B$ la restriction 
-		$\ard B\rightarrow F \\ x\mapsto f(x) \arf$ \\ Alors $f$ continue $\Rightarrow ~ f|_B$ continue}
-		\vspace*{0.5cm} \\ \thm{ch2L28}{Lemme}{CombLinCont}{$\bullet$ Une combinaison linéaire d'applications continues est continue \\ 
-		$\bullet$ Soit $a\subset E$ et $\left\{\ard f : A\rightarrow F ~\cont^0 \\ \lambda : A\rightarrow K ~\cont^0 \arf \right.$ 
-		Alors $\ard A\rightarrow F \\ x\mapsto \lambda (x) f(x) \arf$ est $\cont^0$}
-		\vspace*{0.5cm} \\ \thm{ch2L29}{Lemme}{DensRestri}{Soit $f,g \in \cont^0 (A,F) ~,~ E,F$ des espaces vectoriels normés \\ 
-		Soit $D\subset A$ dense dans $A$ et $f|_D = g|_D$ \textsc{alors} $f=g$} 
+		Soit $(x,y)\in E^2$ Soit $\alpha\in A$ , $d(x,\alpha ) \leq d(x,y) + d(y,\alpha )$ ainsi $\forall \alpha\in A , \underbrace{d(x,A)-d(x,y)}_{\mu} \leq d(y,\alpha )$ donc $\mu$ est un minorant de $\{d(y,\alpha ) ~|~\alpha \in A\}$ donc $\mu\leq d(y,A)$ d'où $\underbrace{d(x,A) - d(y,A)}_{\theta } \leq d(x,y)$ et on a de même pour le couple $(y,x)$ , $-\theta \leq d(y,x) = d(x,y)$\\ 
+		En bref : $|d(x,A) - d(y,A) | \leq d(x,y)$
+		\end{proof} \medskip
+		
+		\theorem{lem}{
+			La composée de deux applications continues est continue
+		} \medskip
+		
+		\theorem{lem}{
+			Pour $f:A(\subset E) \rightarrow F$ et $B\subset F$ on note $f|_B$ la restriction 
+			$\ard 
+				B\rightarrow F \\ 
+				x\mapsto f(x) 
+			\arf$ \\ 
+			Alors $f$ continue $\Rightarrow ~ f|_B$ continue
+		} \medskip
+		
+		\theorem{lem}{
+			$\bullet$ Une combinaison linéaire d'applications continues est continue \\ 
+			$\bullet$ Soit $a\subset E$ et 
+			$\left\{\ard 
+				f : A\rightarrow F ~\cont^0 \\ 
+				\lambda : A\rightarrow K ~\cont^0 
+			\arf \right.$ 
+			Alors 
+			$\ard 
+				A\rightarrow F \\ 
+				x\mapsto \lambda (x) f(x) 
+			\arf$ est $\cont^0$
+		} \medskip
+		
+		\theorem{lem}{
+			Soit $f,g \in \cont^0 (A,F) ~,~ E,F$ des espaces vectoriels normés \\ 
+			Soit $D\subset A$ dense dans $A$ et $f|_D = g|_D$ \emph{alors} $f=g$
+		} \medskip
+		
+		 
 	\subsection{Cas des applications linéaires}
-		${}$ \\ \thm{ch2th11}{Théorème}{ApLinContLip}{Soit $u\in \lin (E,F)$ \textsc{alors} \\
-		$u\in\cont^0(E,F) ~\Leftrightarrow~ \exists C\in\R^+ :~\forall x\in E ,~\|u(x) \| \leq C\| x\| ~\Leftrightarrow~u$ est lipschitzienne}
+		
+		\theorem{thm}{
+			Soit $u\in \lin (E,F)$ \emph{alors} $u\in\cont^0(E,F) \Leftrightarrow \exists C\in\R^+ :~\forall x\in E, \\ \|u(x) \| \leq C\| x\| \Leftrightarrow u$ est lipschitzienne.
+		}
+		
 		\begin{proof}
-		({\tiny (1)} $\Rightarrow$ {\tiny (2)}) Si $u\in \cont^0 (E,F)$ alors $u$ est $\cont^0$ en $0$ et avec $\varepsilon = 1$, soit $\delta >0$
-		tel que $\forall x\in E , ~\| x \| < \delta ~\Rightarrow ~\| u(x) \| < 1$ \\
-		Soit $x\in E\backslash \{0\}$ on pose $x' = \frac{\delta}{2}\frac{x}{\| x \|}$ on a alors $\| u(x' ) \| <1$ et ainsi 
-		$\| u(x) \| \leq \frac{2}{\delta} \| x \|$ \\ 
-		\hspace*{2.6cm}({\tiny (2)} $\Rightarrow$ {\tiny (3)}) On suppose $\forall x\in E , ~\| u(x) \| \leq C\| x \| $ puis soit $(x,y) \in E^2$ 
+		{\small (1)} $\Rightarrow$ {\small (2)} : Si $u\in \cont^0 (E,F)$ alors $u$ est $\cont^0$ en $0$ et avec $\varepsilon = 1$, soit $\delta >0$ tel que $\forall x\in E , ~\| x \| < \delta ~\Rightarrow ~\| u(x) \| < 1$. Soit alors $x\in E\backslash \{0\}$, on pose $x' = \frac{\delta}{2}\frac{x}{\| x \|}$ donc $\| u(x' ) \| <1$ et ainsi 
+		$\| u(x) \| \leq \frac{2}{\delta} \| x \|$ \medskip \\ 
+		{\small (2)} $\Rightarrow$ {\small (3)} : On suppose $\forall x\in E , ~\| u(x) \| \leq C\| x \| $ puis soit $(x,y) \in E^2$ 
 		\\ on a $\| u(x-y) \| \leq C \| x-y \|$ donc $u$ est $C$-lipschitzienne
-		\end{proof}
+		\end{proof} \medskip
+		
 		\subparagraph{Notation}
-			On note $\lin_c (E,F) = \{u\in \lin (E,F) ~|~u$ est continue $\}$ \newpage \traitd 
-		\paragraph{Norme subordonnée} ${}$ \\
-		\hspace*{1.5cm} \begin{minipage}{12.71cm} ${}$ \vspace*{0.15cm}\\ \hspace*{0.21cm} \begin{blockarray}{|l} 
-		$\bullet$ Soit $(E,N)$ et $(F,N' )$ des 
-		$K$ espaces vectoriels normés et $u\in \lin_c (E,F)$ \\ on pose $\vertiii{u} = \mathrm{sup} \{N' (u(x)) ~|~x\in E$ et $N(x) \leq 1 \} = 
-		\underset{N(x)\leq 1}{\mathrm{sup}} N' (u(x))$\\
-		$\bullet$ $\lin_c (E,F)$ est un $K$ espace vectoriel et $\vertiii{.}$ est une norme sur $\lin_c (E,F)$. \\ On l'appelle 
-		\underline{nome subordonnée} à $N$ et $N'$ ou encore \underline{norme d'opérateur} notée $\| . \|_{\mathrm{op}}$ \end{blockarray} \end{minipage} 
-		\vspace*{-0.1cm} \trait 
-		\vspace*{-1.4cm} \begin{proof} ${}$\\
-		{\tiny (1)} $\bullet$ si $u=0$ alors $\vertiii{u} = 0$ \\ \hspace*{0.33cm} $\bullet$ si $\vertiii{u} = 0 ,~\forall x\in B_f(0,1) ,
-		~u(x) = 0$ Soit $x\in E\backslash \{0\}$ en posant $x' = \frac{x}{\norm{x}}$  on a $\frac{1}{\norm{x}}u(x) = 0$ 
-		\\ \hspace*{0.33cm} donc $u(x)=0$ \\
-		{\tiny (2)} $\forall u\in \lin_c (E,F) ,~\forall k\in K$ on a $\vertiii{\lambda u} = \mc{\lambda }\vertiii{u}$ \\
-		{\tiny (3)} Soit $(u,v) \in \lin_c (E,F)$ on pose $w=u+v$ , soit $x\in B_f(0,1)$ on a  $\norm{w(x)} \leq 
-		\norm{u(x)} + \norm{v(x)} \leq \vertiii{u} + \vertiii{v}$ \\ \hspace*{0.33cm} et ainsi $\vertiii{u} + \vertiii{v}$ est un majorant de  
-		$X=\{\norm{w(x)} ~|~x\in B_f(0,1) \}$ or $\vertiii{w}$ est le plus petit majorant \\ \hspace*{0.33cm} de $X$ donc $\vertiii{w} 
-		\leq \vertiii{u}+\vertiii{v}$
-		\end{proof}
-		${}$ \\ \thm{ch2L30}{Lemme}{EgalsNormOp}{$(E,N)~,~(F,N')$ des espaces vectoriels normés et $E \neq \{0\}$\\ 
-		Soit $u\in\lin_c(E,F)$ Alors $\vertiii{u} = \underset{\norm{x}\leq 1}{\mathrm{sup}} \norm{u(x)} = 
-		\underset{\norm{x}=1}{\mathrm{sup}} \norm{u(x)} = \underset{x\in E\backslash \{0\}}{\mathrm{sup}} \frac{\norm{u(x)}}{\norm{x}}$}
-		\\{\small \underline{NB} : Soit $u\in\lin_c (E,F)$ Si $E\neq\{0\} ,~\vertiii{u}$ est le plus petit $k\in\R^+$ tel que $\forall x\in E ,~
-		\norm{u(x)} \leq k\norm{x}$ \\(vrai même si $E = \{ 0 \}$)  ainsi \underline{$\vertiii{u}$ est la plus petite constante de 
-		\textsc{Lipschitz} de $u$} \\ On a donc $\forall u \in \lin_c (E,F) ,~\forall x\in E ,$ \fbox{$\norm{u(x)} \leq \vertiii{u}\norm{x}$}}
-		\vspace*{0.5cm} \\ \thm{ch2th13}{Théorème}{InegTriNormOp}{$(E,N),~(F,N'),~(G,n'')$ des espaces vectoriels normés quelconques \\ avec 
-		$E \overset{u}{\rightarrow} F \overset{v}{\rightarrow} G$ et $u\in\lin_c(E,F) ,~v\in\lin_c(F,G)$ \\ Alors $v\circ u \in\lin_c(E,G)$ 
-		et $\vertiii{v\circ u} \leq \vertiii{u} . \vertiii{v}$}
+			On note $\lin_c (E,F) = \{u\in \lin (E,F) ~|~u$ est continue $\}$ 
+		
+		\traitd 
+		\paragraph{Norme subordonnée} ~ \vspace{5pt} \\
+			\hspace*{15pt} {\vrule width 1pt} \kern2pt
+			\begin{minipage}{0.9\textwidth}
+				$\bullet$ Soit $(E,N)$ et $(F,N' )$ des $K$ espaces vectoriels normés et $u\in \lin_c (E,F)$ on pose $\normop{u} = \mathrm{sup} \{N' (u(x)) ~|~x\in E$ et $N(x) \leq 1 \} = \underset{N(x)\leq 1}{\mathrm{sup}} N' (u(x))$\\
+				$\bullet$ $\lin_c (E,F)$ est un $K$ espace vectoriel et $\normop{.}$ est une norme sur $\lin_c (E,F)$. \\ 
+				On l'appelle \emph{nome subordonnée} à $N$ et $N'$ ou encore \emph{norme d'opérateur} notée $\| . \|_{\mathrm{op}}$ 
+			\end{minipage} 
+		\trait 
+		
+		\begin{proof} ~
+		\begin{itemize}
+			\item Si $u=0$ alors $\normop{u} = 0$, réciproquement si $\normop{u} = 0 ,~\forall x\in B_f(0,1), u(x) = 0$ Soit $x\in E\backslash \{0\}$ en posant $x' = \frac{x}{\norm{x}}$  on a $\frac{1}{\norm{x}}u(x) = 0$ donc $u(x)=0$
+			\item $\forall u\in \lin_c (E,F) ,~\forall k\in K$ on a $\normop{\lambda u} = \abs{\lambda }\normop{u}$
+			\item Soit $(u,v) \in \lin_c (E,F)$ on pose $w=u+v$ , soit $x\in B_f(0,1)$ on a  $\norm{w(x)} \leq \norm{u(x)} + \norm{v(x)} \leq \normop{u} + \normop{v}$ et ainsi $\normop{u} + \normop{v}$ est un majorant de  $X=\{\norm{w(x)} ~|~x\in B_f(0,1) \}$ or $\normop{w}$ est le plus petit majorant de $X$ donc $\normop{w} \leq \normop{u}+\normop{v}$
+		\end{itemize}
+		\end{proof} \medskip
+		
+		\theorem{lem}{
+			$(E,N)~,~(F,N')$ des espaces vectoriels normés et $E \neq \{0\}$\\ 
+			Soit $u\in\lin_c(E,F)$ Alors $\normop{u} = \underset{\norm{x}\leq 1}{\mathrm{sup}} \norm{u(x)} = \underset{\norm{x}=1}{\mathrm{sup}} \norm{u(x)} = \underset{x\in E\backslash \{0\}}{\mathrm{sup}} \frac{\norm{u(x)}}{\norm{x}}$
+		}
+		
+		\remarque{Soit $u\in\lin_c (E,F)$ Si $E\neq\{0\} ,~\normop{u}$ est le plus petit $k\in\R^+$ tel que $\forall x\in E ,~ \norm{u(x)} \leq k\norm{x}$ (c'est vrai même si $E = \{ 0 \}$)  ainsi \emph{$\normop{u}$ est la plus petite constante de \emph{Lipschitz} de $u$} \\ 
+		On a donc $\forall u \in \lin_c (E,F) ,~\forall x\in E ,$ \fbox{$\norm{u(x)} \leq \normop{u}\norm{x}$}
+		} \medskip
+		
+		\theorem{thm}{
+			$(E,N),~(F,N'),~(G,n'')$ des espaces vectoriels normés quelconques avec $E \overset{u}{\rightarrow} F \overset{v}{\rightarrow} G$ et $u\in\lin_c(E,F) ,~v\in\lin_c(F,G)$ \\ 
+			Alors $v\circ u \in\lin_c(E,G)$ et $\normop{v\circ u} \leq \normop{u} . \normop{v}$
+		}
+		
 		\begin{proof}
-		$v\circ u \in \lin_c (E,G)$ car linéaire et continue puis $u$ est $\vertiii{u}$-lipschitzienne et \\ $v$ est $\vertiii{v}$-lipschitzienne 
-		donc $v\circ u$ est $\vertiii{u}.\vertiii{v}$-lipschitzienne du coup $\vertiii{v\circ u} \leq \vertiii{u} . \vertiii{v}$
+		$v\circ u \in \lin_c (E,G)$ car linéaire et continue puis $u$ est $\normop{u}$-lipschitzienne et \\ 
+		$v$ est $\normop{v}$-lipschitzienne donc $v\circ u$ est $\normop{u}.\normop{v}$-lipschitzienne du coup $\normop{v\circ u} \leq \normop{u} . \normop{v}$
 		\end{proof}
-		{\small \textit{$\forall u,v \in \lin_c (E) ,~v\circ u\in \lin_c(E)$ et $\vertiii{v\circ u} \leq \vertiii{u} \times \vertiii{v}$\\
-		On dit aussi que $\vertiii{.}$ est une norme \underline{sous-multiplicative} ou une \underline{norme d'algèbre}}}
-		\vspace*{0.5cm} \\ \thm{ch2L31}{Lemme}{2-31}{Lorsque $E\neq\{ 0 \} ,~\forall u\in \lin_c (E,F)$\\
-		$\begin{array}{ll}
-		u\in\cont^0(E,F)~ &\Leftrightarrow~ u$ bornée sur $B_f(0,1) \\ & \Leftrightarrow~u$ est bornée sur $S(0,1)
-		\end{array}$}
-		\vspace*{0.5cm} \\ \thm{ch2L32}{Lemme}{BornSupDistribScal}{Soit $X\subset\R$ non vide et majorée et $\mu\in\R^+$ Alors 
-		$\mathrm{sup}\Big( \mu X\Big) = \mu\Big( \mathrm{sup} X \Big)$}
-		\vspace*{0.5cm} \\ \thm{ch2th14}{Théorème}{CarNLinCont}{$E_1 , \dots , E_n$ des espaces vectoriels normés \\ $\varphi : E_1 
-		\times\cdots\times E_n \rightarrow F$ une application $n$-linéaire, \\$W= E_1 \times\cdots\times E_n$ muni de la norme produit 
-		Alors ($\varphi$ est continue) $\Leftrightarrow$ \\($\exists M\in\R^+ ~:~ \forall (x_1,\dots ,x_n)\in W ,~
-		\norm{\varphi (x_1,\dots ,x_n)} \leq M\times\norm{x_1} \times\cdots\times \norm{x_n}$)}
+		
+		\remarque{$\forall u,v \in \lin_c (E) ,~v\circ u\in \lin_c(E)$ et $\normop{v\circ u} \leq \normop{u} \times \normop{v}$\\
+		On dit aussi que $\normop{.}$ est une norme \emph{sous-multiplicative} ou une \emph{norme d'algèbre}
+		} \medskip
+		
+		\theorem{lem}{
+			Lorsque $E\neq\{ 0 \} ,~\forall u\in \lin_c (E,F)$\\
+			$\begin{array}{ll}
+				u\in\cont^0(E,F)~ &\Leftrightarrow~ u$ bornée sur $B_f(0,1) \\ 
+				& \Leftrightarrow~u$ est bornée sur $S(0,1)
+			\end{array}$
+		} \medskip
+		
+		\theorem{lem}{
+			Soit $X\subset\R$ non vide et majorée et $\mu\in\R^+$ Alors $\mathrm{sup}(\mu X) = \mu (\mathrm{sup} X)$
+		} \medskip
+		
+		\theorem{thm}{
+			$E_1 , \dots , E_n$ des espaces vectoriels normés \\ $\varphi : E_1 \times\cdots\times E_n \rightarrow F$ une application $n$-linéaire, \\
+			$W= E_1 \times\cdots\times E_n$ muni de la norme produit \\ 
+			Alors ($\varphi$ est continue) $\Leftrightarrow$ ($\exists M\in\R^+ ~:~ \forall (x_1,\dots ,x_n)\in W , \norm{\varphi (x_1,\dots ,x_n)} \leq M\times\norm{x_1} \times\cdots\times \norm{x_n}$)
+		}
+		
 		\begin{proof}
-		\fbox{$\Leftarrow$} On fixe $M\geq 0$ vérifiant la propriété. Soit $x=(x_1 ,\dots ,x_n)\in W$ et $y\in W\cap B_f(x,1)$\\
+		\fbox{$\Leftarrow$} On fixe $M\geq 0$ vérifiant la propriété. \\
+		Soit $x=(x_1 ,\dots ,x_n)\in W$ et $y\in W\cap B_f(x,1)$ \\
 		$\begin{array}{ll}
-		\varphi (y) - \varphi (x) & =~~\varphi (y_1 ,\dots , y_n) - \varphi (x_1 ,\dots , x_n) \\ &=~~\varphi (y_1 ,y_2,\dots , y_n) - 
-		\varphi (x_1,y_2 ,\dots , y_n) + \varphi (x_1,y_2 ,\dots , y_n) - \varphi (x_1,x_2,y_3,\dots ,y_n) + \\ &~~~~~~~~\vdots \\ &~~~~~~+
-		\varphi (x_1 ,\dots ,x_{n-1}, y_n) - \varphi (x_1 ,\dots , x_n) \\
-		&=~~\sum_{i=1}^n \varphi (x_1,\dots ,x_{i-1} , y_i - x_i ,y_{i+1},\dots , y_n) \vspace*{0.2cm} \end{array}$\\
-		ainsi $\norm{\varphi (y) - \varphi (x)} \leq \sum_{i=1}^n M \norm{x_1}\cdots\norm{x_{i-1}}.\norm{y_i - x_i}.\norm{y_{i+1}}\cdots\norm{y_n}$
-		\vspace{0.2cm}\\or $\forall i\in \ent{1,n} ,~ \norm{y_i-x_i} \leq \norm{y-x}$ et $\forall j ,~\norm{y_j} \leq \norm{x_j} + \norm{y_j - x_j} 
-		\leq \norm{x} + 1$ \vspace*{0.2cm}\\donc $\norm{\varphi (y) - \varphi (x)} \leq nM(\norm{x} + 1)^{n-1} .\norm{y-x}$ du coup $\varphi (y) 
-		\underset{y\rightarrow x}{\longrightarrow} \varphi (x)$ donc $\varphi$ est continue \vspace*{0.2cm}\\ 
-		\fbox{$\Rightarrow$} Si $\varphi \in\cont^0(W,F)$ alors $\varphi$ est $\cont^0$ en $0$ donc soit $\delta>0$ tel que 
-		$\forall x\in B(0,\delta ) ,~\norm{\varphi (x)} <1$ Soit $x\in W$\\
-		$\bullet$ Si $\forall i , ~x_i \neq 0$, posons $x_i' = \frac{x_i}{\norm{x_i}}\frac{\delta}{2}$ et $x' = (x_1',\dots ,x_n')$ donc 
-		$\norm{\varphi (x')} <1$ or $\varphi (x') = \frac{\delta^n}{2^n}\frac{1}{\norm{x_1}\cdots\norm{x_n}} \varphi (x)$ \\
-		donc $\norm{\varphi (x) } \leq \left(\frac{2}{\delta}\right)^n \prodi{1}{n} \norm{x_i} = M \prodi{1}{n} \norm{x_i}$ \\
-		$\bullet$ Si $\exists i_0$ tel que $x_{i_0} =0$ alors $\varphi (x) = 0$ donc $\norm{\varphi (x)} \leq M\prodi{1}{n} \norm{x_i}$
-		\end{proof}
-	\section{Image réciproque et continuité}
+			\varphi (y) - \varphi (x) & =~~\varphi (y_1 ,\dots , y_n) - \varphi (x_1 ,\dots , x_n) \\ 
+			&=~~\varphi (y_1 ,y_2,\dots , y_n) - \varphi (x_1,y_2 ,\dots , y_n) + \varphi (x_1,y_2 ,\dots , y_n) \\
+			&~~~~~~~ - \varphi (x_1,x_2,y_3,\dots ,y_n) + \\ 
+			&~~~~~~~~\vdots \\ 
+			&~~~~~~+ \varphi (x_1 ,\dots ,x_{n-1}, y_n) - \varphi (x_1 ,\dots , x_n) \\
+			&=~~\sum_{i=1}^n \varphi (x_1,\dots ,x_{i-1} , y_i - x_i ,y_{i+1},\dots , y_n) \vspace*{0.2cm} 
+		\end{array}$\\
+		ainsi $\norm{\varphi (y) - \varphi (x)} \leq \sum_{i=1}^n M \norm{x_1}\cdots\norm{x_{i-1}}.\norm{y_i - x_i}.\norm{y_{i+1}}\cdots\norm{y_n}$ \\ 
+		or $\forall i\in \ent{1,n} ,~ \norm{y_i-x_i} \leq \norm{y-x}$ et $\forall j ,~\norm{y_j} \leq \norm{x_j} + \norm{y_j - x_j} \leq \norm{x} + 1$ \\
+		donc $\norm{\varphi (y) - \varphi (x)} \leq nM(\norm{x} + 1)^{n-1} .\norm{y-x}$ du coup $\varphi (y) \underset{y\rightarrow x}{\longrightarrow} \varphi (x)$ donc $\varphi$ est continue\\ 
+		\fbox{$\Rightarrow$} Si $\varphi \in\cont^0(W,F)$ alors $\varphi$ est $\cont^0$ en $0$ donc soit $\delta>0$ tel que $\forall x\in B(0,\delta ) ,~\norm{\varphi (x)} <1$ Soit $x\in W$\\
+		$\bullet$ Si $\forall i , ~x_i \neq 0$, posons $x_i' = \frac{x_i}{\norm{x_i}}\frac{\delta}{2}$ et $x' = (x_1',\dots ,x_n')$ donc $\norm{\varphi (x')} <1$ or $\varphi (x') = \frac{\delta^n}{2^n}\frac{1}{\norm{x_1}\cdots\norm{x_n}} \varphi (x)$ \\
+		donc $\norm{\varphi (x) } \leq \left(\frac{2}{\delta}\right)^n \prod_{i=1}^{n} \norm{x_i} = M \prod_{i=1}^{n} \norm{x_i}$ \\
+		$\bullet$ Si $\exists i_0$ tel que $x_{i_0} =0$ alors $\varphi (x) = 0$ donc $\norm{\varphi (x)} \leq M\prod_{i=1}^{n} \norm{x_i}$
+		\end{proof} \medskip
+		
+		
+\section{Image réciproque et continuité}
+		
 		L'idée générale est ici de travailler dans $A$ munie de la distance induite par la norme de $E$.
-		\\ {\small \underline{NB} : Soit $a\in A$ et $r\in \mathbb{R}+$ alors on note $B^A(a,r)=\{x\in A ,~d(x,a) <r\} = A\cap B(a,r)$} \traitd
+		
+		\remarque{Soit $a\in A$ et $r\in \mathbf{R}+$ alors on note $B^A(a,r)=\{x\in A ,~d(x,a) <r\} = A\cap B(a,r)$
+		} \vspace{-25pt}
+		
+		\traitd
 		\paragraph{Voisinage relatif}
-			Soit $a\in A$ et $V\subset A$ alors $V$ est dit voisinage relatif de $a$ s'il existe $r>0$ \\tel que $B^A(a,r) \subset V$ \trait ${}$ 
-		\vspace*{-1.5cm} \\  \traitd
+			Soit $a\in A$ et $V\subset A$ alors $V$ est dit voisinage relatif de $a$ s'il existe $r>0$ tel que $B^A(a,r) \subset V$ 
+		\traitdouble
 		\paragraph{Ouvert relatif}
-			Soit $U\subset A$ alors $U$ est dit ouvert relatif de $A$ s'il est voisinage relatif de chacun de ses points.\hspace*{0.5cm}
-			\underline{i.e.} $\forall x\in U , \exists r>0 ~:~ B^A(x,r) \subset U$ \trait
-		\thm{ch2th15}{Théorème : Caractérisation des ouverts relatifs}{CarOuvertRel}{Soit $U\subset A$ alors : \\
-		$U$ ouvert relatif de $A$ $\Leftrightarrow$ $\exists U'$ ouvert de $E$ tel que $U=A\cap U'$}
+			Soit $U\subset A$ alors $U$ est dit ouvert relatif de $A$ s'il est voisinage relatif de chacun de ses points.\hspace*{0.5cm} \emph{i.e.} $\forall x\in U , \exists r>0 ~:~ B^A(x,r) \subset U$ 
+		\trait
+		
+		\namedtheorem{Théorème : Caractérisation des ouverts relatifs}{
+			Soit $U\subset A$ alors : \\
+			$U$ ouvert relatif de $A$ $\Leftrightarrow$ $\exists U'$ ouvert de $E$ tel que $U=A\cap U'$
+		}{CarOuvertRel}
+		
 		\begin{proof}
 		\fbox{$\Leftarrow$} Soit $U'$ ouvert de $E$ tel que $A\cap U'=U$ alors \\
-		\hspace*{0.5cm} $\left\vert \ard  $ Soit $x\in U=A\cap U'$ alors $\exists r>0$ tel que $ A\cap B(x,r)\subset U$ $ \\ $ 
-		donc $U$ est un voisnage relatif de $x  \arf \right.$\\ Par définition, U est un ouvert relatif sur $A$\\
+		\hspace*{0.5cm} 
+		$\left\vert \ard 
+			$ Soit $x\in U=A\cap U'$ alors $\exists r>0$ tel que $ A\cap B(x,r)\subset U$ $ \\ 
+			$ donc $U$ est un voisnage relatif de $x  
+		\arf \right.$\\ 
+		Par définition, U est un ouvert relatif sur $A$\\
 		\fbox{$\Rightarrow$} $\forall x\in U$ ouvert relatif $\exists r_x>0$ tel que $A\cap B(x,r_x) \subset U$ , \\
 		alors $U' = \bigcup\limits_{x\in U} B(x,r_x)$ est un ouvert de $E$ et $U = A\cap U'$
-		\end{proof} \traitd
+		\end{proof}
+		
+		\traitd
 		\paragraph{Fermé relatif}
-			Soit $\Phi \subset A$ alors $\Phi$ est dit fermé relatif de $A$ si $A\backslash \Phi$ est un ouvert relatif de $A$. \trait
-		\thm{ch2th16}{Théorème : Caractérisation des fermés relatifs}{CarFermRel}{Soit $\Phi \subset A$ alors :\\
-		$\Phi$ fermé relatif de $A$ $\Leftrightarrow$ $\exists\Phi '$ fermé de $e$ tel que $\Phi = A\cap\Phi '$}
+			Soit $\Phi \subset A$ alors $\Phi$ est dit fermé relatif de $A$ si $A\backslash \Phi$ est un ouvert relatif de $A$. 
+		\trait
+		
+		\namedtheorem{Théorème : Caractérisation des fermés relatifs}{
+			Soit $\Phi \subset A$ alors :\\
+			$\Phi$ fermé relatif de $A$ $\Leftrightarrow$ $\exists\Phi '$ fermé de $e$ tel que $\Phi = A\cap\Phi '$
+		}{CarFermRel}
+		
 		\begin{proof}
 		Clair en considérant $U = A\backslash \Phi$
-		\end{proof}
-		${}$\\ \thm{ch2th17}{Théorème}{FermRelStableLim}{Soit $X\subset A$ alors \hspace*{0.2cm} $X$ fermé relatif de $A$ $\Leftrightarrow$ \\
-		Pour toute suite $\suite{x} \in X^{\mathbb{N}}$ qui converge vers $a\in A$ on a $a\in X$}
+		\end{proof} \medskip
+		
+		\theorem{thm}{
+			Soit $X\subset A$ alors $X$ est un fermé relatif de $A$ $\Leftrightarrow$ \\
+			Pour toute suite $\suite{x} \in X^{\mathbf{N}}$ qui converge vers $a\in A$ on a $a\in X$
+		}
+		
 		\begin{proof}
-		\fbox{$\Rightarrow$} Soit $\suite{x}\in X^{\mathbb{N}}$ avec $x_n\ston a\in A$\\ Si $a\in A\backslash X$ alors 
-		$\exists r>0$ et $n_0\in \mathbb{N}$ tels que $\forall \geq n_0 ,~ x_n\in B(x_n,a)\cap A$ 
-		du coup $x_{n_0} \in A\backslash X$ (\textsc{impossble !}) donc $a\in X$.\\
+		\fbox{$\Rightarrow$} Soit $\suite{x}\in X^{\mathbf{N}}$ avec $x_n\underset{n}{\to} a\in A$\\ Si $a\in A\backslash X$ alors 
+		$\exists r>0$ et $n_0\in \mathbf{N}$ tels que $\forall \geq n_0 ,~ x_n\in B(x_n,a)\cap A$ 
+		du coup $x_{n_0} \in A\backslash X$ (\emph{impossble !}) donc $a\in X$.\\
 		\fbox{$\Leftarrow$} Par contraposée on suppose $\exists \xi_0 \in A\backslash X ~:~ \forall r>0\exists x\in A\cap B(\xi_0,r)$ 
-		tel que $x\in X$ . \\On a alors $\forall n\in \mathbb{N} ,~\exists x_n$ tel que $d(x_n,\xi_0)<\frac{1}{n+1}$ 
-		d'où $\suite{x} \in X^{\mathbb{N}}$ avec $x_n \ston \xi_0$ mais $\xi_0\notin X$
-		\end{proof}
-		${}$\\ \thm{ch2th18}{Théorème}{F-1Fermé}{Soit $A\subset E$ et $E,F$ des espaces vectoriels normés \\
-		$f\in\cont^0(A,F)$ et $Y\subset F$ alors \\
-		\hspace*{0.5cm} {\small 1)} $Y$ fermé $\Rightarrow$ $f^{-1}(Y)$ fermé relatif de $A$ \\
-		\hspace*{0.5cm} {\small 2)} $Y$ ouvert $\Rightarrow$ $f^{-1}(Y)$ ouvert relatif de $A$}
-		\begin{proof}
-		{\small 1)} Soit $f^{-1} (Y) = \{x\in A ~,~f(x)\in Y\}$ et soit $\suite{x} \in \left( f^{-1} (Y)\right)^{\mathbb{N}}$ 
-		tel que $x_n \ston a\in A$ Comme $f$ est $\cont^0$ on a $f(x_n) \ston f(a) \in A$ car $a\in f^{-1}(Y)$
-		donc par théorème (\ref{FermRelStableLim}) \\$f^{-1} (Y)$ est un fermé relatif.\\ {\small 2)} Clair avec $F\backslash Y$ ouvert de $F$
-		\end{proof}
-		{\small \underline{Cas particulier} Lorsque $A=E$ alors $\forall ~Y\subset F$, $\left\{ \ard Y$ fermé $\Rightarrow ~f^{-1}(Y)$ fermé $ \\
+		tel que $x\in X$. On a alors $\forall n\in \mathbf{N} ,~\exists x_n$ tel que $d(x_n,\xi_0)<\frac{1}{n+1}$ 
+		d'où $\suite{x} \in X^{\mathbf{N}}$ avec $x_n \underset{n}{\to} \xi_0$ mais $\xi_0\notin X$
+		\end{proof} \medskip
+		
+		\theorem{thm}{
+			Soit $A\subset E$ et $E,F$ des espaces vectoriels normés \\
+			$f\in\cont^0(A,F)$ et $Y\subset F$ alors \\
+			\hspace*{0.5cm} {\small 1)} $Y$ fermé $\Rightarrow$ $f^{-1}(Y)$ fermé relatif de $A$ \\
+			\hspace*{0.5cm} {\small 2)} $Y$ ouvert $\Rightarrow$ $f^{-1}(Y)$ ouvert relatif de $A$
+		}
+		
+		\begin{proof} ~\\
+		{\small 1)} Soit $f^{-1} (Y) = \{x\in A ~,~f(x)\in Y\}$ et soit $\suite{x} \in \left( f^{-1} (Y)\right)^{\mathbf{N}}$ 
+		tel que $x_n \underset{n}{\to} a\in A$ Comme $f$ est $\cont^0$ on a $f(x_n) \underset{n}{\to} f(a) \in A$ car $a\in f^{-1}(Y)$
+		donc par théorème $f^{-1} (Y)$ est un fermé relatif.\\ 
+		{\small 2)} Clair avec $F\backslash Y$ ouvert de $F$
+		\end{proof} \medskip
+		
+		{\small \emph{Cas particulier} Lorsque $A=E$ alors $\forall ~Y\subset F$, $\left\{ \ard Y$ fermé $\Rightarrow ~f^{-1}(Y)$ fermé $ \\
 		Y$ ouvert $\Rightarrow ~f^{-1}(Y)$ ouvert $\arf \right.$ }
-	\section{Compacité}
+		
+		\medskip
+		
+		
+\section{Compacité}
+	
 	\subsection{Compacité dans un espace vectoriel normé quelconque}
+		
+		\vspace{-15pt}
 		\traitd
 		\paragraph{Partie compacte}
-			On dit que $A$ est une partie compacte de $E$ (ou compact de $E$) si toute suite d'éléments de $A$ 
-			admet une sous-suite qui converge vers un élément de $A$. \trait
-		\thm{ch2L35}{Lemme}{CompactFermBorn}{$A$ est compacte $\Rightarrow$ $A$ est fermée et bornée}
-		\vspace*{0.5cm} \\ \thm{ch2L36}{Lemme}{FermeDeCompactComp}{Soit $A$ un compact et $X$ fermé alors $A\cap X$ est compact}
-		\vspace*{0.5cm} \\ \thm{ch2th19}{Théorème}{ConvCompact}{Soit $A$ un compact et $\suite{a}\in A^{\mathbb{N}}$ alors : \\
-		$\suite{a}$ converge $\Leftrightarrow$ $\suite{a}$ admet au plus une valeur d'adhérence}
+			On dit que $A$ est une partie compacte de $E$ (ou compact de $E$) si toute suite d'éléments de $A$ admet une sous-suite qui converge vers un élément de $A$. 
+		\trait
+		
+		\theorem{lem}{
+			$A$ est compacte $\Rightarrow$ $A$ est fermée et bornée
+		} \medskip
+		
+		\theorem{lem}{
+			Soit $A$ un compact et $X$ fermé alors $A\cap X$ est compact
+		}\medskip
+		
+		\theorem{thm}{
+			Soit $A$ un compact et $\suite{a}\in A^{\mathbf{N}}$ alors : \\
+			$\suite{a}$ converge $\Leftrightarrow$ $\suite{a}$ admet au plus une valeur d'adhérence
+		} \medskip
+		
 		\begin{proof}
 		\fbox{$\Leftarrow$} Vu $A$ compact, $\exists \left( a_{\varphi (n)} \right) _{_{n\geq 0}}$ qui converge vers $\alpha \in A$.\\
-		Supposons $\exists \varepsilon_0 >0 ~:~ \forall n\in\mathbb{N} , ~\exists n\geq n_0 ~:~d(a_n,\alpha )\geq \varepsilon_0$ ainsi 
-		$\{n\in\mathbb{N} \| d(a_n,\alpha )\geq\varepsilon_0\}$ est infini donc $\exists \varphi\prime : \mathbb{N} \rightarrow \mathbb{N}$ 
-		telle que $\forall k\in\N ,~d(a_{\varphi\prime (k)} ,\alpha )\geq\varepsilon_0 $ donc par compacité $\exists \psi : \N \rightarrow\N$ 
-		telle que $a_{\varphi\prime (\psi (n))} \ston \beta \in A$ et comme $\suite{a}$ admet au plus une valeur d'adhérence, $\beta = \alpha$ 
-		\textsc{impossible !} \\Donc $a_n \ston \alpha$
-		\end{proof}
-		${}$ \\ \thm{ch2th20}{Théorème}{ProdCompact}{Soit $E_1 , \dots , E_r$ des espaces vectoriels normés \\et 
-		$A_1 \subset E_1 , \dots , A_r\subset E_r$ des compacts\\ 
-		Alors $A_1 \times\cdots\times A_r$ est un compact de $E_1\times \cdots \times E_r$} \newpage \traitd
+		Supposons $\exists \varepsilon_0 >0 ~:~ \forall n\in\mathbf{N} , ~\exists n\geq n_0 ~:~d(a_n,\alpha )\geq \varepsilon_0$ ainsi $\{n\in\mathbf{N} \| d(a_n,\alpha )\geq\varepsilon_0\}$ est infini donc $\exists \varphi\prime : \mathbf{N} \rightarrow \mathbf{N}$ telle que $\forall k\in\N ,~d(a_{\varphi\prime (k)} ,\alpha )\geq\varepsilon_0 $ donc par compacité $\exists \psi : \N \rightarrow\N$ telle que $a_{\varphi\prime (\psi (n))} \underset{n}{\to} \beta \in A$ et comme $\suite{a}$ admet au plus une valeur d'adhérence, $\beta = \alpha$ \emph{impossible !} \\
+		Donc $a_n \underset{n}{\to} \alpha$
+		\end{proof} \medskip
+		
+		\theorem{thm}{
+			Soit $E_1 , \dots , E_r$ des espaces vectoriels normés et \\
+			$A_1 \subset E_1 , \dots , A_r\subset E_r$ des compacts\\ 
+			Alors $A_1 \times\cdots\times A_r$ est un compact de $E_1\times \cdots \times E_r$
+		} 
+		
+		\traitd
 		\paragraph{Continuité uniforme}
-			Si $E,F$ est un espace vectoriel normé et $f:A\rightarrow F$ alors $f$ est dite \underline{uniformément continue} si 
-			$\forall \varepsilon >0 ,~\exists \delta >0 ~:~ \forall (x,y) \in A^2 ,~d(x,y)<\delta ~\Rightarrow ~d(f(x),f(y) ) <\varepsilon$ \trait
-		\thm{ch2th21}{Théorème}{ImgContCompact}{Soit $f\in \cont^0 (A,F)$ alors si $A$ est compact $f(A)$ est compact.
-		\\ "L'image continue d'un compact est un compact."}
+			Si $E,F$ est un espace vectoriel normé et $f:A\rightarrow F$ alors $f$ est dite \emph{uniformément continue} si $\forall \varepsilon >0 ,~\exists \delta >0 ~:~ \forall (x,y) \in A^2 ,~d(x,y)<\delta ~\Rightarrow ~d(f(x),f(y) ) <\varepsilon$ 
+		\trait
+		
+		\theorem{thm}{
+			Soit $f\in \cont^0 (A,F)$ alors si $A$ est compact $f(A)$ est compact. \\ 
+			"L'image continue d'un compact est un compact."
+		}
+		
 		\begin{proof}
-		Soit $a_{\varphi (n)} \ston \alpha \in A $ alors $f(a_{\varphi (n)}) \ston f(\alpha )\in f(A )$
-		\end{proof}
-		${}$ \\ \thm{ch2th22}{Théorème de Heine}{C0surComp=uC0}{Toute application continue sur un compact est uniformément continue.}
+		Soit $a_{\varphi (n)} \underset{n}{\to} \alpha \in A $ alors $f(a_{\varphi (n)}) \underset{n}{\to} f(\alpha )\in f(A )$
+		\end{proof} \medskip
+		
+		\namedtheorem{Théorème de Heine}{
+			Toute application continue sur un compact est uniformément continue.
+		}{C0surComp=uC0}
+		
 		\begin{proof}
-		Par l'absurde \\ on suppose $\exists \varepsilon_0 >0 ~:~\forall\delta >0 ,~\exists (x,y)\in A^2 ~:~d(x,y)<\delta$ et 
-		$d(f(x),f(y))\geq\varepsilon_0$ \\On pose alors $\suite{x}$ et $\suite{y}$ vérifiant ces propriétés avec $\delta_n = \frac{1}{n+1}$ 
-		et $x_{\varphi (n) } \ston \alpha\in A$ puis on a $\norm{f(x_n)-f(y_n)} \ston 0$ d'où la contradiction.
-		\end{proof}
-		${}$ \\ \thm{ch2L37}{Lemme}{BornSupAtteinteCompact}{Soit $X\subset\R$ non vide et majoré alors sup$(X) \in \overline{X}$}
-		\vspace*{0.5cm} \\ \thm{ch2th23}{Théorème}{ContMajComp}{Soit $f\in\cont^0(A,\R )$\\ Si $A$ est un compact non vide alors 
-		$f$ admet un maximum sur $A$}
-		\\{\small \underline{NB} : PG -> On dit que "$f$ est bornée et atteind ses bornes"}
+		Par l'absurde : \\ 
+		On suppose $\exists \varepsilon_0 >0 : \forall\delta >0, \exists (x,y)\in A^2 : d(x,y)<\delta$ et 
+		$d(f(x),f(y))\geq\varepsilon_0$ \\
+		On pose alors $\suite{x}$ et $\suite{y}$ vérifiant ces propriétés avec $\delta_n = \frac{1}{n+1}$ et $x_{\varphi (n) } \underset{n}{\to} \alpha\in A$ puis on a $\norm{f(x_n)-f(y_n)} \underset{n}{\to} 0$ d'où la contradiction.
+		\end{proof} \medskip
+		
+		\theorem{lem}{
+			Soit $X\subset\R$ non vide et majoré alors sup$(X) \in \overline{X}$
+		} \medskip
+		
+		\theorem{thm}{
+			Soit $f\in\cont^0(A,\R )$\\ 
+			Si $A$ est un compact non vide alors $f$ admet un maximum sur $A$
+		}
+		
+		\remarque{PG -> On dit que "$f$ est bornée et atteind ses bornes"}
+		
 		\begin{proof}
-		Soit $B=f(A) \neq \emptyset$, $B$ est borné comme image continue d'un compact. \\Soit alors $\beta = \mathrm{sup}(B)$. 
-		On a donc $\beta \in \overline{B} = B$ (\ref{ADansAdher}) donc $\left\{ \ard \beta $ majore $B \\ \beta\in B \arf \right.$ d'où 
-		$\beta = \mathrm{max}(B)$
-		\end{proof}
-	\subsection{Compacité en dimension finie}
-		\textsc{Rappel :}
-		\\ \thm{ch2th24}{Théorème de \textsc{Bolzano-Weierstrass}}{Bolzano}{Dans $\R$, tout segment $[a,b]$ est compact.}
-		\vspace*{0.5cm} \\ \thm{ch2th24c}{Corollaire}{NormsEquiDemo}{Sur un $K$-ev de dimension finie, 
-		toutes les normes sont équivalentes.}
+		Soit $B=f(A) \neq \emptyset$, $B$ est borné comme image continue d'un compact. \\
+		Soit alors $\beta = \mathrm{sup}(B)$. On a donc $\beta \in \overline{B} = B$ donc 
+		$\left\{ \ard 
+			\beta $ majore $B \\ 
+			\beta\in B 
+		\arf \right.$ d'où $\beta = \mathrm{max}(B)$
+		\end{proof} \medskip
+		
+		
+\subsection{Compacité en dimension finie}
+		
+		\emph{Rappel :} \\
+		
+		\namedtheorem{Théorème de \emph{Bolzano-Weierstrass}}{
+			Dans $\R$, tout segment $[a,b]$ est compact.
+		}{Bolzano} \medskip
+		
+		\theorem{cor}{
+			Sur un $K$-ev de dimension finie, toutes les normes sont équivalentes.
+		}
+		
 		\begin{proof}
-		cf : poly
-		\end{proof}
-		${}$\\ \thm{ch2th25}{Théorème}{EquivCompactFermBorn}{Soit $E$ un espace vectoriel normé de dimension finie et $A\subset E$ alors \\
-		$A$ compact $\Leftrightarrow$ $A$ fermé et borné}
+		Voir la fin du chapitre.
+		\end{proof} \medskip
+		
+		\theorem{thm}{
+			Soit $E$ un espace vectoriel normé de dimension finie et $A\subset E$ alors \\
+			$A$ compact $\Leftrightarrow$ $A$ fermé et borné
+		}
+		
 		\begin{proof}
-		On démontre le cas où $K=\R $ avec $N_{\infty}$ pour se ramener à $[-M,M]$ \\puis on en déduit le cas où $K=\C $ 
-		\end{proof}
-		${}$ \\ \thm{ch2th26}{Théorème}{SEVdimFinieFerme}{Soit $E$ un espace vectoriel normé quelconque et $F\subset E$ \\ un sous-espace vectoriel 
-		avec $dimF < \infty$ alors $F$ est fermé}
+		On démontre le cas où $K=\R $ avec $N_{\infty}$ pour se ramener à $[-M,M]$ puis on en déduit le cas où $K=\C $ 
+		\end{proof} \medskip
+		
+		\theorem{thm}{
+			Soit $E$ un espace vectoriel normé quelconque si $F\subset E$ est un sous-espace vectoriel avec $\dim F < \infty$ alors $F$ est fermé
+		}
+		
 		\begin{proof}
-		On montre la stabilité par passage à la limite en considérant $M$ un majorant des $x_n$ \\et le compact $Bf(0,M)$
-		\end{proof}
-		${}$ \\ \thm{ch2th27}{Théorème}{AppliLinCont}{Soit $E,F$ des espaces vectoriels normé avec $E$ de dimension finie et $u\in\mathcal{L}(E,F)$
-		Alors $u$ est continue.}
+		On montre la stabilité par passage à la limite en considérant $M$ un majorant des $x_n$ et le compact $Bf(0,M)$
+		\end{proof} \medskip
+		
+		\theorem{thm}{
+			Soit $E,F$ des espaces vectoriels normé avec $E$ de dimension finie, \\ 
+			si $u\in\mathcal{L}(E,F)$ alors $u$ est continue.
+		}
+		
 		\begin{proof}
-		Soit $e=(e_1,\dots ,e_p)$ base de $E$ et on \underline{choisit} $\| x\| = \underset{1\leq k\leq p}{\mathrm{max}} |x_k|$ où 
-		$x=\sk{1}{p} x_ke_k$ \\ Soit $x\in E$, $\|u(x)\| = \norm{\sk{1}{p} x_k u(e_k)} \leq \sk{1}{p} |x_k| \|u(e_k)\|$ et posons 
-		$C=\sk{1}{p} \|u(e_k)\|$ alors $\|u(x)\| \leq C\|x\|$ et comme $u$ est linéaire, $u\in\cont^0(E,F)$
-		\end{proof}
-		${}$ \\ \thm{ch2th27c}{Corollaire}{CoordCont}{$E$ est un $K$ espace vectoriel de dimension $p\in\N^*$ et $e=(e_1,\dots ,e_p)$ 
-		une base de $E$. Pour $i\in\ent{1,p}$ on pose $e_i^* : \ard E\rightarrow K \\ x\mapsto x_i \arf$ alors $e_i^*$ est linéaire donc $\cont^0$}
-		\vspace*{0.5cm} \\ \thm{ch2th28}{Théorème}{NLinCont}{$E_1 ,\dots ,E_r ,F$ des espaces vectoriels de dimensions finies et 
-		\\$\varphi : E_1 \times\cdots\times E_r \rightarrow F$ $r$-linéaire alors $\varphi \in \cont^0(E_1\times\cdots\times E_r ,F)$} 
+		Soit $e=(e_1,\dots ,e_p)$ base de $E$, on \emph{choisit} $\| x\| = \underset{1\leq k\leq p}{\mathrm{max}} |x_k|$ où $x=\sum_{k=1}^{p} x_ke_k$. Soit $x\in E$, $\|u(x)\| = \norm{\sum_{k=1}^{p} x_k u(e_k)} \leq \sum_{k=1}^{p} |x_k| \|u(e_k)\|$ \\
+		Posons alors $C=\sum_{k=1}^{p} \|u(e_k)\|$ alors $\|u(x)\| \leq C\|x\|$ et comme $u$ est linéaire, $u\in\cont^0(E,F)$
+		\end{proof} \medskip
+		
+		\theorem{cor}{
+			$E$ est un $K$ espace vectoriel de dimension $p\in\N^*$ et $e=(e_1,\dots ,e_p)$ une base de $E$. Pour $i\in\ent{1,p}$ on pose $e_i^* : 
+			\ard 
+				E\rightarrow K \\ 
+				x\mapsto x_i 
+			\arf$ alors $e_i^*$ est linéaire donc $\cont^0$
+		} \medskip
+		
+		\theorem{thm}{
+			$E_1 ,\dots ,E_r ,F$ des espaces vectoriels de dimensions finies et \\
+			$\varphi : E_1 \times\cdots\times E_r \rightarrow F$ $r$-linéaire alors $\varphi \in \cont^0(E_1\times\cdots\times E_r ,F)$
+		} \medskip
+		
+		 
 	\subsection{Applications aux séries en dimension finie}
-		${}$\\ \thm{ch2th29}{Théorème}{CVAImplCV}{En dimension finie, la convergence absolue entraine la convergence}
+		
+		\theorem{thm}{
+			En dimension finie, la convergence absolue entraine la convergence
+		}
+		
 		\begin{proof}
-		Soit $E$ un $K$ espace vectoriel normé de dimension finie et $\suite{u} \in E^{\N}$. \\On note $U_n = \skt{0}{n} u_k$ et $a_n = \|u_n\|$.
-		On suppose alors que $\sum a_n$ converge en on note $\alpha = \suminft a_n$\\
-		$\bullet \forall n\in\N ,~\|U_n\| \leq \skt{0}{n} a_k \leq \alpha$ donc $U_n\in Bf(0,\alpha )$ compact\\
-		$\bullet \suite{U}$ admet au plus $1$ valeur d'adhérence car $\forall (n,p) \in \N^2 ,\\ \|U_p -U_n \| \leq |A_p -A_n |$ donc 
-		$\|U_{\varphi (n)} - U_{\psi (n)} \| \leq |A_{\varphi (n)} - A_{\psi (n)} | \ston 0$ 
-		\end{proof} \traitd
-		\paragraph{Séries de matrices} Dans $E = \M_p(K)$ muni d'une \underline{norme d'algèbre} {\tiny (tq $\forall (A,B) \in E^2 ,~
-		\|AB\| \leq \|A\| . \|B\|$)}\\
-		Soit $A\in E$ alors $\sum \frac{1}{n!} A^n$ converge et on pose \highlight{$\mathrm{exp}(A) = e^A = \sum_{n=0}^{+\infty} \frac{1}{n!}A^n$}
-		\\ Soit $A\in E$ telle que $\|A\| <1$ alors $\sum A^n$ converge et \highlight{$\sum_{n=0}^{+\infty} A^n = (I_p -A)^{-1}$} \trait
-	\section{Connexité par arcs}
+		Soit $E$ un $K$ espace vectoriel normé de dimension finie et $\suite{u} \in E^{\N}$. On note $U_n = \sum_{k=0}^{n} u_k$ et $a_n = \|u_n\|$. On suppose alors que $\sum a_n$ converge en on note $\alpha = \suminf a_n$\\
+		$\bullet \forall n\in\N ,~\|U_n\| \leq \sum_{k=0}^{n} a_k \leq \alpha$ donc $U_n\in Bf(0,\alpha )$ compact\\
+		$\bullet \suite{U}$ admet au plus $1$ valeur d'adhérence car $\forall (n,p) \in \N^2 ,\\ \|U_p -U_n \| \leq |A_p -A_n |$ donc $\|U_{\varphi (n)} - U_{\psi (n)} \| \leq |A_{\varphi (n)} - A_{\psi (n)} | \underset{n}{\to} 0$ 
+		\end{proof} \medskip
+		
+		\traitd
+		\paragraph{Séries de matrices} Soit $E = \M_p(K)$ muni d'une \emph{norme d'algèbre} (tq $\forall (A,B) \in E^2 ,~
+		\|AB\| \leq \|A\| . \|B\|$)
+		\begin{itemize}
+			\item Si $A\in E$ alors $\sum \frac{1}{n!} A^n$ converge et on pose \highlight{$\mathrm{exp}(A) = e^A = \sum_{n=0}^{+\infty} \frac{1}{n!}A^n$}
+			\item Si $A\in E$ telle que $\|A\| <1$ alors $\sum A^n$ converge et \highlight{$\sum_{n=0}^{+\infty} A^n = (I_p -A)^{-1}$} 
+		\end{itemize}
+		\trait
+	
+\section{Connexité par arcs}
+		
+		\vspace{-15pt}
 		\traitd
 		\paragraph{Chemin}
-			${}$ \\ $\bullet$ Soit $x,y\in A$ on appelle \underline{chemin} (ou chemin continu) de $x$ à $y$ \underline{dans $A$} toute application 
-			$\gamma \in \cont^0 ([u,v],A)$ où $u<v$ réels tels que $\gamma (u) = x$ et $\gamma (v) = y$.
-			\\ $\bullet$ On définit une relation binaire $\mathcal{R}$ sur $A$ par $\forall (x,y) \in A^2$ : 
-			$x\mathcal{R} y$ $\Leftrightarrow$ il existe un chemin de $x$ à $y$. \trait
-		\thm{ch2L38}{Lemme}{RCheminEquiv}{$\mathcal{R}$ est une relation d'équivalence sur $A$} \newpage \traitd
+			Pour $A\subset E$, 
+			\begin{itemize}
+				\item Soit $x,y\in A$ on appelle \emph{chemin} (ou chemin continu) de $x$ à $y$ \emph{dans $A$} toute application $\gamma \in \cont^0 ([u,v],A)$ où $u<v$ réels tels que $\gamma (u) = x$ et $\gamma (v) = y$.
+				\item On définit une relation binaire $\mathcal{R}$ sur $A$ par $\forall (x,y) \in A^2$ : $x\mathcal{R} y$ $\Leftrightarrow$ il existe un chemin de $x$ à $y$.
+			\end{itemize} 
+		\trait
+		
+		\theorem{lem}{
+			$\mathcal{R}$ est une relation d'équivalence sur $A$
+		} 
+		
+		\traitd
 		\paragraph{Composantes connexes} 
-			On appelle \underline{composante connexes par arcs} les classes d'équivalences \\dans $A$ par $\mathcal{R}$ 
-			\hspace*{1.5cm} Rappel :  $\forall x\in A ,~Cl\{x\} = \{y\in A ~|~ x\mathcal{R} y\}$ \trait ${}$ \vspace*{-1.5cm} \\ \traitd
+			On appelle \emph{composante connexes par arcs} les classes d'équivalences dans $A$ par $\mathcal{R}$.
+		\trait \vspace{-15pt}
+		
+		\rappel{$\forall x\in A ,~Cl\{x\} = \{y\in A ~|~ x\mathcal{R} y\}$} \vspace{-25pt}
+		
+		\traitd
 		\paragraph{Connexité par arcs}
-			$A$ est dite \underline{connexe par arcs} si $\forall (x,y) \in A^2 ,~x\mathcal{R} y$ \\$A$ est connexe par arcs si 
-			pour tout $x,y \in A$ il existe un chemin de $x$ à $y$ dans $A$.	\trait
-		\thm{ch2L39}{Lemme}{ConvConnexe}{$A$ convexe $\Rightarrow ~A$ connexe par arcs} \traitd
+			$A$ est dite \emph{connexe par arcs} si $\forall (x,y) \in A^2 ,~x\mathcal{R} y$ \\$A$ est connexe par arcs si 
+			pour tout $x,y \in A$ il existe un chemin de $x$ à $y$ dans $A$.	
+		\trait
+		
+		\theorem{lem}{
+			$A$ convexe $\Rightarrow ~A$ connexe par arcs
+		} 
+		
+		\traitd
 		\paragraph{Partie étoilée}
-			$A\subset E$ est dite \underline{étoilée} s'il existe $\alpha	\in A$ tel que $\forall b \in A ,~[\alpha ,b] \subset A$ \trait
-		\thm{ch2L40}{Lemme}{EtoileeConnexe}{$A$ étoilée $\Rightarrow ~A$ connexe par arcs}
-		\\{\small \underline{Cas de $\R $} : $\forall A\subset \R $, $A$ convexe $\Leftrightarrow$ $A$ intervalle }
-		\vspace*{0.5cm} \\ \thm{ch2th30}{Théorème}{RConnexInter}{Dans $\R $, les parties connexes par arcs sont exactement les intervalles.}
+			$A\subset E$ est dite \emph{étoilée} s'il existe $\alpha	\in A$ tel que $\forall b \in A ,~[\alpha ,b] \subset A$ 
+		\trait
+		
+		\theorem{lem}{
+			$A$ étoilée $\Rightarrow ~A$ connexe par arcs
+		}
+		
+		{\small \emph{Cas de $\R $} : $\forall A\subset \R $, $A$ convexe $\Leftrightarrow$ $A$ intervalle } \\
+		
+		\theorem{thm}{
+			Dans $\R $, les parties connexes par arcs sont exactement les intervalles.
+		}
+		
 		\begin{proof}
 		\fbox{$\Rightarrow$} Soient $a,b \in A$ avec $a\leq b$ et $c\in [a,b]$ alors par TVI $\exists \theta \in [0,1]$ et 
 		$\gamma \in \cont^0([0,1],A)$ tels que $c=\gamma (\theta )$ donc $c\in A$.
-		\end{proof}
-		${}$ \\ \thm{ch2th31}{Théorème}{ImgContCpACpA}{L'image continue d'un connexe par arcs est connexe par arcs	\\Autrement dit soit 
-		$f\in\cont^0(A,F)$ avec $F$ un espace vectoriel normé alors \\$A$ connexe par arcs $\Rightarrow$ $f(A)$ connexe par arcs}	
+		\end{proof} \medskip
+		
+		\theorem{thm}{
+			L'image continue d'un connexe par arcs est connexe par arcs	\\
+			Autrement dit soit $f\in\cont^0(A,F)$ avec $F$ un espace vectoriel normé alors $A$ connexe par arcs $\Rightarrow$ $f(A)$ connexe par arcs
+		}
+			
 		\begin{proof}
-		Soit $x,y \in f(A)$ avec $\ard x' \in A$ tel que $x=f(x') \\ y' \in A$ tel que $y=f(y') \arf $ on pose $\tilde{\gamma} = f\circ \gamma : 
-		[0,1] \rightarrow f(a)$ \\alors $\tilde{\gamma}$ est $\cont^0$ et $\tilde{\gamma} (0) = x$ et $\tilde{\gamma} (1) = y$ donc par définition 
-		$f(A)$ est connexe par arcs. 
-		\end{proof} ${}$ \\
-		\begin{center}
+		Soit $x,y \in f(A)$ avec $\ard x' \in A$ tel que $x=f(x') \\ y' \in A$ tel que $y=f(y') \arf $ on pose $\tilde{\gamma} = f\circ \gamma : [0,1] \rightarrow f(a)$ \\
+		alors $\tilde{\gamma}$ est $\cont^0$ et $\tilde{\gamma} (0) = x$ et $\tilde{\gamma} (1) = y$ donc par définition $f(A)$ est connexe par arcs. 
+		\end{proof} \medskip
+		
 		\fin
-		\end{center}

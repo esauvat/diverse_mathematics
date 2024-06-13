@@ -12,7 +12,6 @@
 \usepackage[hidelinks]{hyperref}
 \usepackage[normalem]{ulem}
 \usepackage{fancyhdr}
-\usepackage{minitoc}
 \usepackage{shorttoc}
 
 \usepackage{xcolor}
@@ -45,12 +44,6 @@
 \fancyhead[LO]{\small \rightmark}
 \fancyhead[RO]{\thepage}
 
-% \setcounter{tocdepth}{3}
-
-% \setcounter{minitocdepth}{3}
-% \renewcommand{\mtctitle}{Contenu}
-% \dominitoc
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                            Command Definitions
@@ -71,27 +64,26 @@
 \newtheorem{prop}[thm]{Proposition}
 \newtheorem*{cor}{Corollaire}
 \newcommand{\theorem}[2]{
-    \hspace*{10pt}   
-    \begin{minipage}{0.7\textwidth} 
-        \begin{#1} ${}$ \vspace*{0.15cm}\\ 
-            \hspace*{20pt} \begin{blockarray}{|l} 
+    \hspace{15pt} {\vrule width 1pt} \kern2pt
+    	\begin{minipage}[t]{0.9\textwidth}
+            	\begin{#1} ${}$ \vspace*{0.15cm}\\	
                 #2 
-            \end{blockarray} 
-        \end{#1} 
-    \end{minipage} \vspace{-10pt} ~ 
+     		\end{#1}
+     	\end{minipage}
+     \medskip
     }
     %commande pour créer un théorème, le premier argument est le type et le second le contenu
         % ex : \theorem{lem}{contenu du lemme}
     
 \newcommand{\namedtheorem}[3]{
-    \hspace*{10pt}   \newtheorem*{#3}{#1}
-        \begin{minipage}{0.7\textwidth} 
-            \begin{#3} ${}$ \vspace*{0.15cm}\\ 
-                \hspace*{18pt} \begin{blockarray}{|l} 
-                    #2 
-                \end{blockarray} 
+    \newtheorem*{#3}{#1}
+    \hspace{15pt} {\vrule width 1pt} \kern2pt
+    	\begin{minipage}[t]{0.9\textwidth} 
+            \begin{#3} ${}$ \vspace*{0.15cm}\\      
+                #2 
             \end{#3} 
-        \end{minipage} \vspace{-10pt} ~
+        \end{minipage}
+    \medskip
     }
 
 \theoremstyle{remark}
@@ -125,32 +117,54 @@
 
 \newcommand{\scal}[1]{\left< #1 \right>}
 
-\newcommand{\ent}[1]{{\llbracket #1 \rrbracket}}                    % Ensemble d'entiers
-\newcommand{\N}{{\mathbf{N}}}                                       % Entiers naturels
-\newcommand{\Z}{{\mathbf{Z}}}                                       % Entiers relatifs
-\newcommand{\R}{{\mathbf{R}}}                                       % Réels
-\newcommand{\C}{{\mathbf{C}}}                                       % Complexes
-\newcommand{\K}{{\mathbf{K}}}                                       % Corps K
-\newcommand{\Q}{{\mathbf{Q}}}                                       % Rationnels
-\newcommand{\KX}{{\mathbf{K}[X]}}                                   % Polynômes sur K
-\newcommand{\M}{{\mathcal{M}}}                                      % Matrices
-\newcommand{\GL}{{\mathcal{G}\hspace*{-0.05cm} \mathcal{L}}}        % Groupe Linéaire
-\newcommand{\cont}{{\mathcal{C}}}                                   % Fonctions continues   
-\newcommand{\cpm}{{\mathcal{C}_{pm}^0}}                             % Fonctions continues par morceaux
-\newcommand{\lin}{{\mathcal{L}}}                                    % Applications linéaires
-\newcommand{\Sym}{{\mathcal{S}}}                                    % Matrices symétrique
-\newcommand{\Orth}{{\mathcal{O}}}                                   % Matrices orthogonnales
+\newcommand{\ent}[1]{{\llbracket #1 \rrbracket}}                    
+	% Ensemble d'entiers
+\newcommand{\N}{{\mathbf{N}}}                                       
+	% Entiers naturels
+\newcommand{\Z}{{\mathbf{Z}}}                                       
+	% Entiers relatifs
+\newcommand{\R}{{\mathbf{R}}}                                       
+	% Réels
+\newcommand{\C}{{\mathbf{C}}}                                       
+	% Complexes
+\newcommand{\K}{{\mathbf{K}}}                                       
+	% Corps K
+\newcommand{\Q}{{\mathbf{Q}}}                                       
+	% Rationnels
+\newcommand{\KX}{{\mathbf{K}[X]}}                                   
+	% Polynômes sur K
+\newcommand{\M}{{\mathcal{M}}}                                      
+	% Matrices
+\newcommand{\GL}{{\mathcal{G}\hspace*{-0.05cm} \mathcal{L}}}        
+	% Groupe Linéaire
+\newcommand{\cont}{{\mathcal{C}}}                                   
+	% Fonctions continues   
+\newcommand{\cpm}{{\mathcal{C}_{pm}^0}}                             
+	% Fonctions continues par morceaux
+\newcommand{\lin}{{\mathcal{L}}}                                    
+	% Applications linéaires
+\newcommand{\Sym}{{\mathcal{S}}}                                    
+	% Matrices symétrique
+\newcommand{\Orth}{{\mathcal{O}}}                                   
+	% Matrices orthogonales
 \newcommand{\bigo}{{\mathcal{O}}}
-\newcommand{\Part}{\mathcal{P}}                                     % Parties
-\newcommand{\A}{{\mathscr{A}}}                                      % Tribue
+\newcommand{\Part}{\mathcal{P}}                                     
+	% Parties
+\newcommand{\A}{{\mathscr{A}}}                                      
+	% Tribu
 
 \newcommand{\norm}[1]{\left\Vert #1 \right\Vert}
+\newcommand{\normop}[1]{{\left\vert\kern-0.15ex\left\vert\kern-0.15ex\left\vert #1 \right\vert\kern-0.15ex\right\vert\kern-0.15ex\right\vert}}
 
 \newcommand{\suminf}{\sum_{n=0}^\infty}
+
+\newcommand{\suite}[1]{(#1_n)}
+\newcommand{\stox}[1]{\underset{x \to #1}{\longrightarrow}}
 
 %%%     Format      %%%
 
 \newcommand{\highlight}[1]{\colorbox{lightgray}{#1}}
+
 \newcommand{\fin}{
     \begin{center}
         { \Large $\star$ \hspace{0.7cm} $\star$ \hspace{0.7cm} $\star$ }
@@ -260,7 +274,13 @@
 
 %\listoffigures
 
+\setcounter{tocdepth}{3}
+
 \shorttoc{Chapitres}{0}
+
+% \setcounter{minitocdepth}{3}
+% \renewcommand{\mtctitle}{Contenu}
+% \dominitoc
 
 \theoremstyle{plain}
 
@@ -272,9 +292,9 @@
 
     \input{../2_chapitres/ch2_1_fr}
 
-% \chapter{Limites et continuité}
+\chapter{Limites et continuité}
 
-%     \input{../2_chapitres/ch2_2_fr.tex}
+    \input{../2_chapitres/ch2_2_fr.tex}
 
 % \chapter{Dérivation et intégration}
 
@@ -328,8 +348,10 @@
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % %                         Table of Contents
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ 
+% \anothertoc{mathematic_basics_fr_1}{Table des matières - Première année}{1}
+% \anothertoc{mathematic_basics/fr_version/2_main_fr/mathematic_basics_fr_2.tex}{Table des matières - Deuxième année}{1}	
 
-\anothertoc{MPSI2}{Table des matières - Première année}{1}
-\anothertoc{MPX}{Table des matières - Deuxième année}{1}	
+\tableofcontents
 
 \end{document} 
