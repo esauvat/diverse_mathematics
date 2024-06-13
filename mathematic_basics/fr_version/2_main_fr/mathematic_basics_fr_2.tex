@@ -4,6 +4,7 @@
 
 \documentclass[10pt, a4paper, twoside]{report}
 \usepackage[top = 120pt, left = 100pt, right = 100pt, bottom = 100pt]{geometry}
+\usepackage{lxfonts}
 \usepackage[mathcal, mathbf]{euler}
 \usepackage[T1]{fontenc}
 \usepackage[french]{babel}
@@ -101,9 +102,9 @@
 \newtheorem*{rap}{Rappel}
 \newcommand{\rappel}[1]{\begin{rap} #1 \medskip \end{rap}}
 
-\newcommand{\traitd}{\begin{center} ~ \medskip  \\ \rule{0.9\textwidth}{0.75pt} \vspace{-5pt}\end{center}}
-\newcommand{\trait}{\begin{center} \rule{0.9\textwidth}{0.75pt} \end{center} ~ }
-\newcommand{\traitdouble}{\trait \vspace{-40pt} \traitd}
+\newcommand{\traitd}{\begin{center} ~ \medskip  \\ \rule{0.9\textwidth}{0.75pt} \vspace{-10pt}\end{center}}
+\newcommand{\trait}{\vspace{-5pt} \begin{center} \rule{0.9\textwidth}{0.75pt} \end{center} ~ }
+\newcommand{\traitdouble}{\trait \vspace{-30pt} \traitd}
 
 \newcommand{\ard}{\begin{array}{l}}
 \newcommand{\arf}{\end{array}}
