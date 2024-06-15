@@ -32,9 +32,12 @@
 			\end{itemize}
 		\trait
 		
-		\theorem{lem}{Soit $(E,N)$ un espace vectoriel normé. \\
+		\theorem{lem}{
+			Soit $(E,N)$ un espace vectoriel normé. \\
 			Si $\forall (x,y)\in E^2$, $d(x,y) = N(x-y) $ alors $d$ est une distance sur E.
 			}
+			
+		\newpage
 			
 		\traitd
 		\paragraph{Boule ouverte et fermée} Soient $a\in E,~r\in\mathbf{R}$ On pose
@@ -46,7 +49,10 @@
 			\hspace*{0.5cm} -> $\mathcal{C} \subset E$ est dit \emph{convexe} si $\forall (a,b)\in \mathcal{C}^2,~[a,b]\subset \mathcal{C}$
 		\trait 
 		
-		\theorem{lem}{Dans $E$ un EVN quelconque les boules sont convexes} \\
+		\theorem{lem}{
+			Dans $E$ un EVN quelconque les boules sont convexes
+		} \medskip
+		
 
 	\subsection{Normes euclidiennes}
 		Ici $E$ est un $\mathbf{R}$ espace vectoriel muni d'un produit scalaire\footnotemark[1] 
@@ -59,20 +65,19 @@
 		On a alors par théorème\footnote[2]{Voir cours de sup} ,  $x\mapsto \sqrt{\scal{x}{x}}$ est une norme sur $E$.  
 		On notera \begin{center} \highlight{ $\norm{x}_2 = N_2(x) = \sqrt{\scal{x}{x}}$ } \end{center} 
 		
-		\remarque{L'inégalité triangulaire pour $\norm{.}_2$ est dite inégalité de \emph{Minkovsky}} ~\\
+		\remarque{L'inégalité triangulaire pour $\norm{.}_2$ est dite inégalité de \emph{Minkovsky}} \medskip
 			
 		\theorem{lem}{Si $E=\mathbf{C}^n ,~z=\left(z_1,\dots ,z_n\right) ~, ~N(z) = \sqrt{\sum\limits_{k=1}^n\abs{z_k}^2}$ est une norme
-			} \medskip \\
+			} \medskip
 		
 		\theorem{lem}{$E = \cont^0\left([a,b],\mathbf{C}\right)$ Soit $f\in E$ on pose \\
 			$N(f) = \sqrt{\int_a^b \abs{f(x)}^2\mathrm{d}x}$ \hspace*{1cm} alors $N$ est une norme sur $E$
-			}
-
-		\medskip
+			} \medskip
+			
 			
 	\subsection{Exemple de normes}
 
-		\paragraph{Norme $N_{\infty}$ :}~
+		\paragraph{Norme $N_{\infty}$ :} ~
 		
 			Dans $E=K^n$ soit $x=(x_1,\dots ,x_n) ,~ N_{\infty}(x) = 
 			\underset{i\in\ent{1,n}}{\mathrm{max}} \abs{x_i}$
@@ -104,7 +109,7 @@
 			\[
 				u_n \underset{n\rightarrow +\infty}{\longrightarrow} \ell ~\mathrm{ssi}~\forall 
 				\varepsilon >0 ,~\exists n_0 \in \mathbf{N} ~:~ \forall n\geq n_0,~d(u_n ,\ell) <\varepsilon
-			\vspace{-15pt}
+			\vspace{-25pt}
 			\] 
 		\trait 
 			
@@ -137,7 +142,7 @@
 			Soient $u_n ,~v_n \in E^{\mathbf{N}} ~$ et $ \lambda\in K$ si on a 
 			$u_n \underset{n}{\rightarrow} \alpha$ et $v_n \underset{n}{\rightarrow} \beta$\\ 
 			\hspace*{0.2cm} Alors $\lambda u_n + v_n \underset{n}{\rightarrow} \lambda\alpha + \beta$
-		} \medskip \\
+		} \medskip
 
 		\namedtheorem{Lemme : Inégalité triangulaire renversée}{
 			Soit $x,y \in E$ alors $\abs{N(x) - N(y)} \leq N(x-y)$
@@ -152,7 +157,8 @@
 		\theorem{lem}{
 			Soit $u_n \in E^{\mathbf{N}} ,~\alpha\in K$ 
 			on a $u_n\underset{n}{\rightarrow} \alpha ~\Rightarrow ~ \norm{u_n}\underset{n}{\rightarrow}\norm{\alpha}$ 
-		} \medskip \\ {\small \emph{Attention !} La réciproque est fausse !}
+		} \\
+		{\small \emph{Attention !} La réciproque est fausse !}
 
 		\vspace{-15pt}
 		\traitd
@@ -163,14 +169,12 @@
 
 		\theorem{lem}{
 			Toute suite $\left(u_n\right)_{n\geq 0} \in E^{\mathbf{N}}$ convergente est bornée
-		} \medskip \\
+		} \medskip
 
 		\theorem{lem}{
 			On suppose $\left\{\ard \lambda_n \underset{n}{\rightarrow} \mu \in K \\ 
 			u_n \underset{n}{\rightarrow} v\in E \arf\right.$ \hspace*{0.2cm} Alors $\lambda_n u_n \underset{n}{\rightarrow} \mu v$
 		} 
-		
-		\newpage
 		
 		\traitd
 		\paragraph{Suite extraite}
@@ -183,6 +187,8 @@
 			$\ell\in E$ est une valeur d'adhérence de $u$ s'il existe une suite extraite de $u$ qui converge vers $\ell$.
 			On notera $\mathcal{V}_u$ l'ensemble des valeurs d'adhérence de $u$. 
 		\trait
+		
+		\newpage
 		
 		\theorem{thm}{
 			Soit $u\in E^{\mathbf{N}}$ si $u$ \\
@@ -199,15 +205,14 @@
 
 		\theorem{cor}{
 			Toute suite admettant au moins $2$ valeurs d'adhérence est \\divergente
-		} 
-		
-		\medskip 
+		} \medskip 
+
 
 \section{Normes équivalentes}
 	
 	\subsection{Définition}
 		
-	\vspace{-10pt}
+	\vspace{-15pt}
 		\traitd \vspace{-7pt}~\\
 			Soit $E$ un $K$ espace vectoriel, $N$ et $N'$ deux normes sur $E$.
 			$N$ et $N'$ sont dites \\équivalentes ($N\sim N'$) si $\exists \alpha ,\beta \in \mathbf{R} ~:~ \alpha N \leq N'\leq \beta N$
@@ -220,14 +225,13 @@
 			Soit $N,N'$ des normes équivalentes sur $E$, $u\in E^{\mathbf{N}} ,~\ell\in E$ alors\\
 			1) $u_n \underset{n}{\rightarrow}\ell$ dans $(E,N)$ $\Leftrightarrow$ $u_n \underset{n}{\rightarrow}\ell$ dans $(E,N')$ \\
 			2) $u$ est bornée dans $(E,N)$ $ \Leftrightarrow$ $u$ est bornée dans $(E,N')$
-		}
+		}\label{1.3.1} \medskip
 		
 		\theorem{lem}{
 			Sur $K^n$, $N_1$, $N_2$ et $N_{\infty}$ sont équivalentes et plus précisément
 			\\ \hspace*{2cm} $N_{\infty} \leq N_1 \leq \sqrt{n}N_2 \leq nN_{\infty}$
-		} 
-		
-		\medskip
+		} \medskip
+
 
 	\subsection{Cas de espaces de dimension fini}
 		
@@ -237,14 +241,14 @@
 		\theorem{thm}{
 			Sur un $K$-ev de dimension finie, 
 			toutes les normes sont équivalentes.
-		} \medskip \\
+		} \\
 		\textit{\small Sera démontré ultérieurement.} \\
 
 		\theorem{cor}{
 			Dans un $K$ espace vectoriel de dimension finie, 
 			la notion de convergence \\
 			ne dépend pas de la norme.
-		} \medskip \\ 
+		} \\ 
 		\emph{Attention !} C'est faux en dimension quelconque ! \\
 
 		\theorem{lem}{
@@ -252,7 +256,7 @@
 			Soit $\left(x_n\right)_{n\geq 0} \in E^{\mathbf{N}}$ et $\alpha \in E$.
 			On écrit $\left\{\ard x_n = x_{1,n}e_1 + \cdots + x_{p,n}e_p \\ \alpha = \alpha_1e_1 + \cdots + \alpha_pe_p \arf\right.$\\
 			On a alors $x_n \underset{n}{\rightarrow} \alpha ~\Leftrightarrow ~\forall k \in \ent{1,p} ,~x_{k,n} \underset{n}{\rightarrow} \alpha_k$
-		} \medskip \\
+		} \medskip
 		
 		\theorem{thm}{
 			Soient $p,q,r \in \mathbf{N}^*$
@@ -273,6 +277,7 @@
 	
 		Soient $\left(u_n\right)_{n\geq n_0} ,\left(v_n\right)_{n\geq n_0} \in \mathbf{C}^{\mathbf{N}}$ 
 		
+		\vspace{-10pt}
 		\traitd
 		\paragraph{Négligeabilité}
 			On dit que $u_n$ est négligeable devant $v_n$ quand $n\rightarrow +\infty$ noté $u_n \underset{n\rightarrow +\infty}{=} \circ (v_n)$ s'il existe $n_0 \in \mathbf{N}$ et $\left(\delta_n\right)_{n\geq n_0}$ tel que
@@ -280,11 +285,7 @@
 				\item $\forall n\geq n_0 ,~u_n = \delta_nv_n$
 				\item $\delta_n \underset{n\rightarrow +\infty}{\longrightarrow} 0$
 			\end{itemize}
-		\trait
-		
-		\newpage 
-		
-		\traitd
+		\traitdouble
 		\paragraph{Domination}
 			On dit que $u_n$ est dominée par $v_n$ quand $n\rightarrow +\infty$ noté $u_n \underset{n\rightarrow +\infty}{=} \bigcirc (v_n)$ s'il existe $n_0 \in \mathbf{N}$ et $\left(B_n\right)_{_{n\geq n_0}}$ tel que
 			\begin{itemize}
@@ -297,9 +298,11 @@
 			si : 
 			\[
 				u_n - v_n \underset{n\rightarrow +\infty}{=} \circ (v_n) 
-			\vspace*{-25pt}
+			\vspace*{-20pt}
 			\]
 		\trait
+		
+		\newpage
 
 		\remarque{$u_n \sim v_n ~\Leftrightarrow ~u_n = v_n + \circ (v_n)$}
 		
@@ -321,7 +324,7 @@
 		\theorem{lem}{
 			$\left( \sum u_n \mathrm{converge} \right) ~ \Rightarrow ~ 
 			\left( u_n \underset{n}{\rightarrow} 0 \right) $
-		} \medskip \\ 
+		} \\ 
 		\emph{Attention !} La réciproque est fausse ! (ex : $(H_n)$)
 		
 		\traitd
@@ -329,8 +332,6 @@
 			Lorsque $u_n \underset{n}{\not\rightarrow} 0$, la série $\sum u_n$ est dite \\
 			\emph{grossièrement divergente} "$\sum u_n$ DVG" ainsi : $\left(\sum u_n \mathrm{DVG} \Rightarrow \sum u_n \mathrm{DV} \right)$
 		\trait
-			
-		\newpage
 
 		\namedtheorem{Théorème : Reste d'une série convergente}{
 			On suppose $\sum u_n$ converge, on note $S = \suminf u_n$ \\
@@ -356,21 +357,21 @@
 		\trait 
 		
 		\vspace{-10pt}
-		\remarque{Vu $dimE < \infty$, ceci ne dépend pas du choix de la norme}
+		\remarque{Vu $dimE < \infty$, ceci ne dépend pas du choix de la norme} \medskip
 		
 		\theorem{thm}{
 			Dans un $K$ espace vectoriel de \emph{dimension finie}, 
 			toute série absolument \\ convergente est convergente {\small " CVA $\Rightarrow$ CV "}
 		} \medskip \\ \textit{\small Sera démontré ultérieurement.}\footnote[1]{ 
-			% TODO : add ref	
+			TODO : add ref	
 		} \\
 
-		\emph{Attention !} Faux dans un EVN quelconque ! \medskip \\
+		\emph{Attention !} Faux dans un EVN quelconque ! \\
 			
 		\theorem{lem}{
 			Soit $(E,N)$ un $K$ espace vectoriel normé de dimension finie \\ On supposons que 
 			$\sum u_n$ CVA. Alors $\norm{\suminf u_n} \leq \suminf \norm{u_n}$
-		}
+		} \medskip
 		
 \section{Complément sur les séries numériques}
 
@@ -378,11 +379,11 @@
 
 		\hspace*{2.5cm} -> Lorsque $\abs{z} < 1$ on a \highlight{$\suminf z^n = \frac{1}{1-z}$}
 		
-		\hspace*{2.5cm} -> On définie \highlight{ $\mathrm{exp}(z) = \suminf \frac{z^n}{n!}$ } \medskip \\
+		\hspace*{2.5cm} -> On définie \highlight{ $\mathrm{exp}(z) = \suminf \frac{z^n}{n!}$ } \medskip
 
 	\subsection{Règle de \emph{Dalembert}}
-
-		~ \medskip \\
+	
+		\medskip
 		\namedtheorem{Théorème : Règle de \emph{Dalembert}}{
 			Soit $(u_n) \in\left(\mathbf{C}^*\right)^{\mathbf{N}}$ \\
 			On suppose l'existence de $\ell \in \mathbf{R}\cup \{+\infty \}$ tel que $\abs{\frac{u_{u+1}}{u_n}} \to \ell$ \\
@@ -399,12 +400,12 @@
 			\vspace*{0.2cm}\\ {\small 2)} On suppose $\ell>1$ et on fixe $\theta \in \mathbf{R}$ tel que $ 1<\theta <\ell$, 
 			on a alors $\exists n_0 \in \mathbf{N} ~:~\forall n\geq n_0 ,~r_n > \theta$ (\dots)\\
 			on obtient $\abs{u_n} \to +\infty$ donc $u_n \underset{n}{\nrightarrow} 0$ donc $\sum u_n$ DVG
-		\end{proof} 
+		\end{proof} \medskip 
 		
-		\medskip 
 
 	\subsection{Séries alternées}
 		
+		\vspace{-15pt}
 		\traitd
 		\paragraph{Défnition}
 			La série réelle $\sum u_n$ est dite \emph{alternée} si $\left\{\ard \forall n\in \mathbf{N} ,~u_n = (-1)^n \abs{u_n} \\
@@ -420,9 +421,7 @@
 			-> $\abs{R_n} \leq \abs{u_{n+1}}$ \\
 			-> $R_n$ et $u_{n+1}$ ont le même signe \\ 
 			-> $S$ est compris entre $U_n$ et $U_{n+1}$ 
-		}{CSSA} 
-
-		\newpage
+		}{CSSA} \medskip
 
 	\subsection{Sommation des relations de comparaisons}
 			
@@ -435,7 +434,7 @@
 			{\small 1)} $u_n = o_{n\rightarrow +\infty} (v_n) ~\Rightarrow ~ R_n = o_{n\rightarrow +\infty} (R'_n)$ \\ 
 			{\small 2)} $u_n = \bigcirc_{n\rightarrow +\infty} (v_n) ~\Rightarrow ~ R_n= \bigcirc_{n\rightarrow +\infty} (R'_n)$ \\
 			{\small 3)} $u_n \underset{n\rightarrow +\infty}{\sim} v_n ~\Rightarrow ~ R_n \underset{n\rightarrow +\infty}{\sim} R'_n$
-		}{SumCompCV} \medskip \\
+		}{SumCompCV} \medskip
 		
 		\namedtheorem{Théorème : Cas divergent}{
 			Soit $(u_n) ,~(v_n) ~\in\mathbf{R}^{\mathbf{N}}$ 
@@ -446,7 +445,7 @@
 			{\small 1)} $u_n = \circ_{n\rightarrow +\infty} (v_n) ~\Rightarrow ~ U_n = \circ_{n\rightarrow +\infty} (V_n)$ \\ 
 			{\small 2)} $u_n = \bigcirc_{n\rightarrow +\infty} (v_n) ~\Rightarrow ~ U_n= \bigcirc_{n\rightarrow +\infty} (V_n)$ \\
 			{\small 3)} $u_n \underset{n\rightarrow +\infty}{\sim} v_n ~\Rightarrow ~ U_n \underset{n\rightarrow +\infty}{\sim} V_n$
-		}{SumCompDV} \medskip \\
+		}{SumCompDV} \medskip
 			
 		\namedtheorem{Théorème de \emph{Cesàro}}{
 			Soit $(u_n) \in\mathbf{R}^{\mathbf{N}}$\\
@@ -463,9 +462,8 @@
 			$a_n = \frac{1}{n+1} ( \underbrace{\sum_{k=0}^{n_0-1} u_k}_{=C} + \underbrace{\sum_{k=n_0}^{n} u_k}_{>A'(n-n_0+1} )$ 
 			donc $a_n > \frac{C}{n+1} + A'\frac{n+1-n_0}{n+1} = A' + \frac{C-n_0A'}{n+1}$ \\ 
 			Soit $n_1\geq n_0$ tel que $\forall n\geq n_1 ,~\abs{\frac{C-A'n_0}{n+1}} <1$ alors $\forall n\geq n_1 ,~a_n > A$ d'où $a_n \to +\infty$
-		\end{proof} 
-
-		\newpage 
+		\end{proof} \medskip
+		
 
 \section{Produit de deux séries absolument convergentes}
 
@@ -484,16 +482,15 @@
 			Si $\sum u_n$ et $\sum v_n$ \emph{convergent absolument} alors :\\
 			{\small 1)} $\sum w_n$ CVA \\
 			{\small 2)} $\left( \suminf u_n \right) \times \left( \suminf u_n \right) = \suminf w_n$
-		} \medskip \\
+		} \medskip
 
-		\textit{\small Signalé :} \\
+		\textit{\small Signalé :}
 
 		\namedtheorem{Théorème de \emph{Mertens}}{
 			Si $\left\{ \ard \sum u_n ~\mathrm{CVA} \\ \sum v_n ~\mathrm{converge}
 			\arf \right.$ \\alors $\sum w_n$ converge et $\left( \suminf u_n \right) \times \left( \suminf u_n \right) = \suminf w_n$ 
-		}{TH-Mert}
-
-		\medskip
+		}{TH-Mert} \medskip
+		
 
 	\section{Dualité série-suite}
 		
