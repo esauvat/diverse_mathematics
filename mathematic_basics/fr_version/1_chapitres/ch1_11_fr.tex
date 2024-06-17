@@ -1,0 +1,234 @@
+
+% Chapitre 11 : Polynômes et fractions rationnelles
+
+\minitoc
+	\section{Anneau des polynômes à 1 indéterminée}
+		\paragraph{Anneau des polynômes ($\mathbb{K} [X], +, \times$)}
+			Soit $\mathbb{K}^{(\mathbb{N} )}$ l'ensemble des suites à \\ valeurs dans 
+			$\mathbb{K}$ sationnaires nulles.
+			\[\forall u\in\mathbb{K}^{(\mathbb{N} )} , \exists n_{0} \in \mathbb{N} : 
+			\forall n\in\mathbb{N} , (n\leq n_{0} \Rightarrow u_{n}=0)\]
+			On définit une addition et une multiplication :
+			\[ \forall n\in\mathbb{N} , (u+v)(n) = u_{n}+v_{n} \]
+			\[\forall n\in\mathbb{N} , (uv)(n) = \sum\limits_{k=0}^{n} u(k)v(n-k) \]
+			On considère la suite $X=(0,1,0,0,...)$ et on a alors $X^{n} =(0,...,0,1,0,...)$
+			et $X^{0} = 1_{\mathbb{K}} =(1,0,0,...)$ \hspace*{20pt}
+			On peut noter $\mathbb{K}^{(\mathbb{N} )})$ comme $\mathbb{K} [X]$.\\
+			$P=(a_{0} ,~a_{1} ,...,~a_{n} ,~0,...) = \sum\limits_{k=0}^{n} a_{k} X^{k} 
+			~~\in\mathbb{K} [X]$ \\
+			($\mathbb{K}^{(\mathbb{N} )} [X] ,~+,~\times$) est l'anneau des polynômes.
+			\subparagraph{Utilisation}
+			 $(1+X)^{n+m} = (1+X^{n} (1+X)^{m} 
+			 $\\
+			 $\sum\limits_{l=0}^{n+m} \binom{n+m}{l} X^{l} = \sum\limits_{k=0}^{n} 
+			 \binom{n}{k} X^{k} = \sum\limits_{j=0}^{m} \binom{m}{j} X^{j} \hspace*{10pt}$ 
+			 Qui donne \hspace*{10pt} 
+			 $$\binom{n+m}{l} = \sum\limits_{k=0}^{l} \binom{n}{k} \binom{m}{l-k} $$
+		\subsection{Degré d'un polynôme}
+			Si $P\in\mathbb{K} [X]~,~P\neq 0$ on appelle degré de P noté deg(P) ou d°(P) :
+			\[ deg(P) = max\{ n\in\mathbb{N} \vert a_{n} \neq 0\} ~~
+			(P=\sum\limits_{k=0}^{+\infty } a_{k} X^{k} )\]
+			avec par convention le polynôme nul de degré $-\infty$.
+			\paragraph{Degré de la somme et du produit}
+			 Soit $(P,Q) \in (\mathbb{K} [X] )^{2}$\\
+			 \[  deg (P+Q) \leq max\{ deg(P),deg(Q)\} \] égalité si $deg(P)\neq deg(Q)$\\
+			 \[deg(PQ) = deg(P) + deg(Q)\]
+			\paragraph{Ensemble}
+			 Si $n\in\mathbb{N}$,
+			 $\mathbb{K}_{n} [X]$ est l'ensemble des polynômes de degré au plus n.
+			 \[ \mathbb{K}_{n} [X] = \{P\in\mathbb{K} [X] ~\vert ~ deg(P) \leq n\}\]
+			 \subparagraph{Remarque}
+			  $\mathbb{K}_{n} [X] $ est stable par combinaison linéaire
+			  \[\forall (\lambda ,\mu )\in \mathbb{K}^{2} , ~\forall (P,Q)\in 
+			  (\mathbb{K}_{n} [X])^{2} \hspace*{20pt} \lambda P+\mu Q \in\mathbb{K}_{n} [X]\]
+			\paragraph{Intégrité de l'anneau ($\mathbb{K} [X],+,\times$)}
+			 $\forall (P,Q) \in (\mathbb{K} [X] )^{2} $
+			 \[ PQ = 0 ~\begin{array}{l}
+			 ~\Leftrightarrow ~~deg(PQ) = -\infty \\
+			 ~\Leftrightarrow ~~deg(P) + deg(Q) = -\infty \\
+			 ~\Leftrightarrow ~~deg(P) = -\infty ~ou~ deg(Q) = -\infty \\
+			 ~\Leftrightarrow ~~P=0 ~ou~ Q=0  
+			 \end{array} \]	
+			
+		\subsection{Composition de polynômes}
+			Si $(P,Q) \in (\mathbb{K} [X] )^{2}$ avec $P=\sum\limits_{k=0}^{+\infty} a_{k} X^{k}$
+			\[P\circ Q ~=~ \sum\limits_{k=0}^{+\infty} a_{k} Q^{k} \]
+			\paragraph{Degré du polynôme composé}
+			 Si $(P,Q)\in \mathbb{K} [X] \times \mathbb{K} [X]\backslash \mathbb{K}_{0} [X]$
+			 \[deg(P\circ Q) = deg(P) \times deg(Q)\]
+			\paragraph{Coefficient dominant}
+				Si $P=\sum\limits_{k=0}^{+\infty} a_k X^k \in \mathbb{K} [X] \backslash \{0\}$\\
+				$a_{degP}$ s'appelle le coefficient dominant de $P$. 
+				Si il vaut $1$ $P$ est dit unitaire.
+	\section{Divisibilité et Division Euclidienne}
+		\subsection{Divisibilité des polynômes}
+			Si $(A,B) \in (\mathbb{K} [X])^{2}$\\
+			On dit que A	 divise B si il existe $Q \in\mathbb{K} [X]$ tel que $B=AQ$\\
+			On note alors $A\vert B$ (sinon $A\not\vert B$)
+			\paragraph{Propriété}
+				Soit $A\in\mathbb{K} [X] \backslash\{0\}$ et $B \in\mathbb{K} [X]$
+				$A\vert B$ $\Rightarrow$ degA $\leq$ degB
+				\subparagraph{Preuve}
+				 $A = BQ \Rightarrow$ degA = degB + degQ $\geq$ degB
+		\subsection{Polynômes associés}
+			$(A,B) \in (\kx )^2$ est un couple de polynômes associés si
+			\[A\vert B \hspace*{15pt} B\vert A\]
+			\paragraph{$\rightarrow$}
+				$(A,B)$ est un couple de polynômes associés si et seulement si
+				\[\exists\lambda\in\mathbb{K}* ~:~A=\lambda B\]
+		\subsection{Division euclidienne polynômiale}
+			Si $B \neq 0$ , $B = \sum\limits_{k=0}^m b_k X^k$ avec $b_m\neq 0$ \vspace*{10pt}\\
+			\[Si~ A\in\mathbb{K} [X] \backslash \mathbb{K}_{m-1} [X] ~~il~existe~(Q_0,R_0)
+			\in (\mathbb{K} [X])^2~:~A=BQ_0+R_0 ~et~degR_0 < degA\]
+			(Si $A=\sum\limits_{k=0}^{n} a_{k} X^{k}$ il suffit de considérer 
+			$Q_0 =\frac{a_n}{b_m} X^{n-m}$)
+			\newtheorem*{th10}{Théorème de la division euclidienne polynômiale}
+			\begin{th10}\label{Th DEucl Pol} 
+				${}$\\Si $B\in \mathbb{K} [X] \backslash \{0\}$ alors pou tout 
+				$A\in\mathbb{K} [X]$
+				\[\exists (Q,R) \in (\mathbb{K} [X])^2 ~:~ \left|\begin{array}{l}
+				A=BQ+R\\ degR < deg B
+				\end{array}\right. \] 
+			De plus $Q$ et $R$ sont uniques appelés quotient et reste de la division 
+			euclidienne de $A$ par $B$.
+			\end{th10}
+			\begin{proof}
+				\underline{Existence} \medskip Récurence sur degA \\
+				\hspace*{20pt} \textit{Initialisation} \hspace{20pt} Si degA < degB
+				\[A=B\times 0 + A = BQ + R \]
+	
+				\hspace{20pt} \textit{Hérédité} \hspace{20pt} On suppose la propriété vraie 
+				pour tout polynôme de degré $k<n$ avec $n\geq$ degB. 
+				D'après la remarque préliminaire on a :
+				\[\exists (Q_0,R_0) \in (\mathbb{K} [X])^2 ~:~A=BQ_0 +R_0 ~~~~ degR_0<degA=n\]
+				\begin{center} d'après l'hyspothèse de récurrence $\exists (Q_1,R_1) 
+				\in (\mathbb{K} [X])^2$ \\
+				\hspace*{10pt} $R_0 =BQ_1+R_1$ avec $degR_1<degB$ soit 
+				\[A=B(Q_0 + Q_1) + R_1\] \end{center}
+				\hspace*{40pt} \underline{Unicité} \\
+				\hspace*{20pt} Supposons $A=BQ_1 +R_1 = BQ_2 +R_2$ avec $degR_1,degR_2<degB$\\
+				alors $B(Q_1 - Q_2) = R_1 - R_2$ donc
+				\[degB + deg(Q_1 -Q_2) = deg(R_1 - R_2)~\leq~max\{degR_1,degR_2\} < degB\]
+				d'où $deg(Q_1 -Q_2) = -\infty$ soit $Q_1=Q_2$ puis $R_1=R_2$
+			\end{proof}
+	\section{Fonctions polynômiales et racines}
+		\subsection{Fonction polynômiale associée}
+			À tout polynôme $P = \sum\limits_{k=0}^n a_k X^k \in \mathbb{K} [X]$ on peut associer 
+			la fonction polynômiale 
+			\[\widetilde{P} \left( \begin{array}{l}
+			\hspace*{10pt}\mathbb{K} \longrightarrow \mathbb{K} \\
+			x \mapsto \sum\limits_{k=0}^n a_k x^k \end{array} \right)\]
+			\paragraph{Calculs}
+				$\forall (P,Q)\in (\mathbb{K} [X])^2 ~~ \forall (\lambda ,\mu )\in\mathbb{K}^2$
+				\[\widetilde{\lambda P+\mu Q} = \lambda\widetilde{P} +\mu\widetilde{Q}\]
+				\[\widetilde{PQ} = \widetilde{P}\widetilde{Q} \hspace*{40pt} \widetilde{P\circ Q} 
+				= \widetilde{P}\circ\widetilde{Q}\]
+		\subsection{Racines du polynôme}
+			$a\in\mathbb{K}$ est une racine de $P\in\mathbb{K} [X]$ si \[\widetilde{P}(a) = 0\]
+			On notera ensuite $\mathcal{Z}(P)$ l'ensemble des racines (ou zéros) de $P$.
+			\newtheorem{th11}{Divisibilité par $(X-a)$}
+			\begin{th11}\label{Div X-a}
+				$\forall P\in\mathbb{K}[X] ~~~~ \forall (a_1,~\cdots ~,a_n)\in\mathbb{K}^n$ 
+				distincts \[\{a_1,~\cdots ~,a_n\} \subset \mathcal{Z}(P) ~\Leftrightarrow ~
+				\prod\limits_{i=1}^n (X-a_i)\vert P\]
+			\end{th11}
+			\begin{proof}
+			Récurrence sur n : P(n)(\ref{Div X-a})\\
+			\underline{Initialisation} \hspace*{10pt}
+			$(x-a)\vert P$ si et seulement si $\exists Q : P=(X-a)Q$ alors
+			\[\widetilde{P}(a) = \widetilde{(X-a)}(a)\widetilde{Q}(a) = 0\]
+			Si $a\in\mathcal{Z}(P)$ et $P=\sum\limits_{k=0}^n \alpha_k X^k$
+			\[P = P-P(a) = \sum\limits_{k=0}^n \alpha_k X^k - \sum\limits_{k=0}^n \alpha_k a^k 
+			= \sum\limits_{k=0}^n \alpha_k (X^k - a^k) \]
+			\[= (X-a)\sum\limits_{k=0}^n \alpha_k \sum\limits_{l=0}^{k-1} a^{k-1-l} X^l = 
+			(X-a)Q\vspace*{20pt}\]
+			\underline{Hérédité} \hspace*{10pt} Supposons P(n) et considérons
+			$\{a_1, ~\cdots ~,a_n,a_{n+1}\}\in\mathbb{K}^{n+1}$ distincts \\
+			Par l'hypothèse de récurrence on a 
+			\[\exists Q\in\mathbb{K}[X] ~:~ P=(\prod\limits_{i=1}^n (X-a_i))Q\]
+			\[ a_{n+1} \in\mathcal{Z}(P) ~\Leftrightarrow ~\widetilde{P}(a_{n+1}) = 0
+			\Leftrightarrow ~(\prod\limits_{i=1}^n (a_n+1-a_i))\widetilde{Q}(a_{n+1})=0\]
+			\[ \Leftrightarrow ~a_{n+1} \in\mathcal{Z}(Q) ~\Leftrightarrow ~X-a_{n+1}\vert Q\]
+			\end{proof}
+			\paragraph{Nombre de racines}
+				Le nombres de racines d'un polynôme \underline{non nul} est majoré par son degré.
+				\subparagraph{dem.}
+				 Par récurrence si $deg(\prod\limits_{i=1}^n (X-a_i)) = n$ et $P\neq O$
+				 \[\prod\limits_{i=1}^n (X-a_i)\vert P ~\Longrightarrow ~n\leq P\]
+			\paragraph{Corollaire : Caractérisation du polynôme nul}
+				Le seul polynôme admettant une infinité de racines ou $n+1$ racines est le 
+				polynôme nul.
+				\subparagraph{appli.}
+				 Soit $E=\{P\in\mathbb{K}[X]\vert\exists T\in\mathbb{K}* : \forall x\in\mathbb{K}
+				 ,~\widetilde{P}(x+T) = \widetilde{P}(x)\}$, déterminons $E$.\\
+				 $\mathbb{K}_0[X]\subset E$\\
+				 Réciproquement si $\P\in E ~T-p\' eriodique~(T\neq 0)$ et $Q=P-\widetilde{P}(0)$ 
+				 on a $T\mathbb{Z} \subset\mathcal{Z}(P)$ d'où $P-\widetilde{P}(0) = 0$ donc
+				 $P= \widetilde{P}(0) \in\mathbb{K}_0[X] $\\
+				 En conclusion on a $E = \mathbb{K}_0[X]$.
+		\subsection{Ordre de multiplicité}
+			$\forall P\in\kx $ \\
+			Si $a\in\mathbb{K}$, $k\in\mathbb{N}$ et $(X-a)^n\vert P$ on dit que $a$ est une 
+			racine de $P$ d'ordre de multiplicité au moins $n$.\\
+			Si de plus $(X-a)\not\vert P$ alors $a$ est une racine de $P$ d'ordre de multiplicité 
+			exactement $n$.
+			\paragraph{$\rightarrow$}
+			$a$ est une racine de $P$ d'ordre de multiplicité k si et seulement si 
+			$\exists Q\in\kx$ tel que 
+			\[P = (X-a)^k Q ~~et~~ a\not\in \mathcal{Z}(P)\]
+		\subsection{Méthode de Horner pour l'évaluation polynômiale} 
+			${}$\\ Soit $\Psn$ et $x_0\in\mathbb{K}$ on veut déterminer 
+			$\widetilde{P}(x_0)$. \\On considère la suite
+			$\left\{\ar* u_0 = a_n \\ u_{k+1} = u_kx_0+a_{n+1-k} \ar\right.$
+			\[u_k = a_nx_0^k + ~\cdots ~+a_{n_k} ~~et~~u_n = \widetilde{P}x_0\]
+		\subsection{Polynôme scindé}
+			Un polynôme $P\in\kx$ est \underline{scindé} s'il peut s'écrire comme produit de 
+			polynômes de degré 1.\\
+			\thm{th12}{Formule de Viete}{fViete}{${}$\\ \underline{Relations entre les coefficients et les racines d'un polynôme scindé}
+				\\Soit $P$ un polynôme scindé, $P = \Psn = \lambda\prod\limits_{k=1}^n (X-x_k)$
+				\\ $\left.\ar* n\geq 2 \\ a_n \neq 0\ar\right| \Leftrightarrow \left\{\ar* 
+				a_n = \lambda \\ a_{n-l} = \lambda\prod\limits_{1\leq i_1\leq 
+				\cdots\leq i_l\leq n} \sum\limits_{r=1}^l (-x_{i_r}) \ar\right. $
+				\\ $ \Leftrightarrow \left\{\ard a_n = \lambda \\ \prod\limits_{1\leq i_1\leq 
+				\cdots\leq i_l\leq n} \sum\limits_{r=1}^l x_{i_r} = \frac{(-1)^l a_{n-l}}{a_n}
+				\arf \right. $ }
+			
+			\begin{proof}
+			Faire arbre
+			\end{proof}
+	\section{Dérivation}
+		Si $P=\Ps \in\kx$ on appelle polynôme dérivé de P
+		\[P' = \sum\limits_{k=1}^{+\infty}ka_kX^{k-1} = 
+		\sum\limits_{k=0}^{+\infty}(k+1)a_{k+1}X^k\]
+		puis par récurrence avec $\forall n\in\mathbb{N} ~~P^{(n++1)} = (P^{(n)})'$
+		$P^{(n)} = \sum\limits_{k=n}^{+\infty} k(k-1)\cdots (k-n+1)a_kX^{k-n}
+		= \sum\limits_{k=0}^{+\infty} (k+n)(k+n-1)\cdots (k+1) a_{k+n}X^k 
+		 = \sum\limits_{k=n}^{+\infty}\frac{k!}{(k-n)!} a_kX^{k-n}
+		= \sum\limits_{k=0}^{+\infty} \frac{(k+n)!}{k!} a_{k+n}X^k$
+			\hspace*{40pt} \underline{\textbf{Calcul :}}
+			$\forall (P,Q)\in (\kx )^2$ \\
+			\[\rightarrow ~~ \forall (\lambda ,\mu )\in\mathbb{K}^2 ,~(\lambda P+\mu Q)'
+			= \lambda P'+\mu Q'\]
+			\[\rightarrow ~~ (PQ)' = P'Q + PQ' \hspace*{40pt} \rightarrow ~~(P\circ Q)'
+			= P'\circ Q \times Q\]
+		\begin{proof}
+		$P = \Ps ~~Q =\sum\limits_{k=0}^{+\infty} b_kX^k$ \\
+		$\rightarrow ~~ (\lambda P+\mu Q)' = (\sum\limits_{k=0}^{+\infty} 
+		(\lambda a_k +\mu b_k)X^k)' = \sum\limits_{k=1}^{+\infty} 
+		k(\lambda a_k +\mu b_k)X^{k-1} \\ = \lambda 
+		(\sum\limits_{k=1}^{+\infty} ka_k X^{k-1} ) +\mu 
+		(\sum\limits_{k=1}^{+\infty} kb_k X^{k-1} ) = \lambda P' +\mu Q'$\\
+		$\rightarrow ~~ PQ = \sum\limits_{k=0}^{+\infty} c_k X^k ~~~~c_k = 
+		\sum\limits_{l=0}^k a_l b_{k-l} \hspace*{30pt} donc~~~~
+		(PQ)' = \sum\limits_{k=0}^{+\infty} (k+1)c_{k+1} X^k \\ avec \hspace*{40pt} P' = 
+		\sum\limits_{k=0}^{+\infty}(k+1)a_{k+1} X^k ~~~~et~~~~
+		Q' = \sum\limits_{k=0}^{+\infty} (k+1)b_{k+1} X^k \\
+		PQ' = \sum\limits_{k=0}^{+\infty} d_k X^k ~~~~ d_k = \sum\limits_{l=0}^k
+		a_l (k+1-l)b_{k+1-l} \\ P'Q = \sum\limits_{k=0}^{+\infty} \delta_k X^k  
+		\delta_k = \sum\limits_{l=0}^k (l+1)a_{l+1} b_{k-l} \\
+		d_k +\delta_k = \sum\limits_{l=0}^k a_l (k+1-l)b_{k+1-l} + \sum\limits_{l=0}^k 
+		(l+1)a_{l+1}b_{k-l} \\ 
+		= a_0 (k+1)b_{k+1} + (k+1)a_{k+1}b_0 + \sum\limits_{l=1}^k 
+		a_l (k+1-l)b_{k+1-l} +\sum\limits_{l=1}^k la_l b_{k+1-l} \\
+		= (k+1)\sum\limits_{l=0}^{k+1} a_lb_{k+1} = (k+1)c_{k+1}$
+		\end{proof}

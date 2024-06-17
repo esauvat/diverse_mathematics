@@ -3,7 +3,7 @@
 
 \textit{Cadre : $(E,N)$ est un espace vectoriel normé quelconque et $A \subset E$}
 
-% \minitoc
+\minitoc
 
 \section{Ouverts et fermés}
 	
@@ -35,8 +35,6 @@
 			Dans $(E,N)$ on appelle \emph{ouvert} (ou \emph{partie ouverte}) \textbf{toute} réunion de boules ouvertes.
 		\trait
 		
-		\newpage
-		
 		\namedtheorem{Théorème : Caractérisation des ouverts}{Soit $U\subset E$ alors\\
 		$\left( U ~ ouvert \right) ~\Leftrightarrow ~\left( \forall x\in U ,~\exists r>0 ~:~B(x,r) \subset U \right)$
 		}{CarOuverts}
@@ -66,7 +64,7 @@
 		-> Cas de l'intersection vide  : $\bigcap_{\emptyset} = E$ \\
 		-> Cas de $2$ ouverts : Soit $A,B$ deux ouverts de $E$ , soit $x\in A\cap B$, on a $\exists r_1,r_2 >0$ tels que $B(x,r_1)\subset A$ et
 		$B(x,r_2) \subset B$ alors soit $r=\mathrm{min} (r_1,r_2)$, $B(x,r) \subset A\cap B$ 
-		et par théorème (Page \pageref{CarOuverts}), $A\cap B$ est un ouvert \\ -> Cas de $p$ ouverts, $p\in \mathbf{N}^*$ : par récurrence sur $p$ avec le cas $p=2$
+		et par le théorème de caractérisation des ouverts, $A\cap B$ est un ouvert \\ -> Cas de $p$ ouverts, $p\in \mathbf{N}^*$ : par récurrence sur $p$ avec le cas $p=2$
 		\end{proof} \medskip 
 		
 		
@@ -104,7 +102,9 @@
 		
 		\namedtheorem{Lemme : Croissance de l'adhérence}{
 			Soit $A,B\in E$ alors $A\subset b ~\Rightarrow ~\overline{A} \subset \overline{B}$
-		}{AdherCroiss} \medskip
+		}{AdherCroiss} 
+		
+		\newpage
 		
 		\theorem{thm}{
 			Soit $\alpha \in E$ alors $\alpha \in \overline{A} \Leftrightarrow \exists \suite{a} \in A^{\mathbf{N}} : a_n \underset{n}{\to} \alpha$
@@ -170,8 +170,10 @@
 		
 		\traitd
 		\paragraph{Frontière}
-			Soit $A\subset E$ on définie sa \emph{frontière} comme \fbox{$F_r(A)= \overline{A} \backslash \mathring{A}$} 
+		Soit $A\subset E$ on définie sa \emph{frontière} comme \fbox{$F_r(A)= \overline{A} \backslash \mathring{A}$} 
 		\trait
+		
+				\newpage
 		
 		\theorem{lem}{
 			$\forall A\subset E$ , $F_r(A)$ est fermée et \fbox{$F_r(A) = \overline{A} \cap \overline{{^cA}}$}
@@ -361,7 +363,9 @@
 		
 		\begin{proof}
 		Caractérisation séquentielle d'une limite Page \pageref{CarSeqLim} et Lemme.
-		\end{proof} \medskip
+		\end{proof} 
+		
+		\newpage
 		
 		\traitd
 		\paragraph{Continuité}
@@ -460,8 +464,6 @@
 		\subparagraph{Notation}
 			On note $\lin_c (E,F) = \{u\in \lin (E,F) ~|~u$ est continue $\}$ 
 		
-		\newpage
-		
 		\traitd 
 		\paragraph{Norme subordonnée} ~ \vspace{5pt} \\
 			\hspace*{15pt} {\vrule width 1pt} \kern2pt
@@ -549,15 +551,13 @@
 		
 		\remarque{Soit $a\in A$ et $r\in \mathbf{R}+$ alors on note $B^A(a,r)=\{x\in A ,~d(x,a) <r\} = A\cap B(a,r)$
 		} \vspace{-25pt}
+
+		\newpage
 		
 		\traitd
 		\paragraph{Voisinage relatif}
 			Soit $a\in A$ et $V\subset A$ alors $V$ est dit voisinage relatif de $a$ s'il existe $r>0$ tel que $B^A(a,r) \subset V$ 
-		\trait
-		
-		\newpage
-		
-		\traitd
+		\traitdouble
 		\paragraph{Ouvert relatif}
 			Soit $U\subset A$ alors $U$ est dit ouvert relatif de $A$ s'il est voisinage relatif de chacun de ses points.\hspace*{0.5cm} \emph{i.e.} $\forall x\in U , \exists r>0 ~:~ B^A(x,r) \subset U$ 
 		\trait
@@ -660,7 +660,7 @@
 			Soit $E_1 , \dots , E_r$ des espaces vectoriels normés et \\
 			$A_1 \subset E_1 , \dots , A_r\subset E_r$ des compacts\\ 
 			Alors $A_1 \times\cdots\times A_r$ est un compact de $E_1\times \cdots \times E_r$
-		} \newpage
+		}
 		
 		\traitd
 		\paragraph{Continuité uniforme}
@@ -801,6 +801,8 @@
 		\theorem{lem}{
 			$\mathcal{R}$ est une relation d'équivalence sur $A$
 		} 
+
+		\newpage
 		
 		\traitd
 		\paragraph{Composantes connexes} 
@@ -823,8 +825,6 @@
 		\paragraph{Partie étoilée}
 			$A\subset E$ est dite \emph{étoilée} s'il existe $\alpha	\in A$ tel que $\forall b \in A ,~[\alpha ,b] \subset A$ 
 		\trait
-		
-		\newpage
 		
 		\theorem{lem}{
 			$A$ étoilée $\Rightarrow ~A$ connexe par arcs

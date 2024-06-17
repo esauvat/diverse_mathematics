@@ -1,0 +1,122 @@
+
+% Chapitre 8 : Arithmétique dans Z
+
+\minitoc
+	\section{Relation de divisibilité dans $\Z$}
+		\subsection{Principe de bon ordre}
+		${}$ \\ \thm{ch9th1}{Théorème : Pincipe de bon ordre dans $\N$}{BonOrdre}{Toute partie \textbf{non vide} de $\N$ aadmet un plus petit 
+		élément.}
+		\vspace*{0.5cm} \\ \thm{ch9th1c}{Corollaire : Propriété archimédienne}{PropArchi}{Soit $a,b \in\N^*$ il existe $n\in\N$ tel que $a\times 
+		n\geq b$.} \newpage
+		\subsection{Multiples et partie $a\Z$}
+		\traitd
+		\paragraph{Notation}
+			Si $a\in\Z$ alors on note $a\Z = \{ka ~|~k\in\Z \}$ \\ Si $(a,b)\in\Z^2$ alors $a\Z + b\Z = \{ka+lb ~|~(k,l)\in\Z^2 \}$. \trait
+		\thm{ch9P1}{Propriété}{PartZstableaZ}{Toute partie de $\Z$ stable par somme est une partie de la forme $m\Z$ avec $m\in\N$.} \traitd
+		\paragraph{Multiple} Soit $(a,b)\in\Z^2$ on dite que $b$ est un multiple de $a$ (ou $a$ divise $b$) et on note $a|b$ s'il existe $k\in\Z 
+			~:~b=ka$. \trait
+		\thm{ch9P2}{Propriété}{9P2}{Si $(a,b)\in\Z^2$ alors on a $a|b \Leftrightarrow b\Z \subset a\Z$ }
+	\section{Algorithme de division euclidienne}
+		${}$ \\ \thm{ch9th2}{Théorème}{DivEuclid}{Soit $a\in\Z , ~b\in\N^*$ alors il existe $(q,r)\in\Z^2$ unique tel que
+		$a=bq+r$ et $0\leq r<b$ \\ On appelle $q$ et $r$ le quotient et le reste de la division euclidienne de $a$ par $b$.}
+		\begin{proof} \underline{Unicité} : claire \\
+		\underline{Existence} : On considère $S=\{a-bk ~|~k\in\Z \wedge a-bk\geq 0 \}$ on a alors $S\neq \varnothing$ puis on pose $r=\mathrm{min}(S)
+		$ avec $r<b$ sinon $r-b = a-b(k_0+1) \geq 0$ donc $0\leq r <b$
+		\end{proof}
+	\section{\textsc{pgcd} et \textsc{ppcm}}
+		\subsection{Egalité de Bézout}
+		${}$ \\ \thm{ch9L1}{Lemme}{9-L1}{Si $a|b$ et $b\neq 0$ Alors $\mc{a} \leq \mc{b}$} \traitd
+		\paragraph{\textsc{pgcd}} Pour tout $a,b\in\Z^*$, le plus grand commun diviseur de $a$ et $b$ est l'entier naturel $d$ vérifiant les 
+			conditions suivantes : \begin{blockarray}[t]{\{l} {\tiny (1)} $d|a$ et $d|b$ \\ {\tiny (2)} $\forall c\in\Z ,~c|a$ et $c|b ~\Rightarrow 
+			~c\leq d$ \end{blockarray} \trait
+		\thm{ch9P3}{Propriété}{EgalBezout}{Soit $a,b \in \Z^*$ il existe $(u,v) \in \Z^2$ tel que $au+bv=a\wedge b$}
+		\vspace*{0.5cm} \\ \thm{ch9P4}{Propriétés}{9-P4}{Soit $(a,b)\in (\Z^*)^{^2}$ et $m\in\Z$ Alors \\ 
+		-> $a\wedge (b+ma) = a\wedge b = a\wedge (-b)$ \\ -> $ma\wedge mb = \mc{m} (a\wedge b)$ \\ -> si $d=a\wedge b$, $\frac{a}{d}\wedge 
+		\frac{b}{d} = 1$ \\ -> si $g\in\Z^*$, $g|a$ et $g|b ~\Rightarrow ~\frac{a}{g} \wedge \frac{b}{g} = \frac{1}{\mc{g}} (a\wedge b)$}
+		\subsection{Algorithme d'Euclide}
+		${}$\\ \thm{ch9L2}{Lemme}{LemmeAlgoEuclide}{Soit $(q,r)$ le quotient et le reste de la division euclidienne de $a\in\Z$ par $b\in\N^*$ \\
+		Alors $a\wedge b= b\wedge r$}
+		\begin{proof}
+		$a\wedge b = (a-bq) \wedge b = r\wedge b$
+		\end{proof}
+		\paragraph{Algorithme}\label{AlgoEuclid}
+			Soit $a\in\Z,~b\in\N^*$ On pose $r_0=a$, $r_1=b$ et $r_2$ le reste de la division euclidienne de $r_0$ par $r_1$.\\
+			-> Si $r_n=0$ alors \highlight{$a\wedge b=r_{n-1}$} sinon on considère $r_{n+1}$ le reste de la division euclidienne de $r_{n-1}$ par 
+			$r_n$ avec $r_{n-1}\wedge r_n = r_{n-2}\wedge r_{n-1} = \cdots = a\wedge b$
+		\subparagraph{Algorithme d'Euclide étendu} ${}$\\
+		Si on souhaite obtenir les coefficients de \textsc{Bézout} en même temps que le \textsc{pgcd}, on détermine à chaque étape $(u_k,v_k) 
+		\in\Z^2$ tels que $r_k=au_k+bv_k$ avec \[ \left\{ \ard u_{n+1} = u_{n-1}-q_nu_n \\ v_{n+1} = v_{n-1} - q_nv_n \arf \right. \]
+		\traitd 
+		\paragraph{\textsc{ppcm}} Soit $(a,b)\in (\Z^*)^{^2}$ le plus petit commun multiple de $a$ et $b$ est l'entier naturel $m$ vérifiant les 
+			conditions suivantes : \begin{blockarray}[t]{\{l} {\tiny (1)} $a|m$ et $b|m$ \\ {\tiny (2)} $\forall c\in\Z ,~a|c$ et $b|c ~\Rightarrow 
+			~m\leq c$ \end{blockarray} \trait
+		\thm{ch9P5}{Propriété}{ppcmZ}{Soit $a,b\in\Z^*$ Alors $a\Z \cap b\Z = (a\vee b) \Z$}
+		\vspace*{0.5cm} \\ \thm{ch9P6}{Propriété}{9-P6}{Soit $(a,b)\in (\Z^*)^{^2}$ Alors $(a\wedge b)(a \vee b)= \mc{ab}$}
+	\section{Entiers premiers entre eux}
+		\traitd
+		\paragraph{Définition} Deux entiers $a,b \in\Z^*$ sont dits \underline{premiers entre eux} si $a\wedge b=1$ \trait
+		\thm{ch9P7}{Proposition}{EgalBezout1}{Soient $a,b\in\Z^*$ deux entiers alors\\
+		$a$ et $b$ sont premiers entre eux \underline{si et seulement si} il existe $(u,v)\in\Z^2$ tel que $au+bv=1$}
+		\vspace*{0.5cm} \\ \thm{ch9L3}{Lemme de \textsc{Gauss}}{LemmGauss}{Soient $a,b,c\in\Z$ on a \\ Si $c$ divise $ab$ et $c$ est premier avec 
+		$a$ alors $c$ divise $b$.}
+		\vspace*{0.5cm} \\ \thm{ch9P8}{Propriété}{9-P10}{Soient $a_1,\dots ,a_n \in \Z$ on a \\ Si $\forall i\in\ent{1,n},~a_i$ est premier avec 
+		$c$ alors $~~\pdi{1}{n}a_i$ est premier avec $c$}
+		\vspace*{0.5cm} \\ \thm{ch9L4}{Lemme}{PGCDDistrib}{Soient $a,b,c\in\Z^*$ 
+		Alors $(a\wedge b) \wedge c = a\wedge (b\wedge c) = a\wedge b \wedge c$} \traitd
+		\paragraph{Entiers premiers entre eux dans leur ensemble} Soit $(a_1,\dots ,a_n)\in (\Z^*)^{^n}$ On dit que $(a_1,\dots ,a_n)$ sont 
+		\underline{premiers entre eux dans leur ensemble} si $a_1\wedge \cdots \wedge a_n =1$,\\ Ceci équivaut à l'existence de $(u_1,\dots ,u_n) 
+		\in\Z^n$ tel que $\sum_{i=1}^n u_ia_i=1$ \trait \vspace*{-1cm}
+	\section{Nombres premiers}
+		\traitd
+		\paragraph{Définition} On dit qu'un entier naturel $p$ est (un nombre) premier si $p\geq 2$ et si les seuls diviseurs dans $\N$ de $p$ sont 
+		$1$ et lui-même \trait \vspace*{-1.2cm} \\ Un nombre qui n'est pas premier est dit \underline{composé}. 
+		\vspace*{0.5cm} \\ \thm{ch9L5}{Lemme}{DivisPremier}{Tout entier $n\geq 2$ admet un diviseur premier}
+		\vspace*{0.5cm} \\ \thm{ch9L5c}{Corollaire}{NPinfini}{L'ensemble des nombres premiers est inifini.}
+		\vspace*{0.5cm} \\ \thm{ch9L6}{Lemme}{9-L6}{Si $p$ est un nombre premier et $a\in\N$ \\ Alors $a\wedge p = 1 ~\Leftrightarrow ~
+		p\hspace*{-4pt}\not\vert a$}
+		\vspace*{0.5cm} \\ \thm{ch9L7}{Lemme d'\textsc{Euclide}}{LemmeEuclid}{Soit $p$ un nombre premier et $a,b\in\Z$ \\ Si $p|ab$ alors 
+		$p|a$ ou $p|b$}
+		\vspace*{0.5cm} \\ \thm{ch9th3}{\highlight{Théorème fondamental}}{THFondArithm}{Tout nombre entier supérieur à $2$ s'écrit comme produit de 
+		facteurs premiers. \\Cette décomposition est unique à l'ordre des facteurs près.}
+		\begin{proof}
+		\underline{Existence} : Par récurrence forte avec l'existence d'un diviseur premier %(\ref{DivisPremier}) 
+        \\
+		\underline{Unicité} : Si $p=\pdi{1}{m} p_i^{\alpha_i} = \prod\limits_{j=1}^l q_j^{\beta_j}$ avec $p_i,q_j$ premiers distincts \\
+		On pose $i_0\in\ent{1,m}$ et on a alors $p_{i_0} | \prod_{j=1}^l q_j^{\beta_j}$ donc il existe $j_0$ tel que $p_{i_0} | 
+		q_{j_0}^{\beta_{j_0}}$ soit $p_{i_0}=q_{j_0}$ Ainsi $\{p_1,\dots ,p_m\} = \{q_1,\dots ,q_l\}$ et $m=l$\\
+		On suppose $p_k=q_k$ et $\alpha_k<\beta_k$ avec $k\in\ent{1,m}$ alors $q_k^{\beta_k-\alpha_k} | \pdi{i\in\ent{1,m}\backslash \{k\} }{}
+		p_i^{\alpha_k}$ soit $q_k | p_i ~;~q_k = p_i$ avec $k\neq i$ \textsc{impossible}
+		\end{proof} \traitd
+		\paragraph{Valuation $p$-adique}
+		Soit $p$ un nombre premier et $n\in\N^*$, on appelle \underline{valuation $p$-adique de $n$} l'exposant de $p$ dans la décomposition de $n$ 
+		en produits de facteurs premiers. \trait
+		\thm{ch9L8}{Lemme}{DivisValu}{$\forall (m,n)\in (\N^*)^{^2}$ on a $m | n \Leftrightarrow \forall p\in\N$ premier, $v_p(m)\leq v_p(n)$}
+		\vspace*{0.5cm} \\ \thm{ch9P9}{Proposition}{ValPGCDPPCM}{$\forall (a,b) \in (\N^*)^{^2}$, \\ $a\wedge b = \prod\limits_{p~\mathrm{premier}} 
+		p^{\mathrm{min}\big(v_p(a),v_p(b)\big)} $ et $a\vee b = \prod\limits_{p~\mathrm{premier}} p^{\mathrm{min}\big(v_p(a),v_p(b)\big)}$}
+		\vspace*{0.5cm} \\ \thm{ch9P10}{Propriété}{VpLog}{$\forall (a_1,\dots ,a_n)\in (\N^*)^{^n} ,~\forall p$ premier, $v_p\Big( \pdi{1}{n} 
+		a_i\Big) = \si{1}{n} v_p(a_i)$} \\
+	\section{Congruences}
+		\traitd
+		\paragraph{Définition}
+			Soit $n\in\Z$ la relation de congruence modulo $n$ est définie par $a\equiv b[n] \Leftrightarrow n|a-b$\\ \textit{$a$ est congru à $b$ 
+			modulo $n$.} \trait
+		\thm{ch9P11}{Propriétés}{9-P11}{$\forall (a,b,c,d)\in\Z^4$, $n\in\N$ on a\\
+		{\small 1)} $a\equiv b[n]$ et $c\equiv d [n] ~~\Rightarrow ~~ ac\equiv bd [n]$\\
+		{\small 2)} $a\equiv b[n]$ et $c\equiv d [n] ~~\Rightarrow ~~ a+c\equiv b+d [n]$\\
+		{\small 3)} $a\equiv b[n] ~~\Rightarrow ~~ \forall k\in\Z ,~ka\equiv kb[n]$ \\
+		{\small 3)} $a\equiv b[n] ~~\Rightarrow ~~ \forall k\in\N ,~a^k \equiv b^k [n]$}
+		\vspace*{0.5cm} \\ \thm{ch9L9}{Lemme}{PremierDivBinom}{Si $p\in\N$ est un nombre premier et $k\in\ent{1,p-1}$ Alors $p~| \binom{p}{k}$}
+		\vspace*{0.5cm} \\ \thm{ch9th5}{Petit théorème de \textsc{Fermat}}{PThFermat}{Soit $p\in\N$ un nombre premier \\
+		Alors $\ard $ {\small 1)} $\forall a\in\Z ,~ a^p \equiv a[p] \\ $ {\small 2)} Si $a\wedge p=1$ alors $a^{p-1} \equiv 1[p] \arf $}
+		\begin{proof} {\small 1)} 
+		\underline{si $p=2$} : $\forall a\in\Z$, $a^2$ et $a$ on la même parité d'où $a^2\equiv a[2]$ \\
+		\underline{$p\geq 3$ (impair)} : Par récurrence sur $a\in\N$ vu $(a+1)^p\equiv a^p+1[p] $\\
+		{\small 2)} $\forall a\in\Z ,~ p~|~a^p-a = a(a^{p-1}-1)$ donc si $a\wedge p=1$ on a $a^{p-1}\equiv 1 [p]$ (Lemme de \textsc{Gauss})
+		\end{proof} \traitd
+		\paragraph{Entier inversible}
+		On dit que \underline{$a\in\Z^*$ est inversible modulo $n$} ($n\in\Z^*$) s'il existe $a'\in\Z$ tel que $a\times a'\equiv 1 [n]$ \trait
+		\thm{ch9P12}{Propriété}{CNSInversible}{Soit $a\in\Z^*$ alors $a$ est inverible \underline{si et seulement si} $a\wedge n =1$}
+		\vspace*{0.5cm} \\ 
+		\begin{center}
+		\fin
+		\end{center}

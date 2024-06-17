@@ -1,0 +1,83 @@
+
+% Chapitre 18 : Probabilités
+
+\textsl{On désigne par expérience aléatoire toute expérience dont le résultat est soumis au hasard.}
+\minitoc
+	\section{Univers, évènements et variables aléatoires}
+		\uline{Modéliser} une expérience aléatoire, c'est associer à cette expérience $\varepsilon$ trois objets mathématiques : $\Omega$ un univers fini (des possibles), $\mathscr{A} = \mathcal{P}(\Omega)$ l'ensemble des évènements associés à $\varepsilon$ et $P$ une probabilité.\\ \hspace*{0.5cm}
+		$\big(\Omega ,\mathcal{P}(\Omega),P\big)$ est un \uline{espace probabilisé}.
+		\traitd
+		\paragraph{Ensemble des évènements}
+			On appelle \uline{ensemble des évènements associés à $\varepsilon$} toute partie $\mathscr{A}$ de $\mathcal{P}(\Omega)$ vérifiant :\\
+			\hspace*{2cm} \un $\Omega\in \A$ et $\varnothing\in\A$\\
+			\hspace*{2cm} \deux $\forall A\in\A ,~ \overline{A}\in\A$\\
+			\hspace*{2cm} \trois Soit $I$ un ensemble fini ou dénombrable et $(A_i)_{i\in I}$ une famille d'évènements alors 
+			\[ \bigcup_{i\in I} A_i \in \A ~et~ \bigcap_{i\in I} A_i \in \A \]
+			\trait \vspace*{-1.2cm} \\
+			Dans le cas où $\mc{\Omega} < +\infty$ on prend $\A =\mathcal{P}(\Omega)$ \\ \traitd
+		\paragraph{Système complet d'événements}
+			${}$ \\ \hspace*{2cm} \un $\forall A,B\in \Part(\Omega)$, $A$ et $B$ sont dits incompatibles si $A\cap B = \varnothing$ \\
+			\hspace*{2cm} \deux On appelle \uline{système complet d'événements} toute famille $(A_i)_{_{i\in I}}$ d'événements deux à deux incompatibles et dont la réunion est l'événement certain \trait ${}$ \vspace*{-1.3cm} \traitd
+		\paragraph{Probabilité}
+			Si $(\Omega,\A)$ est un espace probabilisable, on appelle \uline{probabilité sur $\A$} toute application telle que \\
+			\hspace*{2cm} \un $\Part(\Omega) = 1$ \\ \hspace*{2cm} \deux $\forall (A,B)\in\A^2 ,~ A\cap B=\varnothing \Rightarrow P(A\cup B)=P(A)+P(B)$ \trait
+		\vspace*{-1cm} \\ Dans le cas fini, $(\Omega,\A,P)$ est un \uline{espace probabilisé fini}.
+		\vspace*{0.5cm} \\ \thm{ch19P1}{Propriétés}{PropProba}{\un $P(\varnothing)=0$ \\ \deux $\forall A\in\Part(\Omega) ,~P(\overline{A})=1-P(A)$ \\
+		\trois $\forall (A,B)\in\Part^2(\A) ,~ P(A\setminus B) = P(A) - P(A\cup) B$\\
+		\quatre $\forall (A,B)\in\Part^2(\Omega) ,~A\subset B \Rightarrow P(A)\leqslant P(B)$ \\
+		{\scriptsize (5)} $\forall (A,B)\in\Part^2(\Omega) ,~ P(A\cup B) = P(A)+P(B) - P(A\cap B)$} \\ \traitd
+		\paragraph{Variable aléatoire}
+			On appelle \uline{variable aléatoire} toute application définie sur $\Omega$ à valeurs dans un ensemble $E$. Si $E\subset \R$ on dit que $X:\Omega \to E$ est une variable aléatoire réelle. \trait \vspace*{-1.7cm} \\
+		\subparagraph{Notations}
+			Si $X$ est une variable aléatoire, on note \\
+			$\bullet$ Pour $A\in \Part(E) ,~X_r^{-1}(A) = (X\in A)$\\
+			$\bullet$ Si $e\in E ,~X_r^{-1}(\{e\}) = (X=e)$\\
+			$\bullet$ Si $E=\R,~ X_r^{-1}([a,b[) = (a\leqslant X <b)$ \\
+	\section{Espaces probabilisés finis, probabilité uniforme}
+	\subsection{Équiprobabilités}
+		Si $\mc{\Omega} < +\infty$, une hypothèse classique est de considérer une probabilité $P$ telle que $\forall \omega\in\Omega,~P(\omega)=\dfrac{1}{\mc{\Omega}}$
+		C'est bien une probabilité, dite \uline{équiprobabilité} car tout les événement réduits à une issue on la même probabilité
+	\subsection{Probabilités conditionnelles}
+		\traitd
+		\paragraph{Définition}
+			Si $A$ et $B$ sont deux événements de $(\Omega,\A,P)$ de probabilités non nulles, on défini \[P(A|B) = \dfrac{P(A\cap B)}{P(B)}\]\trait
+		\thm{ch19P2}{Propriété}{PCondProba}{Si $B$ est un événement de probabilité non nulle dans un \\
+		espace probabilisé fini $(\Omega,\A,P)$ \\
+		\hspace*{0.5cm} Alors $\forall B\in\Part(\Omega) ,~ \appli{\Part(\Omega)}{A}{\R}{P(A|B)}$ \\
+		est une probabilité}
+		\vspace*{0.5cm} \\ \thm{ch19P3}{Proposition $\heartsuit$}{ProbaIntersec}{Si $A_1,\dots ,A_n$ sont des événements d'un espace \\
+		probabilisé fini $(\Omega,\Part(\Omega),P)$\ alors \\
+		\highlight{$P(A_1\cap\cdots\cap A_n) = P(A_1)\times P(A_2|A_1)\times\cdots\times P(A_n|A_1\cap\cdots\cap A_{n-1})$} }
+		\vspace*{0.5cm} \\ \thm{ch19P4}{Propriété : Formule des probabilités totales}{ProbaTot}{Si $B$ est un événement et $(A_i)_{_{i\in\ent{1,n}}}$ est un système \\
+		complets d'événements de $(\Omega,\Part(\Omega),P)$\\
+		\hspace*{0.5cm} Alors $P(B) = \si{1}{n} P(B|A_i)\times P(A_i)$ }
+		\vspace*{0.5cm} \\ \thm{ch19P5}{Proposition : Formule de \textsc{Bayes}}{FormuleBayes}{Soit $A$ un événement de $(\Omega,\Part(\Omega),P)$ tel que $P(A)\neq 0$
+		\\ Si $(B_1,\dots ,B_n)$ est un système complet d'événements \\
+		\hspace*{0.5cm} Alors $\forall i\in\ent{1,n} ,~P(B_i|A) = \dfrac{P(A|B_i)P(B_i)}{\sk{1}{n}P(A|B_k)P(B_k)}$}
+	\section{Loi d'une variable aléatoire}
+		\traitd
+		\paragraph{Loi de probabilité}
+			Si $X$ est une variable aléatoire définie sur un espace probabilisé fini $(\Omega,\Part(\Omega),P)$ à valeur dans $E$ on appelle \uline{loi de probabilité de la variable $X$} (ou \uline{distribution}) l'application 
+			\[ P_X ~ \appli{\Part(E) }{A}{[0,1]}{P(X\in A)} \] \trait
+		\thm{ch19P6}{Propriété}{DistribEstProba}{Si $X$ est une variable aléatoire sur un espace probabilisé fini $(\Omega,\Part(\Omega),P)$\\
+		\hspace*{0.5cm} Alors $P_X$ est une probabilité sur $E$}
+		\subparagraph{Notation}Si $X$ est $Y$ sont deux variables aléatoire définies sur un même espace probabilisé fini à valeurs dans $E$ on note $X\sim Y$ si $P_X=P_Y$
+		\vspace*{0.5cm} \\ \thm{ch19P7}{Propriété}{FcVAR}{Soit $X:\Omega\to E$ est une variable aléatoire et $f:E\to F$\\
+		\hspace*{0.5cm} Alors $f(X)=f\circ X :\Omega\to F$ est une variable aléatoire avec \\
+		$\forall B\in\Part(F),~ P_{f(X)}(B) = P(f(X)\in B) = P(X\in f_r^{-1}(B)) = P_X(f_r^{-1}(B))$}
+	\subsection{Variable uniforme sur une ensemble fini non vide}
+		Soit $E$ un ensemble fini non vide.
+		\traitd
+		\paragraph{Loi uniforme}
+			On dit que $X$ variable aléatoire \uline{suit une loi uniforme sur $E$} si 
+			\[ \left\{ \ard X(\Omega) = E \\ \forall x\in E,~P(X=x)= \frac{1}{\mc{E}} \arf \right.\]
+			On écrit alors $X\sim \mathcal{U}(E)$ \trait
+		\vspace*{-1.1cm} \\ On prend un objet au hasard parmi $\mc{E}$ objets qui on tous la même probabilité d'être choisis et on note $X$ cet objet.
+	\subsection{Variable de \textsc{Bernoulli}}
+		On appelle expérience de \textsc{Bernoulli} une expérience aléatoire à deux issues. On appelle succès l'une des issues et échec l'autre. On peut donc lui associer une variable aléatoire réelle qui prend la valeur $1$ en cas de succès et la valeur $0$ en cas d'échec. \\ \traitd
+		\paragraph{Loi de \textsc{Bernoulli}}
+			On dit que $X$ \uline{suit une loi de \textsc{Bernoulli}} de paramètre $p\in[0,1]$ si 
+			\[ \left\{ \ard X(\Omega) = \{0,1\} \\ P(X=1) = p \arf \right. \] \trait
+		\vspace*{-1.1cm} \\ On note alors $X\sim \mathcal{B}(p)$
+	\subsection{Loi binomiale}
+		Si on répète $n$ fois une expérience de \textsc{Bernoulli}, la variable aléatoire associée au nombre de succès suit une loi de \textsc{Bernoulli} de paramètres $n$ et $p$.

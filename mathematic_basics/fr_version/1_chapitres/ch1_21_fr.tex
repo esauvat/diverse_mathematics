@@ -1,0 +1,90 @@
+
+% Chapitre 21 : Fonctions de deux variables
+
+\minitoc
+	\section{Continuité}
+	\subsection{Notion d'ouvert}
+		\uline{Rappel} : \\
+		Si la norme $\norm{.}$ dérive d'un produit scalaire on a :\\
+		\un $\forall x\in \R^2 ,~\norm{x}\geqslant 0=(0,0)$ \hfill \deux $x\in \R^2 ,~\norm{x} = 0 \Leftrightarrow x=0$ \hfill ${}$ \\
+		\trois $\forall x\in \R^2 ,~\forall \lambda\in\R,~ \norm{\lambda.x}=\mc{\lambda}\norm{x}$\\
+		\quatre $\forall (x,y) \in (\R^2)^2,~ \norm{x+y}\leqslant\norm{x}+\norm{y}$ \\ \hspace*{0.5cm} avec égalité si et seulement si $\exists (\lambda,\mu)\in \R^2\setminus\{(0,0)\}$ tel que $\lambda x +\mu y = 0$\\
+		{\scriptsize (5)} $\forall (x,y)\in (\R^2)^2 ,~\norm{x-y} \geqslant \norm{x} - \norm{y}$
+		\vspace*{0.5cm} \\ \thm{ch22P1}{Propriété}{NormSupComposantes}{Si $\norm{x} = \sqrt{x_1^2 + x_2^2}$ avec $x=(x_1,x_2)\in\R^2$\\
+		\hspace*{0.5cm} Alors $\norm{x} \geqslant\mc{x_1}$, $\norm{x} \geqslant\mc{x_2}$ et $\norm{x}\leqslant\mc{x_1}+\mc{x_2}$ } \newpage \traitd
+		\paragraph{Boules}
+			Soit $x_0\in\R^2$ et $r\in\R_+^*$ on appelle \\
+			\hspace*{2cm} $\bullet$ \uline{Boule ouvert de centre $x_0$ et de rayon $R$} l'ensemble \[ B(x_0,r) = \{ x\in\R^2 ~|~\norm{x-x_0} < r\} \]
+			\hspace*{2cm} $\bullet$ \uline{Boule fermée de centre $x_0$ et de rayon $r$} l'ensemble \[ \overline{B(x_0,r)} = \{ x\in\R^2 ~|~\norm{x-x_0} \leqslant r\}\]
+			\trait ${}$ \vspace*{-1.2cm} \traitd
+		\paragraph{Ouvert}
+			Une \uline{partie $U$} de $\R^2$ est dit \uline{ouvert} lorsque  \[ \forall x\in U ,~ \exists r>0 ~:~ B(x,r) \subset U \] \trait
+		\vspace*{-0.7cm} \\ \uline{Rq} : Un partie de $\R^2$ est dite \uline{fermée} si son complémentaire dans $/R^2$ est un ouvert.\\
+		\vspace*{0.5cm} \\ \thm{ch22P2}{Propriétés}{22-P2}{\un $\varnothing$ et $\R^2$ sont des parties ouvertes de $\R^2$\\
+		\deux Une union d'ouverts de $\R^2$ est un ouvert de $\R^2$\\
+		\trois Une intersection \textbf{finie} d'ouverts de $\R^2$ est un ouvert de $\R^2$ } \\ 
+	\subsection{Fonctions de deux variables}
+		\traitd
+		\paragraph{Définition}
+			Si $U$ est un ouvert de $\R^2$ \uline{toute application $f : U\to \R$} est une fonction de deux variables réelles. \trait ${}$ \vspace*{-1.2cm} \traitd
+		\paragraph{Continuité}
+			Si $U$ est un ouvert de $\R^2$, $f : U\to \R$ et $x_0\in U$ on dit que \uline{$f$ est continue en $x_0$} si \[ \forall \varepsilon>0 ,~ \exists r>0 ~:~ \forall x\in U ,~ \big( x\in B(x_0,r) \Rightarrow \mc{f(x_0)-f(x)} \leqslant\varepsilon \big) \] \trait
+		\thm{ch22P3}{Propriété}{PolynomXY}{Toute fonction polynômiale en $x$ et $y$ est continue sur $\R^2$}
+		\vspace*{0.5cm} \\ \thm{ch22P4}{Proposition}{OpéF2Var}{Soit $f$ et $g$ définies sur un ouvert $U$ de $\R^2$ à valeurs réelles \\
+		Soit $x_0\in U$, on suppose que $f$ et $g$ sont continues en $x_0$, alors \\
+		\hspace*{0.5cm} \un $\forall (\lambda,\mu)\in \R^2 ,~\lambda f+\mu g$ est continue en $x_0$ \\
+		\hspace*{0.5cm} \deux Si de plus $g(x_0) \neq 0$, il existe $r>0$ tel que $\forall x\in B(x_0,r) ,~g(x)\neq 0$ \\
+		et $\frac{f}{g}$ est continue en $x_0$}\newpage \traitd 
+		\paragraph{Applications partielles}
+			Soit $f : U\to \R$ et $x=(x_1,x_2)\in U$ on définit les fonctions d'une variable réelle $f_1$ et $f_2$ 
+			\[ f_1(t) = f(x_1,t) \hspace*{0.5cm} et \hspace*{0.5cm} f_2(t) = f(t,x_2)\] $f_1$ et $f_2$ sont dites \uline{applications partielles de $f$ au point $x=(x_1,x_2)$} \trait
+		\thm{ch22P5}{Propriété}{ContApplPart}{Si $f:U\to \R$ est continue en $(x_1,x_2) \in U$ \\
+		Alors $f_1$ et $f_2$ sont continues respectivement en $X_2$ et $x_1$}
+	\section{Dérivation}
+	\subsection{Dérivée partielles}
+		\traitd
+		\paragraph{Fonction différentiable}
+			Soit $f:U \to \R$ avec $U$ un ouvert de $\R^2$ et $x=(x_1,x_2)\in U$\\
+			On dit que \uline{$f$ est différentiable en $x$ par rapport à la première variable} si \[ t \mapsto \frac{f(x_1+t,x_2)-f(x_1,x_2)}{t}\] admet une limite en $0$, notée $\frac{\partial f}{\partial x_1} (x)$ sous réserve d'existence. \vspace*{0.2cm} \\ On considère une définition analogue en $x_2$
+			\trait ${}$ \vspace*{-1.2cm} \traitd
+		\paragraph{Dérivées partielles}
+			Soit $f:U\to \R$ avec $U$ un ouvert de $\R^2$, on note $\mathscr{D}_f$ l'ensemble des points $x$ de $U$ tels que $f$ soit différentiable en $x$ selon la première variable.\\ On définie la \uline{dérivée partielle de $f$ selon la première variable} \[ \frac{\partial f}{\partial x_1} : \mathscr{D}_f \to \R \] qui à tout $x$ de $\mathscr{D}_f$ associe $\frac{\partial f}{\partial x_1}(x)$\vspace*{0.2cm} \\
+			On définit de même la dérivée partielle de $f$ selon la deuxième variable. \trait \vspace*{-1.4cm} \\ 
+		\begin{center} \begin{blockarray}{[c]}
+		\textit{Si $f$ est différentiable en $x$ selon la première variable, on dit aussi que} \\ \textit{$f$ admet une dérivée partielle selon la première variable.}\\
+		\textit{On a de même pour la deuxième variable.}
+		\end{blockarray} \end{center}  ${}$\traitd
+		\paragraph{Dérivabilité selon un scalaire}
+			Si $f:U\to \R$, $h\in \R^2$ et $x\in U$ on dit que \uline{$f$ est dérivable en $x$ selon $h$} lorsque \[\frac{f(x+th)-f(x)}{t}\] 
+			admet une limite finie quand $t\to 0$, notée $\dd_{f_x}(h)$ 
+			\trait \newpage \traitd
+		\paragraph{Classe $\Cun$}
+			On dit que \uline{$f : U\to \R$ est de classe $\Cun$ sur $U$} si $\dfrac{\partial f}{\partial x_1}$ et $\dfrac{\partial f}{\partial x_2}$ sont définies et continues sur $U$ \trait
+		\thm{ch22P7}{Propriétés}{CalcDer2Var}{Si $f$ et $g$ sont de classe $\Cun$ sur $U$ ouvert de $\R^2$ alors \\
+		\hspace*{0.5cm} \un $\forall (\lambda,\mu)\in \R^2$, $\lambda f+\mu g$ est de classe $\Cun$ sur $U$ avec \\
+		\hspace*{2cm} $\forall x\in U,~ \pfrac{(\lambda f + \mu g)}{x_i}(x) = \lambda \pfrac{f}{x_i}(x) + \mu\pfrac{g}{x_i}(x)$\\
+		\hspace*{0.5cm} \deux $fg$ est de classe $\Cun$ sur $U$ avec \\
+		\hspace*{2cm} $\forall x\in U,~\pfrac{(fg)}{x_i}(x) = f(x)\pfrac{g}{x_i}(x) + g(x) \pfrac{f}{x_i}(x)$\\
+		\hspace*{0.5cm} \trois Si $g$ ne s'annule pas sur $U$ alors $\frac{f}{g}$ est de classe $\Cun$ sur $U$ avec \\
+		\hspace*{2cm} $\forall x\in U ,~ \pfrac{(f/g)}{x_i}(x) = \dfrac{\pfrac{f}{x_i}(x) g(x) - f(x) \pfrac{g}{x_i}(x)}{g^2(x)}$ } \\
+	\subsection{Différentielle}
+		\traitd
+		\paragraph{Fonction négligeable}
+			Soit $f:U\to\R$ avec $(0,0)\in U$ on dit que \uline{$f(h)$ est négligeable devant $\norm{h}$} au voisinage de $(0,0)$ si 
+			\[ \forall \varepsilon>0 ,~\exists \eta >0 ~:~ \forall h\in U,~\big( \| h\| \leqslant\eta \Rightarrow |f(h)| \leqslant\varepsilon \|h\|\big)\]
+			On note alors $f(h) \underset{h \to (0,0)}{=} \circ\big(\|h\|\big)$ \trait
+		\vspace*{-1.4cm} \\ \uline{Rq} : Si $f(h)$ est négligeable devant $\|h\|$ au voisinage de $(0,0)$ alors $f(h) \underset{h\to (0,0)}{\longrightarrow} 0$ et $f$ admet des dérivées selon tout vecteur en $(0,0)$ nulles.
+		\vspace*{0.5cm} \\ \thm{ch22th1}{Théorème : Développement limité à l'ordre $1$ en $(x_0,y_0)$}{DL1x0y0}{Si $f:U\to \R$ est de classe $\Cun$ sur $U$ et $(x_0,y_0)\in U$ \\
+		Alors pour tout $h=(h_1,h_2) \in\R^2$\\
+		$\cm{ f(x_0+h_1,y_0+h_1) \underset{h\to (0,0)}{=} f(x_0,y_0) +  h_1\pfrac{f}{x}(x_0,y_0) + h_2\pfrac{f}{y}(x_0,y_0) + \circ \big( \|h\| \big) } $ }
+		\begin{proof}
+		Ce résultat est admis.
+		\end{proof}
+		${}$ \\ \thm{ch22th1c}{Corollaire}{C12VarImplCont}{Si $f$ est de classe $\Cun$ sur $U$ alors $f$ est continue sur $U$.}
+		\vspace*{0.5cm} \\ \thm{ch22P8}{Proposition}{EcritureDer2Var}{Si $f:U\to R$ est de classe $\Cun$ sur $U$, $x\in U$\\
+		Alors pour tout $h=(h_1,h_2)\in \R^2$, $f$ admet une dérivée en $x$ selon $h$ donnée par\\
+		\hspace*{0.5cm} $\cm{ \dd_{f_x}(h) = h_1\pfrac{f}{x_1}(x) + h_2\pfrac{f}{x_2}(x) } $ }
+		\vspace*{0.5cm} \\
+		\begin{center}
+			\fin
+		\end{center}

@@ -3,6 +3,7 @@
 
 \textit{\underline{Cadre} : Soit $f:I\rightarrow E$ une fonction à valeur dans $E$ un $K$ espace vectoriel de dimension finie et $I$ un intervalle réel non trivial (i.r.n.t.)}
 
+\minitoc
 
 \section{Dérivée}
 
@@ -33,8 +34,6 @@
     	$f:I\rightarrow E$ est dite \emph{continuement dérivable} ou de \emph{classe $\cont^1$} si $f$ est dérivable et $f'\in \cont^0(I,E)$. \\
     	On note $\cont^1 (I,E)$ l'ensemble de ces fonctions.
     \trait 
-    
-    \newpage
     
     \theorem{lem}{
     	Foit deux fonctions $f,g : I\rightarrow E ,~\lambda \in K ,~a\in I$. Si $f$ et $g$ sont dérivables au point $a$ \emph{alors} \\
@@ -89,7 +88,7 @@
     		$ {\tiny (1)} $v\circ u$ est dérivable au point $a \\ 
     		$ {\tiny (2)} $(v\circ u)'(a) = v'(u(a))\times u'(a) 
     	\arf $
-    }
+    } \medskip \\
     
     \emph{Composition vers un espace vectoriel de dimension finie :} \\
      
@@ -133,7 +132,7 @@
     \emph{Rappel} : voir cours de sup 
     \end{proof} \medskip
     
-    \emph{Plus généralement, si $B : E_1\times E_2 \rightarrow F$ est bilinéaire avec $E_1,E_2,F$ de dimensions finies et $(f,g) \in \cont^n(I,E_1)\times\cont^n(I,E_2)$ alors la formule à l'ordre $n$ avec $B$ reste vraie.}
+    \emph{Plus généralement, si $B : E_1\times E_2 \rightarrow F$ est bilinéaire avec $E_1,E_2,F$ de dimensions finies et $(f,g) \in \cont^n(I,E_1)\times\cont^n(I,E_2)$ alors la formule à l'ordre $n$ avec $B$ reste vraie.} \\
     
     \theorem{lem}{
     	Soit $f:I\rightarrow E$ et $e=(e_1,\dots ,e_n)$ une base de $E$ \\
@@ -257,15 +256,19 @@
     	\paragraph{Subdivision}
         		Soit $a<b$ réels et $f:[a,b]\rightarrow E$ \\ 
         		On appelle \emph{subdivision de $[a,b]$} toute suite finie $(\alpha_0 , \dots , \alpha_n ) = \sigma$ telle que $a=\alpha_0 < \cdots <\alpha_n = b$
-        	\traitdouble
+        \trait
+
+        \newpage
+        
+        \traitd
     	\subparagraph{Continuité par morceaux}
         		Soit $a<b$ réels et $f:[a,b]\rightarrow E$ \\ 
         		$f$ est dite \emph{continue par morceaux} si il existe une subdivision $\sigma = (\alpha_0 ,\dots ,\alpha_n)$ de $[a,b]$ telle que $\forall k\in \ent{0,n-1}$ la restriction $f|_{]\alpha_k , \alpha_{k+1}[} $ est prolongeable en une fonction continue sur le segment $[\alpha_k , \alpha_{k+1}]$ 
-        	\traitdouble
-        	\subparagraph{Définition bis}
+        \traitdouble
+        \subparagraph{Définition bis}
 			Soit $I$ i.r.n.t. et $f:I\rightarrow E$ \\
 			On dit que f est continue par morceaux ($\cpm$) si sa restriction à tout segment de $I$ est continue par morceaux 
-        	\trait
+        \trait
     
     	\theorem{lem}{
     		$\cpm \big( [a,b],E\big)$ et $\cpm \big( I,E\big)$ sont des $K$ espaces vectoriels

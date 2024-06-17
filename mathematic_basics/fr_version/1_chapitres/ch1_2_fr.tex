@@ -1,0 +1,86 @@
+
+% Chapitre 2 : Calculus
+
+\minitoc
+	\section{Sommes et Produits}
+		On considère une famille $(a_i)_{_{i\in I}}$ de réels.
+		\col{$\sumi$ est la \textbf{somme} de ses termes}{$\prodi$ est le \textbf{produit} de ses termes}
+ 
+ \paragraph{Somme et Produit Téléscopique} 
+ ${}$ 
+ \col{$\sk{1}{n-1} (a_{k+1}-a_k) ~=~ a_n - a_1$}{$\pk{1}{n-1} (\frac{a_{k+1}}{a_k} ) ~=~ \frac{a_n}{a_1}$}
+ 
+ \paragraph{Permutations}
+ Soit $\sigma$ une bijection de $I$ sur $I$, 
+ $~~\sumi a_{\sigma (i)} ~=~ \sumi a_i$ \\
+ ->\underline{ex}: \hspace*{25pt} $\sk{1}{n} a_k ~=~ \sk{1}{n} a_{n+1-k}$
+ 
+ \paragraph{Méthode de perturbation}
+ Soit $(a_i)_{_{i\in I}}$ on note $S_n = \sk{1}{n} a_k$\\
+ \[\underline{S_{n+1}} = \underline{S_n} + a_{n+1} = a_1 + \underline{\sk{2}{n+1}}\]\\
+ ->\underline{ex}:\hspace*{25pt} Soit $S_n = \sk{1}{n} 2^k$ \\
+ $S_{n+1} = S_n + 2^{n+1} = 2 + \sk{2}{n+1} 2^k = 2 + 2\times\sk{1}{n} 2^k ~ \Rightarrow ~ S_n + 2^{n+1} = 2S_n + 2 \\\Rightarrow ~S_n = 2^{n+1} - 2$
+ 
+ \paragraph{Sommes doubles}
+ 
+ Soit $(a_i)_{_{i\in I}}$ et $(b_j)_{_{j\in J}}$ des familles de réels 
+ \col{$\sum\limits_{(i,j)\in I\times J} a_i b_j ~=~ \left( \sumi a_i \right) \left( \sum\limits_{j\in J} b_j \right)$ \\ $ \sum\limits_{1\leq i<j\leq n} a_ib_j ~=~ \sum\limits_{i=1}^{n-1} a_i \sum\limits_{j=i+1}^{n} b_j$}{${}$\\$\sum\limits_{(i,j)\in I\times J} a_{ij} ~=~ \sumi \sum\limits_{j\in J} a_{ij} ~=~ \sum\limits_{j\in J} \sumi a_{ij}$}
+ Si $(a_k)$ et $(b_k)$ on la même monotonie $~~\sum\limits_{1\leq j<k\leq n} (a_k - a_j )( b_k - b_j) ~\geq ~0$
+ 
+ \section{Coefficients binomiaux}
+ 
+ $\forall (n,p) \in \mathbb{N}^2 ,~~ \binom{n}{p} = \pk{1}{p} \frac{n-k+1}{k} ~~~~ =~~~~ \left\{ \ar* 0 ~si~p>n \\\frac{n!}{k!(n-k)!} ~~sinon \ar \right.$
+ 
+ \paragraph{Calculs sur les coefficients binomiaux}
+ 
+ \subparagraph{Relation de Pascal}
+ 
+ Si $1\leq p \leq n$ alors $~~~~ \binom{n}{p} = \binom{n-1}{p} + \binom{n-1}{p-1}$
+ 
+ \subparagraph{Propriété de symétrie}
+ 
+ $\forall (n,p) \in \mathbb{N}^2 ,~~~~p\leq n ~\Rightarrow ~\binom{n}{p} = \binom{n}{n-p}$
+ 
+ \subparagraph{Formule d'absorbtion}
+ 
+ $\forall (n,p)\in\mathbb{N}^2 ,~~ \binom{n}{p} = \frac{n}{p}\binom{n-1}{p-1}~$ ou $~p\binom{n}{p} = n\binom{n-1}{p-1}$
+ 
+ \paragraph{Binôme de \underline{Newton}}
+ 
+ \[\forall (a,b)\in\mathbb{R}^2 ,~~\forall n\in\mathbb{N} ~,~~ (a+b)^n ~=~ \sk{1}{n} \binom{n}{k} a^k b^{n-k}\]
+ 
+ \section{Valeur absolue}
+ 
+ On note $a^+ = \max (a,0)$ et $a^- = \max (-a, 0)$. On a alors\\
+ $\forall a\in \mathbb{R} ~,~~ a = a^+ - a^-$ et $ \vert a\vert = a^+ + a^- = \left\{ \ar* a~si ~a\geq 0 \\ -a ~~sinon \ar \right.$
+ 
+ \paragraph{Somme et produit}
+ 
+ $\left\vert \prod\limits_{i=1}^{n} a_i \right\vert = \prod\limits_{i=1}^{n} \vert a_i\vert ~~~~$ et $~~~~\left\vert \sum\limits_{i=1}^n a_i \right\vert \leq \sum\limits_{i=1}^n \vert a_i \vert$
+ 
+ \section{Trigonométrie}
+ 
+ On défini deux fonction \textbf{sin} et \textbf{cos} par la relation :
+\\$\mathcal{C} (0;1) = \{(\cos x , \sin x ) ~\vert ~x\in\mathbb{R}\}~~$ ou encore $~~\forall x\in\mathbb{R} ~,~~ \cos^2 x + \sin^2 x = 1$
+\col{$\cos x = \cos a ~\Leftrightarrow ~\left\{\ar* x\equiv a[2\pi] \\ x \equiv -a [2\pi] \ar \right.$}{$\sin x = \sin a ~\Leftrightarrow ~\left\{\ar* x\equiv a[2\pi] \\ x \equiv \pi -a [2\pi] \ar \right.$}
+ 
+ \paragraph{Formules majeures}
+ 
+ \subparagraph{Addition}
+ $\hspace*{20pt}\left\vert \ar* \cos (\alpha + \beta ) ~=~ \cos\alpha\cos\beta - \sin\alpha\sin\beta \\ \sin (\alpha + \beta ) ~=~ \sin\alpha\cos\beta + \sin\beta\cos\alpha \ar\right\vert$
+ 
+ \subparagraph{Duplication}
+ 
+ $\left\vert \ar* \cos (2\alpha ) ~=~ 2\cos^2 (\alpha ) -1 ~=~ 1-2\sin^2 (\alpha ) \\ \sin (2\alpha ) ~=~ 2\sin\alpha\cos\alpha \ar\right\vert$
+ 
+ \subparagraph{Dérivation}
+ 
+ $ \hspace*{25pt}\left\vert \ar* \cos 'x ~=~ -\sin x ~=~ \cos (x+\frac{\pi}{2} ) \\ \sin 'x ~=~ \cos x ~=~ \sin (x+\frac{\pi}{2} ) \ar \right\vert$
+ 
+ \paragraph{Tangente}
+ 
+ On définit $\tan x ~=~ \frac{\sin x}{\cos x}~~$ avec $~~ \mathcal{D}_{\tan} = \mathbb{R}\backslash \{\frac{\pi}{2} + k\pi ~\vert ~k\in \mathbb{Z} \}$
+ 
+ \col{$\tan (\alpha + \beta ) ~=~ \frac{\tan\alpha + \tan\beta}{1 - \tan\alpha\tan\beta}$}{$\tan (\alpha - \beta ) ~=~ \frac{\tan\alpha - \tan\beta}{1 + \tan\alpha\tan\beta}$}
+ 
+ \col{$\cos x ~=~ \frac{1 - \tan^2 (\frac{x}{2})}{1+\tan^2 (\frac{x}{2} )}$}{$\sin x ~=~ \frac{2\tan (\frac{x}{2} )}{1+ \tan^2 (\frac{x}{2} )}$}

@@ -1,0 +1,103 @@
+
+% Chapitre 5 : Primitives et équations différentielles
+
+\minitoc
+	\section{Calcul de primitives}
+		\traitd
+		\paragraph{Primitive}
+			Si $I$ est un intervalle de $\R$ on dit que \underline{$F$ est une primitive de $f$} définie sur $I$ à valeurs complexes si $F$ est 
+			dérivable sur $I$ et $\forall x\in I,~F'(x)=f(x)$ \trait
+		\thm{ch6P1}{Proposition}{PrimCte}{Si $F$ est une primitive de $f$ sur $I$, alors pour toute primitive $G$ \\ de $f$ il existe $C\in\R$ une 
+		constante telle que $G=F+C$}
+		\vspace*{0.5cm} \\ \thm{ch6P2}{Proposition}{Prim0ena}{Si $f$ est une fonction continue sur $I$ alors $f$ admet des primitives sur $I$ et 
+		\\ $\displaystyle{\forall x_0\in I ,~\int_{x_0}^x f(t) \dd t}$ est l'unique primitive de $f$ qui s'annulle en $x_0$.}
+		\paragraph{Exemples de référence} ${}$ \\
+		Soit $\lambda\in\C^* ~; ~n\in\Z\backslash\{-1\} ~;~\alpha\in\R\backslash\{-1\} ~; ~a\in\R^*$ et $J\subset\{x\in\R ~|~\cos(ax+b)\neq 0\}$
+		\begin{center}\begin{blockarray}{||c|c|c||c||c|c|c||}
+		$f$ & $F~(+C)$ & $I$ & \hspace*{1cm} & $f$ & $F~(+C)$ & $I$ \\ 
+		$e^{\lambda x}$ & $\frac{1}{\lambda} e^{\lambda x}$ & $\R$ & & $\ln x$ & $x\ln x-x$ & $\R_+^*$ \\
+		$\cos(ax+b)$ & $\frac{1}{a}\sin(ax+b)$ & $\R$ & & $\frac{1}{x}$ & $\ln\mc{x}$ & $\R_-^*$ ou $\R_+^*$ \\
+		$\sin(ax+b)$ & $-\frac{1}{a}\cos(ax+b)$ & $\R$  & & $x^n$ & $\frac{1}{n+1}x^{n+1}$ & $\R^*$ \\
+		$\tan(ax+b))$ & $-\frac{1}{a}\ln\mc{\cos(ax+b)}$ & $J$ & & $x^{\alpha}$ & $\frac{1}{\alpha +1}x^{\alpha +1}$ & $\R_+^*$ \\
+		$\sinh(ax+b)$ & $\frac{1}{a}\cosh(ax+b)$ & $\R$ & & $\frac{1}{1+x^2}$ & $\arctan x$ & $\R$ \\
+		$\cosh(ax+b)$ & $\frac{1}{a}\sinh(ax+b)$ & $\R$ & & $\frac{1}{\sqrt{1-x^2}}$ & $\arcsin x$ & $\R$ \\
+		$\tanh(ax+b)$ & $\frac{1}{a}\ln\big(\cosh(ax+b)\big)$ & $\R$ & & $\frac{-1}{\sqrt{1-x^2}}$ & $\arccos x$ & $\R$
+		\end{blockarray}\end{center}
+		\paragraph{Notation} On note $\int^x f(t) \dd t$ une primitive de $f$.
+		\vspace*{0.5cm} \\ \thm{ch6P3}{Proposition : Intégration par partie}{IPP}{Si $u$ et $v$ sont deux fonctions de classe $\cont^1$ sur $I$, $(a,b)\in I$, \\ $\cm{\int_a^b u'(t)v((t)\dd t = \big[u(t)v(t)\big]_a^b - \int_a^b u(t)v'(t) \dd t}$}
+		\vspace*{0.5cm} \\ \thm{ch6P4}{Proposition : Formule du changement de variable}{ChgtVar}{Soit $\varphi$ une fonction de classe $\cont^1$ sur un intervalle $I$ de $\R$, \\$f$ une fonction continue sur $J$ avec $\varphi_d(I)\subset J$ \\
+		$\cm{\forall (a,b)\in I^2 ~,~~\int_a^b f\big(\varphi(t)\big)\times\varphi'(t) \dd t = \int_{\varphi(a)}^{\varphi(b)} f(x) \dd x}$}
+		\vspace*{0.3cm}\\ \begin{center}
+		\begin{blockarray}{[c]}		
+		\hspace*{0.2cm}\textbf{\highlight{\underline{Règles de \textsc{Bioche}}}} : \textit{Soit $f$ une fonction rationnelle en $\cos t$ et $\sin t$ et $\psi(t) = f(t)\dd t$}\hspace*{0.2cm} \\ \textit{On effectue les changements de variable suivants :}\\ 
+		\textit{$\bullet$ Si $\psi$ est invariante par $t\mapsto \pi - t$ alors on pose $x = \sin t$} \\ 
+		\textit{$\bullet$ Si $\psi$ est invariante par $t\mapsto -t$ alors on pose $x=\cos t$} \\ 
+		\textit{$\bullet$ Si $\psi$ est invariante par $t\mapsto t+\pi $ alors on pose $x = \tan t$}
+		\end{blockarray}
+		\end{center}
+	\section{Équations différentielles du premier ordre}
+		\traitd
+		\paragraph{Définition}
+			Une équation fonctionnelle de la forme \[y' + a(x)y = b(x)\] Où $a$ et $b$ sont des fonctions réelles ou complexes définies sur un intervalle $I$ de $\R$ s'appelle une \underline{équation différentielle linéaire d'ordre $1$} où les \underline{inconnues $y$} sont des \underline{fonctions dérivables sur $I$ à} \underline{valeurs dans $\R$ ou $\C$} \trait
+		\thm{ch6P5}{Proposition}{EquaHomog}{Si $a$ et $b$ sont deux fonctions continues sur $I$, \\ \hspace*{2cm}$(E) ~:~y'+a(x)y=b(x)$,\\
+		Alors $(E_0) ~:~y'+ a(x)y = 0$ est l'\underline{équation homogène associée à $(E)$} \\de solution \hspace*{1.5cm}$y = C.e^{-A(x)}$ \\où $A(x)$ est une primitive de $a$ sur $I$ et $C$ est une constante.} 
+		\newpage ${}$ \\ \thm{ch6P6}{Proposition}{SoluceE}{Si $a$ et $b$ sont deux fonctions continues de $I$ de $\R$ à valeur dans $\K$, \\$\varphi_0$ une solution particulière de $(E)~:~y'+a(x)y = b(x)$\\
+		Alors toute solution de $(E)$ est de la forme $x\mapsto \varphi_0(x)  +\psi(x)$\\ où $\psi$ est solution de $(E_0)$}
+		\\ \textit{On notera $\mathscr{S}_{(E)} = \varphi_0 + \mathscr{S}_{(E_0)}$}
+		\paragraph{Méthode de variation de la constante :}
+		$y' + a(x)y = b(x)$ avec $a$ et $b$ continues sur $I$ à valeurs dans $\K$.\\ $(E_0)$ l'équation homogène associée à $(E)$ admet pour solution générale $\varphi_0(x) = C.e^{-A(x)}$ avec $A$ une primitive de $a $sur $I$ et $C$ une constante de $\K$. \vspace*{0.2cm} \\ 
+		On cherche une solution particulière de la forme $x\overset{\psi}{\mapsto} C(x) .e^{-A(x)}$ avec $C$ dérivable sur $I$
+		\[ \forall x\in I,~\psi'(x) + a(x)\psi(x) = b(x) ~\Leftrightarrow~ \]
+		\[ C'(x) e^{-A(x)} \underbrace{-C(x)a(x)e^{-A(x)} + C(x)a(x)e^{-A(x)}}_{=0} = b(x) \]
+		$\Leftrightarrow ~ \psi$ est solution de $(E)$ si et seulement si $\forall x\in I, ~C'(x) = b(x) e^{A(x)}$
+		\vspace*{0.5cm} \\ \thm{ch6P7}{Proposition}{SolGE}{Sous les mêmes hypothèses et notations la solution générale de $(E)$ est \\
+		\hspace*{2cm} $\cm{ \varphi(x) = \Big( C+\int^x b(t)e^{A(t)}\dd t \Big) .e^{-A(x)} }$ \\où $A$ est une primitive de $a$ sur $I$ et $C$ une constante de $\K$ }
+		\vspace*{0.5cm} \\ \thm{ch6P8}{Propriété}{EquaDiffPol}{Si $a\in \K$ et $P$ est une fonction polynômiale à coefficients dans $\K$ \\ 
+		Alors l'équation différentielle $~~y'+ay = e^{-\alpha(x)}P(x)$ \\ 
+		admet une solution particulière de la forme $\varphi_0 : x\mapsto e^{-\alpha(x)} Q(x)$ \\
+		avec $Q(x)$ un polynôme à coefficients dans $\K$ \\
+		et $\deg Q = \deg P$ si $\alpha \neq a$ et $\deg Q = \deg P+1$ sinon.}
+		\vspace*{0.5cm} \\ \thm{ch6P9}{Proposition : Principe de superposition}{PrincSuperpo}{Si $a,b_1,b_2$ sont des fonctions continues sur $I$ à valeurs dans $\K$\\
+		\hspace*{1cm} $\varphi_1$ solution particulière de $y'+a(x)y = b_1(x)$\\
+		\hspace*{1cm} $\varphi_2$ solution particulière de $y'+a(x)y = b_2(x)$\\
+		Alors pour tout $(\lambda_1,\lambda_2)\in\K$, \\$\lambda_1\varphi_1 + \lambda_2\varphi_2$ est solution particulière de $y'+a(x)y = \lambda_1b_1(x) + \lambda_2b_2(x)$ }
+		\vspace*{0.5cm} \\ \thm{ch6P10}{Proposition : Problème de \textsc{Cauchy}}{PbCauchy}{$\forall (x_0,y_0) \in I\times\K$, le problème de \textsc{Cauchy} $\left\{ \ard y' + a(x)y = b(x) \\ y(x_0) = y_0 \arf\right.$ \\
+		Admet une unique solution \\ \hspace*{2cm}$\cm{ \varphi_0 : x\mapsto \Big( y_0 + \int_{x_0}^x b(t)e^{\int_{x_0}^x a(s)\dd s} \dd t \Big) e^{-\int_{x_0}^x a(s) \dd s} }$}
+	\section{Équations différentielles linéaires d'ordre $2$ à coefficients constants}
+		On considère ici $(E) ~:~y''+ay'+by = f(x)$ \\ où $a,b$ sont des constantes de $\K$ et $f$ est définie et continue sur $I$ de $\R$ à valeur dans $\K$\vspace*{0.3cm} \\
+		$(E)$ s'appelle une \uline{équation différentielle linéaire d'ordre $2$ à coefficients constants dans $\K$}
+		\vspace*{0.5cm} \\ \thm{ch6P11}{Proposition}{EquaCar}{Si $r\in \K$ alors $\varphi_r : x\mapsto e^{rx}$ est solution de $(E_0)$ \\si et seulement si $r^2+ar+b=0$ (équation caractéristique associée à $(E)$ (e.c.))}
+		\vspace*{0.5cm} \\ \thm{ch6P12}{Proposition}{SolGE02}{Avec les mêmes notations et en notant $\Delta$ le discriminant \\ de l'équation caractéristique associée à $(E)$\\ ${}$ \\
+		$\bullet$ $\Delta >0$ et $r_1,r_2$ les solutions de e.c. alors la solution générale de $(E_0)$ \\ est donnée par
+		\hspace*{0.5cm} $\cm{x\mapsto C_1e^{r_1(x)} + C_2e^{r_2(x)} }$ \\${}$\\
+		$\bullet ~\Delta=0$ et $r$ la solution double de e.c. alors la solution générale de $(E_0)$ \\ est donnée par 
+		\hspace*{0.5cm} $\cm{x\mapsto (C_1 x +C_2) e^{rx} }$ \\ ${}$ \\
+		$\bullet ~\Delta<0$ et $r = \rho + \imath.\omega$ ($\omega\neq 0$) une solution de e.c. alors la solution générale de $(E_0)$ \\ est donnée par
+		\hspace*{0.5cm} $\cm{x\mapsto \big(C_1\cos(\omega x)+C_2\sin(\omega x) \big) e^{\rho x} }$ }
+		\vspace*{0.5cm} \\ \thm{ch6P13}{Proposition}{SolGE2}{Si $f$ est une fonction continue sur $I$, $(a,b)\in\K^2$\\
+		Alors la solution générale de $(E) ~:~y''+ay'+by=f(x)$ \\ 
+		est la somme d'une solution particulière et de la solution générale \\ de l'équation homogène associée.}
+		\vspace*{0.5cm} \\ \thm{ch6P14}{Propriété}{EquaDiff2Pol}{Soit $P$ une fonction polynômiale sur $I$ à valeurs dans $\K$ et $\alpha\in\K$\\
+		L'équation $(E) ~:~y''+ay'+b=P(x)e^{\alpha x}$ admet une solution particulière de la forme \\
+		$x\mapsto Q(x)e^{\alpha x}$ avec $Q$ une fonction polynômiale à coefficients dans $\K$ et \\
+		\hspace*{0.5cm} $\deg Q = \deg P$ si $\alpha$ n'est pas solution de e.c.\\
+		\hspace*{0.5cm} $\deg Q = \deg P+1$ si $\alpha$ est racine simple de e.c.\\
+		\hspace*{0.5cm} $\deg Q = \deg P+2$ si $\alpha$ est racine double de e.c.}
+		\vspace*{0.5cm} \\ \thm{ch6P14c}{Corollaire}{EquaDiff2Trig}{L'équation différentielle $y''+ay'+b=\cos (\omega x)e^{\alpha x}$\\
+		(respectivement $y''+ay'+b = \sin (\omega x)e^{\alpha x}$ )\\
+		Admet une solution particulière de la forme \\$\cm{x\mapsto x^k\big(C_1\cos(\omega x) + C_2 \sin(\omega x)\big)e^{\alpha x}}$ avec $(C_1,C_2)\in\R^2$\\
+		\hspace*{0.5cm} $k=0$ si $\alpha+\imath.\omega$ n'est pas solution de e.c.\\
+		\hspace*{0.5cm} $k=1$ si $\alpha+\imath.\omega$ est une racine double de e.c.
+		\\ \hspace*{0.5cm} $k=2$ si $\alpha+\imath.\omega$ est une racine simple de e.c. } \newpage
+		${}$ \\ \thm{ch6P15}{Propriété : Principe de superposition}{PrincSuperpo2}{Soit $(a,b)\in\K^2$ et $(f_1,f_2)$ deux fonctions continues sur $I$ à valeurs dans $\K$\\
+		\hspace*{1cm} $\varphi_1$ une solution particulière de $y''+ay'+by=f_1(x)$\\
+		\hspace*{1cm} $\varphi_2$ une solution particulière de $y''+ay'+by=f_2(x)$\\
+		Alors pour tout $(\lambda_1,\lambda_2)\in\K^2$, \\
+		$\lambda_1 \varphi_1 +\lambda_2 \varphi_2 $ est solution de $y''+ay'+by = (\lambda_1 f_1(x) + \lambda_2 f_2(x) ) $}
+		\vspace*{0.5cm} \\ \thm{ch6P16}{Proposition : Problème de \textsc{Cauchy}}{PbCauchy2}{Si $(a,b)\in\K^2$, $f$ une fonction continue sur $I$ à valeurs dans $\K$,
+		\\ $x_0\in I,~(y_0,y_0')\in\K^2$ le problème de \textsc{Cauchy} $\left\{ \ard y''+ay'+by=f(x) \\ y(x_0)=y_0 ~;~y'(x_0)=y_0' \arf \right.$\\
+		admet une unique solution.}
+		\vspace*{0.5cm} \\ 
+		\begin{center}
+		\fin
+		\end{center}

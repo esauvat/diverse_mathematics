@@ -1,0 +1,178 @@
+
+% Chapitre 1 : Introduction
+
+\emph{Tout les éléments mathématiques seront déclarés et définis, les textes seront différenciés des formules mathématiques.}
+
+\minitoc
+
+\section{Règles d'écriture}
+\subsection{Quantificateurs}
+
+En écriture mathématique, on utilise les quatificateurs suivants :
+\\$\exists : $ Existence$ \hfill \forall : $ Quelque soit$ \hfill ~$
+\\\textit{Exemples :}
+\[\forall ~y \in \mathbb{R},~\exists ~x \in\mathbb{R} ~:~y=x^7-x ~~ \neq ~~\exists ~x /\in\mathbb{R} ~:~y\in\mathbb{R},~y=x^7-x\]
+$$\forall ~\epsilon >0,~\exists ~n_0 \in\mathbb{N} : ~\forall ~n\in\mathbb{N} ~(n_0\ge n \Rightarrow \mid u_{n} - l\mid \ge \epsilon ) ~~~\rightarrow ~~~ (u_n~converge~vers~l) $$
+\newpage
+\subsection{Conditions Nécessaires et Suffisantes}
+\begin{multicols}{2}
+ Une condition Q est nécessaire pour avoir P si dès que P est vraie Q est vraie. $P\Rightarrow Q$
+\\\textsl{ABCD est un parrallélogramme est une condition nécessaire pour que ABCD soit un losange.}
+\columnbreak
+\\Une condition Q est suffisante pour avoir P si dès que Q est vraie P est vraie. $Q\Rightarrow P$
+\\\textsl{ABCD à 4 côtés égaux est une condition suffisante pour que ABCD soit un losange.}
+\end{multicols}
+
+Si P est nécessaire et suffisante pour avoir Q alors P est nécessairement suffisante pour avoir Q. On dit aussi que P et Q sont logiquement équivalentes. $P\Leftrightarrow Q$
+\\\textsl{ABCD est un quadrilatère à 4 côtés égaux et ABCD est un losange sont logiquement équivalente.}
+
+\section{Modes de démonstaration}
+
+\subsection{Modus Ponen}
+Soit P et Q deux assertions. On démontre que P est vraie et que P est une condition suffisante pour avoir Q. On a alors Q.
+\\$$P\wedge (P\Rightarrow Q)~\Rightarrow ~Q$$
+\\\textsl{On peut utiliser la transitivité de l'implication. $P\wedge ((P\Rightarrow Q)\wedge (Q\Rightarrow R))~\Rightarrow ~R$}
+
+\subsection{Contraposée}
+$$(P\Rightarrow Q)~\Longleftrightarrow ~(\neg Q\Rightarrow\neg P)$$
+Pour montrer que P est une condition suffisante pour avoir Q, on peut montrer que la négation de P est une condition suffisante pour avoir la négation de Q.
+
+\subsection{Disjonction de cas}
+$$Soit~P,~Q~et~R~trois~assertions.~~(P\vee Q)\wedge (P\Rightarrow R)\wedge (Q\Rightarrow R)~\Rightarrow ~R$$
+Pour montrer qu'un condition A est suffisante pour en avoir une seconde B, on la sépare en plusieurs cas, puis on montre que chaque cas est une condition suffisante pour avoir B.
+
+\subsection{Absurde}
+$$(\neg P\Rightarrow Q\wedge\neg Q)~\Rightarrow ~P$$
+\textsl{L'ensemble des nombres naturel est infini}
+
+\subsection{Analyse Synthèse}
+Utilisé pour démontrer l'existence et l'unicité d'un objet mathématique.
+\paragraph{Analyse}
+On détermine un certain nombre de conditions nécessaires.
+\paragraph{Synthèse}
+On détermine une condition suffisante parmis les nécessaires.
+
+\subsection{Récurrence}
+On définit un prédicat dépendant d'une variable.
+\\On montre alors que le prédicat est vrai pour un certain rang de la valeur.
+\\On montre ensuie que le prédicat vraie à un certain rang (ou sur une série de rangs) est une condition suffisante pour avoir le prédicat vrai à un autre rang.
+$$P(n)\Rightarrow P(n+1)~/~P(n_0)\wedge ...\wedge P(n)\Rightarrow P(n+1)~/~(P(n)\Rightarrow P(2n))\wedge (P(n+1)\Rightarrow P(n))$$
+\thm{ch0th1}{Théorème : Premier principe de récurrence}{Threcurrence}{Soit P(n) un prédicat définit sur $\mathbb{N}$
+\\Si on a $\left\{ \begin{array}{l} P(0)\\ \forall n\in\mathbb{N} ,~P(n)\Rightarrow P(n+1) \end{array} \right.$
+\\alors $\forall n\in\mathbb{N} ,~P(n)$}
+\begin{proof}
+On suppose au contraire $\exists n_0\in\mathbb{N} ^*$ tel que $\neg P(n_0)$.
+\\On considère alors A=$\left\{ 
+k \mid \neg P(k)
+\right\}$ 
+\\On a alors A$\neq\varnothing$ car $n_0\in$A et A$\subset\mathbb{N} ^*$ donc d'après le principe du bon ordre dans $\mathbb{N} ^*$ A admet un plus petit élément noté $k_0$. 
+\\Par suite $k_0-1\in$A soit P($k_0-1$) puis d'après l'hérédité P($k_0$).
+\end{proof} ${}$\\
+\thm{ch1th1c}{Corollaire : Principe de récurrence forte}{RecForte}{Soit P(n) un prédicat défini sur $\mathbb{N}$
+\\ Si $\left\{ \begin{array}{l} P(n_0)\\ \forall n\in\mathbb{N} ,~n\geq n_0,~P(n_0)\wedge ...\wedge P(n)~\Rightarrow ~P(n+1) \end{array} \right.$
+\\Alors $\forall n\in\mathbb{N} ,~n\geq n_0,~P(n)$} 
+\begin{proof}
+On considère le prédicat Q(n) = P($n_0$)$\wedge ...\wedge$P(n)
+\\ On a alors
+$\left\{
+\begin{array}{l}
+Q(n_0)\\
+\forall n\in\mathbb{N} ,~n\geq n_0,~Q(n)\Rightarrow Q(n+1)
+\end{array}
+\right.$
+\\ D'où d'après le premier principe de récurrence on a $\forall n\in\mathbb{N}$, $n\geq n_0, ~ P(n)$
+\end{proof}
+
+\subsection{Exemples}
+
+\paragraph{Irrationnalité de $\sqrt{2}$}
+
+\subparagraph{Preuve 1}
+
+On suppose $\exists$(p,q)$\in\mathbb{N} ^{*2}$ : $\sqrt{2} =\frac{p}{q}$ avec q minimal.
+\\On considère alors \[\frac{2q-p}{p-q} =\frac{2-\frac{p}{q}}{\frac{p}{q} -1} =\frac{\sqrt{2} (\sqrt{2} -1)}{\sqrt{2} -1} =\sqrt{2}\]
+\\avec p=$\sqrt{2}$q donc p<2q donc p-q<q.
+
+\subparagraph{Preuve 2}
+
+On suppose $\exists$(p,q)$\in\mathbb{N} ^{*2}$ : $\sqrt{2} =\frac{p}{q}$, soit 2q²=p².
+\\On a alors, d'après le théorème fondamental de l'arithmétique p² qui possède 2k fois 2 dans sa décomposition en facteurs premiers alors que 2q² le posssède 2k'+1 fois, ce qui est impossible par unicité de la décomposition.
+
+\subparagraph{Preuve 3}
+
+Pour i$\in\mathbb{N}$ on considère \[\epsilon _i=(\sqrt{2} -1)^i\]
+On a $\frac{8}{4} <\frac{9}{4}$ donc par strcite croissance de $f:x\mapsto\sqrt{x}$ $\sqrt{2} <\frac{3}{2}$ donc 0<$\sqrt{2}$-1<$\frac{1}{2}$
+\[Donc~\forall i\in\mathbb{N} ^*~\epsilon _i<\frac{1}{2^i}\]
+D'autre part pour tout entier $i$ il existe des entiers $a_i$ et $b_i$ tels que 
+\\$(\sqrt{2} -1)^i=a_i+\sqrt{2} b_i$
+\\Si $\exists (p,q)\in\mathbb{N} ^{*2}$ : $\sqrt{2} =\frac{p}{q}$ alors \[\epsilon _i=a_i+b_i\frac{p}{q} =\frac{a_iq+b_ip}{q} =\frac{A_i}{q} ~~~~A_i\in\mathbb{N} ^*\]
+Soit pour tout entier $i$ $\epsilon _i\geq\frac{1}{q}$ d'où $\frac{1}{q} <\frac{1}{2^i}$
+
+\paragraph{Infinité de l'ensemble des nombres premiers}
+
+\subparagraph{Lemme}
+
+Tout entier supérieur ou égal à $2$ admet un diviseur premier
+\\\textsl{Preuve} : Soit $n$ un entier supérieur à $2$ notons $p$ le plus petit de ses diviseurs.
+\\On a alors $p$ premier car tout diviseur de $p$ divise $n$.
+
+\subparagraph{Preuve d'Euclide}
+
+S'il y avait un nombre fini de nombres premiers, leur produit additionné de 1 serait divisible par l'un d'entre eux (\textsl{Lemme}), qui diviserait alors la différence, 1.
+
+\paragraph{Inégalité arithmético-géométrique}
+
+\subparagraph{Lemme de Couchy}
+
+Soit A un partie de $\mathbb{N} ^*$ qui contient 1 et \\telle que
+$\left\{
+\begin{array}{l}
+(1) ~\forall n\in\mathbb{N} ^*,~n\in A~\Rightarrow ~2n\in A \\
+(2) ~\forall n\in\mathbb{N} ^*,~n+1\in A~\Rightarrow ~n\in A
+\end{array}
+\right.$
+alors A=$\mathbb{N} ^*$
+\\\textsl{Preuve} : On veut démontrer Q(p) : $\begin{array}{l}
+2^p\in A \\
+\forall n\in [2^p, 2^{p+1}]\times\mathbb{N} , n\in A\\
+\Leftrightarrow \forall n\in [0, 2^p]\times\mathbb{N} , 2^{p+1}-n\in A
+\end{array}$
+\begin{multicols}{2}
+P(k) : $2^k\in A$  avec P(0)
+\\$2^k\in A \Rightarrow 2\times 2^k=2^{k+1}\in A$
+\\D'après le principe de récurrence on a $\forall k\in\mathbb{N} , 2^k\in A$
+\columnbreak
+H(n) : n>$2^p\vee 2^{p+1}-n\in A$ avec H(0)
+\\Si H(n) et n+1$\leq 2^p$, on a $2^{p+1}$-(n+1)$\in A$ d'apèrs (2)
+\\D'après le principe de récurrence on a $\forall (p,n)\in\mathbb{N} ^2, n>2^p\vee 2^{p+1}-n\in A$
+\end{multicols}
+
+\subparagraph{Preuve de \textsc{Cauchy}}
+
+On considère A=
+$\left\{
+\begin{array}{l}
+n\mid\forall (x_1,...,x_n)\in (\mathbb{R} _+^*)^n, \frac{x_1+...+x_n}{n}\geq\sqrt[n]{x_1...x_n}
+\end{array}
+\right\}$
+ avec $1\in A$
+Soit le prédicat P(n) : $\forall (x_1,...,x_n)\in (\mathbb{R} _+^*)^n, \frac{x_1+...+x_n}{n}\geq\sqrt[n]{x_1...x_n}$   On a $P(1)\wedge P(2)$
+\\Supposons $n\in A$ et considérons $(x_1,...,x_n,x'_1,...,x'_n)\in (\mathbb{R} _+^*)^{2n}$
+ \[\frac{x_1+...+x_n+x'_1+...+x'_n}{2n} =\frac{\frac{x_1+...+x_n}{n} + \frac{x'_1+...+x'_n}{n}}{2}\] \\\[\geq\sqrt{\frac{x_1+...+x_n}{n}\times\frac{x'1+...+x'_n}{n}}\geq\sqrt[2]{\sqrt[n]{x_1...x_n}\times\sqrt[n]{x'_1...x'n}}\] \\\[=\sqrt[2n]{x_1...x_nx'_1...x'_n} ~~~~Soit~P(n)\Rightarrow P(2n)\]
+ \\On considère maintenant $\forall (x_1,...,x_n,x_{n+1})\in (\mathbb{R} _+^*)^{n+1}, \frac{x_1+...+x_n+x_{n+1}}{n+1}\geq\sqrt[n]{x_1...x_nx_{+1}}$
+ \\Soit $\forall (x_1,...,x_n)\in (\mathbb{R} _+^*)^n$ Posons $x_{n+1}=\frac{x_1+...+x_n}{n}$ on a alors avec $P=x_1\cdots x_n$ et $A = x_{n+1}$ :
+ \[\frac{x_1+...+x_n+\frac{x_1+...+x_n}{n}}{n+1}\geq\sqrt[n+1]{x_1...x_nx_{n+1}}
+ \Leftrightarrow\frac{(n+1)\frac{x_1}{n} +...+(n+1)\frac{x_n}{n}}{n+1}\geq\sqrt[n+1]{PA}\]
+ \[\Leftrightarrow\frac{x_1+...+x_n}{n}\geq\sqrt[n+1]{PA} ~\Leftrightarrow ~A\geq\sqrt[n+1]{PA}\]
+ \[\Rightarrow A^{n+1}\geq PA \Rightarrow A^n\geq P\Rightarrow A\geq\sqrt[n]{P} ~~donc~P(n+1)\Rightarrow P(n)\]
+ 
+\subparagraph{Preuve d'\textsc{Enguel}}
+\textsl{Lemme} : $\forall x\in\mathbb{R} ^*, \ln x\leq x-1$ avec égalité ssi x=1
+\\\textsl{Preuve} : Soit $(x_1,...,x_n)\in (\mathbb{R} _+^*)^n ~~A=\frac{1}{n} \sum\limits_{i=1}^nx_i$
+$\forall i\in [\![i,n]\!] ,~\ln (\frac{x_i}{A})\leq\frac{x_i}{A} -1$
+\\ En sommant on obtient:
+\[\sum\limits_{i=1}^n\ln (\frac{x_i}{A}) = \ln (\frac{x_1...x_n}{A^n})\leq\sum\limits_{i=1}^n (\frac{x_i}{A} -1) = 0~~~
+\Rightarrow x_1...x_n\leq A^n ~~\Rightarrow ~\frac{x_1+...+x_n}{n}\geq\sqrt[n]{x_1...x_n}\] \\ 
+\begin{center}
+\fin
+\end{center}

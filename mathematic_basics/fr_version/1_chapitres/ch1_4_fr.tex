@@ -1,0 +1,127 @@
+
+% Chapitre 4 : Fonctions
+
+\textit{Toute les fonctions considéré sont des fonction d'une variable réelles à valeurs dans $\R$ définies sur $I\subset \R$}
+\minitoc
+	\section{Généralités sur les fonctions}
+		\traitd
+		\paragraph{Ensemble de définition}
+			Si $f$ est une fonction on défnit \underline{$D_f$ son ensemble de définition} comme la plus grande partie de $\R$ sur laquelle $f$ est 
+			définie. \trait ${}$ \vspace*{-1.4cm} \traitd
+		\paragraph{Représentation graphique}
+			Soit $f$ un fonction la \underline{représentation graphique de $f$} est la partie de $\R^2$ $C_f = \{\big(x,f(x)\big) ~|~
+			x\in D_f \}$ \trait
+		\thm{ch5P1}{Propriété}{PariteCourbe}{Soit $f$ une fonction à valeurs réelles on a \\ $\bullet$ Si $f$ est paire alors $C_f$ admet 
+		$(0x)$ comme axe de symétrie \\ $\bullet$ Si $f$ est impaire alors $C_f$ admet $0$ comme centre de symétrie.} \traitd
+		\paragraph{Périodicité}
+			On dit que $f$ est périodique s'il existe $T\in\R^*$ tel que $\forall x\in D_f,~ x+T\in D_f$ et $f(x+T)=f(x)$, on dit alors que $f$ est 
+			$T$-périodique. \trait
+		\vspace*{-1.1cm} \\ \underline{Rq} : la périodicité n'est stable ni par somme, ni par produit.
+		\vspace*{0.5cm} \\ \thm{ch5P2}{Propriétés}{5-P2}{Soit $f$ et $g$ deux fonctions on a \\ {\small 1)} Si $f$ et $g$ admettent un parité, 
+		alors $f+g$ et $f.g$ admettent la même parité. \\ {\small 2)} Si $f$ et $g$ sont $T$-périodiques, alors $f+g$ et $f.g$ sont $T$-
+		périodiques. \\ {\small 3)} $g\circ f$ est paire si $f$ est paire ou si $f$ est impaire et $g$ est paire. \\ {\small 4)} $g\circ f$ est 
+		impaire si $f$ et $g$ le sont.} \traitd
+		\paragraph{Fonction croissante} On dit que $f$ à valeurs réelles est \underline{croissante sur $I$} (resp. décroissante) si 
+		\[\forall (a,b) \in I^2 ,~a\leq b\Rightarrow f(a)\leq f(b) ~~ \big(resp. ~a\leq b\Rightarrow f(a) \geq f(b) \big) \]
+		On définie de même les strictes croissance et décroissance avec des inégalités strictes. \trait
+		\thm{ch5P3}{Propriété}{CarFCroiss}{$f$ est croissante (resp. strictement) sur $I$ \underline{si et seulement si} \\
+		$\forall (a,b) \in I^2 ,~a\neq b\Rightarrow \frac{f(b)-f(a)}{b-a} \geq 0$ \big(resp. $>0$\big) }
+	\section{Dérivation}
+		\traitd
+		\paragraph{Dérivabilité en $a$}
+			On dit que \underline{$f$ est dérivable en un point $a$} de $I$ qui n'est pas une extremité de $I$ si $\tau_a(f)$ admet une limite 
+			finie en $a$. On note alors $f'(a)$ cette limite.\trait ${}$\vspace*{-1.4cm} \traitd
+		\paragraph{Dérivabilité sur $I$}
+			On dit que \underline{$f$ est dérivable sur $I$} si $f$ est dérivable en tout point de $I$. On note alors $f'$ la fonction définie sur 
+			$I$ qui à chaque point $a$ associe $f'(a)$. \trait
+		\thm{ch5P4}{Propriétés}{OpeDeriv}{Si $f$ et $g$ sont deux fonction dérivable en $a$ on a \\ {\small 1)} $\forall \alpha \in \R,~
+		\alpha f+g$ est dérivable en $a$ et $\big(\alpha f+g\big)'(a) = \alpha f'(a) + g'(a)$ \\ {\small 2)} $f.g$ est dérivable en $a$ et $
+		\big(f.g\big)'(a) = f'(a).g(a) + f(a).g'(a)$ \\ {\small 3)} Si $g(a)\neq 0$ alors $\frac{f}{g}$ est dérivable en $a$ et 
+		$\Big(\frac{f}{g}\Big)'(a) = \frac{f'(a).g(a)-f(a)g'(a)}{\big(g(a)\big)^2}$}
+		\newpage ${}$ \\ \thm{ch5P5}{Proposition}{DerivCompo}{Si $f$ est dérivable en $a$ et $g$ est dérivable en $f(a)$ \\Alors $g\circ f$ est 
+		dérivable en $a$ et $\big(g\circ f \big)'(a) = \big(g'\circ f\big)(a) \times f'(a)$}
+		\vspace*{0.5cm} \\ \thm{ch5P6}{Proposition : Caractérisation des fonctions constantes}{CarFcCte}{Une fonction définie sur $I$ à valeurs 
+		réelles ou complexes est constante \\\underline{si et seulement si} elle est dérivable sur $I$ et sa dérivée est nulle sur $I$}
+		\vspace*{0.5cm} \\ \thm{ch5P7}{Propriété}{StrictCroissCNS}{Si $f$ est dérivable sur $I$ alors $f$ est strictement croissante sur $I$ \\
+		$\Leftrightarrow $ $\left\{ \ard f'$ est positive sur $I \\ $il n'existe pas d'intervalle ouvert $I\subset J$ tel que $f'|_J=0\arf\right.$}
+		\vspace*{0.5cm} \\ \thm{ch5th1}{Théorème}{DerStrictCroiss}{Soit $f$ dérivable qur un intervalle ouvert $I$ strictement monotone sur $I$\\
+		alors $f$ réalise une bijection de $I$ sur $f_d(I)=J$ et $f^{-1}$ est continue et \\dérivable sur $J$ avec $\forall b=f(a)\in J , 
+		~\big(f^{-1}\big)'(b) = \frac{1}{f'(a)} = \frac{1}{f'\circ f^{-1}(b)}$}
+		\vspace*{0.5cm} \\ \thm{ch5P8}{Propriété}{CfCf-1Sym}{Si $f$ est à valeurs réelles bijectives et $\R^2$ rapporté à un repère orthonormé 
+		direct \\ Alors $C_f$ et $C_{f^{-1}}$ sont symétriques par rapport à la première bisectrice.} \traitd
+		\paragraph{Classe $\cont^1$}
+			On dit que \underline{$f$ est de classe $\cont^1$ sur $I$ à valeurs dans $\R$} si $f$ est dérivable sur $I$ et so $f'$ est continue 
+			sur $I$. On dit aussi que $f$ est continuement dérivable sur $I$. \\ On note $\cont^1\big(I,\R\big)$ l'ensemble des fonctions de 
+			classe $\cont^1$ sur $I$ à valeurs dans $\R$. \trait
+	\section{Fonctions usuelles}
+		\traitd
+		\paragraph{Logarithme népérien}
+			La fonction $\ln$ est l'unique primitive de $\appli{\R_+^*}{x}{\R}{\frac{1}{x}}$ avec $\ln(1)=0$. \trait
+		\thm{ch5P9}{Propriétés}{Calcln}{{\small 1)} $\forall (a,b)\in \R_+^* ,~\ln(ab) = \ln(a)+\ln(b)$ \hspace*{0.5cm} 
+		{\small 2)} $\forall x \in \R_+^* ,~\ln \big( \frac{1}{x} \big) = -\ln(x) $ }
+		\vspace*{0.5cm} \\ \thm{ch5th2}{Théorème}{InegFondAnalyse}{$\forall x\in \R_+^* ,~\ln(x+1)\leq x$} \traitd
+		\paragraph{Exponnentielle}
+			La fonction $\exp$ est la bijection réciproque de $\ln$, définie sur $\R$ à valeurs dans $\R_+^*$. Elle est dérivable sur $\R$ avec 
+			$\exp'=\exp$ et $\forall (x,y)\in\R ,~\exp(x+y) = \exp(x)\times \exp(y)$ \trait 
+		\vspace*{-1.1cm} \\ $\forall (a,b) \in \R_+^* \times\R ,~a^b = \exp\big(b\times\ln(a)\big)$ \newpage \traitd
+		\paragraph{Logarithme en base $a$}
+			Soit $a\in\R_+^*\backslash\{1\}$, on appelle \underline{logarithme en base $a$ noté $\ln_a$} la fonction 
+			$\appli{\R_+^*}{x}{\R}{\frac{\ln x}{\ln a} }$ et on note $\exp_a$ sa bijection réciproque. \trait
+		\thm{ch5L1}{Lemme}{CCln}{$\forall \alpha \in \R_+^*$, on a \hspace*{1cm} 
+		{\small 1)} $\frac{\ln x}{x^\alpha} \stox{+\infty} 0$ \hspace*{1cm} {\small 2)} $x^\alpha \ln x \stox{0^+} 0$}
+		\vspace*{0.5cm} \\ \thm{ch5L1c}{Corollaire}{CCexp}{$\forall \alpha \in \R_+^*$, on a $\frac{x^\alpha}{e^x} \stox{+\infty} 0$}
+		\vspace*{0.5cm} \\ \thm{ch5P10}{Proposition}{DefExpLim}{Soit $x\in\R$ alors $\big(1+\frac{x}{t} \big)^t 
+		\underset{t\to +\infty}{\rightarrow} e^x$}
+		\vspace*{0.5cm} \\ \thm{ch5P11}{Proposition}{InegExp}{$\forall x\in \R, ~e^x \geq x+1$ avec égalité $\Leftrightarrow$ $x=0$}
+		\traitd
+		\paragraph{Arcsinus}
+			La restriction de $\sin$ à $\big[-\frac{\pi}{2},\frac{\pi}{2}\big]$ réalise un bijection de $\big[-\frac{\pi}{2},\frac{\pi}{2}\big]$ 
+			sur $[-1,1]$. On appelle \underline{arcsinus noté $\arcsin$} cette fonction telle que $\forall (x,y) \in [-1,1]\times 
+			\big[-\frac{\pi}{2}, \frac{\pi}{2}\big] ,~y=\arcsin(x) \Leftrightarrow x=\sin(y)$ \trait
+		\thm{ch5P12}{Proposition}{ArcsinCroissDer}{La fonction $\arcsin$ est continue strictement croissante sur $[-1,1]$ \\ et dérivable sur 
+		$]-1,1[$ avec $\forall x\in ]-1,1[, ~\arcsin'(x) = \frac{1}{\sqrt{1-x^2}}$} \traitd
+		\paragraph{Arccosinus}
+			La restriction de $\cos$ à $[0,\pi]$ réalise un bijection sur $[-1,1]$. On appelle \underline{arccosinus noté $\arccos$} cette fonction 
+			telle que $\forall (x,y) \in [-1,1]\times [0,\pi] ,~y=\arccos(x) \Leftrightarrow x=\cos(y)$ \trait
+		\thm{ch5P13}{Propriété}{Arcos+Arcsin}{$\forall x\in [-1,1] , ~\arccos (x) + \arcsin(x) = \frac{\pi}{2}$}
+		\traitd \vspace*{0.3cm} \thm{ch5th3}{Théorème - Arctangente}{Arctan}{$\tan$ réalise un bijection de $\big]-\frac{\pi}{2},\frac{\pi}{2}
+		\big[$ sur $\R$, on appelle \underline{$\arctan$} cette fonction. \\ $\arctan$ est dérivable sur $\R$ avec $\forall x\in\R , ~\arctan'(x) = 
+		\frac{1}{1+x^2}$} \vspace*{0.15cm} \trait
+		\vspace*{-1.4cm} \begin{proof}
+		$\tan$ est dérivable sur $\big]-\frac{\pi}{2},\frac{\pi}{2}\big[$ donc $\arctan$ est dérivable en tout point $a=\tan(y)$ \\ 
+		avec $\arctan'(a) = \frac{1}{\tan'(y)} = \frac{1}{1+\tan^2(y)} = \frac{1}{1+a^2}$
+		\end{proof}
+		${}$ \\ \thm{ch5P14}{Proposition}{Arctan+inv}{$\forall x\in \R, ~\arctan(x) + \arctan\big(\frac{1}{x}\big) = 
+		\frac{x}{\mc{x}}\times\frac{\pi}{2}$} \newpage \traitd
+		\paragraph{Cosinus hyperbolique - Sinus hyperbolique}
+			On appelle \underline{cosinus hyperbolique (resp. sinus} \underline{hyperbolique) noté $\cosh$ (resp. $\sinh$)} la partie paire (resp. impaire) de 
+			$\exp$. \[ \forall x\in\R ,~\left\{ \ard \cosh(x) = \frac{e^x+e^{-x}}{2} \\ \sinh(x) = \frac{e^x - e^{-x}}{2} \arf \right. \]
+		\vspace*{-0.7cm} \trait \vspace*{-1.1cm} \\
+		\textit{Ces fonctions sont indéfiniment dérivables sur $\R$ avec $\cosh' = \sinh$ et $\sinh'=\cosh$}
+		\vspace*{0.5cm} \\ \thm{ch5L2}{Lemme}{ch>1}{$\forall x\in\R,~\cosh(x) \geq 1$ avec égalité \underline{ssi} $x=0$}
+		\vspace*{0.5cm} \\ \thm{ch5P15}{Proposition}{Ch+Sh}{$\forall x\in\R ,~\cosh^2(x) - \sinh^2(x) = 1$}
+		\vspace*{0.5cm} \\ \thm{ch5P16}{Propriété}{5-P16}{$\forall(a,b)\in\R^2$, on a \\
+		$\cosh(a+b) = \cosh(a)\cosh(b) + \sinh(a)\sinh(b)$ \\ $\sinh(a+b) =\sinh(a)\cosh(b) + \sinh(b)\cosh(a) $ \\
+		$\cosh(a-b) = \cosh(a)\cosh(b) - \sinh(a)\sinh(b)$ \\ $\sinh(a-b) = \sinh(a)\cosh(b) - \sinh(b)\cosh(a) $} \traitd
+		\paragraph{Tangente hyperbolique}
+			La fonction \underline{tangente hyperbolique notée $\tanh$} est définie sur $\R$ par $\tanh = \frac{\sinh}{\cosh}$ \trait
+		\thm{ch5P17}{Propriété}{PropriTanh}{$\tanh$ est impaire et indéfiniment dérivable sur $\R$ avec \\ $\forall x\in\R , ~\tanh'(x) = 
+		\frac{1}{\cosh^2(x)} = 1 - \tanh^2(x)$}
+	\section{Dérivation d'une fonction complexe}
+		\textit{On étudie ici des fonctions définies sur $I\subset \R$ à valeurs dans $\C$} \traitd
+		\paragraph{Dérivabilité en un point}
+			On dit que $f:I\to\C$ est dérivable en $x_0\in I$ si $\frac{f(x)-f(x_0)}{x-x_0}$ possède une limite en $x_0$. 
+			\big(Si $\forall \varepsilon>0 ,~\exists \delta>0 ~:~ \forall x\in I , ~\mc{x-x_0} \leq\delta \Rightarrow \mc{f(x)-f(x_0)}
+			\leq\varepsilon$\big) \\ On note alors $f'(x_0)$ cette limite. \trait
+		\thm{ch5P18}{Proposition}{FderCCNS}{$f:I\to\C$ est dérivable en $x_0\in I$ \underline{si et seulement si} $\Re(f)$ et $\Im(f)$ sont 
+		dérivable en $x_0$. \\ On a alors $f'(x_0) = \big(\Re(f)\big)'(x_0) + i\big(\Im(f)\big)'(x_0)$}
+		\newpage ${}$ \\ \thm{ch5P19}{Proposition}{ThOpFcCompl}{Les théorèmes opératoires sur la somme, le produit, et la fraction 
+		%(\ref{OpeDeriv}) 
+        \\sont identique pour des fonctions à valeurs complexes (pas la composition !)}
+		\vspace*{0.5cm} \\ \thm{ch5P20}{Proposition}{DerivExpCompl}{Si $\varphi$ est une fonction dérivable sur $I$ de $\R$ à valeurs complexes \\
+		Alors $\psi ~ \appli{I}{t}{\C}{\exp\big(i\varphi(t)\big)}$ est dérivable sur $I$ et \\ 
+		$\forall t\in I,~\psi'(t) = i\varphi'(t)e^{i\varphi(t)}$ }
+		\vspace*{0.5cm} \\ 
+		\begin{center}
+		\fin
+		\end{center}
