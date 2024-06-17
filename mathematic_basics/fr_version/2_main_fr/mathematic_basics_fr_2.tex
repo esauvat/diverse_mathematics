@@ -2,15 +2,15 @@
 %                               PREAMBLE
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\documentclass[10pt, a4paper, twoside]{report}
-\usepackage[top = 120pt, left = 100pt, right = 100pt, bottom = 100pt]{geometry}
+\documentclass[a4paper, 10pt, twoside]{report}
+\usepackage[top = 2.5cm,left=2.54cm,right=2.54cm,bottom=2.54cm]{geometry}
+\usepackage[french]{babel}
+\usepackage[utf8]{inputenc} 
+\usepackage[T1]{fontenc}
 \usepackage{lxfonts}
 \usepackage[mathcal, mathbf]{euler}
-\usepackage[T1]{fontenc}
-\usepackage[french]{babel}
-\usepackage[utf8]{inputenc}
 \usepackage[hidelinks]{hyperref}
-\usepackage[normalem]{ulem}
+\usepackage{ulem}
 \usepackage{fancyhdr}
 \usepackage{shorttoc}
 
@@ -34,6 +34,10 @@
 \usepackage{dsfont}
 \usepackage{mathrsfs}
 \usepackage{cancel}
+\usepackage{soul}
+
+\usepackage{shorttoc}
+\usepackage{minitoc}
 
 % \renewcommand{\thefootnote}{\fnsymbol{footnote}}
 
@@ -43,6 +47,75 @@
 \fancyhead[RE]{\small \leftmark}
 \fancyhead[LO]{\small \rightmark}
 \fancyhead[RO]{\thepage}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                            Cover Page Details
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\renewcommand\epigraphflush{flushright}
+\renewcommand\epigraphsize{\normalsize}
+\setlength\epigraphwidth{0.7\textwidth}
+
+\definecolor{titlepagecolor}{cmyk}{1,.60,0,.40}
+
+\DeclareFixedFont{\titlefont}{T1}{ppl}{b}{it}{0.5in}
+
+\makeatletter                       
+\def\printauthor{%                  
+    {\large \@author}}              
+\makeatother
+\author{%
+    Mis en forme par \\
+    Émile Sauvat \\
+    \texttt{emile.sauvat@ens.psl.eu}\vspace{20pt}}
+
+% The following code is borrowed from: https://tex.stackexchange.com/a/86310/10898
+
+\newcommand\titlepagedecoration{%
+\begin{tikzpicture}[remember picture,overlay,shorten >= -10pt]
+
+\coordinate (aux1) at ([yshift=-15pt]current page.north east);
+\coordinate (aux2) at ([yshift=-410pt]current page.north east);
+\coordinate (aux3) at ([xshift=-4.5cm]current page.north east);
+\coordinate (aux4) at ([yshift=-150pt]current page.north east);
+
+\begin{scope}[titlepagecolor!40,line width=12pt,rounded corners=12pt]
+\draw
+  (aux1) -- coordinate (a)
+  ++(225:5) --
+  ++(-45:5.1) coordinate (b);
+\draw[shorten <= -10pt]
+  (aux3) --
+  (a) --
+  (aux1);
+\draw[opacity=0.6,titlepagecolor,shorten <= -10pt]
+  (b) --
+  ++(225:2.2) --
+  ++(-45:2.2);
+\end{scope}
+\draw[titlepagecolor,line width=8pt,rounded corners=8pt,shorten <= -10pt]
+  (aux4) --
+  ++(225:0.8) --
+  ++(-45:0.8);
+\begin{scope}[titlepagecolor!70,line width=6pt,rounded corners=8pt]
+\draw[shorten <= -10pt]
+  (aux2) --
+  ++(225:3) coordinate[pos=0.45] (c) --
+  ++(-45:3.1);
+\draw
+  (aux2) --
+  (c) --
+  ++(135:2.5) --
+  ++(45:2.5) --
+  ++(-45:2.5) coordinate[pos=0.3] (d);   
+\draw 
+  (d) -- +(45:1);
+\end{scope}
+\end{tikzpicture}%
+}
+
+\begin{document}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -174,77 +247,9 @@
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%                            Cover Page Details
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\renewcommand\epigraphflush{flushright}
-\renewcommand\epigraphsize{\normalsize}
-\setlength\epigraphwidth{0.7\textwidth}
-
-\definecolor{titlepagecolor}{cmyk}{1,.60,0,.40}
-
-\DeclareFixedFont{\titlefont}{T1}{ppl}{b}{it}{0.5in}
-
-\makeatletter                       
-\def\printauthor{%                  
-    {\large \@author}}              
-\makeatother
-\author{%
-    Mis en forme par \\
-    Émile Sauvat \\
-    \texttt{emile.sauvat@ens.psl.eu}\vspace{20pt}}
-
-% The following code is borrowed from: https://tex.stackexchange.com/a/86310/10898
-
-\newcommand\titlepagedecoration{%
-\begin{tikzpicture}[remember picture,overlay,shorten >= -10pt]
-
-\coordinate (aux1) at ([yshift=-15pt]current page.north east);
-\coordinate (aux2) at ([yshift=-410pt]current page.north east);
-\coordinate (aux3) at ([xshift=-4.5cm]current page.north east);
-\coordinate (aux4) at ([yshift=-150pt]current page.north east);
-
-\begin{scope}[titlepagecolor!40,line width=12pt,rounded corners=12pt]
-\draw
-  (aux1) -- coordinate (a)
-  ++(225:5) --
-  ++(-45:5.1) coordinate (b);
-\draw[shorten <= -10pt]
-  (aux3) --
-  (a) --
-  (aux1);
-\draw[opacity=0.6,titlepagecolor,shorten <= -10pt]
-  (b) --
-  ++(225:2.2) --
-  ++(-45:2.2);
-\end{scope}
-\draw[titlepagecolor,line width=8pt,rounded corners=8pt,shorten <= -10pt]
-  (aux4) --
-  ++(225:0.8) --
-  ++(-45:0.8);
-\begin{scope}[titlepagecolor!70,line width=6pt,rounded corners=8pt]
-\draw[shorten <= -10pt]
-  (aux2) --
-  ++(225:3) coordinate[pos=0.45] (c) --
-  ++(-45:3.1);
-\draw
-  (aux2) --
-  (c) --
-  ++(135:2.5) --
-  ++(45:2.5) --
-  ++(-45:2.5) coordinate[pos=0.3] (d);   
-\draw 
-  (d) -- +(45:1);
-\end{scope}
-\end{tikzpicture}%
-}
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                               COVER
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{document}
 \begin{titlepage}
 
 \noindent
@@ -270,18 +275,14 @@
 \titlepagedecoration
 \end{titlepage}
 
-% \renewcommand{\contentsname}{Table des matières - Deuxième année}
-% \tableofcontents
-
-%\listoffigures
-
-\setcounter{tocdepth}{3}
+\setcounter{tocdepth}{1}
+\renewcommand{\thefootnote}{\fnsymbol{footnote}}
+\renewcommand{\contentsname}{Table des matières - Première année}
+\setcounter{minitocdepth}{4}
+\renewcommand{\mtctitle}{Contenu}
+\dominitoc
 
 \shorttoc{Chapitres}{0}
-
-% \setcounter{minitocdepth}{3}
-% \renewcommand{\mtctitle}{Contenu}
-% \dominitoc
 
 \theoremstyle{plain}
 
