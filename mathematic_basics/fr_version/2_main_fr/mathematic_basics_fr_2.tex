@@ -1,3 +1,4 @@
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                               PREAMBLE
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -21,6 +22,7 @@
 \usepackage{epigraph}
 \usepackage{fancyhdr}
 \usepackage{blkarray}
+\usepackage{booktabs}
 
 \usepackage{amsfonts}
 \usepackage{amsmath}
@@ -171,6 +173,9 @@
 \newcommand{\trait}{\vspace{-5pt} \begin{center} \rule{0.9\textwidth}{0.75pt} \end{center} ~ }
 \newcommand{\traitdouble}{\trait \vspace{-30pt} \traitd}
 
+\makeatletter
+\newcommand*{\ar}{\@ifstar\ard\arf}
+\makeatother
 \newcommand{\ard}{\begin{array}{l}}
 \newcommand{\arf}{\end{array}}
 
@@ -188,7 +193,6 @@
     \right)
 }
 
-\newcommand{\scal}[1]{\left< #1 \right>}
 
 \newcommand{\ent}[1]{{\llbracket #1 \rrbracket}}                    
 	% Ensemble d'entiers
@@ -211,7 +215,9 @@
 \newcommand{\GL}{{\mathcal{G}\hspace*{-0.05cm} \mathcal{L}}}        
 	% Groupe Linéaire
 \newcommand{\cont}{{\mathcal{C}}}                                   
-	% Fonctions continues   
+	% Fonctions continues
+\newcommand{\Cinf}{\mathscr{C}^{\infty}}
+    % Fonctions C infini
 \newcommand{\cpm}{{\mathcal{C}_{pm}^0}}                             
 	% Fonctions continues par morceaux
 \newcommand{\lin}{{\mathcal{L}}}                                    
@@ -221,29 +227,75 @@
 \newcommand{\Orth}{{\mathcal{O}}}                                   
 	% Matrices orthogonales
 \newcommand{\bigo}{{\mathcal{O}}}
+    % Dommination
 \newcommand{\Part}{\mathcal{P}}                                     
 	% Parties
 \newcommand{\A}{{\mathscr{A}}}                                      
 	% Tribu
+\newcommand{\Esc}{{\mathcal{E}\big([a,b],\R\big)}}
+    % Fonction en escalier
+\newcommand{\prehilb}{(E,\scal{.,.})}
+    % Espacee préhilbertien
+
 
 \newcommand{\norm}[1]{\left\Vert #1 \right\Vert}
-\newcommand{\normop}[1]{{\left\vert\kern-0.15ex\left\vert\kern-0.15ex\left\vert #1 \right\vert\kern-0.15ex\right\vert\kern-0.15ex\right\vert}}
+    % Norme
+\newcommand{\normop}[1]{{\left\vert\kern-0.15ex\left\vert\kern-0.15ex\left\vert #1 \right\vert\kern-0.15ex\right\vert\kern-0.15ex\right\vert}} 
+    % Norme subordonnée
+\newcommand{\scal}[1]{\left< #1 \right>}
+    % Produit scalaire
+
 
 \newcommand{\suminf}{\sum_{n=0}^\infty}
+    % Somme infinie en n
+\newcommand{\sk}[2]{\sum_{k= #1 }^{#2}}
+    % Somme en k
+\newcommand{\si}[2]{\sum_{i= #1 }^{#2}}
+    % Somme en i
+\newcommand{\pk}[2]{\prod\_{k= #1 }^{#2}}
+    % Produit en k
+\newcommand{\pdi}[2]{\prod_{i= #1 }^{#2}}
+    % Produit en i
+
+\newcommand{\Ps}{\sum_{k=0}^{+\infty} a_k X^k}
+    % Polynôme infini
+\newcommand{\Psn}{\sum_{k=0}^n a_k X^k}
+    % Polynôme degré n
+
+\newcommand{\sumi}{\sum\limits_{i\in I}}
+    % Somme sur un ensemble I
+\newcommand{\prodi}{\prod\limits_{i\in I}}
+    % Produit sur un ensemble I
+
 
 \newcommand{\suite}[1]{(#1_n)}
+    % Suite en n
 \newcommand{\stox}[1]{\underset{x \to #1}{\longrightarrow}}
+    % Convergence selon x
+\newcommand{\ston}{\underset{n}{\rightarrow}}
+    % Convergence en n
+\newcommand{\limit}[2]{{\underset{#1 \rightarrow #2}{\lim}}}
+    % Limite
+
+
+\newcommand{\pfrac}[2]{\frac{\partial #1}{\partial #2}}
+    % Dérivée partielle
+
 
 %%%     Format      %%%
 
 \newcommand{\highlight}[1]{\colorbox{lightgray}{#1}}
+    % Surligner en gris
+
+\newcommand{\col}[2]{\begin{multicols}{2} #1 \columnbreak \\ #2 \end{multicols}}
+    % Deux colonnes
 
 \newcommand{\fin}{
 	~ \vspace{10pt}\\
     \begin{center}
         { \LARGE $\star$ \hspace{0.7cm} $\star$ \hspace{0.7cm} $\star$ }
     \end{center}
-}
+    }
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -290,6 +342,8 @@
 %                          DOCUMENT START
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\setcounter{chapter}{21}
+
 \chapter{Suites et séries}
 
     \input{../2_chapitres/ch2_1_fr}
@@ -302,9 +356,9 @@
 
     \input{../2_chapitres/ch2_3_fr}
 
-% \chapter{Suites de fonctions}
+\chapter{Suites de fonctions}
 
-%     \input{../2_chapitres/ch2_4_fr}
+    \input{../2_chapitres/ch2_4_fr}
     
 % \chapter{Intégrales généralisées}
 

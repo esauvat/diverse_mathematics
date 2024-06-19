@@ -7,11 +7,11 @@
 		\uline{Rappel} : \\
 		Si la norme $\norm{.}$ dérive d'un produit scalaire on a :\\
 		\un $\forall x\in \R^2 ,~\norm{x}\geqslant 0=(0,0)$ \hfill \deux $x\in \R^2 ,~\norm{x} = 0 \Leftrightarrow x=0$ \hfill ${}$ \\
-		\trois $\forall x\in \R^2 ,~\forall \lambda\in\R,~ \norm{\lambda.x}=\mc{\lambda}\norm{x}$\\
+		\trois $\forall x\in \R^2 ,~\forall \lambda\in\R,~ \norm{\lambda.x}=\abs{\lambda}\norm{x}$\\
 		\quatre $\forall (x,y) \in (\R^2)^2,~ \norm{x+y}\leqslant\norm{x}+\norm{y}$ \\ \hspace*{0.5cm} avec égalité si et seulement si $\exists (\lambda,\mu)\in \R^2\setminus\{(0,0)\}$ tel que $\lambda x +\mu y = 0$\\
 		{\scriptsize (5)} $\forall (x,y)\in (\R^2)^2 ,~\norm{x-y} \geqslant \norm{x} - \norm{y}$
 		\vspace*{0.5cm} \\ \thm{ch22P1}{Propriété}{NormSupComposantes}{Si $\norm{x} = \sqrt{x_1^2 + x_2^2}$ avec $x=(x_1,x_2)\in\R^2$\\
-		\hspace*{0.5cm} Alors $\norm{x} \geqslant\mc{x_1}$, $\norm{x} \geqslant\mc{x_2}$ et $\norm{x}\leqslant\mc{x_1}+\mc{x_2}$ } \newpage \traitd
+		\hspace*{0.5cm} Alors $\norm{x} \geqslant\abs{x_1}$, $\norm{x} \geqslant\abs{x_2}$ et $\norm{x}\leqslant\abs{x_1}+\abs{x_2}$ } \newpage \traitd
 		\paragraph{Boules}
 			Soit $x_0\in\R^2$ et $r\in\R_+^*$ on appelle \\
 			\hspace*{2cm} $\bullet$ \uline{Boule ouvert de centre $x_0$ et de rayon $R$} l'ensemble \[ B(x_0,r) = \{ x\in\R^2 ~|~\norm{x-x_0} < r\} \]
@@ -28,7 +28,7 @@
 		\paragraph{Définition}
 			Si $U$ est un ouvert de $\R^2$ \uline{toute application $f : U\to \R$} est une fonction de deux variables réelles. \trait ${}$ \vspace*{-1.2cm} \traitd
 		\paragraph{Continuité}
-			Si $U$ est un ouvert de $\R^2$, $f : U\to \R$ et $x_0\in U$ on dit que \uline{$f$ est continue en $x_0$} si \[ \forall \varepsilon>0 ,~ \exists r>0 ~:~ \forall x\in U ,~ \big( x\in B(x_0,r) \Rightarrow \mc{f(x_0)-f(x)} \leqslant\varepsilon \big) \] \trait
+			Si $U$ est un ouvert de $\R^2$, $f : U\to \R$ et $x_0\in U$ on dit que \uline{$f$ est continue en $x_0$} si \[ \forall \varepsilon>0 ,~ \exists r>0 ~:~ \forall x\in U ,~ \big( x\in B(x_0,r) \Rightarrow \abs{f(x_0)-f(x)} \leqslant\varepsilon \big) \] \trait
 		\thm{ch22P3}{Propriété}{PolynomXY}{Toute fonction polynômiale en $x$ et $y$ est continue sur $\R^2$}
 		\vspace*{0.5cm} \\ \thm{ch22P4}{Proposition}{OpéF2Var}{Soit $f$ et $g$ définies sur un ouvert $U$ de $\R^2$ à valeurs réelles \\
 		Soit $x_0\in U$, on suppose que $f$ et $g$ sont continues en $x_0$, alors \\

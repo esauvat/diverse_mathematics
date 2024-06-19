@@ -71,7 +71,7 @@
 				\subparagraph{Preuve}
 				 $A = BQ \Rightarrow$ degA = degB + degQ $\geq$ degB
 		\subsection{Polynômes associés}
-			$(A,B) \in (\kx )^2$ est un couple de polynômes associés si
+			$(A,B) \in (\KX )^2$ est un couple de polynômes associés si
 			\[A\vert B \hspace*{15pt} B\vert A\]
 			\paragraph{$\rightarrow$}
 				$(A,B)$ est un couple de polynômes associés si et seulement si
@@ -167,14 +167,14 @@
 				 $P= \widetilde{P}(0) \in\mathbb{K}_0[X] $\\
 				 En conclusion on a $E = \mathbb{K}_0[X]$.
 		\subsection{Ordre de multiplicité}
-			$\forall P\in\kx $ \\
+			$\forall P\in\KX $ \\
 			Si $a\in\mathbb{K}$, $k\in\mathbb{N}$ et $(X-a)^n\vert P$ on dit que $a$ est une 
 			racine de $P$ d'ordre de multiplicité au moins $n$.\\
 			Si de plus $(X-a)\not\vert P$ alors $a$ est une racine de $P$ d'ordre de multiplicité 
 			exactement $n$.
 			\paragraph{$\rightarrow$}
 			$a$ est une racine de $P$ d'ordre de multiplicité k si et seulement si 
-			$\exists Q\in\kx$ tel que 
+			$\exists Q\in\KX$ tel que 
 			\[P = (X-a)^k Q ~~et~~ a\not\in \mathcal{Z}(P)\]
 		\subsection{Méthode de Horner pour l'évaluation polynômiale} 
 			${}$\\ Soit $\Psn$ et $x_0\in\mathbb{K}$ on veut déterminer 
@@ -182,7 +182,7 @@
 			$\left\{\ar* u_0 = a_n \\ u_{k+1} = u_kx_0+a_{n+1-k} \ar\right.$
 			\[u_k = a_nx_0^k + ~\cdots ~+a_{n_k} ~~et~~u_n = \widetilde{P}x_0\]
 		\subsection{Polynôme scindé}
-			Un polynôme $P\in\kx$ est \underline{scindé} s'il peut s'écrire comme produit de 
+			Un polynôme $P\in\KX$ est \underline{scindé} s'il peut s'écrire comme produit de 
 			polynômes de degré 1.\\
 			\thm{th12}{Formule de Viete}{fViete}{${}$\\ \underline{Relations entre les coefficients et les racines d'un polynôme scindé}
 				\\Soit $P$ un polynôme scindé, $P = \Psn = \lambda\prod\limits_{k=1}^n (X-x_k)$
@@ -197,7 +197,7 @@
 			Faire arbre
 			\end{proof}
 	\section{Dérivation}
-		Si $P=\Ps \in\kx$ on appelle polynôme dérivé de P
+		Si $P=\Ps \in\KX$ on appelle polynôme dérivé de P
 		\[P' = \sum\limits_{k=1}^{+\infty}ka_kX^{k-1} = 
 		\sum\limits_{k=0}^{+\infty}(k+1)a_{k+1}X^k\]
 		puis par récurrence avec $\forall n\in\mathbb{N} ~~P^{(n++1)} = (P^{(n)})'$
@@ -206,7 +206,7 @@
 		 = \sum\limits_{k=n}^{+\infty}\frac{k!}{(k-n)!} a_kX^{k-n}
 		= \sum\limits_{k=0}^{+\infty} \frac{(k+n)!}{k!} a_{k+n}X^k$
 			\hspace*{40pt} \underline{\textbf{Calcul :}}
-			$\forall (P,Q)\in (\kx )^2$ \\
+			$\forall (P,Q)\in (\KX )^2$ \\
 			\[\rightarrow ~~ \forall (\lambda ,\mu )\in\mathbb{K}^2 ,~(\lambda P+\mu Q)'
 			= \lambda P'+\mu Q'\]
 			\[\rightarrow ~~ (PQ)' = P'Q + PQ' \hspace*{40pt} \rightarrow ~~(P\circ Q)'

@@ -9,38 +9,39 @@
 			On dit que deux ensembles \uline{$E$ et $F$ sont équipotents} s'il existe une bijection de $E$ sur $F$. On note alors $E\sim F$ \trait ${}$ \vspace*{-1.2cm} \traitd
 		\paragraph{Ensemble fini - Cardinal}
 			Soit $E$ un ensemble, on dit que \uline{$E$ est fini} s'il est \textbf{vide} ou s'il existe $n\in\N^*$ tel que $E\sim \ent{1,n}$ \\
-			On appelle alors $n$ le \uline{cardinal de $E$} noté $\mc{E}$ (ou $\mathrm{Card}(E)$) dont on admet l'unicité, sous réserve d'existence avec par convention $\mc{\varnothing } = 0$  \trait
+			On appelle alors $n$ le \uline{cardinal de $E$} noté $\abs{E}$ (ou $\mathrm{Card}(E)$) dont on admet l'unicité, sous réserve d'existence avec par convention $\abs{\varnothing } = 0$  \trait
 		\thm{ch18L1}{Lemme}{SousEns1n}{Pour tout $n\in\N^*$ ; soit $F\subset \ent{1,n}$\\
-		\hspace*{0.5cm} Alors $F$ est fini et $\mc{F} \leqslant n$ }
+		\hspace*{0.5cm} Alors $F$ est fini et $\abs{F} \leqslant n$ }
 		\vspace*{0.5cm} \\ \thm{ch18L1c}{Corollaire}{18-L1}{Si $E$ et $F$ sont des ensembles avec $F$ fini et $E\subset F$ \\
-		\hspace*{0.5cm} Alors $E$ est fini et $\mc{E} \leqslant \mc{F}$ \\
+		\hspace*{0.5cm} Alors $E$ est fini et $\abs{E} \leqslant \abs{F}$ \\
 		avec égalité si et seulement si $E=F$ } \vspace*{0.5cm} \newpage
 		\uline{Remarque} : Définition avec l'indicatrice
 		Soit $A\in \mathcal{P}(E)$ \vspace*{0.2cm} \\
-		$\mathbb{1}_A ~:~\appli{E}{x}{ \{0,1 \} }{ \left\{ \ard 1~si~x\in A \\ 0 ~si~ x\in \mathcal{C}_EA \arf\right.} ~$ et si $E$ est fini alors  $\mc{A} = \sum\limits_{x\in E} \mathbb{1}_A (x)$
+		$\mathbb{1}_A ~:~\appli{E}{x}{ \{0,1 \} }{ \left\{ \ard 1~si~x\in A \\ 0 ~si~ x\in \mathcal{C}_EA \arf\right.} ~$ et si $E$ est fini alors  $\abs{A} = \sum\limits_{x\in E} \mathbb{1}_A (x)$
 		\vspace*{0.5cm} \\ \thm{ch18P1}{Proposition}{Appli&Card}{
 		Si $E$ et $F$ sont deux ensembles finis et $f:E\rightarrow F$ alors \\
-		\hspace*{15pt} {\small 1)} Si $f$ injective $\mc{f(E)} = \mc{E}$ et $ \mc{E} \leq \mc{F}$ \\
-		\hspace*{15pt} {\small 2)} Si $f$ surjective $\mc{F} \leq \mc{E}$\\
-		\hspace*{15pt} {\small 3)} Si $\mc{F} = \mc{E}$ alors $f$ est injective si et seulement si $f$ est surjective.}
-		\vspace*{0.5cm} \\ \thm{ch18P2}{Propriété}{CardCompl}{Soit $E$ un ensemble fini et $A\in\mathcal{P}(E)$ alors $~\mc{\mathcal{C}_E A} = \mc{E} - \mc{A}$ }
-		\vspace*{0.5cm} \\ \thm{ch18P2c}{Corollaire}{CardDiff}{Si $A$ et $B$ sont finis alors $A\setminus B$ est fini et $~\mc{A\setminus B} = \mc{A}-\mc{B}$}
-		\vspace*{0.5cm} \\ \thm{ch18P3}{Proposition}{CardUnion}{ Si $A$ et $B$ sont finis alors $A\cup B$ est fini et $~\mc{A\cup B} ~=~ \mc{A} + \mc{B} - \mc{A\cap B}$}
+		\hspace*{15pt} {\small 1)} Si $f$ injective $\abs{f(E)} = \abs{E}$ et $ \abs{E} \leq \abs{F}$ \\
+		\hspace*{15pt} {\small 2)} Si $f$ surjective $\abs{F} \leq \abs{E}$\\
+		\hspace*{15pt} {\small 3)} Si $\abs{F} = \abs{E}$ alors $f$ est injective si et seulement si $f$ est surjective.}
+		\vspace*{0.5cm} \\ \thm{ch18P2}{Propriété}{CardCompl}{Soit $E$ un ensemble fini et $A\in\mathcal{P}(E)$ alors $~\abs{\mathcal{C}_E A} = \abs{E} - \abs{A}$ }
+		\vspace*{0.5cm} \\ \thm{ch18P2c}{Corollaire}{CardDiff}{Si $A$ et $B$ sont finis alors $A\setminus B$ est fini et $~\abs{A\setminus B} = \abs{A}-\abs{B}$}
+		\vspace*{0.5cm} \\ \thm{ch18P3}{Proposition}{CardUnion}{ Si $A$ et $B$ sont finis alors $A\cup B$ est fini et $~\abs{A\cup B} ~=~ \abs{A} + \abs{B} - \abs{A\cap B}$}
 	\subsection{Lemme des Bergers et principe des Tirroirs}
-		${}$ \\ \thm{ch18P4}{Proposition}{CardPart}{Si $P$ est une partition de $E$ (cf -> \ref{def partition} ) alors $\mc{E} = \sum\limits_{X\in P} \mc{X}$} 
-		\vspace*{0.5cm} \\ \thm{ch19th1}{Lemme des Bergers}{lemme bergers}{Soit $E,F$ deux ensembles finis et $f: E\rightarrow F$ telle que \\ $\exists p \in \mathbb{N}^* ~:~~\forall y\in F ~,~~ \mc{f_r^{-1} (\{y\} )} = p ~~$ alors $~~ \mc{E} ~=~ p\mc{F}$}
+		${}$ \\ \thm{ch18P4}{Proposition}{CardPart}{Si $P$ est une partition de $E$ %(cf -> \ref{def partition} ) 
+		alors $\abs{E} = \sum\limits_{X\in P} \abs{X}$} 
+		\vspace*{0.5cm} \\ \thm{ch19th1}{Lemme des Bergers}{lemme bergers}{Soit $E,F$ deux ensembles finis et $f: E\rightarrow F$ telle que \\ $\exists p \in \mathbb{N}^* ~:~~\forall y\in F ~,~~ \abs{f_r^{-1} (\{y\} )} = p ~~$ alors $~~ \abs{E} ~=~ p\abs{F}$}
 		\begin{proof}
 		$~~\left( f_r^{-1} (\{y\} ) \right)_{_{y\in F}}$ est une partition de $E$ et on a alors\\
-		$\mc{E} ~=~ \sum\limits_{y\in F} \mc{f_r^{-1} (\{y\} )} ~=~ \sum\limits_{y\in F} p ~=~ p\mc{F}$
+		$\abs{E} ~=~ \sum\limits_{y\in F} \abs{f_r^{-1} (\{y\} )} ~=~ \sum\limits_{y\in F} p ~=~ p\abs{F}$
 		\end{proof}
-		${}$ \\ \thm{ch19th2}{Principe des Tirroirs de Dirichlet}{princ.tirroirs}{Soit $E$ et $F$ deux ensemble finis de cardinaux respectifs $n$ et $p \in \mathbb{N}^*$\\$f:E\rightarrow F$ telle que s'il existe $k\in\mathbb{N} ~:~~n>kp ~$ alors $~\exists y\in F ~:~~ \mc{f_r^{-1} (\{y\} )} ~>~ k$}
+		${}$ \\ \thm{ch19th2}{Principe des Tirroirs de Dirichlet}{princ.tirroirs}{Soit $E$ et $F$ deux ensemble finis de cardinaux respectifs $n$ et $p \in \mathbb{N}^*$\\$f:E\rightarrow F$ telle que s'il existe $k\in\mathbb{N} ~:~~n>kp ~$ alors $~\exists y\in F ~:~~ \abs{f_r^{-1} (\{y\} )} ~>~ k$}
 		\begin{proof}
-		On suppose que $\forall y\in F ~,~~ \mc{f_r^{-1} (\{y\} )} ~\leq ~k$ \\alors d'après le \underline{Lemme des Bergers} %(\ref{lemme bergers} ) 
-        $~~\mc{E} ~\leq ~kp$ \end{proof} ${}$ 
+		On suppose que $\forall y\in F ~,~~ \abs{f_r^{-1} (\{y\} )} ~\leq ~k$ \\alors d'après le \underline{Lemme des Bergers} %(\ref{lemme bergers} ) 
+        $~~\abs{E} ~\leq ~kp$ \end{proof} ${}$ 
 	\subsection{Calcul sur les cardinaux}
 		${}$ \\ \thm{ch18P5}{Proposition}{CalculCard}{Soit $E$ et $F$ deux ensembles finis alors \\
-		\hspace*{0.5cm} $\rightarrow ~~ \mc{E\times F} ~=~ \mc{E} \times \mc{F}$ 
-		\hspace*{51cm} $\rightarrow ~~ \mc{F^E} ~=~ \mc{F}^{\mc{E}}$} 
+		\hspace*{0.5cm} $\rightarrow ~~ \abs{E\times F} ~=~ \abs{E} \times \abs{F}$ 
+		\hspace*{51cm} $\rightarrow ~~ \abs{F^E} ~=~ \abs{F}^{\abs{E}}$} 
 		\newpage
 		${}$ \\ \thm{ch18P6}{Propriété}{CardBij}{ Soit $E$ et $F$ deux ensemble de même cardinal $n$ alors \\
 		\hspace*{0.5cm} $\bullet$ $By(E,F)$ l'ensemble des bijections de $E$ sur $F$ est de cardinal $n!$ \\
@@ -52,7 +53,7 @@
 			On appelle \underline{arrangement de $k$ éléments parmi $n$} toute \textbf{application injective} de $\ent{1,k}$ dans $\ent{1,n}$ soit une \textbf{k-liste} d'éléments distincts de $\ent{1,n}$. \trait
 			On note $A_{k,n}$ l'ensemble des arrangements de $k$ éléments parmis $n$.\trait
 		\thm{ch18P7}{Propriété}{CardArrang}{Le nombre d'arrangement de $k$ éléments parmis $n$, noté $A_n^k$ vérifie \\ \hspace*{0.5cm}
-		$A_n^k = \mc{A_{k,n}} = \left\{ \begin{array}{cl} 0 & si~k>n \\ \frac{n!}{(n-k)!} & si~0\leq k\leq n \end{array} \right.$ } \\ \traitd
+		$A_n^k = \abs{A_{k,n}} = \left\{ \begin{array}{cl} 0 & si~k>n \\ \frac{n!}{(n-k)!} & si~0\leq k\leq n \end{array} \right.$ } \\ \traitd
 		\paragraph{Combinaison}
 			On appelle \underline{combinaison de $k$ objets parmis $n$} toute \textbf{partie} à $k$ éléments d'un ensemble à $n$ objets et on note $\mathcal{P}_k (E)$ l'ensemble des combinaisons à $k$ éléments de $E$. \trait
 		\thm{ch18P8}{Propriété}{NbCombin}{Le nombre de combinaisons de $k$ éléments parmis $n$ est $\cm{\binom{n}{k}}$ }\\

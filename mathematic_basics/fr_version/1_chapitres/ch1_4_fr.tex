@@ -92,7 +92,7 @@
 		avec $\arctan'(a) = \frac{1}{\tan'(y)} = \frac{1}{1+\tan^2(y)} = \frac{1}{1+a^2}$
 		\end{proof}
 		${}$ \\ \thm{ch5P14}{Proposition}{Arctan+inv}{$\forall x\in \R, ~\arctan(x) + \arctan\big(\frac{1}{x}\big) = 
-		\frac{x}{\mc{x}}\times\frac{\pi}{2}$} \newpage \traitd
+		\frac{x}{\abs{x}}\times\frac{\pi}{2}$} \newpage \traitd
 		\paragraph{Cosinus hyperbolique - Sinus hyperbolique}
 			On appelle \underline{cosinus hyperbolique (resp. sinus} \underline{hyperbolique) noté $\cosh$ (resp. $\sinh$)} la partie paire (resp. impaire) de 
 			$\exp$. \[ \forall x\in\R ,~\left\{ \ard \cosh(x) = \frac{e^x+e^{-x}}{2} \\ \sinh(x) = \frac{e^x - e^{-x}}{2} \arf \right. \]
@@ -111,7 +111,7 @@
 		\textit{On étudie ici des fonctions définies sur $I\subset \R$ à valeurs dans $\C$} \traitd
 		\paragraph{Dérivabilité en un point}
 			On dit que $f:I\to\C$ est dérivable en $x_0\in I$ si $\frac{f(x)-f(x_0)}{x-x_0}$ possède une limite en $x_0$. 
-			\big(Si $\forall \varepsilon>0 ,~\exists \delta>0 ~:~ \forall x\in I , ~\mc{x-x_0} \leq\delta \Rightarrow \mc{f(x)-f(x_0)}
+			\big(Si $\forall \varepsilon>0 ,~\exists \delta>0 ~:~ \forall x\in I , ~\abs{x-x_0} \leq\delta \Rightarrow \abs{f(x)-f(x_0)}
 			\leq\varepsilon$\big) \\ On note alors $f'(x_0)$ cette limite. \trait
 		\thm{ch5P18}{Proposition}{FderCCNS}{$f:I\to\C$ est dérivable en $x_0\in I$ \underline{si et seulement si} $\Re(f)$ et $\Im(f)$ sont 
 		dérivable en $x_0$. \\ On a alors $f'(x_0) = \big(\Re(f)\big)'(x_0) + i\big(\Im(f)\big)'(x_0)$}

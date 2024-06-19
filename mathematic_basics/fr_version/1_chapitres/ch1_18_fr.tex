@@ -14,7 +14,7 @@
 			\hspace*{2cm} \trois Soit $I$ un ensemble fini ou dénombrable et $(A_i)_{i\in I}$ une famille d'évènements alors 
 			\[ \bigcup_{i\in I} A_i \in \A ~et~ \bigcap_{i\in I} A_i \in \A \]
 			\trait \vspace*{-1.2cm} \\
-			Dans le cas où $\mc{\Omega} < +\infty$ on prend $\A =\mathcal{P}(\Omega)$ \\ \traitd
+			Dans le cas où $\abs{\Omega} < +\infty$ on prend $\A =\mathcal{P}(\Omega)$ \\ \traitd
 		\paragraph{Système complet d'événements}
 			${}$ \\ \hspace*{2cm} \un $\forall A,B\in \Part(\Omega)$, $A$ et $B$ sont dits incompatibles si $A\cap B = \varnothing$ \\
 			\hspace*{2cm} \deux On appelle \uline{système complet d'événements} toute famille $(A_i)_{_{i\in I}}$ d'événements deux à deux incompatibles et dont la réunion est l'événement certain \trait ${}$ \vspace*{-1.3cm} \traitd
@@ -35,7 +35,7 @@
 			$\bullet$ Si $E=\R,~ X_r^{-1}([a,b[) = (a\leqslant X <b)$ \\
 	\section{Espaces probabilisés finis, probabilité uniforme}
 	\subsection{Équiprobabilités}
-		Si $\mc{\Omega} < +\infty$, une hypothèse classique est de considérer une probabilité $P$ telle que $\forall \omega\in\Omega,~P(\omega)=\dfrac{1}{\mc{\Omega}}$
+		Si $\abs{\Omega} < +\infty$, une hypothèse classique est de considérer une probabilité $P$ telle que $\forall \omega\in\Omega,~P(\omega)=\dfrac{1}{\abs{\Omega}}$
 		C'est bien une probabilité, dite \uline{équiprobabilité} car tout les événement réduits à une issue on la même probabilité
 	\subsection{Probabilités conditionnelles}
 		\traitd
@@ -70,9 +70,9 @@
 		\traitd
 		\paragraph{Loi uniforme}
 			On dit que $X$ variable aléatoire \uline{suit une loi uniforme sur $E$} si 
-			\[ \left\{ \ard X(\Omega) = E \\ \forall x\in E,~P(X=x)= \frac{1}{\mc{E}} \arf \right.\]
+			\[ \left\{ \ard X(\Omega) = E \\ \forall x\in E,~P(X=x)= \frac{1}{\abs{E}} \arf \right.\]
 			On écrit alors $X\sim \mathcal{U}(E)$ \trait
-		\vspace*{-1.1cm} \\ On prend un objet au hasard parmi $\mc{E}$ objets qui on tous la même probabilité d'être choisis et on note $X$ cet objet.
+		\vspace*{-1.1cm} \\ On prend un objet au hasard parmi $\abs{E}$ objets qui on tous la même probabilité d'être choisis et on note $X$ cet objet.
 	\subsection{Variable de \textsc{Bernoulli}}
 		On appelle expérience de \textsc{Bernoulli} une expérience aléatoire à deux issues. On appelle succès l'une des issues et échec l'autre. On peut donc lui associer une variable aléatoire réelle qui prend la valeur $1$ en cas de succès et la valeur $0$ en cas d'échec. \\ \traitd
 		\paragraph{Loi de \textsc{Bernoulli}}

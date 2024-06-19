@@ -22,6 +22,7 @@
 \usepackage{epigraph}
 \usepackage{fancyhdr}
 \usepackage{blkarray}
+\usepackage{booktabs}
 
 \usepackage{amsfonts}
 \usepackage{amsmath}
@@ -130,177 +131,169 @@
     \end{center}    }
 
 
-% %%%    Some command to create theorem and definition easier      %%%
+%%%    Some command to create theorem and definition easier      %%%
 
-% \theoremstyle{plain}
-% \newtheorem{thm}{Théorème}[section]
-% \newtheorem{lem}[thm]{Lemme}
-% \newtheorem{prop}[thm]{Proposition}
-% \newtheorem*{cor}{Corollaire}
-% \newcommand{\theorem}[2]{
-%     \hspace{15pt} {\vrule width 1pt} \kern2pt
-%     	\begin{minipage}[t]{0.9\textwidth}
-%             	\begin{#1} ${}$ \vspace*{0.15cm}\\	
-%                 #2 
-%      		\end{#1}
-%      	\end{minipage}
-%      \medskip
-%     }
-%     %commande pour créer un théorème, le premier argument est le type et le second le contenu
-%         % ex : \theorem{lem}{contenu du lemme}
+\theoremstyle{plain}
+\newtheorem{thm}{Théorème}[section]
+\newtheorem{lem}[thm]{Lemme}
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem*{cor}{Corollaire}
+\newcommand{\theorem}[2]{
+    \hspace{15pt} {\vrule width 1pt} \kern2pt
+    	\begin{minipage}[t]{0.9\textwidth}
+            	\begin{#1} ${}$ \vspace*{0.15cm}\\	
+                #2 
+     		\end{#1}
+     	\end{minipage}
+     \medskip
+    }
+    %commande pour créer un théorème, le premier argument est le type et le second le contenu
+        % ex : \theorem{lem}{contenu du lemme}
     
-% \newcommand{\namedtheorem}[3]{
-%     \newtheorem*{#3}{#1}
-%     \hspace{15pt} {\vrule width 1pt} \kern2pt
-%     	\begin{minipage}[t]{0.9\textwidth} 
-%             \begin{#3} ${}$ \vspace*{0.15cm}\\      
-%                 #2 
-%             \end{#3} 
-%         \end{minipage}
-%     \medskip
-%     }
+\newcommand{\namedtheorem}[3]{
+    \newtheorem*{#3}{#1}
+    \hspace{15pt} {\vrule width 1pt} \kern2pt
+    	\begin{minipage}[t]{0.9\textwidth} 
+            \begin{#3} ${}$ \vspace*{0.15cm}\\      
+                #2 
+            \end{#3} 
+        \end{minipage}
+    \medskip
+    }
 
-% \theoremstyle{remark}
-% \newtheorem*{nd}{Note}
-% \newcommand{\remarque}[1]{\begin{nd} #1 \medskip \end{nd}}
-%     %commande pour créer une remarque, le contenu passe en argument
-%         % ex : \remarque{contenu de la remarque}
-% \newtheorem*{rap}{Rappel}
-% \newcommand{\rappel}[1]{\begin{rap} #1 \medskip \end{rap}}
+\theoremstyle{remark}
+\newtheorem*{nd}{Note}
+\newcommand{\remarque}[1]{\begin{nd} #1 \medskip \end{nd}}
+    %commande pour créer une remarque, le contenu passe en argument
+        % ex : \remarque{contenu de la remarque}
+\newtheorem*{rap}{Rappel}
+\newcommand{\rappel}[1]{\begin{rap} #1 \medskip \end{rap}}
 
-% \newcommand{\traitd}{\begin{center} ~ \medskip  \\ \rule{0.9\textwidth}{0.75pt} \vspace{-10pt}\end{center}}
-% \newcommand{\trait}{\vspace{-5pt} \begin{center} \rule{0.9\textwidth}{0.75pt} \end{center} ~ }
-% \newcommand{\traitdouble}{\trait \vspace{-30pt} \traitd}
+\newcommand{\traitd}{\begin{center} ~ \medskip  \\ \rule{0.9\textwidth}{0.75pt} \vspace{-10pt}\end{center}}
+\newcommand{\trait}{\vspace{-5pt} \begin{center} \rule{0.9\textwidth}{0.75pt} \end{center} ~ }
+\newcommand{\traitdouble}{\trait \vspace{-30pt} \traitd}
 
-% \newcommand{\ard}{\begin{array}{l}}
-% \newcommand{\arf}{\end{array}}
-
-
-% %%%     Maths misc      %%%
-
-% \newcommand{\abs}[1]{\left\vert #1 \right\vert}
-
-% \newcommand{\appli}[4]{
-%     \left(
-%     \begin{array}{ccccc} 
-%         & #1 & \longrightarrow & #3 & \\ 
-%         & #2 & \longmapsto & #4 &
-%     \end{array}
-%     \right)
-% }
-
-% \newcommand{\scal}[1]{\left< #1 \right>}
-
-% \newcommand{\ent}[1]{{\llbracket #1 \rrbracket}}                    
-% 	% Ensemble d'entiers
-% \newcommand{\N}{{\mathbf{N}}}                                       
-% 	% Entiers naturels
-% \newcommand{\Z}{{\mathbf{Z}}}                                       
-% 	% Entiers relatifs
-% \newcommand{\R}{{\mathbf{R}}}                                       
-% 	% Réels
-% \newcommand{\C}{{\mathbf{C}}}                                       
-% 	% Complexes
-% \newcommand{\K}{{\mathbf{K}}}                                       
-% 	% Corps K
-% \newcommand{\Q}{{\mathbf{Q}}}                                       
-% 	% Rationnels
-% \newcommand{\KX}{{\mathbf{K}[X]}}                                   
-% 	% Polynômes sur K
-% \newcommand{\M}{{\mathcal{M}}}                                      
-% 	% Matrices
-% \newcommand{\GL}{{\mathcal{G}\hspace*{-0.05cm} \mathcal{L}}}        
-% 	% Groupe Linéaire
-% \newcommand{\cont}{{\mathcal{C}}}                                   
-% 	% Fonctions continues   
-% \newcommand{\cpm}{{\mathcal{C}_{pm}^0}}                             
-% 	% Fonctions continues par morceaux
-% \newcommand{\lin}{{\mathcal{L}}}                                    
-% 	% Applications linéaires
-% \newcommand{\Sym}{{\mathcal{S}}}                                    
-% 	% Matrices symétrique
-% \newcommand{\Orth}{{\mathcal{O}}}                                   
-% 	% Matrices orthogonales
-% \newcommand{\bigo}{{\mathcal{O}}}
-% \newcommand{\Part}{\mathcal{P}}                                     
-% 	% Parties
-% \newcommand{\A}{{\mathscr{A}}}                                      
-% 	% Tribu
-
-% \newcommand{\norm}[1]{\left\Vert #1 \right\Vert}
-% \newcommand{\normop}[1]{{\left\vert\kern-0.15ex\left\vert\kern-0.15ex\left\vert #1 \right\vert\kern-0.15ex\right\vert\kern-0.15ex\right\vert}}
-
-% \newcommand{\suminf}{\sum_{n=0}^\infty}
-
-% \newcommand{\suite}[1]{(#1_n)}
-% \newcommand{\stox}[1]{\underset{x \to #1}{\longrightarrow}}
-
-% %%%     Format      %%%
-
-% \newcommand{\highlight}[1]{\colorbox{lightgray}{#1}}
-
-% \newcommand{\fin}{
-% 	~ \vspace{10pt}\\
-%     \begin{center}
-%         { \LARGE $\star$ \hspace{0.7cm} $\star$ \hspace{0.7cm} $\star$ }
-%     \end{center}
-% }
-
-\newcommand{\sk}[2]{\sum_{k= #1 }^{#2}}
-\newcommand{\si}[2]{\sum_{i= #1 }^{#2}}
-\newcommand{\pk}[2]{\prod\_{k= #1 }^{#2}}
-\newcommand{\pdi}[2]{\prod_{i= #1 }^{#2}}
-\newcommand{\Ps}{\sum_{k=0}^{+\infty} a_k X^k}
-\newcommand{\Psn}{\sum_{k=0}^n a_k X^k}
-\newcommand{\kx}{\mathbb{K}[X]}
 \makeatletter
 \newcommand*{\ar}{\@ifstar\ard\arf}
 \makeatother
 \newcommand{\ard}{\begin{array}{l}}
 \newcommand{\arf}{\end{array}}
-\newcommand{\col}[2]{\begin{multicols}{2} #1 \columnbreak \\ #2 \end{multicols}}
-\newcommand{\sumi}{\sum\limits_{i\in I}}
-\newcommand{\prodi}{\prod\limits_{i\in I}}
-\newcommand{\mc}[1]{\left\vert #1 \right\vert}
-\newcommand{\ent}[1]{\llbracket #1 \rrbracket}
-\newcommand{\scal}[1]{\left< #1 \right>}
-\newcommand{\thm}[4]{\hspace*{1.5cm}\newtheorem*{#1}{#2}  \begin{minipage}{12.71cm} \begin{#1}  ${}$ \vspace*{0.15cm}\\ \hspace*{0.21cm} 			
-    \begin{blockarray}{|l} #4 \end{blockarray} \end{#1}\label{#3} \end{minipage} \vspace*{-0.25cm} ${}$}
-\newcommand{\traitd}{\begin{center} \rule{14cm}{0.75pt} \vspace*{-0.4cm}\\ \end{center}}
-\newcommand{\trait}{\begin{center} ${}$ \vspace*{-0.8cm}  \\ \rule{14cm}{0.75pt} \end{center} ${}$ \\ }
-\newcommand{\N}{{\mathds{N}}}
-\newcommand{\Z}{{\mathds{Z}}}
-\newcommand{\R}{{\mathds{R}}}
-\newcommand{\C}{{\mathds{C}}}
-\newcommand{\K}{{\mathds{K}}}
-\newcommand{\Q}{{\mathds{Q}}}
-\newcommand{\M}{{\mathcal{M}}}
-\newcommand{\cont}{{\mathscr{C}}}
-\newcommand{\cpm}{{\mathscr{C}^0_{pm}\big([a,b],\R\big)}}
-\newcommand{\lin}{{\mathscr{L}}}
-\newcommand{\GL}{{\mathcal{GL}}}
-\newcommand{\A}{{\mathscr{A}}}
-\newcommand{\Part}{{\mathcal{P}}}
-\newcommand{\ston}{\underset{n}{\rightarrow}}
-\newcommand{\stox}[1]{\underset{x\to #1}{\longrightarrow}}
-\newcommand{\dd}{{\mathrm{d}}}
-\newcommand{\limit}[2]{{\underset{#1 \rightarrow #2}{\lim}}}
-\newcommand{\highlight}[1]{\colorbox{lightgray}{#1}}
-\newcommand{\suminft}{\sum_{n=0}^{+\infty}}
-\newcommand{\appli}[4]{\begin{blockarray}[t]{(ccc)} #1 & \hspace*{-0.25cm} \longrightarrow \hspace*{-0.25cm} & #3 \\ #2 & \hspace*{-0.25cm}\mapsto\hspace*{-0.25cm} & #4 \end{blockarray}}
-\newcommand{\Esc}{{\mathcal{E}\big([a,b],\R\big)}}
-\newcommand{\cm}[1]{\displaystyle{ #1 }}
-\newcommand{\suite}[1]{( #1_n)_{n\geqslant 0}}
-\newcommand{\CO}{\mathscr{C}^0}
-\newcommand{\Cun}{\mathscr{C}^1}
-\newcommand{\Ck}{\mathscr{C}^k}
+
+
+%%%     Maths misc      %%%
+
+\newcommand{\abs}[1]{\left\vert #1 \right\vert}
+
+\newcommand{\appli}[4]{
+    \left(
+    \begin{array}{ccccc} 
+        & #1 & \longrightarrow & #3 & \\ 
+        & #2 & \longmapsto & #4 &
+    \end{array}
+    \right)
+}
+
+
+\newcommand{\ent}[1]{{\llbracket #1 \rrbracket}}                    
+	% Ensemble d'entiers
+\newcommand{\N}{{\mathbf{N}}}                                       
+	% Entiers naturels
+\newcommand{\Z}{{\mathbf{Z}}}                                       
+	% Entiers relatifs
+\newcommand{\R}{{\mathbf{R}}}                                       
+	% Réels
+\newcommand{\C}{{\mathbf{C}}}                                       
+	% Complexes
+\newcommand{\K}{{\mathbf{K}}}                                       
+	% Corps K
+\newcommand{\Q}{{\mathbf{Q}}}                                       
+	% Rationnels
+\newcommand{\KX}{{\mathbf{K}[X]}}                                   
+	% Polynômes sur K
+\newcommand{\M}{{\mathcal{M}}}                                      
+	% Matrices
+\newcommand{\GL}{{\mathcal{G}\hspace*{-0.05cm} \mathcal{L}}}        
+	% Groupe Linéaire
+\newcommand{\cont}{{\mathcal{C}}}                                   
+	% Fonctions continues
 \newcommand{\Cinf}{\mathscr{C}^{\infty}}
-\newcommand{\un}{{\scriptsize (1)} }\newcommand{\deux}{{\scriptsize (2)} }
-\newcommand{\trois}{{\scriptsize (3)} }\newcommand{\quatre}{{\scriptsize (4)} }
-\newcommand{\fin}{{\LARGE $\star$ \hspace*{0.7cm} $\star$ \hspace*{0.7cm} $\star$}}
+    % Fonctions C infini
+\newcommand{\cpm}{{\mathcal{C}_{pm}^0}}                             
+	% Fonctions continues par morceaux
+\newcommand{\lin}{{\mathcal{L}}}                                    
+	% Applications linéaires
+\newcommand{\Sym}{{\mathcal{S}}}                                    
+	% Matrices symétrique
+\newcommand{\Orth}{{\mathcal{O}}}                                   
+	% Matrices orthogonales
+\newcommand{\bigo}{{\mathcal{O}}}
+    % Dommination
+\newcommand{\Part}{\mathcal{P}}                                     
+	% Parties
+\newcommand{\A}{{\mathscr{A}}}                                      
+	% Tribu
+\newcommand{\Esc}{{\mathcal{E}\big([a,b],\R\big)}}
+    % Fonction en escalier
 \newcommand{\prehilb}{(E,\scal{.,.})}
-\newcommand{\norm}[1]{{\| #1 \|}}
+    % Espacee préhilbertien
+
+
+\newcommand{\norm}[1]{\left\Vert #1 \right\Vert}
+    % Norme
+\newcommand{\normop}[1]{{\left\vert\kern-0.15ex\left\vert\kern-0.15ex\left\vert #1 \right\vert\kern-0.15ex\right\vert\kern-0.15ex\right\vert}} 
+    % Norme subordonnée
+\newcommand{\scal}[1]{\left< #1 \right>}
+    % Produit scalaire
+
+
+\newcommand{\suminf}{\sum_{n=0}^\infty}
+    % Somme infinie en n
+\newcommand{\sk}[2]{\sum_{k= #1 }^{#2}}
+    % Somme en k
+\newcommand{\si}[2]{\sum_{i= #1 }^{#2}}
+    % Somme en i
+\newcommand{\pk}[2]{\prod\_{k= #1 }^{#2}}
+    % Produit en k
+\newcommand{\pdi}[2]{\prod_{i= #1 }^{#2}}
+    % Produit en i
+
+\newcommand{\Ps}{\sum_{k=0}^{+\infty} a_k X^k}
+    % Polynôme infini
+\newcommand{\Psn}{\sum_{k=0}^n a_k X^k}
+    % Polynôme degré n
+
+\newcommand{\sumi}{\sum\limits_{i\in I}}
+    % Somme sur un ensemble I
+\newcommand{\prodi}{\prod\limits_{i\in I}}
+    % Produit sur un ensemble I
+
+
+\newcommand{\suite}[1]{(#1_n)}
+    % Suite en n
+\newcommand{\stox}[1]{\underset{x \to #1}{\longrightarrow}}
+    % Convergence selon x
+\newcommand{\ston}{\underset{n}{\rightarrow}}
+    % Convergence en n
+
+
 \newcommand{\pfrac}[2]{\frac{\partial #1}{\partial #2}}
+    % Dérivée partielle
+
+
+%%%     Format      %%%
+
+\newcommand{\highlight}[1]{\colorbox{lightgray}{#1}}
+    % Surligner en gris
+
+\newcommand{\col}[2]{\begin{multicols}{2} #1 \columnbreak \\ #2 \end{multicols}}
+    % Deux colonnes
+
+\newcommand{\fin}{
+	~ \vspace{10pt}\\
+    \begin{center}
+        { \LARGE $\star$ \hspace{0.7cm} $\star$ \hspace{0.7cm} $\star$ }
+    \end{center}
+    }
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
