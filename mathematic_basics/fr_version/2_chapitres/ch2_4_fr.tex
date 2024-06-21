@@ -3,33 +3,35 @@
 
 \textit{Cadre : $E$, $F$ des espaces vectoriels normés de dimensions finies ; $A\subset E$.} \\
 
-\textit{ et $f_n : A\longrightarrow F ~;~f : A\longrightarrow F$}
+\textit{ et $f_n : A\longrightarrow F ~;~f : A\longrightarrow F$} \\
+
 \minitoc
+
 \section{Convergences}
 
     \traitd
     \paragraph{Convergence simple}
-        Soit $f\in \left( F^A \right)$ et $\suite{f} \in \left( F^A \right)^{\N}~~$  On dit que $\suite{f}$ \underline{converge simplement vers 
+        Soit $f\in \left( F^A \right)$ et $\suite{f} \in \left( F^A \right)^{\N}~~$  On dit que $\suite{f}$ \emph{converge simplement vers 
         $f$ sur $A$} si 
         \[ 
             \forall x\in A , ~ f_n(x) \underset{n\rightarrow +\infty}{\longrightarrow} f(x)
+       	\vspace{-25pt}
         \] 
-    \trait
-
-    {\small \textsc{Attention !} La convergence simple ne préserve pas la continuité !} 
-    
-    \traitd
+    \traitdouble
     \paragraph{Convergence uniforme} ~\\
-        Soit $f\in \left( F^A \right)$ et $\suite{f} \in \left( F^A \right)^{\N}~~$  On dit que $\suite{f}$ \underline{converge uniformément 
+        Soit $f\in \left( F^A \right)$ et $\suite{f} \in \left( F^A \right)^{\N}~~$  On dit que $\suite{f}$ \emph{converge uniformément 
         vers $f$ sur $A$} si 
         \[ 
             \forall \varepsilon >0 ,~\exists n_0 \in\N ~\mathrm{tel} ~\mathrm{que} ~\forall n\geqslant n_0 ~;~ \forall x\in A~;~ \norm{f_n(x) - f(x) } \leqslant \varepsilon 
+        	\vspace{-25pt}
         \]	 
     \trait	
 
     \theorem{lem}{
         La convergence uniforme entraine la convergence simple.
     } \medskip
+    
+    {\small \emph{Attention !} La convergence simple ne préserve pas la continuité !}  \medskip \\
 
     \theorem{thm}{
         On suppose $a\in A ~;~ f:A\rightarrow F ~;~ \forall n\in\N , ~f_n:A\rightarrow F$ et \\
@@ -58,66 +60,71 @@
             \bullet ~~ \suite{f} $ converge uniformément vers $f$ sur un voisinage relatif de $a$ dans $A 
         \arf$ \\ 
         Alors $f$ est $\cont^0$ au point $a$
-    }
+    } \medskip \\
 
-    \textit{Le Lemme suivant permet d'établir l'\underline{absence} de convergence uniforme}
+    \textit{Le Lemme suivant permet d'établir l'\emph{absence} de convergence uniforme} \medskip
         
     \theorem{lem}{
-        Soit $f,f_n  :A\rightarrow F ~;~ B\subset A$ \textsc{alors} \\ 
-        $\Big( \exists \suite{x} \in B^{\N}$ tel que $f_n(x) - f(x) \underset{n}{\nrightarrow} 0 \Big) ~\Leftrightarrow  ~\textsc{non} \Big( \suite{f} $CVU/$A$ vers $f \Big)$
+        Soit $f,f_n  :A\rightarrow F ~;~ B\subset A$ \emph{alors} \\ 
+        $\Big( \exists \suite{x} \in B^{\N}$ tel que $f_n(x) - f(x) \underset{n}{\nrightarrow} 0 \Big) ~\Leftrightarrow  ~\emph{non} \Big( \suite{f} $CVU/$A$ vers $f \Big)$
     } \medskip
 
     \namedtheorem{Théorème de la double limite}{
         Soit $f,f_n :A\rightarrow F ~;~ a\in A$ On suppose que \\ 
         $\ard \bullet ~~ \forall n\in\N  ,~\exists b_n \in F$ tel que $f_n(x) \stox{a} b_n \\ \bullet ~~ \suite{f} $ converge uniformément sur $A$ 
-        vers $f \arf$ \\ Alors \hspace*{0.5cm} $\ard ${\tiny (1)} $ \exists \beta \in F$ tel que $b_n\ston \beta \\ ${\tiny (2)} $ f(x) 
-        \stox{a} \beta \arf $
+        vers $f \arf$ \\ Alors $ \exists \beta \in F$ tel que $b_n\ston \beta$ avec $ f(x) \stox{a} \beta$
     }{DoublLimit}
 
-    \textit{\small En particulier $\limit{x}{a} \big(\limit{n}{+\infty} f_n(x)\big) = \limit{n}{+\infty} \big( \limit{x}{a} f_n(x) \big) $} \\
+    \remarque{En particulier, on a $\limit{x}{a} \big(\limit{n}{+\infty} f_n(x)\big) = \limit{n}{+\infty} \big( \limit{x}{a} f_n(x) \big) $} \medskip
         
-    \textsc{Attention !} Faux sans la convergence uniforme !
+    \emph{Attention} ! C'est faux sans la convergence uniforme !
         
     \begin{proof}
-        On suppose que $b_n \ston \beta$ \\ Soit $\varepsilon >0$ ; soit $n_0\in \N$ tel que $\forall n\geqslant n_0 ,~d(f(x),f_n(x) ) <\frac{1}{3}
-        \varepsilon$ et $d(b_n ,\beta )< \frac{1}{3}\varepsilon$ \\ Soit $\delta >0$ tel que $\forall x\in B(a,\delta ) ,~d(f_{n_0}(x) , 
-        b_{n_0})<\frac{1}{3}\varepsilon$ \\ Pour un tel $x$ on a $d(f(x),\beta ) <\varepsilon$ donc $f(x) \stox{a} \beta$ d'où {\tiny (1)} $
-        \Rightarrow$ {\tiny (2)} \vspace*{0.3cm} \\ Par convergence uniforme soit $p\in\N$ tel que $\forall n\geqslant p ,~\forall x\in A 
-        ,~\norm{f_n(x)-f(x)}\leqslant 1$ \\alors $\norm{f_n(x)-f_p(x)} \leqslant 2$ et par passage à la limite $b_n\in B(b_p ,2)$ compact vu $F$ de dimension 
-        finie. \\Montrons que $\suite{b}$ admet au plus une valeur d'adhérence : 
-        \\On suppose $\left\{ \ard b_{\varphi (n)} \ston \beta_1 \\ b_{\psi (n)} \ston \beta_2 \arf \right.$ alors en appliquant le début de la 
-        démo on a $\left\{\ard f(x) \stox{a} \beta_1 \\ f(x) \stox{a} \beta_2 \arf \right.$ \\ Donc $\beta_1 = \beta_2$ et par théorème 
+        On suppose tout d'abord que $b_n \ston \beta$. Soit alors $\varepsilon >0$ puis $n_0\in \N$ tel que $\forall n\geqslant n_0 ,~d(f(x),f_n(x) ) <\frac{1}{3} \varepsilon$ et $d(b_n ,\beta )< \frac{1}{3}\varepsilon$ \\ 
+        On peut alors considérer $\delta >0$ tel que $\forall x\in B(a,\delta )$, on a $d(f_{n_0}(x), b_{n_0})<\frac{1}{3}\varepsilon$. Ainsi, pour un tel $x$ on a $d(f(x),\beta ) <\varepsilon$ donc $f(x) \stox{a} \beta$\\ 
+        
+        Avec la convergence uniforme on a $p\in\N$ tel que $\forall n\geqslant p ,~\forall x\in A,~\norm{f_n(x)-f(x)}\leqslant 1$ ainsi $\norm{f_n(x)-f_p(x)} \leqslant 2$ et par passage à la limite $b_n\in B(b_p ,2)$ est compact car $F$ est de dimension finie. Il suffit alors de montrer que $\suite{b}$ admet au plus une valeur d'adhérence :
+        
+        Si $b_{\varphi (n)} \ston \beta_1$ et $b_{\psi (n)} \ston \beta_2$ pour $\varphi$ et $\psi$ deux extractrices, alors en appliquant le début de la 
+        démo on a $f(x) \stox{a} \beta_1$ et $f(x) \stox{a} \beta_2$ donc $\beta_1 = \beta_2$ et par théorème 
         %(\ref{ConvCompact}) 
-        $b_n \ston \beta$ d'où {\tiny (1)}
-    \end{proof}
+        $b_n \ston \beta$.
+    \end{proof} \medskip
 
     \traitd
     \paragraph{Norme infinie}
         Soit $\varphi :A (\subset E) \rightarrow F ,~a\neq\emptyset$ et $\varphi$ bornée alors on pose 
-        \[\norm{\varphi}_{\infty} ~=~ \underset{x\in A}{\mathrm{sup}} \norm{\varphi (x) }\] 
+        \[
+			\norm{\varphi}_{\infty} ~=~ \underset{x\in A}{\mathrm{sup}} \norm{\varphi (x) }
+		\vspace{-20pt}
+		\] 
     \trait
     
+    \newpage
+    
     \theorem{lem}{
-        Soit $f,f_n :A\rightarrow F$ \textsc{alors} \\ 
+        Soit $f,f_n :A\rightarrow F$ \emph{alors} \\ 
         $\suite{f}$ CVU sur $A$ vers $f 
-        ~\Leftrightarrow ~\left\{\ard \norm{f_n-f}_{\infty}$ est bien définie \textsc{apcr}$ \\ \norm{f_n-f}_{\infty} \stox{+\infty} 0\arf\right.$
+        ~\Leftrightarrow ~\left\{\ard \norm{f_n-f}_{\infty}$ est bien définie APCR$ \\ \norm{f_n-f}_{\infty} \stox{+\infty} 0\arf\right.$
     }
 
-    \underline{Cas des fonctions bornées :} \\ 
+    \emph{Cas des fonctions bornées :} \\ 
         Soit $\mathscr{B} (A,F) = \{f :A\rightarrow F ~;~ f$ est bornée $\}$ alors $\ard ${\small 1)} $\mathscr{B} (A,F)$ est un $K$ espace 
-        vectoriel $ \\ ${\small 2)} $\norm{.}_{\infty}$ est une norme sur $\mathscr{B} (A,F) \arf $ 
+        vectoriel $ \\ ${\small 2)} $\norm{.}_{\infty}$ est une norme sur $\mathscr{B} (A,F) \arf $ \\
     
-        \textit{ $\norm{.}_{\infty}$ est dite norme de la convergence uniforme.} \medskip
+        \remarque{On dit que $\norm{.}_{\infty}$ est la norme de la convergence uniforme.} \medskip
 
 
 \section{Série de fonctions}
     
     Soit $\suite{g} \in \left( F^A \right)^{^{\N}}$ on pose $f_n = g_0 + g_1 + \cdots + g_n  ~(:A\rightarrow F)$ \\
-    Etudier la série de fonction $\sum_{n\geqslant 0} g_n$ revient à étudier la suite de fonction $\suite{f}$. \\
-    On dit que $\ard $ {\tiny (1)} $\sum g_n $ converge simplement sur $A$ si $\suite{f} $ converge simplement sur $A \\ $ {\tiny (2)} $\sum 
-    g_n$ converge uniformément sur $A$ si $\suite{f}$ converge uniformément $A \arf $ \\
+    
+    Étudier la série de fonction $\sum_{n\geqslant 0} g_n$ revient à étudier la suite de fonction $\suite{f}$. \\
+    
+    On dit alors que $\sum g_n $ converge simplement (resp. uniformément) sur $A$ si $\suite{f} $ converge simplement (resp. uniformément) sur $A$.\\
 
-    \underline{Lorsque $\sum g_n$ converge simplement sur $A$} \\ 
+    \emph{Lorsque $\sum g_n$ converge simplement sur $A$}, on peut considérer les résultats suivants : \\ `
+    
     $\left| \ard 
         \forall x \in A ,~f_n(x) = \sk{k}{n} g_k (x) \ston f(x) $ ainsi $\sum g_n (x)$ converge et $\suminf g_k(x) = f(x) \\ 
         $On pose $\suminf g_k : 
@@ -133,7 +140,7 @@
     
     \traitd
     \paragraph{Convergence normale}
-        Soit $g_n :A\rightarrow F , ~\forall n\in\N$ \\ $\sum g_n$ est dite \underline{normalement convergente sur $A$} si 
+        Soit $g_n :A\rightarrow F , ~\forall n\in\N$ \\ $\sum g_n$ est dite \emph{normalement convergente sur $A$} si 
         \[
             \ard 
                 ${\small 1)} $\norm{g_n}_{\infty}$ existe à partir d'un certain rang $n_0 \\ 
@@ -181,7 +188,7 @@
         $\ard 
             \bullet ~\forall n\in N ,~g_n$ est $\cont^0$ en $a \\ 
             \bullet ~\sum g_n$ converge uniformément sur $A 
-        \arf $ \textsc{alors} $\suminf g_k $ est $\cont^0$ au point $a$
+        \arf $ \emph{alors} $\suminf g_k $ est $\cont^0$ au point $a$
     }
 
     \begin{proof}
@@ -193,7 +200,7 @@
     \namedtheorem{Théorème de la double limite (Séries)}{
         Soit $g_n :A\rightarrow F ,~\forall n\in \N ~;~ a\in \overline{A}$ \\ 
         On suppose que $\forall n\in \N ,~g_n (x) \stox{a} c_n \in F$ et $\sum g_n $ converge uniformément sur $A$ \\
-        \textsc{alors} 
+        \emph{alors} 
         $\ard 
             $ {\tiny (1)} $\sum c_n$ converge $ \\ 
             $ {\tiny (2)} $\suminf g_n(x) \stox{a} \suminf c_n 
@@ -220,8 +227,8 @@
 \section{Intégration et dérivation}
     \subsection{Cas général}
 
-        \underline{Question :} Si $\forall t\in [a,b] ,~f_n(t) \ston f(t)$, a-t-on $\int_a^b f_n(t) dt \ston \int_a^b f(t) dt~$ ?\\
-        \textsc{\underline{non !}} \textit{\small Exemple : \\ 
+        \emph{Question :} Si $\forall t\in [a,b] ,~f_n(t) \ston f(t)$, a-t-on $\int_a^b f_n(t) dt \ston \int_a^b f(t) dt~$ ?\\
+        \emph{\emph{non !}} \textit{\small Exemple : \\ 
         $f_n : \R^+ \rightarrow \R$ telle que si $0\leqslant x\leqslant \frac{1}{n}$, $f_n(x) = n^2x$ ; 
         si $\frac{1}{n} \leqslant x \leqslant \frac{2}{n},~f_n(x) = 2n-n^2x$ ; si $x\geqslant \frac{2}{n} ,~f_n(x) = 0$} \\
 
@@ -254,7 +261,7 @@
 
         \theorem{lem}{
             Soit $\varphi_n \in\cont^0 (I,F) ,~\forall n\in\N ~;~I$ i.r.n.t. ; dim$F<\infty ~;~a\in I$ \\ 
-            On suppose que $\varphi_n \ston \varphi$ \underline{uniformément sur tout segment de $I$} et on pose \\
+            On suppose que $\varphi_n \ston \varphi$ \emph{uniformément sur tout segment de $I$} et on pose \\
             $\Phi_n(x) = \int_a^x \varphi_n(t) dt ~;~\Phi (x) = \int_a^x \varphi (t) dt$ \\ ${}$ \\ 
             Alors $\Phi_n \ston \Phi$ uniformément sur tout segment de $I$.
         } \medskip
@@ -264,7 +271,7 @@
             \ard 
                 \bullet ~\forall n\in\N ,~f_n \in\cont^1(I,F) \\ 
                 \bullet  ~ (f_n)$ converge simplement sur $I$ vers $f \\ 
-                \bullet~(f'_n)$ converge vers $h$ \underline{uniformément sur tout segment de $I$} $
+                \bullet~(f'_n)$ converge vers $h$ \emph{uniformément sur tout segment de $I$} $
             \arf\right.$ \\ 
             Alors $\ard 
                 $ {\tiny (1)} $(f_n)$ converge vers $f$ uniformément sur tout segment de $I \\ 
@@ -273,21 +280,21 @@
         }
 
         \begin{proof}
-        \underline{Soit $a\in I$}, $\forall x\in I ,~f_n(x)-f_n(a) = \int_a^x f'_n (t) dt = \Phi_n(x) ,~\forall n\in\N$ \\
+        \emph{Soit $a\in I$}, $\forall x\in I ,~f_n(x)-f_n(a) = \int_a^x f'_n (t) dt = \Phi_n(x) ,~\forall n\in\N$ \\
         D'où $f(x)-f(a) = \int_a^x h dt = \Phi(x)$ vu la CVU sur $[a,x]$ (éventuellement $[x,a]$) et $\Phi$ est $\cont^1$ avec $\Phi'=h$ \\
         donc $f=f(a)+\Phi$ est $\cont^1$ et $f'=h$ \\
-        \underline{Soit $S$ un segment inclu dans $I$}, vu $(\Phi_n)$ converge vers $\Phi$ uniformément sur tout segment de $I$ on a \\
+        \emph{Soit $S$ un segment inclu dans $I$}, vu $(\Phi_n)$ converge vers $\Phi$ uniformément sur tout segment de $I$ on a \\
         $\forall n\in\N , ~0\leqslant \norm{f_n-f}_{\infty ,S} \leqslant \norm{f_n(a)-f(a)} + \norm{\Phi_n-\Phi}_{\infty,S} \ston 0$
         \end{proof} \medskip
 
-        \textsc{Attention} : La convergence uniforme ne conserve pas la dérivabilité ! \\
+        \emph{Attention} : La convergence uniforme ne conserve pas la dérivabilité ! \\
 
         \theorem{cor}{
             On suppose $\left| 
             \ard 
                 \bullet ~\forall n\in\N ,~g_n \in\cont^1(I,F) \\ 
                 \bullet ~\sum g_n$ converge simplement sur $I \\ 
-                \bullet~\sum g'_n$ converge \underline{uniformément sur tout segment de $I$} $
+                \bullet~\sum g'_n$ converge \emph{uniformément sur tout segment de $I$} $
             \arf\right.$ \\ 
             Alors $\ard 
                 $ {\tiny (1)} $\sum g_n$ converge uniformément sur tout segment de $I \\ 
@@ -320,8 +327,8 @@
 
 \section{Approximations uniformes}
 
-    \namedtheorem{Théorème de \textsc{Weierstrass}}{
-        Toute fonction $f\in\cont^0([a,b],K)$ \underline{continue} sur un \underline{segment} y est limite uniforme \\ 
+    \namedtheorem{Théorème de \emph{Weierstrass}}{
+        Toute fonction $f\in\cont^0([a,b],K)$ \emph{continue} sur un \emph{segment} y est limite uniforme \\ 
         d'une suite de fonctions polynomiales.
     }{ThWeierstrass}
 
@@ -341,13 +348,13 @@
     }
 
     \begin{proof}
-    Soit $a<b$ des réels. \\ \underline{1° cas} : Soit $f\in\cont^0\big([a,b],F\big)$ ; soit $\varepsilon>0$, on sait que $f$ est uniformément 
+    Soit $a<b$ des réels. \\ \emph{1° cas} : Soit $f\in\cont^0\big([a,b],F\big)$ ; soit $\varepsilon>0$, on sait que $f$ est uniformément 
     continue sur $[a,b]$ %(\ref{ThHeine})
     , soit donc $\delta>0$ tel que $\forall (x,y)\in[a,b]^2 ,~\abs{x-y}<\delta \Rightarrow 
     \norm{f(x)-f(y)}<\varepsilon$ \\ Soit $n\in\N$ tel que $\frac{b-a}{n}<\delta$. \\ Posons alors $x_k=a+k\frac{b-a}{n} , ~k\in\ent{0,n-1}$ et 
     $\varphi ~\appli{[a,b]}{x}{F}{\left\{ \begin{array}{ll} f(x_k)$ si $x\in[x_k,x_{k+1}[ \\ f(b) &$si $x=b \end{array}\right.}$ \\
-    Ainsi $\varphi\in\Esc$ et $\norm{\varphi - f}_{\infty} \leqslant \varepsilon$ d'où \textsc{cqfd} \vspace*{0.2cm} \\ 
-    \underline{Cas général} : Soit $f\in\cpm\big([a,b],F\big)$ ; soit donc $(a_0,\dots ,a_p)$ une subdivision de $[a,b]$ telle que $\forall 
+    Ainsi $\varphi\in\Esc$ et $\norm{\varphi - f}_{\infty} \leqslant \varepsilon$ d'où \emph{cqfd} \vspace*{0.2cm} \\ 
+    \emph{Cas général} : Soit $f\in\cpm\big([a,b],F\big)$ ; soit donc $(a_0,\dots ,a_p)$ une subdivision de $[a,b]$ telle que $\forall 
     i\in\ent{0,p-1} , ~ f|_{]a_i,a_{i+1}[} = f_i|_{]a_i,a_{i+1}[}$ où $f_i\in\cont^0\big([a,b],F\big)$. \\
     On a alors le résultat en itérant le cas précédant.
     \end{proof} \medskip
