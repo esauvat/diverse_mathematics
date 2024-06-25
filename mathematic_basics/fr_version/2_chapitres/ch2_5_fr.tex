@@ -16,105 +16,108 @@
 	
 	\underline{Dans ce cas} on a $\int_a^b f(t) dt = \limit{x}{b^-} \int_a^x f(t)dt$, \underline{dans le cas contraire} on dit que l'intégrale est divergente.
 	
+	\newpage
+	
 	\paragraph{Exemples de référence}
 		\subparagraph{$\bullet$} 
 			Soit $\alpha\in \R$, alors \highlight{$\displaystyle{\int_0^1 \frac{dt}{t^{\alpha}}}$ converge $ \Leftrightarrow ~\alpha<1$} et \highlight{$\displaystyle{\int_1^{+\infty} \frac{dt}{t^{\alpha}}}$ converge $
 			\Leftrightarrow ~\alpha>1$} $\heartsuit\heartsuit$
 		\subparagraph{$\bullet$} 
-			\highlight{$\displaystyle{\int_0^1 \ln tdt}$ converge} et $\int_0^1 \ln tdt = -1$ $\heartsuit$\\
+			On a \highlight{$\displaystyle{\int_0^1 \ln tdt}$ converge} et $\int_0^1 \ln tdt = -1$ $\heartsuit$\\
 		\subparagraph{$\bullet$} 
 			Soit $\alpha\in\R$, alors \highlight{$\displaystyle{\int_0^{+\infty} e^{-\alpha t}}$ converge $
-			\Leftrightarrow~\alpha>0$} $\heartsuit$
+			\Leftrightarrow~\alpha>0$} $\heartsuit$ \medskip \\
 		
 	\theorem{lem}{
-		Soit $f\in\cpm\big([a,b[,\R^+\big)$ on note $F(x) = \int_a^x f(t)dt$\\
-		Alors : $\left| 
-		\begin{array}{l} 
-			$ {\tiny (1)} $F$ est croissante $ \\ 
-			$ {\tiny (2)} $\int_a^{\underline{b}} f(t) dt$ converge $\Leftrightarrow ~F$ est majorée $ \\ 
-			$ {\tiny (3)} Lorsque $\int_a^{\underline{b}} f(t) dt$ diverge on a $F(x) \stox{b} +\infty$ \footnotemark[1]$
-		\end{array} \right.$ 
+		Soit $f\in\cpm\big([a,b[,\R^+\big)$ on note $F(x) = \int_a^x f(t)dt$, alors \medskip 
+		\begin{itemize}
+			\item $F$ est croissante.
+			\item $\int_a^{\underline{b}} f(t) dt$ converge $\Leftrightarrow ~F$ est majorée.
+			\item Lorsque $\int_a^{\underline{b}} f(t) dt$ diverge on a $F(x) \stox{b} +\infty$. \footnotemark[1]
+		\end{itemize}
 	} \medskip
 	
 	\theorem{lem}{
-		Soit $f\in\cpm\big(]a,b],\R^+\big)$ on note $F(x) = \int_x^b f(t)dt$ \\
-		Alors : $\left| 
-		\begin{array}{l} 
-			$ {\tiny (1)} $F$ est décroissante $ \\ 
-			$ {\tiny (2)} $\int_{\underline{a}}^b f(t) dt$ converge $\Leftrightarrow ~F$ est majorée $ \\ 
-			$ {\tiny (3)} Lorsque $\int_{\underline{a}}^b f(t) dt$ diverge on a $F(x) \stox{b} +\infty$ \footnotemark[1]$
-		\end{array} \right.$ 
+		Soit $f\in\cpm\big(]a,b],\R^+\big)$ on note $F(x) = \int_x^b f(t)dt$, alors \medskip
+		\begin{itemize}
+			\item $F$ est décroissante.
+			\item $\int_{\underline{a}}^b f(t) dt$ converge $\Leftrightarrow ~F$ est majorée.
+			\item Lorsque $\int_{\underline{a}}^b f(t) dt$ diverge on a $F(x) \stox{b} +\infty$. \footnotemark[1]
+		\end{itemize}
 	} \medskip
 		
 	\footnotetext[1]{On écrira dans ce cas $\int_a^b f(t) dt = +\infty$}
 		
 	\namedtheorem{Théorème de comparaison des fonctions positives}{
-		Soient $f,g \in\cpm\big[a,b[,\R^+\big)$, on suppose que $0\leq f\leq g$ \\ Alors $\int_a^{\underline{b}} g$ converge $\Rightarrow ~\int_a^{\underline{b}} f$ converge 
+		Soient $f,g \in\cpm\big[a,b[,\R^+\big)$, on suppose que $0\leq f\leq g$, on a alors \vspace{-5pt}
+		\[
+			\int_a^{\underline{b}} g \text{ converge } \Rightarrow ~\int_a^{\underline{b}} f \text{ converge }
+		\] 
 	}{ThCompFcPos}
 	
 	\begin{proof}
 		On note $\forall x\in[a,b[ ,~F(x) = \int_a^x f(t) dt$ et $G(x) = \int_a^x g(t) dt$ \\
 		\hspace*{0.5cm} $\left|\ard$ \underline{Supposons $\int_a^b g$ converge}, soit donc $\mu\in\R$ tel que $G\leq\mu \\
 		$ Alors $\forall x\in[a,b[,~F(x) = \int_a^x f(t) dt \leq \int_a^x g(t) dt = G(x) \leq \mu \arf \right.$ \\
-		Ainsi $F$ est majorée et par le Lemme $\int_a^{\underline{b}} f$ converge
+		Ainsi $F$ est majorée et par le Lemme 5.1.2 $\int_a^{\underline{b}} f$ converge
 	\end{proof} \medskip
 	
 	\theorem{thm}{
-		Soient $f,g\in\cpm\big([a,b[,\R^+\big)$, on suppose $f(x) = \bigcirc_{x\to b} \big(g(x)\big)$ \\
-		Alors $\int_a^{\underline{b}} g$ converge $\Rightarrow ~\int_a^{\underline{b}} f$ converge
-	}
-	
-	\begin{proof} 
-		Exercice 
-	\end{proof} \medskip
+		Soient $f,g\in\cpm\big([a,b[,\R^+\big)$. Si $f(x) = \bigo_{x\to b} \big(g(x)\big)$, alors \vspace{-5pt}
+		\[
+			\int_a^{\underline{b}} g \text{ converge }\Rightarrow ~\int_a^{\underline{b}} f \text{ converge }
+		\]
+	} \medskip
 	
 	\theorem{thm}{
-		Soient $f,g\in\cpm\big([a,b[,\R^+\big)$, on suppose $f(x) = \underset{x\to b}{\sim} g(x)$ \\ 
-		Alors $\int_a^{\underline{b}} f$ converge $\Leftrightarrow ~\int_a^{\underline{b}} g$ converge
+		Soient $f,g\in\cpm\big([a,b[,\R^+\big)$. Si $f(x) \underset{x\to b}{\sim} g(x)$ alors \vspace{-5pt}
+		\[
+			\int_a^{\underline{b}} f \text{ converge } \Leftrightarrow ~\int_a^{\underline{b}} g \text{ converge }
+		\]
 	}
 	
 	\begin{proof}
-		Si $f(x) = \underset{x\to b}{\sim} g(x)$ alors $f(x) = \bigcirc_{x\to b} \big(g(x)\big)$ et $g(x) = \bigcirc_{x\to b} \big(f(x)\big)$
+		Si $f(x) \underset{x\to b}{\sim} g(x)$ alors $f(x) = \bigo_{x\to b} \big(g(x)\big)$ et $g(x) = \bigo_{x\to b} \big(f(x)\big)$
 	\end{proof} \medskip 
 	
 	\namedtheorem{Lemme d'indépendance de la borne fixe}{
-		Soit $f\in\cpm\big([a,b[,K\big)$ et $\alpha \in [a,b[$\\
-		Alors 
-		$\ard 
-			~ \bullet ~ \int_a^{\underline{b}} f$ converge $\Leftrightarrow ~\int_{\alpha}^{\underline{b}} f$ converge $ \\ 
-			~\bullet ~$. Dans ce cas $\int_a^{\underline{b}} f = \int_a^{\alpha} f + \int_{\alpha}^{\underline{b}} f 
-		\arf $
+		Soit $f\in\cpm\big([a,b[,\K\big)$ et $c \in [a,b[$ alors 
+		\begin{itemize}
+			\item $\int_a^{\underline{b}} f$ converge $\Leftrightarrow ~\int_{c}^{\underline{b}} f$ converge
+			\item Dans ce cas $\int_a^{\underline{b}} f = \int_a^{c} f + \int_{c}^{\underline{b}} f$
+		\end{itemize}
 	}{IndepBornFixe} \medskip
 	
 	\theorem{cor}{
-		Soit $f\in\cpm\big([a,b[,K\big)$ telle que $\int_a^{\underline{b}} f$ converge \\
-		Alors $\displaystyle{\int_x^{\underline{b}} f \stox{b} 0}$
+		Soit $f\in\cpm\big([a,b[,\K\big)$ telle que $\int_a^{\underline{b}} f$ converge. On a alors \vspace{-10pt} 
+		\[
+			\int_x^{\underline{b}} f \stox{b} 0
+		\]
 	} \medskip
 	 
 	\theorem{lem}{
-		Soient $f,g\in\cpm\big([a,b[,K\big)$ ; $\lambda\in K$ avec $\int_a{\underline{b}} f$ et $\int_a{\underline{b}}^g$ convergentes \\ 
-		Alors 
-		$\ard 
-			~ \bullet ~ \int_a^{\underline{b}} \lambda f+g$ converge $ \vspace*{0.1cm} \\ 
-			~\bullet ~ \int_a^{\underline{b}} \lambda f+g = \lambda \int_a^{\underline{b}} f + \int_a^{\underline{b}} g 
-		\arf $
+		Pour $f,g\in\cpm\big([a,b[,\K\big)$ et $\lambda\in K$ avec $\int_a{\underline{b}} f$ et $\int_a^{\underline{b}}g$ convergentes, 
+		\begin{itemize}
+			\item $\int_a^{\underline{b}} \lambda f+g$ converge
+			\item $\int_a^{\underline{b}} \lambda f+g = \lambda \int_a^{\underline{b}} f + \int_a^{\underline{b}} g$
+		\end{itemize}
 	} \medskip
 	
 	\theorem{lem}{
-		Soit $f\in\cpm\big([a,b[,\C\big)$ \\ 
-		Alors $\ard 
-			~ \bullet ~ \int_a^{\underline{b}} f$ converge $\Leftrightarrow ~\int_a^{\underline{b}} \Re(f)$ et $\int_a^{\underline{b}} \Im(f)$ convergent $ \vspace*{0.1cm} \\ 
-			~\bullet ~ \int_a^{\underline{b}} f = \int_a^{\underline{b}} \Re(f) + \imath\int_a^{\underline{b}} \Im(f) 
-		\arf $
-	} \medskip
+		Si $f\in\cpm\big([a,b[,\C\big)$ alors
+		\begin{itemize}
+			\item $\int_a^{\underline{b}} f$ converge $\Leftrightarrow ~\int_a^{\underline{b}} \Re(f)$ et $\int_a^{\underline{b}} \Im(f)$ convergent.
+			\item $\int_a^{\underline{b}} f = \int_a^{\underline{b}} \Re(f) + \imath\int_a^{\underline{b}} \Im(f) $
+		\end{itemize}
+	}\label{IntComplConv} \medskip
 	
 	\theorem{lem}{
-		Soit $f\in\uuline{\cont^0} \big([a,b[,K\big)$ telle que $\int_a^{\underline{b}}$ converge \\ 
-		Posons $\forall x\in[a,b[ ,~G(x) = \int_x^{\underline{b}} f$, alors 
-		$\ard 
-			~\bullet ~G\in\cont^1\big([a,b[,K\big) \\ 
-			~\bullet ~ G'=-f 
-		\arf$ 
+		Soit $f\in\cont^0 \big([a,b[,\K\big)$ telle que $\int_a^{\underline{b}}$ converge \\ 
+		Pour $ x\in[a,b[$, on pose $G(x) = \int_x^{\underline{b}} f$, alors 
+		\begin{itemize}
+			\item $G\in\cont^1\big([a,b[,K\big)$
+			\item $G'=-f$
+		\end{itemize} 
 	} 
 	
 	\traitd
@@ -125,22 +128,23 @@
 		\hspace*{2cm} $\bullet$ Dans ce cas on pose $\int_{\uline{a}}^{\uline{b}} f = \int_{\uline{a}}^c f + \int_c^{\uline{b}} f$
 	\trait
 	
-	$\rightarrow$ \uline{ex} : $\int_{-\infty}^{+\infty} e^{-t^2} dt$ converge et \highlight{$\int_{-\infty}^{+\infty} 
+	$\rightarrow$ \uline{ex} : $\displaystyle \int_{-\infty}^{+\infty} e^{-t^2} dt$ converge et \highlight{$\displaystyle \int_{-\infty}^{+\infty} 
 		e^{-t^2} dt =\sqrt{\pi} $} \medskip
 		
 
 \section{Convergence absolue}
 
+	\vspace{-20pt}
 	\traitd
 	\paragraph{Définition} 
 		Soit $f\in\cpm\big[a,b[,K\big) ~a<b$ on dit que \\ 
-		\hspace*{2cm} $\ard 
-			\bullet$ $\int_a^{\uline{b}} f $ \underline{converge absolument} $ \\ 
-			\bullet $ \underline{$f$ est intégrablle sur $[a,b[$} $
-		\arf$ \hspace*{0.5cm} si $\displaystyle{\int_a^{\uline{b}}\abs{f}}$ converge. 
+		\hspace*{2cm} $ \left\{ \ard 
+			\int_a^{\uline{b}} f $ \underline{converge absolument} $ \\ 
+			$ \underline{$f$ est intégrablle sur $[a,b[$} $
+		\arf \right.$ si $ ~~ \displaystyle{\int_a^{\uline{b}}\abs{f}}$ converge. 
 	\trait
 	
-	\underline{Formule importante} : \highlight{$ \max (\alpha ,\beta) = \frac{\alpha+\beta}{2} + \frac{\abs{\alpha - \beta}}{2}$} $\heartsuit$
+	\underline{Formule importante} : \highlight{$ \max (\alpha ,\beta) = \frac{\alpha+\beta}{2} + \frac{\abs{\alpha - \beta}}{2}$} $\heartsuit$ \medskip \\
 	
 	\theorem{thm}{
 		La convergence absolue implique la convergence.
@@ -151,12 +155,15 @@
 		Donc $\int_a^{\uline{b}} f^+ - f^- = \int_a^{\uline{b}} f$ converge.\\
 		\fbox{Cas complexe} Soit $f\in\cpm\big([a,b],\C\big)$ telle que $\int_a^{\uline{b}} \abs{f}$ converge avec $f=u+\imath v$ alors \\ 
 		On a $0\leq\abs{u}\leq\abs{f}$ donc $\int_a^{\uline{b}} \abs{u}$ converge et d'après le cas réel $\int_a^{\uline{b}} u$ converge.\\
-		De même $\int_a^{\uline{b}} v$ converge et par un lemme (\ref{IntGCompl}) on a $\int_a^{\uline{b}} f$ converge
+		De même $\int_a^{\uline{b}} v$ converge et avec le Lemme 5.1.6 on a $\int_a^{\uline{b}} f$ converge
 	\end{proof} \medskip
 	
 \section{Espace des fonctions intégrables sur $I$}
 
-	\textit{Soit $I$ i.r.n.t avec $a<b$ ses bornes, on pose $L^1(I,K) = \big\{f\in\cpm(I,K) ~;~f$ est intégrable sur $I \big\}$}
+	\emph{Soit $I$ un i.r.n.t avec $a<b$ ses bornes, on pose}
+	\[
+		L^1(I,K) = \big\{f\in\cpm(I,K) ~;~f \text{ est intégrable sur } I \big\}
+	\]
 	
 	\theorem{thm}{
 		$L^1(I,K)$ est un $K$ espace vectoriel et\\
@@ -169,12 +176,13 @@
 			$~\bullet ~0\in L^1(I,K)$ \\ 
 			$~\bullet$ Soient $f,g\in L^1(I,K)$ et $\lambda\in K$ on pose $h=\lambda f+g$ avec $\abs{h}\leq \abs{\lambda}\abs{f}\abs{g} = w$ \\ 
 			Comme $\int_a^{\uline{b}} w$ cv, par théorème de comparaison (\ref{ThCompFcPos}) on a $h\in L^1(I,K)$  
-		\end{blockarray} \vspace*{0.2cm}\\
+		\end{blockarray}\\
 		La linéarité de $\Delta$ est connue.
 	\end{proof} \medskip
 	
 	\theorem{thm}{
-		Soit $f\in\cpm(I,\C)$ alors $f \in L^1(I,\C) ~ \Leftrightarrow ~ \big(\Re(f),\Im(f)\big) \in\big( L^1(I,\R)\big)^2$
+		Soit $f\in\cpm(I,\C)$ alors \\
+		$f \in L^1(I,\C) ~ \Leftrightarrow ~ \big(\Re(f),\Im(f)\big) \in\big( L^1(I,\R)\big)^2$
 	}
 	
 	\begin{proof}
@@ -191,35 +199,35 @@
 	
 	\begin{proof}
 		Soit $I=[a,b[$ ; soient $f\in L^1(I,K)$ et $x\in [a,b[$\\
-		On a $\displaystyle{\abs{\int_a^x f} \leq \int_a^x \abs{f}}$ puis en passant à la limite on a le résultat vu l'intégrabilité de $f$.
+		On a $\abs{\int_a^x f} \leq \int_a^x \abs{f}$ puis en passant à la limite on a le résultat vu l'intégrabilité de $f$.
 	\end{proof} \medskip
 	
 	\namedtheorem{Théorème de positivité amélioré}{
-		Soit $I$ un intervalle réel \highlight{non trivial} et $f\in L^1(I,K)\cap \cont^0(I,K)$ avec $f\geq 0$\\ 
+		Soit $I$ un intervalle réel \highlight{non trivial} et $f\in L^1(I,$\highlight{$\R^+$}$)\cap \uline{\cont^0(I,K)}$\\ 
 		Alors $\displaystyle{\int_I f = 0 ~\Rightarrow ~\forall x\in I ,~ f=0}$
 	}{PosAmelioIntG}
 	
 	\begin{proof}
-		Avec $I=[a,b[$ on note $\forall x\in I ,~F(x) = \int_a^x f$ donc $F(x) \stox{b} \int_a^{\uline{b}} f$ et $F$ est croissante par lemme (\ref{5-L1}) donc $F(x) \leq \int_I f = 0$ or $F(x) \geq 0$ donc $\forall x\in [a,b[, F(x) = 0$ donc $F'=f=0$
-	\end{proof} \medskip
+		Avec $I=[a,b[$ on note $\forall x\in I ,~F(x) = \int_a^x f$ donc $F(x) \stox{b} \int_a^{\uline{b}} f$ et $F$ est croissante par le Lemme 5.1.1 donc $F(x) \leq \int_I f = 0$ or $F(x) \geq 0$ donc $\forall x\in [a,b[, F(x) = 0$ donc $F'=f=0$
+	\end{proof} 
 	
-	\paragraph{Notation} Si $f\in\cpm(I,K)$ avec $\displaystyle{\int_I f}$ converge et $\displaystyle{\int_I \abs{f} }$ diverge alors on dit que $f$ est \highlight{semi-convergente}. \medskip \\
+	\paragraph{Notation} Si $f\in\cpm(I,K)$ avec $\displaystyle{\int_I f}$ converge et $\displaystyle{\int_I \abs{f} }$ diverge alors \\
+	on dit que $f$ est \highlight{semi-convergente}. \medskip \\
 	
 	
 \section{Calculs}
 	\namedtheorem{Théorème : Changement de variable}{
-		Soit $]\alpha,\beta[ ~ \overset{\varphi}{\to} ~ ]a,b[ ~ \overset{f}{\to} ~ K$ On suppose de plus $f$ est $\cont^0$ et $\varphi$ est $\cont^1$ \\ 
-		avec $\varphi$ bijective de $]\alpha,\beta[$ sur $]a,b[$ et strictement croissante.\\ 
-		Alors \hspace*{0.5cm} 
-		$\left| \ard 
-			$ {\small (1)} $\displaystyle{\int_a^b f(t) dt}$ et $\displaystyle{\int_{\alpha}^{\beta} f\big(\varphi(u)\big) \times \varphi'(u) du }$ ont la même nature.$ \\ 
-			$ {\small (2)} Elles sont égales en cas de convergence.$ 
-		\arf \right.$ 
+		Soit $]\alpha,\beta[ ~ \overset{\varphi}{\to} ~ ]a,b[ ~ \overset{f}{\to} ~ K$ On suppose que $f$ est $\cont^0$ et $\varphi$ est $\cont^1$ \\ 
+		avec $\varphi$ bijective de $]\alpha,\beta[$ sur $]a,b[$ et strictement croissante alors :
+		\begin{itemize}
+			\item $\displaystyle{\int_a^b f(t) dt}$ et $\displaystyle{\int_{\alpha}^{\beta} f\big(\varphi(u)\big) \times \varphi'(u) du }$ ont la même nature.
+			\item Elles sont égales en cas de convergence.
+		\end{itemize}
 	}{ChgtVar}
 	
 	\begin{proof}
-		On a $\limit{u}{\alpha} \varphi(u) = a$ et $\limit_{u}{\beta} \varphi(u) = b$. Soit $\gamma \in ]\alpha,\beta[$ et $c= \varphi(\gamma)$\\
-		On pose $G(x)~=~\int_{\gamma}^x g(u)du ~$ et $ F(y)=\int_c^y f(t) dt$ , alors $\forall x\in]\alpha,\beta[$, on a $G(x) = F\big(\varphi(x)\big)~~(*)~~$ \\ 
+		On a $\limit{u}{\alpha} \varphi(u) = a$ et $\limit{u}{\beta} \varphi(u) = b$. Soit $\gamma \in ]\alpha,\beta[$ et $c= \varphi(\gamma)$.\\
+		On pose $G(x)=\int_{\gamma}^x g(u)du ~$ et $ F(y)=\int_c^y f(t) dt$ , alors $\forall x\in]\alpha,\beta[$, on a $G(x) = F\big(\varphi(x)\big)(*)$ \\ 
 		$\bullet$ On suppose $\int_c^b f$ converge, alors par passage à la limite dans $(*)$ on a la convergence et l'égalité. \\ 
 		$\bullet$ La réciproque est clair en considérant $\varphi^{-1}$ \\ 
 		On a de même $\int_{\alpha}^{\gamma} g$ converge $\Leftrightarrow$ $\int_a^c f$ converge. \\ 
@@ -237,8 +245,7 @@
 	}{IPP}
 	
 	\begin{proof}
-		On suppose $\int_a^b f'\times g$ converge alors \\
-		Si on pose $A$ et $B$ les limites respectives du produit en $a$ et en $b$ puis $c$ un point de l'intervalle ouvert alors $\forall x\in ]a,b[$ on a $\int_c^x fg' = \big[fg\big]_c^x - \int_c^x f'g$ puis $\int_c^b fg' = -(fg)(c) + B - \int_c^b f'g$ \\ 
+		On suppose $\int_a^b f'\times g$ converge. Si on pose $A$ et $B$ les limites respectives du produit en $a$ et en $b$ puis $c$ un point de l'intervalle ouvert alors $\forall x\in ]a,b[$ on a $\int_c^x fg' = \big[fg\big]_c^x - \int_c^x f'g$ puis $\int_c^b fg' = -(fg)(c) + B - \int_c^b f'g$ \\ 
 		On a alors alors de même le résultat en $a$ puis $f$ et $g$ jouent un rôle symétrique d'où \textsc{cqfd}
 	\end{proof} \medskip
 	
@@ -248,17 +255,20 @@
 	
 	\theorem{thm}{
 		Soit $f\in\cpm \big(\R^+,\R\big)$ avec $f\geq 0$ décroissante, on pose \\ 
-		$\forall n\in\N^* ,~w_n = \int_n^{n+1} f(t)dt - f(n)$, \hspace*{0.5cm} Alors $\sum\limits_{n\geq 1} w_n$ converge.
+		$\forall n\in\N^* ,~w_n = \int_n^{n+1} f(t)dt - f(n)$. \\ 
+		On a alors $\sum\limits_{n\geq 1} w_n$ converge.
 	}
 	
 	\begin{proof}
-		Soit $n\in\N^*$, vu la décroissance on a $f(n)\leq f(t) \leq f(n-1) $ pour $n-1\leq t\leq n$ \\donc $0\leq w_n \leq f(n-1)-f(n)$ \\
+		Soit $n\in\N^*$, vu la décroissance on a $f(n)\leq f(t) \leq f(n-1) $ pour $n-1\leq t\leq n$ donc $0\leq w_n \leq f(n-1)-f(n)$ \\
 		Ainsi pour tout $N\in\N^*$ on a $\sk{1}{N} w_k \leq \sk{1}{N} f(n-1)-f(n) \leq f(0)$ d'où la convergence vu la positivité. 
 	\end{proof} \medskip
 	
 	\theorem{cor}{
-		Soit les mêmes hypothèses,\\ 
-		Alors $\sum\limits_{n\geq1} f(n) $ converge $\Leftrightarrow$ $\int_0^{+\infty} f(t) dt$ converge 
+		Sous les mêmes hypothèses, \vspace{-5pt}
+		\[
+			\sum\limits_{n\geq1} f(n) \text{ converge } \Leftrightarrow \int_0^{+\infty} f(t) dt \text{ converge }
+		\]
 	} \medskip
 	
 	
@@ -266,11 +276,11 @@
 
 	\theorem{thm}{
 		Soit $f,g \in \cpm \big([a,b[ , \R \big)$, $g\geq 0$ avec $\int_a^b f$ et $\int_a^b g$ convergent. \\ 
-		Alors : $\ard 
-			\bullet$ {\small 1)} $\abs{f(x) = \circ_{x\to b} \big( g(x) \big) ~\Rightarrow ~\int_x^b f = \circ_{x\to b} \Big(\int_x^b g\Big)} \\ 
-			\bullet $ {\small 2)} $\abs{f(x) = \bigcirc_{x \to b} \big( g(x) \big) ~\Rightarrow ~\int_x^b f = \bigcirc_{x\to b} \Big(\int_x^b g\Big)} \\ 
-			\bullet $ {\small 3)} $ \abs{f(x) \underset{b}{\sim} g(x) ~\Rightarrow ~ \int_x^b f \underset{b}{\sim} \int_x^b g } 
-		\arf$ 
+		Alors : $\left\vert \ard 
+			$ {\small 1)} $f(x) = \circ_{x\to b} \big( g(x) \big) ~\Rightarrow ~\int_x^b f = \circ_{x\to b} \Big(\int_x^b g\Big) \\ 
+			$ {\small 2)} $f(x) = \bigo_{x \to b} \big( g(x) \big) ~\Rightarrow ~\int_x^b f = \bigo_{x\to b} \Big(\int_x^b g\Big) \\ 
+			$ {\small 3)} $ f(x) \underset{b}{\sim} g(x) ~\Rightarrow ~ \int_x^b f \underset{b}{\sim} \int_x^b g  
+		\arf \right.$ 
 	}
 	
 	\begin{proof}
@@ -282,35 +292,43 @@
 		Soit $f,g \in \cpm \big([a,b[ , \R \big)$, $g\geq 0$ avec $\int_a^b f$ et $\int_a^b g$ divergent. \\ 
 		Alors : $ \left\vert \ard 
 			$ {\small 1)} $f(x) = \circ_{x\to b} \big( g(x) \big) ~\Rightarrow ~\int_a^x f = \circ_{x\to b} \Big(\int_a^x g\Big) \\ 
-			$ {\small 2)} $f(x) = \bigcirc_{x \to b} \big( g(x) \big) ~\Rightarrow ~\int_a^x f = \bigcirc_{x\to b} \Big(\int_a^x g\Big) \\ 
+			$ {\small 2)} $f(x) = \bigo_{x \to b} \big( g(x) \big) ~\Rightarrow ~\int_a^x f = \bigo_{x\to b} \Big(\int_a^x g\Big) \\ 
 			$ {\small 3)} $ f(x) \underset{b}{\sim} g(x) ~\Rightarrow ~ \int_a^x f \underset{b}{\sim} \int_a^x g
 		\arf \right. $
 	}
 	
 	\begin{proof}
-		En notant, $F(x) = \int_a^x f$ et $G(x) = \int_a^xg$, le reésultat se démontre en séparant l'intégrale : \\
-		\[ 
-			\abs{\frac{F(x)}{G(x)}} = \frac{\abs{F(x)}}{G(x)} \leq \frac{C}{G(x)} + \frac{\varepsilon}{2}~~ \stox{b} 0 ~~~~;~~~~{\footnotesize C=\abs{\int_a^{\beta} f} } 
-		\]
+		En notant, $F(x) = \int_a^x f$ et $G(x) = \int_a^xg$, le reésultat se démontre en séparant l'intégrale : $\abs{\frac{F(x)}{G(x)}} = \frac{\abs{F(x)}}{G(x)} \leq \frac{C}{G(x)} + \frac{\varepsilon}{2}~~ \stox{b} 0 ~~~~;~~~~{\footnotesize C=\abs{\int_a^{\beta} f} }$
 	\end{proof}  \medskip
 	
 		
 \section*{Exercices}
 	\paragraph*{Comparaison}
-		\subparagraph{5C1} Donner les natures de $\abs{\int_0^1 \frac{1+t^3}{\sqrt{1-t^3}} dt } $ et de $\abs{\int_0^{\frac{\pi}{2}} \frac{t}
+		\begin{itemize}
+			\item \textbf{5C1} : Donner les natures de $\abs{\int_0^1 \frac{1+t^3}{\sqrt{1-t^3}} dt } $ et de $\abs{\int_0^{\frac{\pi}{2}} \frac{t}
 			{\cos t} dt} $.
+		\end{itemize}
+		
 	\paragraph*{Convergence absolue}
-		\subparagraph{\uline{5C2}} Montrer que $\abs{\int_{\pi}^{+\infty} \frac{\sin t}{t} dt } $. CVA ?
-		\subparagraph{\uline{5C3}} Étudier la nature des intégrales de \textsc{Bertrand} $\abs{\Big( \int_2^{+\infty} \frac{dt}{t^{\alpha}(\ln t)^{\beta}} \Big) }$
-		\subparagraph{5C4} Connaissant le \textbf{5C3}, avec $(\alpha,\beta)\in\R^2$, quelle est la nature de $\abs{\int_0^{\frac{1}{2}} 
+		\begin{itemize}
+			\item \emph{\textbf{5C2}} : Montrer que $\abs{\int_{\pi}^{+\infty} \frac{\sin t}{t} dt } $. CVA ?
+			\item \emph{\textbf{5C3}} : Étudier la nature des intégrales de \textsc{Bertrand} $\abs{\Big( \int_2^{+\infty} \frac{dt}{t^{\alpha}(\ln t)^{\beta}} \Big) }$
+			\item \textbf{5C4} : Connaissant le \textbf{5C3}, avec $(\alpha,\beta)\in\R^2$, quelle est la nature de $\abs{\int_0^{\frac{1}{2}} 
 			\frac{dt}{t^{\alpha}(\ln t)^{\beta}} }$ ?
+		\end{itemize}
+		
 	\paragraph*{Calculs}
-		\subparagraph{5C5} Calculer $\abs{ \lambda = \int_\R f}$ où $\abs{ f : t\mapsto \frac{1}{1+t+t^2} }$ et $\abs{ I = \int_0^{\frac{\pi}{2}} 
+		\begin{itemize}
+			\item \textbf{5C5} : Calculer $\abs{ \lambda = \int_\R f}$ où $\abs{ f : t\mapsto \frac{1}{1+t+t^2} }$ et $\abs{ I = \int_0^{\frac{\pi}{2}} 
 			\ln (\sin t ) dt }$.
-		\subparagraph{\uline{5C6}} Montrer l'existence de $\gamma$ la constante d'\textsc{Euler}.
-		\subparagraph{5C7} Trouver un équivalent de $\abs{ R_n = \sum_{n+1}^{+\infty} \frac{1}{k^2} } $.
+			\item \emph{\textbf{5C6}} : Montrer l'existence de $\gamma$ la constante d'\textsc{Euler}.
+			\item \textbf{5C7} : Trouver un équivalent de $\abs{ R_n = \sum_{n+1}^{+\infty} \frac{1}{k^2} } $.
+		\end{itemize}
+		
 	\paragraph*{Intégration des relations de comparaisons}
-		\subparagraph{5C8} Trouver un équivalent de $\abs{ F(x) = \int_2^x \frac{e^{-1/t}}{\sqrt{t(t+\cos t)}} }$.
+		\begin{itemize}
+			\item \textbf{5C8} : Trouver un équivalent de $\abs{ F(x) = \int_2^x \frac{e^{-1/t}}{\sqrt{t(t+\cos t)}} }$.
+		\end{itemize}
 		
 	\medskip
 	
