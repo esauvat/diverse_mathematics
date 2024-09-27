@@ -1,6 +1,6 @@
 # mathematica
 
-A repository storing some maths projects I found muself being a part of
+A repository storing some maths projects I found myself being a part of
 
 Including some articles like a preparatory class' report or my first year memoir in the ENS.
 
