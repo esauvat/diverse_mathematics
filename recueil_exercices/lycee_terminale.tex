@@ -1,0 +1,211 @@
+\chapter{Suites}
+
+	\section{Fibonacci et le nombre d'or}
+	
+		On considère le réel
+		\[
+			\varphi = \sqrt{1 + \sqrt{1 + \sqrt{1 +\cdots}}}
+		\]
+		avec une infinité de $1$ sous les racines. Ce réel est appelé "nombre d'or" dont la valeur approchée est $\varphi \simeq 1,618$
+		
+		\paragraph{1.} Exprimer $\varphi^2$ en fonction de $\varphi$.
+		
+		\paragraph{2.} En s'aidant d'un polynôme bien choisi, en déduire la valeur exacte de $\varphi$. \medskip \\
+		
+		On considère la problème suivant, qui fut posé par Fibonacci en 1202 : \\
+		
+		\begin{minipage}{0.86\textwidth}
+			\centering
+			\emph{"Partant d'un couple venant de naitre, combien de couples de lapins obtiendrons-nous à la fin d'un nombre donné de moi, sachant qu'un couple est fertile après 2 mois et que chaque couple fertile produit chaque mois un nouveau couple."}
+		\end{minipage}
+		
+		\paragraph{3.} Soit $n\in \mathbf{N}^*$ le nombre de mois écoulés. Donner le nombre de couples de lapins pour $1 \leqslant n \leqslant 7$.
+		
+		\paragraph{4.} On considère la suite $(u_n)$ définie pour tout $n \in \mathbf{N}^*$ par 
+		$\left\{ \begin{array}{l}
+			u_1 = u_2 = 1 \\
+			u_{n+2} = u_{n+1} + u_n
+		\end{array} \right. $ \\
+		
+		On construit alors une suite $(v_n)$ définie pour tout $n\in \mathbf{N}^*$ par $v_n = \dfrac{u_{n+1}}{u_n}$ \\
+		
+		\subparagraph{a/} Calculer $u_3, u_4, u_5, u_6, u_7. u_8, u_9$ et $u_{10}$.
+		
+		\subparagraph{b/} Démontrer que $(u_n)$ est strictement positive croissante.
+		
+		\subparagraph{c/} Démontrer que la suite $(v_n)$ est strictement positive.
+		
+		\subparagraph{d/} Calculer les $10$ premières valeurs de $(v_n)$ et conjecturer sa limite.
+		
+		\subparagraph{e/} Démontrer que pour tout $n\in \mathbf{N}^*$ on a 
+		\[
+			v_{n+1} = 1 + \frac{1}{v_n}
+		\]
+		
+		\subparagraph{f/} On admet que la suite $(v_n)$ est convergente, calculer sa limite $\ell$ (on pourra remarquer que lorsque l'on approche de la limite on a $v_n \simeq v_{n+1} \simeq \ell$).
+		
+ 
+
+
+\chapter{Probabilités}
+
+
+	\section{Génération de memes}
+	
+		Le streamer Alderiate, source intarissable de memes sur internet, joue à son jeu de cœur : League of Legend. 
+		
+		\subsection{Probabilités conditionnelles}
+		
+		À chaque partie jouée, face à la bienveillance débordante qui émane du jeu, Alderiate risque de s'abandonner à une rage profonde. On estime qu'il reste cependant calme avec une probabilité de 0.92.
+		
+		Dans un quart des cas où Alderiate rage, il finit "clipé" par sa communauté et devient un nouveau classique d'internet. Même quand il reste calme, le vocal avec ses mates est lui même à l'origine d'un meme avec une probabilité de $0.01$. \\
+		
+		On note alors les évènements $R$ : "Alderiate rage" et $C$ : "Il devient un classique d'internet". 
+		
+		\paragraph{1.} Représenter la situation par un arbre de probabilités.
+		
+		\paragraph{2.} Quelle est la probabilité qu'il ne rage et qu'il crée un meme ?
+		
+		\paragraph{3. a/} Calculer $P(R\cap C)$.
+		
+		\paragraph{3. b/} Vérifier que la probabilité qu'un nouveau meme soit créé est de $0.0292$.
+		
+		\paragraph{3. c/} Les événements $R$ et $C$ sont-ils indépendants ?
+
+		\paragraph{4.} Sachant que X s'extasie sur un nouveau meme d'Alderiate, quelle est la probabilité que ce dernier n'ait pas ragé ?
+		
+		\paragraph{5. a/} Démontrer la formule de Bayes : pour $A$ et $B$ deux événements, 
+		\[
+			P_B(A) P(B) = P_A(B) P(A)
+		\]
+		
+		\paragraph{5. b/} En déduire $P_{\overline{C}}(\overline{R})$. Le résultat obtenu semble-t-il cohérent ?\\
+		
+		
+		\subsection{Loi binomiale}
+		
+		Alderiate décide de lancer un marathon LoL, durant lequel il joue $n$ games. On admet que la probabilité qu'il soit devenu un meme à l'issue d'un game est $p=0.0292$.\\ 
+		
+		On note $X$ la variable aléatoire associée au nombre de memes créés au cours des $n$ games. On suppose qu'il y a indépendance entre chaque partie : la rage ne s'accumule pas ; Alderiate "reset mental" après chaque game.
+		
+		\paragraph{1.} Donner la loi de $X$ en justifiant soigneusement.
+		
+		\paragraph{2.} Que penser de l'hypothèse d'indépendance ?\\
+		
+		Alderiate décide de jouer $12$ games pendant le stream.
+		
+		\paragraph{3.} Quelle est la probabilité qu'il crée exactement un meme.
+		
+		\paragraph{4.} Calculer la probabilité qu'il crée au moins $2$ memes durant le stream.
+		
+		\paragraph{5. a/} En moyenne, combien de memes va-t-il générer pendant le stream.   
+		
+		\paragraph{5. b/} Ses amis lui lance un défie : à chaque fois qu'un clip de lui devient viral, il doit donner $130$\euro à un viewer. À raison de trois streams de $12$ games par semaines, combien d'argent dépense-t-il en moyenne par an ?
+		
+		\paragraph{6.} Calculer $\mathbb{V}(X)$ et interpréter le résultat.
+		
+		\paragraph{7.} La probabilité de se faire frapper deux fois par la foudre est de l'ordre de $10^{-15}$. Alderiate affirme avec certitude que vous avez plus de chance de vous faire frapper par la foudre que de le  voir créer $12$ memes en un stream. A-t-il raison ? \\
+		 
+		On suppose désormais qu'Alderiate joue un nombre $n$ inconnu de game.
+		 
+		\paragraph{8.} Combien doit-il jouer de partie pour être sur à $99\%$ de créer au moins un meme.
+		 
+		\paragraph{9.} On estime qu'un stream a des répercussions irréversibles sur le mental d'Alderiate si on peut espérer voir au moins un nouveau meme par stream. Calculer à partir de combien de game un stream est dangereux. Ce résultat vous semble-t-il justifié ?
+		 
+		 
+		\subsection{Inégalités célèbres}
+		 
+		Pour $i$ allant de $1$ à $k\in \mathbb{N}^*$, on note $S_i$ la variable aléatoire qui à un échantillon de $k$ stream LoL associe le nombre de clavier détruit lors du $i$-ème stream. On admet que les $S_i$ sont indépendants et suivent tous la loi de $X$.\\
+		  
+		On par du principe qu'Alderiate joue $20$ games par stream, on note alors la moyenne 
+		\[
+		  	M_k = \frac{S_1 + \cdots + S_k}{k}
+		\]
+		  
+		\paragraph{1. a/} Vérifier que $\forall i \in \llbracket 1,k \rrbracket$, $\mathbb{E}(S_i) = 0.584$.
+		  
+		\paragraph{1. b/} En déduire l'espérance de $M_k$.
+		  
+		\paragraph{1. c/} Que vaut $\mathbb{V}(M_k)$ ?
+		  
+		\paragraph{2. a/} Soit $X$ un variable aléatoire positive et $a$ un réel strictement positif. Montrer que 
+		\[
+			P(X\geqslant a) \leqslant \frac{\mathbb{E}(X)}{a}
+		\]
+		\textit{\small On pourra considérer $Y$ la variable aléatoire telle que : 
+		\[
+			\left\{ \begin{array}{cc}
+				Y = a & si ~ X \geqslant a \\
+				Y = 0 & si ~ X < a
+			\end{array}\right.
+		\]}
+		
+		\paragraph{2. b/} En déduire alors une majoration de la probabilité que $M_k$ soit supérieure ou égale à $6$.
+		
+		\paragraph{3. a/} Pour quelles valeurs de $k$ a-t-on l'écart-type de $M_k$ strictement inférieur à $0.2$ ?
+		
+		\paragraph{3. b/} Pour de telles valeurs de $k$, montrer que la probabilité que $M_k \leqslant 2$ est strictement supérieure à $0.95$. Interprétez.
+		
+		\paragraph{4.} Démontrer que $\forall t>0$, $\underset{k\to +\infty}{\lim} P\big(|M_k - \mathbb{E}(M_k) | >t\big) = 0$. Quelle loi illustre ce résultat ? Appliqué à Alderiate, quelle fatalité cela implique ?`
+
+
+\chapter{Géométrie}
+
+	\section{Exercices guidés}
+		
+		\subsection{Bicoin}
+		
+			On considère un plan $\mathcal{P}$ contenant un triangle $ABC$ rectangle en $A$. Soit $d$ la droite orthogonale au plan $\mathcal{P}$ passant par $B$. On considère un point $D$ de $d$ distinct de $B$.
+			
+			\paragraph{1/}
+				
+				Montrer que la droite $(AC)$ est orthogonale au plan $(BAD)$. \\
+				
+			On appelle \emph{bicoin} un tétraèdre dont les $4$ faces sont des triangles rectangles.
+			
+			\paragraph{2/}
+			
+				Montrer que le tétraèdre $ABCD$ est un bicoin.
+				
+			\paragraph{3/a.} 
+			
+				Justifier que l'arête $[CD]$ est la plus longue de bicoin $ABCD$.
+				
+			\paragraph{3/b.}
+			
+				On note $I$ le milieu de l'arête $[CD]$. Montrer que $I$ est équidistant des $4$ sommets du bicoin.
+
+
+\chapter{Dénombrement}
+
+	\section{Taille d'un jeu (d'après Concours Général 1990)}
+
+		Un jeu est composé de pièces en forme de tétraèdres d'arrête de taille $1$, dont les faces sont peintes à l'aide d'une palette de $n$ couleurs.
+		Sachant qu'un tétraèdre peut avoir plusieurs faces de la même couleur et qu'aucune pièces ne sont identiques, combien y a-t-il, au maximum, de pièces dans le jeu ?
+		
+
+% Maths expertes
+
+\chapter{Divisibilité et congruences}
+
+	\section{Exercices généraux}
+
+		\subsection{}
+
+			On considère la suite $(u_n)_{n\in\mathbb{N}}$ définie comme suit : $
+			\left\{ \begin{array}{l}
+				u_0 = 15 ~~\text{ et } ~~ u_1 = 57 \\
+				\forall n \in \mathbb{N}, u_{n+2} = u_{n+1} + u_n
+			\end{array} \right. $
+
+			Déterminer $k\in\mathbb{N}$ maximal tel que $3^k \vert u_{2017}$.
+		
+		\subsection{}
+
+			Quels sont les entiers naturels $n$ tels que $2^n + 12^n + 2011^n$ soit un carré parfait ?
+
+		\subsection{}
+
+			Déterminer $(x,y,z)$ tel que $x^2 + y^2 = 3\times 2016^z + 77$.
+	
+
