@@ -1,5 +1,8 @@
 .DS_store
 
+# Temporary removing pdf
+*.pdf
+
 #Latex extensions
 
 *.aux

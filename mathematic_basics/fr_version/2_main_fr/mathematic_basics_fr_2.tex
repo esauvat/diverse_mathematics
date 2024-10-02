@@ -3,13 +3,13 @@
 %                               PREAMBLE
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\documentclass[a4paper, 10pt, twoside]{report}
-\usepackage[top = 2.5cm,left=2.54cm,right=2.54cm,bottom=2.54cm]{geometry}
+\documentclass[a4paper, 10pt, twoside, openright]{report}
+\usepackage[top = 120pt, left = 100pt, right = 100pt, bottom = 100pt]{geometry}
 \usepackage[french]{babel}
 \usepackage[utf8]{inputenc} 
 \usepackage[T1]{fontenc}
-\usepackage{lxfonts}
-\usepackage[mathcal, mathbf]{euler}
+\usepackage[sc]{mathpazo}
+\linespread{1.05}         % Palladio needs more leading (space between lines)
 \usepackage[hidelinks]{hyperref}
 \usepackage{ulem}
 \usepackage{fancyhdr}
@@ -23,6 +23,7 @@
 \usepackage{fancyhdr}
 \usepackage{blkarray}
 \usepackage{booktabs}
+%\usepackage{svg}
 
 \usepackage{amsfonts}
 \usepackage{amsmath}
@@ -43,12 +44,41 @@
 
 % \renewcommand{\thefootnote}{\fnsymbol{footnote}}
 
+
 \pagestyle{fancy}
 \setlength{\headheight}{13.59999pt}
 \fancyhead[LE]{\thepage}
 \fancyhead[RE]{\small \leftmark}
 \fancyhead[LO]{\small \rightmark}
 \fancyhead[RO]{\thepage}
+\fancyfoot[C]{}
+
+
+\makeatletter
+\renewcommand\part{%
+  \if@openright
+    \clearpage{\thispagestyle{empty}\cleardoublepage}
+  \else
+    \clearpage
+  \fi
+  \thispagestyle{empty}%
+  \if@twocolumn
+    \onecolumn
+    \@tempswatrue
+  \else
+    \@tempswafalse
+  \fi
+  \null\vfil
+  \secdef\@part\@spart}
+
+\renewcommand\chapter{\if@openright\clearpage{\thispagestyle{empty}\cleardoublepage}\else\clearpage\fi
+                    \thispagestyle{empty}%
+                    \global\@topnum\z@
+                    \@afterindentfalse
+                    \secdef\@chapter\@schapter}
+
+
+\makeatother
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -139,11 +169,14 @@
 \newtheorem{prop}[thm]{Proposition}
 \newtheorem*{cor}{Corollaire}
 \newcommand{\theorem}[2]{
-    \hspace{15pt} {\vrule width 1pt} \kern2pt
-    	\begin{minipage}[t]{0.9\textwidth}
-            	\begin{#1} ${}$ \vspace*{0.15cm}\\	
+    \hspace{15pt}
+    	\begin{minipage}[t]{\textwidth}
+    	\begin{#1} ~\vspace{1pt} \\
+			\hspace*{15pt} {\vrule width 1pt} \kern2pt
+    		\begin{minipage}[t]{0.7\textwidth}	
                 #2 
-     		\end{#1}
+     		\end{minipage}
+     	\end{#1}
      	\end{minipage}
      \medskip
     }
@@ -152,13 +185,15 @@
     
 \newcommand{\namedtheorem}[3]{
     \newtheorem*{#3}{#1}
-    \hspace{15pt} {\vrule width 1pt} \kern2pt
-    	\begin{minipage}[t]{0.9\textwidth} 
-            \begin{#3} ${}$ \vspace*{0.15cm}\\      
+    \hspace{15pt}
+    	\begin{minipage}[t]{\textwidth}
+    	\begin{#3} ~\vspace{1pt} \\
+			\hspace*{15pt} {\vrule width 1pt} \kern2pt
+    		\begin{minipage}[t]{0.7\textwidth}	
                 #2 
-            \end{#3} 
-        \end{minipage}
-    \medskip
+     		\end{minipage}
+     	\end{#3}
+     	\end{minipage}
     }
 
 \theoremstyle{remark}
@@ -186,9 +221,9 @@
 
 \newcommand{\appli}[4]{
     \left(
-    \begin{array}{ccccc} 
-        & #1 & \longrightarrow & #3 & \\ 
-        & #2 & \longmapsto & #4 &
+    \begin{array}{ccc} 
+        #1 & \longrightarrow & #3 \\ 
+        #2 & \longmapsto & #4
     \end{array}
     \right)
 }
@@ -306,10 +341,8 @@
 
 \noindent
 \titlefont ~\vspace{50pt}\\Mathématiques \\ \hspace*{150pt} Préparatoires II\par
-\epigraph{Ce document est une synthèse du cours de mathématiques dispensé par M. Jean-François \textsc{Mallordy} 
-    en classe préparatoire au lycée Blaise Pascal, Clermont-Ferrand en 2022-2023. Il s'agit d'un complément au cours de Maths Spé 
-    et ne saurait en aucun cas y être un quelconque remplacement !} %
-{\textit{Paris, 2024}}
+\epigraph{\textsl{Les charmes enchanteurs de cette sublime science ne se décèlent dans toute leur beauté qu'à ceux qui ont le courage de l'approfondir}} %
+{Carl Friedrich Gauss\\Quelques années plus tôt}
 \null\vfill
 \vspace*{1cm}
 \noindent
@@ -328,13 +361,42 @@
 \end{titlepage}
 
 \setcounter{tocdepth}{2}
-\renewcommand{\thefootnote}{\fnsymbol{footnote}}
+%\renewcommand{\thefootnote}{\fnsymbol{footnote}}
 \renewcommand{\contentsname}{Table des matières - Deuxième année}
 \setcounter{minitocdepth}{4}
 \renewcommand{\mtctitle}{Contenu}
 \dominitoc
 
+\thispagestyle{empty}
+\vspace*{100pt}
+
+\begin{minipage}[t]{0.8\textwidth}
+
+Ce document est une synthèse du cours de mathématiques dispensé par M. Jean-François Mallordy 
+en classe préparatoire au lycée Blaise Pascal, Clermont-Ferrand en 2022-2023. Il s'agit d'un complément au cours de Maths Spé 
+et ne saurait en aucun cas y être un quelconque remplacement ! \vspace{10pt}\\
+
+\noindent Merci à Kellian pour les heures de discussion et pour sa relecture attentive. \\
+
+\noindent Merci à mes professeurs Laurent Germa et Jean-François Mallordy pour leur enseignement et leur soutient.
+	
+\end{minipage}
+
+\vfill
+
+\begin{flushright}
+	%\includesvg[width = 0.3\linewidth]{../../sig/signatureSVG}
+	\includegraphics[width = 0.4\textwidth]{../../sig/signature.jpg}
+	\vskip 20pt
+	\textit{
+	Paris, 2024
+	}
+\end{flushright}
+
+\vfill
+
 \shorttoc{Chapitres}{0}
+\thispagestyle{empty}
 
 \theoremstyle{plain}
 
@@ -342,27 +404,32 @@
 %                          DOCUMENT START
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\setcounter{chapter}{21}
+%\setcounter{chapter}{21}
 
 \chapter{Suites et séries}
+	\thispagestyle{empty}
 
     \input{../2_chapitres/ch2_1_fr}
 
 \chapter{Limites et continuité}
+	\thispagestyle{empty}
 
     \input{../2_chapitres/ch2_2_fr.tex}
 
 \chapter{Dérivation et intégration}
+	\thispagestyle{empty}
 
     \input{../2_chapitres/ch2_3_fr}
 
 \chapter{Suites de fonctions}
+	\thispagestyle{empty}
 
     \input{../2_chapitres/ch2_4_fr}
     
-% \chapter{Intégrales généralisées}
+\chapter{Intégrales généralisées}
+	\thispagestyle{empty}
 
-%     \input{../2_chapitres/ch2_5_fr}
+    \input{../2_chapitres/ch2_5_fr}
         
 % \chapter{Intégrales paramétrées}
 
