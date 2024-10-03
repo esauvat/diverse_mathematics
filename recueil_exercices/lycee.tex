@@ -1,0 +1,117 @@
+\documentclass[10pt,a4paper, twoside, openright]{report}
+\usepackage[right = 10em, left = 10em]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage[hidelinks]{hyperref}
+
+\usepackage[sc]{mathpazo}
+\linespread{1.05}         % Palladio needs more leading (space between lines)
+
+\usepackage{calc}
+\usepackage{eso-pic}
+\usepackage{picture}
+\usepackage{xifthen}
+\usepackage{tikz}
+\usepackage{fix-cm}
+\usepackage{eurosym}
+\usepackage{transparent}
+
+\def \titlesize {\fontsize{24}{27pt}}
+
+\definecolor{bannergrey}{cmyk}{0, 0, 0, 0.3}
+
+\usepackage{stmaryrd}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+\usepackage{xfrac}
+
+\begin{document}
+
+\newcommand{\subtitle}[1]{\def \addsubtitle{#1}}
+\subtitle{Recueil d'exercices}
+
+\newcommand{\titlefont}{phv}         % Helvetica is always available, but use
+%\IfFileExists{t1ua1.fd}{\renewcommand{\MNFP@font}{ua1}}{} % Arial if possible.
+	
+	\AddToShipoutPicture*{\coverpage}
+	\pagestyle{empty}
+	\null
+	
+	
+\newcommand{\coverpage}{
+	\put(0 bp, 0 bp)
+    {
+        \includegraphics{../../fancy_tex/cover_fractales_2}
+    }
+    \put(-3 mm, 142 mm)
+    {
+        \begin{tikzpicture}[scale = 1mm]
+            \filldraw[white, opacity = 0.8] 
+                (0, 2.5) rectangle (\paperwidth, 3.73);
+            \filldraw[white, opacity = 0.6] 
+                (0, 0) rectangle (\paperwidth, 2.5);
+            \filldraw[bannergrey, opacity = 0.7] 
+                (0, 0) rectangle (\paperwidth, 2.5);
+        \end{tikzpicture}
+    }
+	
+	\newlength{\titlelength}
+    
+    \def\titlepos{42.4 mm}
+    	\setlength{\titlelength}
+                {\paperwidth - 19 mm - \titlepos} 
+    
+    \put(\titlepos - 3cm, 218.5mm)
+    {
+    	\includegraphics[width = 2.2cm]{../../fancy_tex/arbre_maths}
+    }
+    
+    \put(\titlepos, 141.5 mm)
+    {
+    	\vbox to 8.5cm
+    	{
+    		\hsize = \titlelength
+                \raggedright
+ 			
+
+      		\textsc{\LARGE Lycée - Entrainement prépa}
+
+      		
+      		\vskip 1.9cm
+      		
+    		\Huge \textbf{\uppercase{Recueil d'exercices et applications mathématiques}}
+    		
+    		\vskip 1cm
+    		
+    		Émile Sauvat \hfill \the\year
+      	}
+	}
+}
+
+% --------------------------------------------------------------------- %
+%								DOCUMENT								%
+% --------------------------------------------------------------------- %
+
+\setcounter{tocdepth}{0}
+	\tableofcontents
+
+
+
+\part{Seconde}
+
+
+
+\part{Première}
+
+    \input{lycee_premiere.tex}
+
+
+\part{Terminale}
+
+	\input{lycee_terminale.tex}
+
+
+\end{document}
