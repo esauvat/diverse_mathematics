@@ -2,438 +2,547 @@
 % Chapitre 8 : Algèbre
 
 \minitoc
-	\section{Groupe}
+
+\section{Groupe}
+	
 	\subsection{Définitions}
+		
 		\traitd
 		\paragraph{Groupe}
-			Le couple $(G,\ast)$ est dit \uline{groupe} si $G$ est un ensemble et \\
-			\hspace*{1cm} $\ard $ {\scriptsize (1)} $\ast$ est une loi de composition interne sur $G$ {\tiny (i.e. une application de $G\times G$ dans $G$)} $ \\ $
-			{\scriptsize (2)} $\ast$ est associative {\tiny (i.e. $\forall (x,y,z) \in G^3 ,~(x\ast y)\ast z = x\ast (y\ast z)$)} $ \\ $ 
-			{\scriptsize (3)} Il existe dans $G$ un élément neutre pour la loi $\ast$ {\tiny (i.e. $\exists e\in G $ tq $\forall x\in G ,~x\ast e = e\ast x = x$)} 
-			$ \\ $ {\scriptsize (4)} Tout élément de $G$ admet un symétrique pour la loi $\ast$ {\tiny (i.e. $\forall x\in G ,~ \exists x'\in G$ tq $x\ast x' = x'\ast x = e$)} $ \arf $ \vspace*{0.2cm}\trait  ${}$ \vspace*{-1.5cm} \\ \traitd 
+			Le couple $(G,\ast)$ est dit \emph{groupe} si $G$ est un ensemble et 
+			\begin{itemize}
+				\item $\ast$ est une loi de composition interne sur $G$ {\footnotesize (i.e. une application de $G\times G$ dans $G$)}
+				\item $\ast$ est associative {\footnotesize (i.e. $\forall (x,y,z) \in G^3 ,~(x\ast y)\ast z = x\ast (y\ast z)$)}
+				\item Il existe dans $G$ un élément neutre pour la loi $\ast$ {\footnotesize (i.e. $\exists e\in G $ tq $\forall x\in G ,~x\ast e = e\ast x = x$)}
+				\item Tout élément de $G$ admet un symétrique pour la loi $\ast$ {\footnotesize (i.e. $\forall x\in G ,~ \exists x'\in G$ tq $x\ast x' = x'\ast x = e$)}
+			\end{itemize}
+		\traitdouble 
 		\paragraph{Groupe abélien}
-			Le groupe $(G,\ast)$ est dit \uline{abélien} ou \uline{commutatif} si $\ast$ est commutative\\
-			i.e. si $\forall (x,y) \in G^2 ,~x\ast y = y\ast x$ \trait
-		\thm{ch8L1}{Lemme}{NeutreInvUnique}{Soit $(G,\ast)$ un groupe \\
-		\hspace*{0.5cm} $\ard $ \un Le neutre est unique$ \\ $ \deux $\forall x\in G, ~x$ admet un unique élément neutre dans $G$. On le note $x^{-1} \\ $ \trois $\forall (x,y)\in G^2$, \highlight{$(x\ast y)^{-1} = y^{-1} \ast x^{-1}$} $\arf $ } \\ \traitd
+			Le groupe $(G,\ast)$ est dit \emph{abélien} ou \emph{commutatif} si $\ast$ est commutative, i.e. si $\forall (x,y) \in G^2 ,~x\ast y = y\ast x$ 
+		\trait
+		
+		\theorem{lem}{
+			Soit $(G,\ast)$ un groupe,
+			\begin{itemize}
+				\item Le neutre est unique.
+				\item $\forall x\in G, ~x$ admet un unique élément neutre dans $G$. On le note $x^{-1}$.
+				\item $\forall (x,y)\in G^2$, \highlight{$(x\ast y)^{-1} = y^{-1} \ast x^{-1}$}
+			\end{itemize}
+		}
+		
+		\traitd
 		\paragraph{Groupe produit}
-			Soit $r\in \N^* ,~(G_1,\ast_1),\dots ,(G_r,\ast_r)$ des groupe. Soit $G = G_1\times \cdots \times G_r$\\
+			Soient $r\in \N^* ,~(G_1,\ast_1),\dots ,(G_r,\ast_r)$ des groupes. Soit $G = G_1\times \cdots \times G_r$\\
 			On pose $\ast ~\appli{G\times G}{\big((x_1,\dots ,x_r),(y_1,\dots,y_r)\big)}{G}{\big( x_1\ast_1 y_1 ,\dots , x_r\ast_ry_r\big)}$\\
-			Alors \uline{$(G,\ast)$} est un groupe dit \uline{groupe produit des $G_i$} \trait ${}$ \vspace*{-1.5cm} \\ \traitd 
+			Alors \emph{$(G,\ast)$} est un groupe dit \emph{groupe produit des $G_i$}
+		\traitdouble
 		\paragraph{Itérés}
-			$(G,\ast)$ un groupe quelconque et $x\in G$, on définit les \uline{itérés de $x$ pour la loi $\ast$}\\
+			$(G,\ast)$ un groupe quelconque et $x\in G$, on définit les \emph{itérés de $x$ pour la loi $\ast$}\\
 			\hspace*{2cm} $\bullet ~\forall n\in\N^*$, on pose $x^n = \underbrace{x\ast\cdots \ast x}_{n~fois}$ \\
 			\hspace*{2cm} $\bullet$ Pour $n=0$, on pose $x^0=e$ neutre par convention.\\
-			\hspace*{2cm} $\bullet$ Pour $n=-m$ avec $m\in\N^*$ on pose $x^n = \underbrace{(x^{-1})\ast\cdots\ast (x^{-1})}_{m~fois}$ \trait \newpage
+			\hspace*{2cm} $\bullet$ Pour $n=-m$ avec $m\in\N^*$ on pose $x^n = \underbrace{(x^{-1})\ast\cdots\ast (x^{-1})}_{m~fois}$ 
+		\trait \medskip
+		
+		
 	\subsection{Sous-groupe}
+	
+		\vspace{-15pt}	
 		\traitd
 		\paragraph{Définition}
-			Soit $(G,\ast)$ un groupe et $H\subset G$ une partie quelconque de $G$ \\
-			On dit que $H$ est un sous-groupe de $(G,\ast)$ si $~\ard $ \un $H$ est stable par $\ast \\ $ \deux $H$ est un groupe pour la loi induite par $\ast \arf$ \trait
-		\thm{ch8th1}{Théorème : CNS1 de sous-groupe}{CNS1SG}{$(G,÷ast)$ un groupe et $H\subset G$ \\
-		Alors $H$ est un sous-groupe de $(G,\ast) ~ \Leftrightarrow  \left\{\ard $ \un $e\in G \\ $ \deux $\forall x\in H ,~x^{-1}\in H \\ $ \trois $\forall (x,y)\in H^2,~x\ast y\in H \arf \right.$ }
+			Soit $(G,\ast)$ un groupe et $H\subset G$ une partie quelconque de $G$. On dit que $H$ est un sous-groupe de $(G,\ast)$ si 
+			\begin{itemize}
+				\item $H$ est stable par $\ast$.
+				\item $H$ est un groupe pour la loi induite par $\ast$.
+			\end{itemize}
+		\trait
+		
+		\namedtheorem{Théorème : CNS1 de sous-groupe}{
+			Soit $(G,\ast)$ un groupe et $H\subset G$ \\
+			Alors $H$ est un sous-groupe de $(G,\ast)$ si et seulement si 
+			\begin{itemize}
+				\item $e\in G$
+				\item $\forall x\in H ,~x^{-1}\in H$
+				\item $\forall (x,y)\in H^2,~x\ast y\in H$
+			\end{itemize}
+		}{CNS1SG}
+		
 		\begin{proof}
 		Vu en \textsc{mpsi}
-		\end{proof}
-		${}$ \\ \thm{ch8th2}{Théorème : CNS2 de sous-groupe}{CNS2SG}{$(G,\ast)$ un groupe et $H\subset G$\\
-		Alors $H$ est un sous-groupe de $(G,\ast) ~\Leftrightarrow\left\{\ard $ \un $e\in H \\ $ \deux $\forall (x,y)\in H,~x\ast y^{-1} \in H \arf\right. $}
+		\end{proof} \medskip
+		
+		\namedtheorem{Théorème : CNS2 de sous-groupe}{
+			Soit $(G,\ast)$ un groupe et $H\subset G$\\
+			Alors $H$ est un sous-groupe de $(G,\ast)$ si et seulement si
+			\begin{itemize}
+				\item $e\in H$
+				\item $\forall (x,y)\in H,~x\ast y^{-1} \in H$
+			\end{itemize}
+		}{CNS2SG}
+		
 		\begin{proof}
 		Vu en \textsc{mpsi}
-		\end{proof}
+		\end{proof} \medskip
+		
 		\textsc{Attention} : Dans certains groupes abéliens, on note $+$ la loi $\ast$. Ainsi $x\ast y$ devient $x+y$, $e$ devient $0$ et $x^{-1}$ devient $-x$.\\
+		
 		La CNS2 devient \fbox{$H$ sous-groupe $\Leftrightarrow$ $\left\{\ard 0\in H \\ x-y \in H \arf \right.$}\\
-		En notation additive, l'itéré $n$-ième de $x$ se note $nx$.
-		\vspace*{0.5cm} \\ \thm{ch8th3}{Théorème}{SGZ}{Les sous-groupes de $\Z$ sont exactement les $n\Z$, où $n\in\N$}
+		
+		\remarque{En notation additive, l'itéré $n$-ième de $x$ se note $nx$.}
+		
+		\theorem{thm}{
+			Les sous-groupes de $\Z$ sont exactement les $n\Z$, où $n\in\N$
+		}
+		
 		\begin{proof} ${}$ \\
 		$\bullet$ $\forall n\in\N ,~n\Z$ est un sous-groupe de $(\Z,+)$ (CNS)\\
 		$\bullet$ Soit $H$ un sous-groupe de $\Z$, $0\in H$\\
 		$~~\star $ Si $H=\{0\}$ alors $H=0\Z$\\
-		$~~\star$ Sinon on considère $n=\min (H\cap\Z_+^*)$ partie $\neq \emptyset$ de $\N$. \\ $~~$ On a alors $n\Z\subset H$ et inversement $H\subset n\Z$ par division euclidienne et caractère minimal de $n$.
-		\end{proof}
-		${}$ \\ \thm{ch8L2}{Lemme}{IntersectSG}{Toute intersection de sous-groupes de $G$ (même infinie) est un sous-groupe de $G$}
-		\textsc{Attention !}  C'est faux avec une "réunion" !! \\
-		\traitd \vspace*{0.3cm}\thm{ch8th4}{Théorème-Sous-groupe engendré}{SGEngendre}{Soit $(G,\ast)$ un groupe quelconque et $A\subset G$ une partie quelconque.\\
-		Il existe un plus petit sous-groupe de $G$ contenant $A$\\
-		On l'appelle \uline{sous-groupe engendré par $A$, noté $<A>$}} \vspace*{0.15cm} \trait 
-		\vspace*{-1.2cm} 
+		$~~\star$ Sinon on considère $n=\min (H\cap\Z_+^*)$ partie $\neq \varnothing$ de $\N$. \\ $~~$ On a alors $n\Z\subset H$ et inversement $H\subset n\Z$ par division euclidienne et caractère minimal de $n$.
+		\end{proof} \medskip
+		
+		\theorem{lem}{
+			Toute intersection de sous-groupes de $G$ (même infinie) est un sous-groupe de $G$.
+		}
+		
+		\textsc{Attention !}  C'est faux avec une "réunion" !!
+		
+		\traitd \medskip
+		\namedtheorem{Théorème : Sous-groupe engendré}{
+			Soit $(G,\ast)$ un groupe quelconque et $A\subset G$ une partie quelconque.\\
+			Il existe un plus petit sous-groupe de $G$ contenant $A$\\
+			On l'appelle \emph{sous-groupe engendré par $A$, noté $<A>$}
+		}{SGEngendre}
+		\trait 
+		 
 		\begin{proof}
-		En notant $\mathcal{F}$ l'ensemble des sous-groupes de $G$ contenants $A$, on peut vérifier que \\ $H_0 = \bigcap\limits_{H\in \mathcal{F}} H$ est un sous-groupe de $G$ convenant à la définition.
-		\end{proof} \newpage
+		En notant $\mathcal{F}$ l'ensemble des sous-groupes de $G$ contenants $A$, on peut vérifier que $H_0 = \bigcap\limits_{H\in \mathcal{F}} H$ est un sous-groupe de $G$ convenant à la définition.
+		\end{proof} \medskip
+		
+		
 	\subsection{Morphismes de groupes}
+		
+		\vspace{-15pt}
 		\traitd
 		\paragraph{Morphisme}
 			Soient $(G,\ast)$ et $(H,\cdot)$ des groupes.\\
-			On appelle \uline{morphisme de groupe de $G$ dans $H$} toute application $f : G\rightarrow H$ telle que \begin{center}
-			$\cm{\forall (x,y)\in G^2 }$, \highlight{$\cm{f(x\ast y) = f(x)\cdot f(y)}$} \end{center}\trait
-		\thm{ch8L3}{Lemme}{CompoMorph}{La composée de 2 morphismes de groupes est un morphisme de groupe.}
-		\vspace*{0.5cm} \\ \thm{ch8L4}{Lemme}{InvNeutreMorph}{Soit $f:G\to H$ un morphisme de groupes.\\
-		On note $e$ l'élément neutre de $G$ et $\varepsilon$ celui de $H$ alors \\
-		\hspace*{0.5cm} $\ard $ \un $f(e) = \varepsilon \\ $ \deux $\forall x\in G,~f(x^{-1}) = (f(x))^{-1} \\ $ \trois $\forall x\in G,~ \forall n\in \Z ,~ f(x^n) = (f(x))^n \arf$ }
-		\vspace*{0.5cm} \\ \thm{ch8L5}{Lemme}{ImgSG}{Soit $f:G\to H$ un morphisme de groupes alors \\
-		\hspace*{0.5cm} $\ard $ \un $\forall S$ sous-groupe de $G$, $f(S)$ est un sous-groupe de $H \\ $ 
-		\deux $ \forall S$ sous-groupe de $H$, $f^{-1}(S)$ est un sous-groupe de $G \arf$ }
-		\\ \uline{En particulier},\\ si $f:G\to H$ est un morphisme, $\Img f$ et $\ker f$ sont des sous-groupes respectifs de $H$ et $G$.
-		\vspace*{0.5cm} \\ \thm{ch8th5}{Théorème}{CNSMorphInj}{Soit $f:G\to H$ un morphisme de groupes.\\
-		\hspace*{0.5cm} Alors $f$ est injectif $\Leftrightarrow$ $\ker f = \{e\} $ {\scriptsize ($\Leftrightarrow \ker f \subset \{e\}$)} }
+			On appelle \emph{morphisme de groupe de $G$ dans $H$} toute application $f : G\rightarrow H$ telle que 
+			\begin{center}
+				$\displaystyle \forall (x,y)\in G^2 $, \highlight{$\displaystyle f(x\ast y) = f(x)\cdot f(y)$} 
+			\end{center}
+		\trait
+		
+		\theorem{lem}{
+			La composée de 2 morphismes de groupes est un morphisme de groupe.
+		} \medskip
+		
+		\theorem{lem}{
+			Soit $f:G\to H$ un morphisme de groupes.\\
+			On note $e$ l'élément neutre de $G$ et $\varepsilon$ celui de $H$ alors
+			\begin{itemize}
+				\item $f(e) = \varepsilon$
+				\item $\forall x\in G,~f(x^{-1}) = (f(x))^{-1}$
+				\item $\forall x\in G,~ \forall n\in \Z ,~ f(x^n) = (f(x))^n$
+			\end{itemize} 
+		} \medskip
+		
+		\theorem{lem}{
+			Soit $f:G\to H$ un morphisme de groupes alors
+			\begin{itemize}
+				\item $\forall S$ un sous-groupe de $G$, $f(S)$ est un sous-groupe de $H$
+				\item $\forall S$ sous-groupe de $H$, $f^{-1}(S)$ est un sous-groupe de $G$
+			\end{itemize}
+		}
+		
+		\remarque{En particulier, si $f:G\to H$ est un morphisme, $\Img f$ et $\ker f$ sont des sous-groupes respectifs de $H$ et $G$.}
+		
+		\theorem{thm}{
+			Soit $f:G\to H$ un morphisme de groupes, alors $f$ est injectif $\Leftrightarrow$ $\ker f = \{e\} $ {\scriptsize ($\Leftrightarrow \ker f \subset \{e\}$)} 
+		}
+		
 		\begin{proof} ${}$\\
 		\fbox{$\Rightarrow$} Supposons $f$ injectif, soit $x\in \ker f$ alors $f(x) = \varepsilon = f(e)$ donc $x=e$\\
 		\fbox{$\Leftarrow$} Si $\ker f \subset\{e\}$, soit $x,y\in G$ tels que $f(x)=f(y)$ alors $f(x)(f(y))^{-1} = \varepsilon = f(xy^{-1})$ donc $xy^{-1} = e$ puis $xy^{-1}y=ey$ soit $x=y$ ainsi $f$ est injectif.
-		\end{proof} ${}$ \traitd
+		\end{proof} \medskip 
+		
+		\traitd
 		\paragraph{Isomorphisme}
-			Un \uline{isomorphisme de groupe} est un morphisme de groupes bijectif \trait
-		\thm{ch8L6}{Lemme}{RecipIsomorph}{La réciproque d'un isomorphisme est un isomorphisme.}
+			Un \emph{isomorphisme de groupe} est un morphisme de groupes bijectif. 
+		\trait
+		
+		\theorem{lem}{
+			La réciproque d'un isomorphisme est un isomorphisme.
+		} \medskip
+		
+		
 	\subsection{Quotient et loi quotient}
-		On considère $E$ un ensemble \\ $\mathcal{R}$ une relation d'équivalence sur $E$ \\$\ast$ une loi de composition interne sur $E$\vspace*{0.2cm} \\
-		Pour $x\in E$, soit $cl(x)=\{y\in E ~;~ x\mathcal{R} y\}$ notée aussi $\tilde{x}$, $x$ est dit représentant de sa classe.\\
-		On note $\sfrac{E}{\mathcal{R}} = \{ \tilde{x} ~;~x\in E\}$ ensemble quotient de $E$ par $\mathcal{R}$ \vspace*{0.3cm} \\
-		On aimerait définir une loi interne $\circledast$ sur $\sfrac{E}{\mathcal{R}}$ de telle sorte que $\forall (x,y)\in E^2 ,~ \tilde{x}\circledast\tilde{y} \Rightarrow \widetilde{x\ast y}$\\
-		On est alors tenté de poser $\circledast ~\appli{ \sfrac{E}{\mathcal{R}}\times\sfrac{E}{\mathcal{R}}}{(X,Y)}{\sfrac{E}{\mathcal{R}}}{\widetilde{x\ast y}}$ où $\tilde{x} = X$ et $\tilde{y}=Y$\\
-		On a alors un problème de \textbf{bien-fondé}, en effet : si $\tilde{x} =X=\tilde{x'}$ et $\tilde{y}=Y=\tilde{y'}$ on a en général $\widetilde{x\ast y}\neq \widetilde{x'\ast y'}$ \\ \traitd
+	
+		On considère $E$ un ensemble. \\ 
+		Soit $\mathcal{R}$ une relation d'équivalence sur $E$ et $\ast$ une loi de composition interne sur $E$. \\
+		
+		Pour $x\in E$, on note $cl(x)=\{y\in E ~;~ x\mathcal{R} y\}$ notée aussi $\tilde{x}$ la classe d'équivalence de $x$, qui est dit représentant de sa classe. On note alors $\sfrac{E}{\mathcal{R}} = \{ \tilde{x} ~;~x\in E\}$ l'ensemble quotient de $E$ par $\mathcal{R}$. \\
+		
+		On aimerait définir une loi interne $\circledast$ sur $\sfrac{E}{\mathcal{R}}$ de telle sorte que $\forall (x,y)\in E^2 ,~ \tilde{x}\circledast\tilde{y} \Rightarrow \widetilde{x\ast y}$. On est alors tentés de poser 
+		\[ 
+			\circledast ~\appli{ \sfrac{E}{\mathcal{R}}\times\sfrac{E}{\mathcal{R}}}{(X,Y)}{\sfrac{E}{\mathcal{R}}}{\widetilde{x\ast y}}
+		\] 
+		où $\tilde{x} = X$ et $\tilde{y}=Y$.\\
+		
+		On a alors un problème de \textbf{bien-fondé}, en effet : si $\tilde{x} =X=\tilde{x'}$ et $\tilde{y}=Y=\tilde{y'}$ on a en général $\widetilde{x\ast y}\neq \widetilde{x'\ast y'}$.
+		
+		\traitd
 		\paragraph{Compatibilité}
-			La relation d'équivalence $\mathcal{R}$ est dite \uline{compatible avec la loi $\ast$} si 
-			\[ \forall x,x',y,y' \in E ,~(x\mathcal{R} x' ~\mathbf{et}~y\mathcal{R} y') \Rightarrow x\ast y \mathcal{R} x'\ast y' \] \trait
-		\vspace*{-1.1cm} \\ 
-		Dans ce cas, on a l'application souhaitée, $\circledast$ est alors une loi interne sur $\sfrac{E}{\mathcal{R}}$, dite \uline{loi quotient}.\\
+			La relation d'équivalence $\mathcal{R}$ est dite \emph{compatible avec la loi $\ast$} si 
+			\[ 
+				\forall x,x',y,y' \in E ,~(x\mathcal{R} x' ~\mathbf{et}~y\mathcal{R} y') \Rightarrow x\ast y \mathcal{R} x'\ast y' 
+			\vspace{-25pt}
+			\] 
+		\trait
+		
+		On a dans ce cas bien l'application souhaitée, $\circledast$ est alors une loi interne sur $\sfrac{E}{\mathcal{R}}$, dite \emph{loi quotient}. \medskip
+		
+		
 	\subsection{Le groupe $(\sfrac{\Z}{n\Z})$}
-		Soit $n\in \Z$, on considère sur $\Z$ la relation $\mathcal{R}$ de congruence modulo $n$ 
-		\\$\forall (a,b)\in \Z^2,~ a\mathcal{R} b \Leftrightarrow a-b\in n\Z \Leftrightarrow n\mid a-b$) notée $a\equiv b[n]$ \vspace*{0.2cm} \\
-		$\mathcal{R}$ est une relation d'équivalence sur $\Z$ (exo) compatible avec les lois $+$ et $\times$. 
-		$\sfrac{E}{\mathcal{R}}$ est alors noté $\sfrac{\Z}{n\Z}$ qu'on muni des lois toujours notées abusivement $+$ et $\times$ telles que 
-		$\forall (a,b)\in \Z^2,~ \tilde{a}+\tilde{b} = \widetilde{a+b}$ et $\tilde{a} \times\tilde{b} = \widetilde{ab}$
-		\vspace*{0.5cm} \\ \thm{ch8L7}{Lemme}{ZnZGroupe}{$(\sfrac{\Z}{n\Z},+)$ est un groupe abélien de neutre $\tilde{0}$}
-		\\ Si $n=0$, $a\equiv b[0] \Leftrightarrow a=b$ donc $\tilde{a}=\{a\}$. $\sfrac{\Z}{0/Z}$ est isomorphe à $(/Z,+)$ \vspace*{0.3cm} \\
-		\uline{Désormais, on considère $n\in \N^*$}
-		\vspace*{0.5cm} \\ \thm{ch8L8}{Lemme}{EcritZnZ}{Soit $n\in \N^*$, alors \\
-		\hspace*{0.5cm} $\ard $ \un $\sfrac{\Z}{n\Z} = \{\tilde{0},\tilde{1},\dots , \widetilde{n-1} \} \\ $ \deux 
-		$\forall p\in \N^*,~\sfrac{\Z}{n\Z} = \{ \tilde{p},\widetilde{p+1},\dots , \widetilde{p+n-1} \} \\ $ \trois 
-		$\mathrm{card}\sfrac{\Z}{n\Z} = n \arf$ }
-		\vspace*{0.5cm} \\ \thm{ch8L9}{Lemme}{ItéréZnZ}{Soit $n\in \N^*,~k\in Z$ alors $k.\tilde{1} = \tilde{k}\in \sfrac{\Z}{n\Z}$} \\ \traitd
-		\paragraph{Groupe monogène - cyclique}
-			Un groupe $G$ est dit \uline{monogène} s'il existe $a\in G$ tel que $G=<a>$. Un tel $a$ est dit \uline{générateur de $G$}.\\
-			\hspace*{0.5cm} Un groupe est dit \uline{cyclique} s'il est monogène et fini. \trait
-		\vspace*{-1.1cm} \\ $\forall n\in  \N^* ,~ \sfrac{\Z}{n/Z}$ est cyclique ( $ \sfrac{\Z}{n\Z} = \{k\tilde{1} ~;~k\in Z\} = \{k\tilde{1} ~;~ k\in \ent{0,n-1}\} = <\tilde{1}>$
-		\vspace*{0.5cm} \\ \thm{ch8th6}{Théorème}{GeneZnZ}{Soit $n\in\N^*,~k\in \Z$ \\
-		\hspace*{0.5cm} Alors $\tilde{k}$ est générateur de $\sfrac{\Z}{n\Z}$ $\Leftrightarrow $ $k\wedge n =1$\\
-		L'ensemble des générateurs de $\sfrac{\Z}{n\Z}$ est $\{\tilde{k} ~;~k\in \ent{1,n-1} ,~ k\wedge n=1\}$\\
-		On définit alors $\varphi$ l'\uline{indicatrice d'\textsc{Euler}}\\
-		\hspace*{2cm} \highlight{$\varphi (n) = \mathrm{card} \{ k\in\ent{1,n-1} ~;~k\wedge n=1\}$ } }
-		\begin{proof}
-		Soit $k\in \Z$, 
-		$k$ est générateur de $\sfrac{\Z}{n\Z} \Leftrightarrow <\tilde{k}> = \sfrac{\Z}{n\Z} \\
-		\Leftrightarrow \tilde{1} \in <\tilde{k}> \Leftrightarrow \exists u\in \Z$ tel que $\tilde{1}=u\tilde{k} 
-		\Leftrightarrow \exists u\in \Z$ tel que $\exists v\in \Z$ tel que $1-uk = vn$\\
-		$\Leftrightarrow \exists (u,v)\in\Z^2$ tel que $uk+vn=1 \Leftrightarrow k\wedge n=1$ (Théorème de \textsc{Bézout} $\heartsuit$)
-		\end{proof} ${}$ \traitd
-		\paragraph{Ordre d'un groupe, d'un élément} ${}$ \\
-			On appelle \uline{ordre d'un groupe fini} son cardinal.\\
-			Soit $G$ un groupe quelconque, $a\in G$. On dit que $a$ est d'ordre fini si $<a>$ est fini. Dans ce cas, on appelle \uline{ordre de $a$} l'ordre de $<a>$ 
-			\trait
-		\thm{ch8th7}{Théorème}{OrdreDivake}{Soit $G$ un groupe quelconque, de neutre $e$. Soit $a\in G$ d'ordre fini $d\in \N^*$\\
-		\hspace*{2cm} Alors $\forall k\in \Z$, \highlight{$a^k=e \Leftrightarrow k\in d\Z$} $\heartsuit$ }
-		\begin{proof}
-		Posons $\varphi ~\appli{(\Z,+)}{k}{<a>}{a^k}$, c'est un morphisme de groupe surjectif, on a alors $\ker \varphi$ sous-groupe de $(/Z,+)$ soit donc $n\in\N$ tel que $\ker\varphi = n\Z$.\\
-		Soit alors $\tilde{\varphi} ~\appli{(\sfrac{\Z}{n\Z},+)}{\tilde{k}}{<a>}{a^k}$ bien définit car $a^k$ est indépendant du choix de $k$ dans sa classe vu $a^{h.n} = e$. $\tilde{\varphi}$ est alors un morphisme surjectif et injectif ($\ker \tilde{\varphi} \subset \{\tilde{0} \}$)\\
-		$\tilde{\varphi}$ est un isomorphisme de groupes donc $<a>$ est fini d'ordre $n=d$ et on a \textsc{cqfd}
-		\end{proof}
-	\section{Anneaux et Corps}
-	\subsection{Définitions}
-		\traitd
-		\paragraph{Anneau} ${}$ \\
-			On appelle \uline{anneau} le triplet \highlight{$(A,+,\cdot)$} où $\ard $
-			{\scriptsize (1)} $(A,+)$ est un groupe abélien $ \\ $
-			{\scriptsize (2)} $\left\{\ard \rightarrow$ $\cdot$ est une loi interne sur $A \\ \rightarrow $ $\cdot$ est associative $\\ \rightarrow$ $\cdot$ admet un élément neutre$ \arf \right. $ $ \\ $
-			{\scriptsize (3)} $\cdot$ est distributive sur $+$ $\arf$ \vspace*{0.2cm}\trait\vspace*{-1.1cm}\\
-			-> Le neutre de $(A,+)$ est appelé élément nul et est noté $0_A$\\
-			-> Le neutre de $(A,\cdot)$ est appelé unité et est noté $1_A$
-			\traitd
-		\paragraph{Anneau commutatif}
-			Un anneau est dit commutatif si la loi $\cdot$ est commutative. \trait ${}$ \vspace*{-1.5cm} \\ \traitd 
-		\paragraph{Anneau trivial}
-			Un anneau est dit trivial s'il est réduit à un seul élément. \trait
-		\vspace*{-1.1cm} \\ \textsc{Attention !} Dans un anneau, $a.b \nRightarrow a=0$ ou $b=0$ !!
-		\traitd
-		\paragraph{Anneau produit}
-			Soit $A_1,\dots ,A_r$ des anneaux,\\
-			On muni $A_1\times \cdots \times A_r$ d'une loi $+$ et d'une loi $\cdot$ en posant\\
-		$(a_1,\dots ,a_r)+(b_1,\dots ,b_r) = (a_1+_1b_1 ,\dots , a_r+_rb_r)$ et $(a_1,\dots ,a_r).(b_1,\dots ,b_r) = (a_1._1b_1 , \dots , a_r._rb_r)$\\
-			On obtient alors un anneau $A$ $\left\{\ard $ de nul $0=(0,\dots ,0) \\ $ d'unité $1=(1,\dots ,1) \arf \right.$  , on l'appelle \uline{anneau produit}. \trait
-			${}$ \vspace*{-1.5cm} \\ \traitd 
-		\paragraph{Anneau intègre} $\heartsuit$ 
-			Un anneau est dit intègre s'il est commutatif, non trivial et \[ \forall (a,b)\in A^2 ,~a.b=0 ~\Rightarrow ~ a=0 ~\mathrm{ou} ~b=0 \] \trait 
-			${}$ \vspace*{-1.5cm} \\ \traitd 
-		\paragraph{Inversibilité}
-			Soit $A$ un anneau, $a\in A$ est dit inversible s'il existe $b\in A$ tel que $a.b=1$ et $b.a=1$ . Un tell $b$ est unique, on le note $a^{-1}$ \trait
-		\vspace*{-1.1cm} \\ On notera \highlight{$A^* = \{a\in A~ ; ~ a$ est inversible $\}$}
-		\vspace*{0.5cm} \\ \thm{ch8L12}{Lemme}{GrInv}{$(A^* ,\cdot)$ est un groupe, dit \uline{groupe des inversible} de $A$ }
-		\\ \traitd
-		\paragraph{Corps}
-			On appelle \uline{corps} tout anneau commutatif, non trivial dans lequel tout élément non nul est inversible. \trait
-		\vspace*{-1.1cm} \\ \uline{Rq :} Si $K$ est un corps, $K^* = K\backslash\{0\}$. Inversement, si $K$ est un anneau commutatif avec $K^*=K\backslash\{0\}$ alors $K$ est un corps.
-		\vspace*{0.5cm} \\ \thm{ch8L13}{Lemme}{CrpsInt}{Tout corps est intègre.}
-		\vspace*{0.5cm} \\ \thm{ch8th10}{Théorème}{Z/nZAnneau}{$( \qznz,+,\times )$ est un anneau commutatif de nul $\tilde{0}$ et d'unité $\tilde{1}$}
-		\begin{proof}
-		Simple vérification.
-		\end{proof}
-		\textsc{Attention !} $\qznz$ est en général non trivial !!
-		\vspace*{0.5cm} \\ \thm{ch8th11}{Théorème}{InvZnZ}{Soit $n\in\N^*$, les inversibles de $\qznz$ sont exactement les générateurs du \\groupe additif $\qznz$, donc $\forall k\in\Z ,~\tilde{k}$ inversible dans $\qznz \Leftrightarrow k\wedge n = 1$ \\
-		Ainsi $( \qznz )^* = \{ \tilde{k} \in\qznz ~; ~k\wedge n=1\}$ de cardinal $\varphi(n) $}
-		\begin{proof}
-		Soit $k\in\Z ,$ \\ $ \tilde{k}\in \big(\qznz)^* \Leftrightarrow \exists j\in\Z$ tel que $kj\equiv 1[n] \Leftrightarrow \exists j\in\Z ,~\exists h\in\Z$ tels que $1=kj +nh$\\
-		$\Leftrightarrow k\wedge n = 1$ par le théorème de \textsc{Bézout} puis le reste en découle.
-		\end{proof}
-		${}$ \\ \thm{ch8th11c}{Corollaire}{Z/nZCorps}{$\qznz$ est un corps $\Leftrightarrow$ $n$ est premier.}
-		\\ $\forall p$ premier, le corps $\qznz$ est noté $\mathds{F}_p$
-		\vspace*{0.5cm} \\ \thm{ch8th12}{Théorème d'\textsc{Euler}}{ThEuler}{Soit $n\in\N^*$, $a\in\Z$ tel que $a\wedge n=1$ alors $a^{\varphi(n)} \equiv 1[n]$}
-		\begin{proof}
-		$\tilde{a} \in (\Z/n\Z)^*$ de cardinal $\varphi(n)$ et l'ordre de $\tilde{a}$ divise $\varphi(n)$ donc $\tilde{a}^{\varphi(n)}=\tilde{1}$
-		\end{proof}
-		${}$ \\ \thm{ch8th12c}{Corollaire : petit Théorème de \textsc{Fermat}}{PetitThFermat}{$\forall p$ premier, $\forall a\in\Z$ tel que $p\nshortmid a$\\
-		\hspace*{1.5cm} \highlight{$\cm{a^{p-1} \equiv 1[n]}$}} \\
-		\uline{NB} : Soit $p$ premier alors $\forall a\in\Z ,~ a^p\equiv a[n]$ , 
-		donc \uline{dans $\mathbb{F}_p$} , $\forall x\in\mathbb{F}_p ,~x^p=x$ 
-	\subsection{Sous-Anneaux et Sous-Corps}
-		\traitd
-		\paragraph{Sous-Anneau}
-			Soit $(a,+,\cdot)$ un anneau et $B\subset A$, on dit que \uline{$B$ est un sous-anneau de $A$} si\\
-			\hspace*{2cm} $\rightarrow$ $B$ est stable par les deux lois\\
-			\hspace*{2cm} $\rightarrow$ $B$ muni des deux lois induites est un anneau de même unité que $A$ \trait
-		\thm{ch8th13}{Théorème}{CNSSousAnneau}{Soit $(A,+,\cdot)$ un anneau et $B\subset A$ alors \\
-		$B$ est un sous-anneau de $A$ $\Leftrightarrow \ard ${\scriptsize (1)} $B$ est un sous-groupe additif de $A \\ ${\scriptsize (2)} $B$ est stable par $\cdot \\ $ {\scriptsize (3)} $1_A \in B \arf $ }
-		\begin{proof}
-		Montrons le sens inverse : \\
-		$B$ est bien stable par les deux lois (par $+$ aussi vu sous-groupe), $1_A$ est l'unité de $B$ par unicité et on vérifie avec les axiomes que $B$ est un anneau pour les lois induites. \\Le sens direct découle de la définition.
-		\end{proof} ${}$ \traitd
-		\paragraph{Sous-Corps}
-			Soit $K$ un corps, $L\subset K$. On dit que \uline{$L$ est un sous-corps de $K$} si \\
-			\hspace*{2cm} $\rightarrow$ $L$ est stable par les deux lois et si \\
-			\hspace*{2cm} $\rightarrow$ $L$ muni des deux lois induites est un corps. \trait
-		\thm{ch8L14}{Lemme}{UnicUnite}{Dans ce cas $1_K=1_L$}
-		\vspace*{0.5cm} \\ \thm{ch8th14}{Théorème}{CNSSousCorps}{Soit $K$ un corps et $L\subset K$ alors \\
-		$L$ est un sous-corps de $K$ $\Leftrightarrow$ $\ard $ {\scriptsize (1)} $L$ est un sous-anneau de $K \\ $ {\scriptsize (2)} $L$ est stable par inversion $ \arf$}
-		\begin{proof}
-		exercice
-		\end{proof}
-	\subsection{Morphismes}
-		\traitd
-		\paragraph{Morphisme d'anneaux}
-			Soient $A,B$ des anneaux et $f:A\to B$, on dit que \uline{$f$ est un morphisme d'anneaux} si \\
-			\hspace*{2cm} $\rightarrow$ $\forall x,y \in A ,~f(x+y)= f(x)+f(y)$\\
-			\hspace*{2cm} $\rightarrow$ $\forall x,y \in A ,~f(xy) = f(x)f(y)$ \\
-			\hspace*{2cm} $\rightarrow$ $f(1_A) = 1_B$  \trait ${}$ \vspace*{-1.5cm} \\ \traitd 
-		\paragraph{Isomorphisme d'anneaux}
-			Un isomorphisme d'anneaux est un morphisme d'anneaux bijectif. \trait
-		\thm{ch8L15}{Lemme}{CompoMorphAnneaux}{$\bullet$ La composée de 2 morphismes d'anneaux est un morphisme d'anneaux \\
-		$\bullet$ La réciproque d'un isomorphisme d'anneaux est un isomorphisme d'anneaux. }
-		\vspace*{0.5cm} \\ \thm{ch8th15}{Théorème Chinois}{ThChinois}{Soient $n,m\in\N^*$ \uline{premiers entre eux} alors \\${}$\\
-		\hspace*{2cm}$\cm{ f ~\left( \begin{array}{ccc}
-		Z/mn\Z & \longrightarrow & \Z/m\Z \times \Z/n\Z \\
-		\tilde{k} & \longmapsto & (\overline{k},\dot{k})
-		\end{array} \right) } $ \\ ${}$ \\
-		est un \uline{isomorphisme d'anneaux}. \\En particulier, $\Z/mn\Z$ est isomorphe à $ \Z/m\Z \times \Z/n\Z $ en tant qu'anneaux, \\ et aussi en tant que groupes additifs.}
-		\begin{proof}
-		$f$ est un morphisme d'anneaux bien défini (exo) \\
-		Soit $\tilde{k}\in \ker f$ on a $f(\tilde{k})=(\overline{0},\dot{0})$ c'est-à-dire $m|k$ et $n|k$ or $m\wedge n=1$ donc par lemme $mn| k$ soit $\tilde{k}=0$
-		Ainsi $\ker f \subset \{0\}$ donc $f$ est bijective.\vspace*{0.2cm}\\
-		Vu l'égalité des cardinaux, $f$ est un isomorphisme d'anneaux.
-		\end{proof}
-		${}$ \\ \thm{ch8th16}{Théorème}{ChinoisMultiple}{Soient $n_1,\dots ,n_r \in \N^*$ \uline{premiers entre eux deux à deux}  alors \\ ${}$ \\
-		\hspace*{2cm} $\cm{\appli{\Z/n_1\cdots n_r\Z}{\tilde{k}}{\Z/n_1\Z \times \cdots \times \Z/n_r\Z}{\big(\overset{\hspace*{0.09cm}\sim_1}{k},\dots ,\overset{\hspace*{0.09cm}\sim_r}{k}\big)} }$ \\${}$\\
-		est un isomorphisme d'anneaux.}
-		\begin{proof}
-		La preuve se fait selon le même schéma avec \[ n_1|k ,\dots , n_r|k ~\Rightarrow ~n_1\times\cdots\times n_r|k \] lorsque $n_1,\dots ,n_r$ sont \uline{premiers entre eux 2 à 2}. \vspace*{0.7cm}
-		\end{proof} 
-		\uline{En pratique} : On suppose $m\wedge n=1$ \\
-		Soient $(x,y)\in\Z^2$ quelconques, alors il existe des $K\in\Z$ tels que $\left\lbrace \ard k\equiv x [m] \\ k\equiv [n] \arf \right.$ \\
-		ces entiers $k$ forment une classe d'équivalence modulo $mn$.\vspace*{0.5cm} 
-		\\ \uline{Pour exhiber un $k$ :}
-		On considère une identité de \textsc{Bézout} $\underbrace{um}_{=k_2} + \underbrace{vn}_{=k_1} =1$ avec $(u,v)\in \Z^2$\\ 
-		On a alors $\left\lbrace \ard k_1\equiv 1[m] \\ k_2\equiv 0[m] \arf \right. $ et $\left\lbrace \ard k_1 \equiv 0 [n] \\ k_2 \equiv 1 [n] \arf \right. ~~$
-		donc $k=x\times k_1 + y\times k_2$ convient. 
-		\vspace*{0.5cm} \\ \thm{ch8L16}{Lemme}{InvProduitAnneaux}{Soient $A,B$ des anneaux quelconques, alors $(A\times B)^* = A^* \times B^*$}
-		\vspace*{0.5cm} \\ \thm{ch8th15c}{Corollaire}{PhiMNPremEntreEux}{Soient $m,n\in\N^*$ tels que $m\wedge n=1$ alors \highlight{$\varphi(m\times n)=\varphi(n)\times\varphi(n)$} $\heartsuit\heartsuit$ }
-		\vspace*{0.5cm} \\ \thm{ch8L17}{Lemme}{PhiPremier}{Soit $p$ un nombre premier, $\alpha\in\N^*$ , alors \fbox{$\varphi(p^{\alpha})= p^{\alpha}-p^{\alpha-1}$} }
-		\vspace*{0.5cm} \\ \thm{ch8th17}{Théorème}{PhiN}{Soit $n\in\N^*$ avec $n=p_1^{\alpha_1} \times \cdots \times p_r^{\alpha_r}$ où $p_1 < \cdots < p_r$ et $\alpha_1,\dots ,\alpha_r \in \N^*$ \\
-		(cette décomposition existe uniquement vu le théorème fondamental de l'arithmétique)\\
-		\hspace*{0.5cm} Alors \highlight{$\varphi(n) = n \times \big(1-\frac{1}{p_1}\big) \times \cdots \times \big( 1-\frac{1}{p_r}\big)$} $\heartsuit\heartsuit$}
-		\begin{proof}
-		On a $\varphi(n) = \prodi{1}{r} \varphi(p_i^{\alpha_i})$ \\
-		par récurrence en appliquant le corollaire précédant vu $\forall i\neq j ,~ p_i^{\alpha_i}\wedge p_j^{\alpha_j} = 1$ \\
-		 Donc $\varphi(n) = \prodi{1}{r} (p_i^{\alpha_i} - p_i^{\alpha_i-1}) = \prodi{1}{r} p_i^{\alpha_i} \big(1-\frac{1}{p_i} \big) = n\prodi{1}{r} \big(1-\frac{1}{p_i} \big)$
-		\end{proof}
-	\subsection{Idéaux d'un anneau commutatif}
-		\textit{ici, $A$ est un anneau commutatif.}\\
-		\traitd
-		\paragraph{Idéal}
-			$I\subset A$ est dit \uline{idéal de $A$} si $\ard 
-			\bullet$ $(I,+)$ est un sous-groupe additif de $A \\
-			\bullet$ $\forall x\in I,~\forall a\in A ~,~~x.a\in I \arf$ \trait
-		\thm{ch8L18}{Lemme}{KerIdeal}{Soit $f:A\to B$ un morphisme d'anneaux, alors $\ker f$ est un idéal de $A$ }
-		\vspace*{0.5cm} \\ \thm{ch8L19}{Lemme}{SommeIdeaux}{La somme de deux idéaux est un idéal.}
-		\vspace*{0.5cm} \\ \thm{ch8L20}{Lemme}{IntersecIdeaux}{Une intersection quelconque d'idéaux de $A$ est un idéal de $A$}
-		\vspace*{0.5cm} \\ \thm{ch8th18}{Théorème}{IdeauxZ}{Dans $\Z$, les idéaux sont exactement les $n\Z$ où $n\in\N$}
-		\begin{proof}
-		Sois $I$ un idéal de $\Z$, $I$ est un sous-groupe de $\Z$ donc il existe $n\in\N$ tel que $I=n\Z$.\\
-		Inversement, $\forall n\in\N $, $n\Z$ est un idéal de l'anneau $/Z$
-		\end{proof} ${}$ \traitd
-		\paragraph{Idéaux principaux} ${}$ \\
-			$A$ un anneau commutatif, soit $x_0 \in A$ alors $x_0A = \{ x_0.a ~|~a\in A\}$ est un idéal de $A$.\\
-			Un idéal de ce type est dit \uline{idéal principal engendré par $x_0$}, un tel $x_0$ est dit générateur de l'idéal. \trait ${}$ \vspace*{-0.7cm} \traitd
-		\paragraph{Anneau principal} ${}$ \\
-			On appelle anneau principal tout anneau intègre dans lequel tout idéal est principal. \trait
-		\textit{Désormais dans ce paragraphe, $A$ est un anneau intègre.}
-		\traitd
-		\paragraph{Division}
-			Soient $a,b\in A$, on dit que $\left\{\ard a$ \uline{divise} $b \\ b$ \uline{est multiple de} $a \arf \right.$ noté $a|b$\\
-			s'il existe $c\in A$ tel que $b=ca$ \trait
-		\thm{ch8L21}{Lemme}{DivInclu}{Soit $(a,b) \in A^2$ alors $a|b ~\Leftrightarrow ~ bA\subset aA$ }
-		\vspace*{0.5cm} \\ \thm{ch8L22}{Lemme}{ElemAssociee}{$A$ anneau intègre et $a,b\in A$\\
-		Alors $(a|b)$ et $(b|a)$ $\Leftrightarrow$ $\exists u\in A^*$ tel que $b=ua$
-		\\ Dans ce cas, $a$ et $b$ sont dit \uline{associée}.\\
-		La relation d'association ainsi définie est une relation d'équivalence sur $A$}.
-		\vspace*{0.5cm} \\ \thm{ch8L23}{Lemme}{IdealAvec1}{Soit $I$ un idéal de $A$ alors $1_A \in I ~\Leftrightarrow ~I=A$}
-		\vspace*{0.5cm} \\ \thm{ch8th19}{Théorème}{pgcdppcmIdeaux}{Soient $a_1,\dots ,a_r \in A$ ; soient $\ard d=\pgcd (a_1,\dots , a_r) \\ m = \ppcm (a_1,\dots ,a_r) \arf$ \\
-		\hspace*{0.5cm} Alors $\ard $ {\scriptsize (1)} $a_1\Z + \cdots + a_r \Z = d\Z \\ $ {\scriptsize (2)} $a_1 \Z \cap \cdots \cap a_r\Z = m\Z \arf$ }
-		\begin{proof} ${}$ \\
-		{\scriptsize (1)} Soit $I= a_1\Z + \cdots + a_r \Z$ par un lemme $I$ est un idéal de $\Z$, soit donc $k\in\N$ tel que $I=k\Z$\\
-		$\rightarrow$ $\forall i\in\ent{1,r} ,~ a_i \in I$ donc $k$ est un diviseur des $a_i$ \\
-		$\rightarrow$ Soit $\delta\in\Z$ un diviseur des $a_i$ on a vu $k\in I$,
-		$k=\sum_{i=1}^r \lambda_i a_i = \sum_{i=1}^r \lambda_i \delta b_i$ donc $\delta | k$ d'où $k=d$\\
-		{\scriptsize (2)} Soit $J=a_1\Z\cap \cdots \cap a_r\Z = q\Z$ (idéal de $\Z$), vu $q\in J$, $q$ est multiple de tout les $a_i$\\
-		Soit $\mu$ un multiple des $a_i$, $\forall i\in\ent{1,r},~\mu \in a_i\Z$ donc $\mu\in q\Z$ donc $q|\mu$ d'où $q = m$
-		\end{proof}
-	\section{Les polynômes}
-	\subsection{L'anneau $\KX$}
-		\textit{Ici, $\K$ est un corps quelconque, on défini :\\
-		\hspace*{2cm} $\bullet$ $\KX$ l'ensemble des suite $\suite{a}\in\K^\N$ à support fini \\
-		\hspace*{2cm} $\bullet$ Une loi $+$ et une loi $\times$ comme dans $\R[X]$ qui font de $\KX$ un anneau commutatif de nul $0=(0,0,0,\dots)$ et d'unité $1=(1,0,0,\dots)$\\
-		\hspace*{2cm} $\bullet$ \highlight{L'indéterminée} $X=(0,1,0,0,\dots ) \in \KX$} \vspace*{0.5cm} \\
-		On constate que $X^n = (\underbrace{0,\dots ,0}_{n~\mathrm{zeros}},1,0,\dots) \in\KX$\\
-		et que $\varphi \appli{(\K ,+,.)}{\lambda}{(\KX , + , \times)}{(\lambda ,0,0,\dots)}$ est un morphisme d'anneaux injectifs donc $\K \simeq \varphi(\K)$\\
-		On identifie alors $\K$ et $\varphi(\K)$ en identifiant $\lambda$ et $(\lambda,0,0,\dots) ,~\forall \lambda\in \K$\vspace*{0.5cm} \\
-		On constate alors que $\forall A\in \KX ,~A=\suite{a}$, \\ on a $A=\suminf a_nX^n$ {\footnotesize (somme finie)} au sens $A=\sum\limits_{n=0}^{n_0} a_nX^n$ où $\forall n\geq n_0 ,~ a_n = 0$ \traitd
-		\paragraph{Degré}
-			Soit $A= \suminf a_nX^n \in\KX$ on défini \uline{$\deg A$ le degré de $A$} : \\
-		\hspace*{2cm} $\bullet$ Si $\{n\in\N ~|~ a_n\neq 0\} \neq \emptyset$ alors on pose $\deg A = \max \{n\in \N ~|~ a_n\neq 0 \}$\\
-		\hspace*{2cm} $\bullet$ Sinon on pose $\deg A = -\infty$ \trait
-		\thm{ch8th20}{Théorème}{DegreSomme}{$\uuline{\forall} A,B \in \KX $, \highlight{$\deg AB = \deg A + \deg B$} }
-		\vspace*{0.5cm} \\ \thm{ch8th20c}{Corollaire}{KXintegre}{$(\KX ,+,\times)$ est un anneau intègre}
-		\vspace*{0.5cm} \\ \thm{ch8L24}{Lemme}{InvKX}{$\KX^* = \K^* = \K\setminus\{0\}$ \\
-		Les inversibles de $\KX$ sont exactement les inversibles de $\K$, \\
-		i.e. les constantes non nulles.}
-		\vspace*{0.5cm} \\ \thm{ch8th21}{Théorème}{DivEuclidKX}{Soit $\K$ un corps quelconque. Soient $A,B\in\KX$ avec $B\neq 0~\heartsuit$ \\
-		Alors $\exists ! (Q,R)\in\KX^2 $ tel que $\ard \bullet A=BQ+R \\ \bullet \deg R < \deg B \arf $ }
-		\begin{proof}
-		Analogue à le preuve pour $\K=\R$ ou $\K=\C$.
-		\end{proof}
-	\subsection{Idéaux de $\KX$}
-		${}$ \\ \thm{ch8th22}{Théorème}{KXprincipal}{Soit $\K$ un corps quelconque, alors tout les idéaux de $\KX$ sont principaux.}
-		\begin{proof}
-		Soit $I$ un idéal de $\KX$ on a $\{0\} \subset I$ \\
-		$\rightarrow$ Si $I=\{0\}$ alors $I=O.\KX$\\
-		$\rightarrow$ Sinon on considère $P$ de degré $r$ minimal dans $I$ \\ Alors $P.\KX \subset I$ (idéal) et pour tout $M\in I$ on a $P|M$ grâce à la division euclidienne.
-		\end{proof}
-		${}$ \\ \thm{ch9L25}{Lemme}{GenerUnitaire}{Dans $\KX$, tout idéal non nul admet un unique générateur unitaire.} \\ \traitd
-		\paragraph{\textsc{pgcd}}
-			Soient $A,B\in\KX$ quelconques, soit $I=A.\KX + B.\KX $ idéal de $\KX$, donc principal \\ 
-			On défini \uline{le \textsc{pgcd} de $A$ et $B$} $D$ = $\textsc{pgcd}(A,B)=A\wedge B$ par \\
-			\hspace*{2cm} $A.\KX + B.\KX = D.\KX$ avec $D$ unitaire ou nul. \trait
-		\thm{ch8th23}{Théorème}{PGCD}{Soit $A,B\in\KX$, $D=A\wedge B$ \\
-		\hspace*{0.5cm} Alors $\ard $ {\scriptsize (1)} $D$ divise $A$ et $B \\ $ {\scriptsize (2)} Tout diviseur de $A$ et $B$ divise $D \arf $ }
-		\begin{proof}
-		La première propriété est clair vu $A,B \in D.\KX$. On a ensuite $U,V \in \KX$ tels que $D=AU+BV$ donc tout diviseur commun de $A$ et $B$ divise $AU+BV=D$
-		\end{proof} ${}$ 
-		On remarquera que $\forall A,B\in\KX ,~ \exists (U,V)\in\KX^2$ tel que $AU+BV = A\wedge B$ \\
-		\traitd
-		\paragraph{Polynômes premiers entre eux}
-			$A,B\in\KX$ sont dits \uline{premiers entre eux} si $A\wedge B=1$ \trait
-		\thm{ch8th24}{Théorème de \textsc{Bézout}}{ThBézout}{$A,B\in\KX$ alors \\
-		$A$ et $B$ sont premiers entre eux $\Leftrightarrow$ $\exists (U,V) \in\KX$ tels que $AU+BV=1$}
-		\begin{proof}
-		Le sens direct est déjà vu. on a ensuite le sens retour car $1\in I=A.\KX + B.\KX$ donc $I=\KX = 1.\KX$ et $1$ unitaire.
-		\end{proof}
-		\begin{center}
-		\begin{blockarray}{[c]}		
-		\textit{On a sur tout $\KX$ avec $\K$ un corps quelconque l'algorithme d'\textsc{Euclide}, ainsi que sa version} \\ \textit{étendue, le fonctionnement est rigoureusement identique au cas $\K=\R$ ou $\C$,} \\ \textit{on se réfèrera ainsi au cours de sup pour son application.}
-		\end{blockarray}
-		\end{center}
-		\traitd
-		\paragraph{\textsc{ppcm}}
-			Soient $A,B\in\KX$ quelconques, soit $I=A.\KX \cap B.\KX $ idéal de $\KX$, donc principal \\ 
-			On défini \uline{le \textsc{ppcm} de $A$ et $B$} $M$ = $\textsc{ppcm}(A,B)=A\vee B$ par \\
-			\hspace*{2cm} $A.\KX \cap B.\KX = M.\KX$ avec $M$ unitaire ou nul. \trait
-		\thm{ch8th25}{Théorème}{PPCM}{Soit $A,B\in\KX$, $M=A\vee B$ \\
-		\hspace*{0.5cm} Alors $\ard $ {\scriptsize (1)} $M$ est multiple de $A$ et $B \\ $ {\scriptsize (2)} Tout multiple de $A$ et $B$ est multiple de $M \arf $ }
-		\begin{proof}
-		On a $M\in A.\KX$ et $M\in\KX$ donc $M$ est bien multiple de $A$ et $B$. Pour tout $N$ multiple commun de $A$ et $B$, $N\in I$ or $I=M.\KX$ donc $N$ est multiple de $M$.
-		\end{proof} ${}$ \traitd
-		\paragraph{\textsc{pgcd} d'une famille}
-			$A_1,\dots ,A_r \in\KX$, on appelle $\textsc{pgcd}(A_1,\dots , A_r)$ l'unique $D\in\KX$ tel que $A_1.\KX + \cdots + A_r.\KX = D.\KX$ avec $D$ unitaire ou nul. \trait ${}$ \vspace*{-0.7cm} \traitd
-		\paragraph{\textsc{ppcm} d'une famille}
-			$A_1,\dots ,A_r \in\KX$, on appelle $\textsc{ppcm}(A_1,\dots , A_r)$ l'unique $M\in\KX$ tel que $A_1.\KX \cap \cdots \cap A_r.\KX = M.\KX $ avec $M$ unitaire ou nul. \trait
-		\uline{NB} : On remarque que $D$ et $M$ sont bien des \textsc{pgcd} et \textsc{ppcm} au sens de la divisibilité. 
-		\vspace*{0.5cm} \\ \thm{ch8L26}{Lemme de \textsc{Gauss}}{LemmeGauss}{$A,B,C\in \KX$, alors $~~\left( \begin{array}{c} A|B \\ A\wedge B=1 \arf \right) ~\Rightarrow ~A|C$}
-		\begin{center}
-		$\vdots$
-		\end{center}
-		${}$ \\ \thm{ch8L30}{Lemme}{IrredNonAssocies}{$P$ et $Q$ deux polynômes irréductibles et non associés sont premiers entre eux.}
-		\vspace*{0.5cm} \\ \thm{ch8L31}{Lemme}{Deg&Irred}{Soit $\K$ un corps quelconque, alors tout polynôme de $\KX$ de degré $1$ est irréductible.} \vspace*{0.5cm}\\
-		\textsc{Méthode} : Technique des bicarrés : \\
-		Pour décomposer un polynôme $Q=aX^4+bX^2+c \in\R$, on associe $X^4$ et $X^2$ ou $X^4$ et $c$ en écrivant $X^4=(X^2)^{^{2}}$\\
-		\uline{exemple :}\\
-		$X^4-3X^2 + 2 = \left( X^2 - \frac{3}{2}\right) ^2 - \frac{9}{4} +2 = (X^2-2)(X^2-1)$\\
-		$X^4+X^2+1 = (X^2 + 1)^2 - X^2 = (X^2+1-X)(X^2+1+X)$
-		\vspace*{0.5cm} \\ \thm{ch8th28}{Théorème}{8-T28}{Pour $\K$ corps quelconque, tout polynôme de $\KX$ non constant \\ est produit de polynômes unitaires.}
-		\begin{proof}
-		Soit $\mathcal{A}(n)$ : "tout polynôme de degré $n$ est produit d'irréductible"\\
-		$\rightarrow$ $\mathcal{A}(1)$ est vrai\\
-		$\rightarrow$ Soit $n\geq 2$, on suppose $\mathcal{A}(p)$ pour tout $p\in\ent{1,n-1}$. Soit $A\in\KX$ de degré $n$\\
-		\hspace*{0.5cm} - Si $A$ est irréductible c'est trivial\\
-		\hspace*{0.5cm} - Sinon on a $A=UV$ avec $U$ et $V$ des polynômes non constants de degrés $<1$ d'où le résultat.\\
-		On a \textsc{cqfd} par récurrence forte.
-		\end{proof}
-		${}$ \\ \thm{ch8th29}{Théorème}{DecompPolyUnitaires}{Soit $\K$ un corps quelconque, on note $\mathds{P}$ l'ensemble des polynômes irréductibles \\ unitaires sur le corps $\K$. 
-		Alors tout polynôme $A\in\KX$ s'écrit sous la forme \\${}$\\
-		\hspace*{2cm} $\cm{A = \lambda\prod_{p\in\mathds{P}} P^{\alpha(P)} }$\\${}$\\
-		où $\lambda\in\K^*$ et $\alpha(P) \in\N$ nuls sauf pour un nombre fini de $P$. \\ Cette décomposition est unique.}
-		\begin{proof}
-		L'existence est assurée par le théorème précédant en factorisant les coefficients dominants.
-		On a ensuite l'unicité d'abord de $\lambda$ puis par l'absurde de tout les $P$, deux à deux premiers entre eux car irréductibles non associés (unitaires).
-		\end{proof}
-		${}$ \\ \thm{ch8L32}{Lemme}{8-L32}{Soit $P\in\KX$ irréductible et $A,B\in\KX$
-		\\ \hspace*{0.5cm} Alors $P|AB\rightarrow P|A$ ou $P|B$}
-	\section{La structure d'algèbre}
-		\begin{center}
-		\textit{{\scriptsize C'est comme le dentifrice action intégrale, y'a tout dedans !}}
-		\end{center} \traitd
-		\paragraph{Algèbre}
-			Soit $\K$ un corps quelconque. 
-			On appelle algèbre sur $\K$ tout $(A,+,\cdot ,\ast)$ telle que\\
-			\hspace*{2cm} {\scriptsize (1)} $(A,+,\cdot)$ est un $\K$ espace vectoriel\\
-			\hspace*{2cm} {\scriptsize (2)}	$(A,+,\ast)$ est un anneau\\
-			\hspace*{2cm} {\scriptsize (3)} $\forall (\lambda ,a,b) \in\K\times A\times A~, ~~\lambda (a\ast b)  = (\lambda a)\ast b = a\ast (\lambda b)$ \trait
-		\textit{L'algèbre est dite commutative si $\ast$ l'est.} \\
-		\vspace*{0.5cm} \\ \thm{ch8L33}{Lemme}{EndosAlgebre}{Soit $E$ un $\K$ espace vectoriel\\
-		Alors $\big( \lin(E) , + , \cdot , \circ \big)$ est une $\K$-algèbre d'unité $Id_E$} \\ \traitd
-		\paragraph{Sous-algèbre}
-			Soit $\big( A,+,\cdot , \ast)$ une $\K$-algèbre et $b\subset A$.\\ On dit que \uline{$B$ est une sous-algèbre de $A$ sur $\K$} si \\
-			\hspace*{2cm} $\bullet ~B$ est un sous-espace vectoriel de $A$\\
-			\hspace*{2cm} $\bullet ~B$ est un sous-anneau de $A$ \trait
-		\thm{ch8L34}{Lemme}{SSAlgALg}{Une sous-algèbre d'un $\K$-algèbre est une algèbre sur $\K$}
-		\vspace*{0.5cm} \\ \thm{ch9th30}{Théorème : Caractérisation des sous-algèbres}{CNSSSAlg}{Soit $\big( A,=,\cdot,\ast)$ une $\K$-algèbre et $B\subset A$\\
-		Alors $B$ est une sous-algèbre de $A$ \uline{si et seulement si}\\
-		\hspace*{0.5cm} $\ard $ {\scriptsize (1)} $\forall (x,y)\in B^2 ,~x+y\in B \\ $ {\scriptsize (2)} $\forall \lambda\in\K ,~\forall x\in B ,~\lambda x\in B \\ $ {\scriptsize (3)} $\forall (x,y)\in B^2 ,~x\ast y\in B \\ $ {\scriptsize (4)} $1_A\in B \arf $ }
-		\begin{proof}
-		La condition est immédiatement nécessaire vu la définition et suffisante car $B$ est \textsc{sev} de $A$ ({\scriptsize (1)}, {\scriptsize (2)} et {\scriptsize (4)}) et sous-anneau de $A$ car sous-groupe additif de $A$ (\textsc{sev}) stable par $\ast$ ({\scriptsize (3)}) contenant l'unité de $A$ ({\scriptsize (4)}). d'où \textsc{cqfd}.
-		\end{proof} ${}$ \traitd
-		\paragraph{Morphisme d'algèbre}
-			Soient $A$ et $B$ des $\K$-algèbres et $f: A\to B$. \\ On dit que \uline{$f$ est un morphisme de algèbre sur $\K$} si\\
-			\hspace*{2cm} $\bullet$ $f$ est $\K$-linéaire {\tiny (morphisme de $\K$ espace vectoriel)} \\\ \hspace*{2cm} $\bullet$ $f$ est morphisme d'anneaux \trait
-		\thm{ch8th31}{Théorème}{CNSMorphsimeAlg}{$A,B$ des $\K$-algèbre et $f: A\to B$ alors \\
-		$f$ est un morphisme de $\K$-algèbre \uline{si et seulement si} \\
-		\hspace*{0.5cm} $\ard $ {\scriptsize (1)} $\forall (x,y)\in A^2 ,~f(x+y)=f(x)+f(y) \\ $ {\scriptsize (2)} $\forall \lambda\in\K ,~\forall A\in B ,~f(\lambda x) = \lambda f(x) \\ $ {\scriptsize (3)} $\forall (x,y)\in A^2 ,~f(x\ast y) = f(x)\ast f(y) \\ $ {\scriptsize (4)} $f(1_A) = 1_B \arf $ }
-		\begin{proof}
-		Clair vu la définition
-		\end{proof} ${}$ \\ 
-		\begin{center}
-		\fin
-        \end{center}
+		
+	 	Soit $n\in \Z$, on considère sur $\Z$ la relation $\mathcal{R}$ de congruence modulo $n$ 
+	% 	\\$\forall (a,b)\in \Z^2,~ a\mathcal{R} b \Leftrightarrow a-b\in n\Z \Leftrightarrow n\mid a-b$) notée $a\equiv b[n]$ \vspace*{0.2cm} \\
+	% 	$\mathcal{R}$ est une relation d'équivalence sur $\Z$ (exo) compatible avec les lois $+$ et $\times$. 
+	% 	$\sfrac{E}{\mathcal{R}}$ est alors noté $\sfrac{\Z}{n\Z}$ qu'on muni des lois toujours notées abusivement $+$ et $\times$ telles que 
+	% 	$\forall (a,b)\in \Z^2,~ \tilde{a}+\tilde{b} = \widetilde{a+b}$ et $\tilde{a} \times\tilde{b} = \widetilde{ab}$
+	% 	\vspace*{0.5cm} \\ \thm{ch8L7}{Lemme}{ZnZGroupe}{$(\sfrac{\Z}{n\Z},+)$ est un groupe abélien de neutre $\tilde{0}$}
+	% 	\\ Si $n=0$, $a\equiv b[0] \Leftrightarrow a=b$ donc $\tilde{a}=\{a\}$. $\sfrac{\Z}{0/Z}$ est isomorphe à $(/Z,+)$ \vspace*{0.3cm} \\
+	% 	\emph{Désormais, on considère $n\in \N^*$}
+	% 	\vspace*{0.5cm} \\ \thm{ch8L8}{Lemme}{EcritZnZ}{Soit $n\in \N^*$, alors \\
+	% 	\hspace*{0.5cm} $\ard $ \un $\sfrac{\Z}{n\Z} = \{\tilde{0},\tilde{1},\dots , \widetilde{n-1} \} \\ $ \deux 
+	% 	$\forall p\in \N^*,~\sfrac{\Z}{n\Z} = \{ \tilde{p},\widetilde{p+1},\dots , \widetilde{p+n-1} \} \\ $ \trois 
+	% 	$\mathrm{card}\sfrac{\Z}{n\Z} = n \arf$ }
+	% 	\vspace*{0.5cm} \\ \thm{ch8L9}{Lemme}{ItéréZnZ}{Soit $n\in \N^*,~k\in Z$ alors $k.\tilde{1} = \tilde{k}\in \sfrac{\Z}{n\Z}$} \\ \traitd
+	% 	\paragraph{Groupe monogène - cyclique}
+	% 		Un groupe $G$ est dit \emph{monogène} s'il existe $a\in G$ tel que $G=<a>$. Un tel $a$ est dit \emph{générateur de $G$}.\\
+	% 		\hspace*{0.5cm} Un groupe est dit \emph{cyclique} s'il est monogène et fini. \trait
+	% 	\vspace*{-1.1cm} \\ $\forall n\in  \N^* ,~ \sfrac{\Z}{n/Z}$ est cyclique ( $ \sfrac{\Z}{n\Z} = \{k\tilde{1} ~;~k\in Z\} = \{k\tilde{1} ~;~ k\in \ent{0,n-1}\} = <\tilde{1}>$
+	% 	\vspace*{0.5cm} \\ \thm{ch8th6}{Théorème}{GeneZnZ}{Soit $n\in\N^*,~k\in \Z$ \\
+	% 	\hspace*{0.5cm} Alors $\tilde{k}$ est générateur de $\sfrac{\Z}{n\Z}$ $\Leftrightarrow $ $k\wedge n =1$\\
+	% 	L'ensemble des générateurs de $\sfrac{\Z}{n\Z}$ est $\{\tilde{k} ~;~k\in \ent{1,n-1} ,~ k\wedge n=1\}$\\
+	% 	On définit alors $\varphi$ l'\emph{indicatrice d'\textsc{Euler}}\\
+	% 	\hspace*{2cm} \highlight{$\varphi (n) = \mathrm{card} \{ k\in\ent{1,n-1} ~;~k\wedge n=1\}$ } }
+	% 	\begin{proof}
+	% 	Soit $k\in \Z$, 
+	% 	$k$ est générateur de $\sfrac{\Z}{n\Z} \Leftrightarrow <\tilde{k}> = \sfrac{\Z}{n\Z} \\
+	% 	\Leftrightarrow \tilde{1} \in <\tilde{k}> \Leftrightarrow \exists u\in \Z$ tel que $\tilde{1}=u\tilde{k} 
+	% 	\Leftrightarrow \exists u\in \Z$ tel que $\exists v\in \Z$ tel que $1-uk = vn$\\
+	% 	$\Leftrightarrow \exists (u,v)\in\Z^2$ tel que $uk+vn=1 \Leftrightarrow k\wedge n=1$ (Théorème de \textsc{Bézout} $\heartsuit$)
+	% 	\end{proof} ${}$ \traitd
+	% 	\paragraph{Ordre d'un groupe, d'un élément} ${}$ \\
+	% 		On appelle \emph{ordre d'un groupe fini} son cardinal.\\
+	% 		Soit $G$ un groupe quelconque, $a\in G$. On dit que $a$ est d'ordre fini si $<a>$ est fini. Dans ce cas, on appelle \emph{ordre de $a$} l'ordre de $<a>$ 
+	% 		\trait
+	% 	\thm{ch8th7}{Théorème}{OrdreDivake}{Soit $G$ un groupe quelconque, de neutre $e$. Soit $a\in G$ d'ordre fini $d\in \N^*$\\
+	% 	\hspace*{2cm} Alors $\forall k\in \Z$, \highlight{$a^k=e \Leftrightarrow k\in d\Z$} $\heartsuit$ }
+	% 	\begin{proof}
+	% 	Posons $\varphi ~\appli{(\Z,+)}{k}{<a>}{a^k}$, c'est un morphisme de groupe surjectif, on a alors $\ker \varphi$ sous-groupe de $(/Z,+)$ soit donc $n\in\N$ tel que $\ker\varphi = n\Z$.\\
+	% 	Soit alors $\tilde{\varphi} ~\appli{(\sfrac{\Z}{n\Z},+)}{\tilde{k}}{<a>}{a^k}$ bien définit car $a^k$ est indépendant du choix de $k$ dans sa classe vu $a^{h.n} = e$. $\tilde{\varphi}$ est alors un morphisme surjectif et injectif ($\ker \tilde{\varphi} \subset \{\tilde{0} \}$)\\
+	% 	$\tilde{\varphi}$ est un isomorphisme de groupes donc $<a>$ est fini d'ordre $n=d$ et on a \textsc{cqfd}
+	% 	\end{proof}
+	% \section{Anneaux et Corps}
+	% \subsection{Définitions}
+	% 	\traitd
+	% 	\paragraph{Anneau} ${}$ \\
+	% 		On appelle \emph{anneau} le triplet \highlight{$(A,+,\cdot)$} où $\ard $
+	% 		{\scriptsize (1)} $(A,+)$ est un groupe abélien $ \\ $
+	% 		{\scriptsize (2)} $\left\{\ard \rightarrow$ $\cdot$ est une loi interne sur $A \\ \rightarrow $ $\cdot$ est associative $\\ \rightarrow$ $\cdot$ admet un élément neutre$ \arf \right. $ $ \\ $
+	% 		{\scriptsize (3)} $\cdot$ est distributive sur $+$ $\arf$ \vspace*{0.2cm}\trait\vspace*{-1.1cm}\\
+	% 		-> Le neutre de $(A,+)$ est appelé élément nul et est noté $0_A$\\
+	% 		-> Le neutre de $(A,\cdot)$ est appelé unité et est noté $1_A$
+	% 		\traitd
+	% 	\paragraph{Anneau commutatif}
+	% 		Un anneau est dit commutatif si la loi $\cdot$ est commutative. \trait ${}$ \vspace*{-1.5cm} \\ \traitd 
+	% 	\paragraph{Anneau trivial}
+	% 		Un anneau est dit trivial s'il est réduit à un seul élément. \trait
+	% 	\vspace*{-1.1cm} \\ \textsc{Attention !} Dans un anneau, $a.b \nRightarrow a=0$ ou $b=0$ !!
+	% 	\traitd
+	% 	\paragraph{Anneau produit}
+	% 		Soit $A_1,\dots ,A_r$ des anneaux,\\
+	% 		On muni $A_1\times \cdots \times A_r$ d'une loi $+$ et d'une loi $\cdot$ en posant\\
+	% 	$(a_1,\dots ,a_r)+(b_1,\dots ,b_r) = (a_1+_1b_1 ,\dots , a_r+_rb_r)$ et $(a_1,\dots ,a_r).(b_1,\dots ,b_r) = (a_1._1b_1 , \dots , a_r._rb_r)$\\
+	% 		On obtient alors un anneau $A$ $\left\{\ard $ de nul $0=(0,\dots ,0) \\ $ d'unité $1=(1,\dots ,1) \arf \right.$  , on l'appelle \emph{anneau produit}. \trait
+	% 		${}$ \vspace*{-1.5cm} \\ \traitd 
+	% 	\paragraph{Anneau intègre} $\heartsuit$ 
+	% 		Un anneau est dit intègre s'il est commutatif, non trivial et \[ \forall (a,b)\in A^2 ,~a.b=0 ~\Rightarrow ~ a=0 ~\mathrm{ou} ~b=0 \] \trait 
+	% 		${}$ \vspace*{-1.5cm} \\ \traitd 
+	% 	\paragraph{Inversibilité}
+	% 		Soit $A$ un anneau, $a\in A$ est dit inversible s'il existe $b\in A$ tel que $a.b=1$ et $b.a=1$ . Un tell $b$ est unique, on le note $a^{-1}$ \trait
+	% 	\vspace*{-1.1cm} \\ On notera \highlight{$A^* = \{a\in A~ ; ~ a$ est inversible $\}$}
+	% 	\vspace*{0.5cm} \\ \thm{ch8L12}{Lemme}{GrInv}{$(A^* ,\cdot)$ est un groupe, dit \emph{groupe des inversible} de $A$ }
+	% 	\\ \traitd
+	% 	\paragraph{Corps}
+	% 		On appelle \emph{corps} tout anneau commutatif, non trivial dans lequel tout élément non nul est inversible. \trait
+	% 	\vspace*{-1.1cm} \\ \emph{Rq :} Si $K$ est un corps, $K^* = K\backslash\{0\}$. Inversement, si $K$ est un anneau commutatif avec $K^*=K\backslash\{0\}$ alors $K$ est un corps.
+	% 	\vspace*{0.5cm} \\ \thm{ch8L13}{Lemme}{CrpsInt}{Tout corps est intègre.}
+	% 	\vspace*{0.5cm} \\ \thm{ch8th10}{Théorème}{Z/nZAnneau}{$( \qznz,+,\times )$ est un anneau commutatif de nul $\tilde{0}$ et d'unité $\tilde{1}$}
+	% 	\begin{proof}
+	% 	Simple vérification.
+	% 	\end{proof}
+	% 	\textsc{Attention !} $\qznz$ est en général non trivial !!
+	% 	\vspace*{0.5cm} \\ \thm{ch8th11}{Théorème}{InvZnZ}{Soit $n\in\N^*$, les inversibles de $\qznz$ sont exactement les générateurs du \\groupe additif $\qznz$, donc $\forall k\in\Z ,~\tilde{k}$ inversible dans $\qznz \Leftrightarrow k\wedge n = 1$ \\
+	% 	Ainsi $( \qznz )^* = \{ \tilde{k} \in\qznz ~; ~k\wedge n=1\}$ de cardinal $\varphi(n) $}
+	% 	\begin{proof}
+	% 	Soit $k\in\Z ,$ \\ $ \tilde{k}\in \big(\qznz)^* \Leftrightarrow \exists j\in\Z$ tel que $kj\equiv 1[n] \Leftrightarrow \exists j\in\Z ,~\exists h\in\Z$ tels que $1=kj +nh$\\
+	% 	$\Leftrightarrow k\wedge n = 1$ par le théorème de \textsc{Bézout} puis le reste en découle.
+	% 	\end{proof}
+	% 	${}$ \\ \thm{ch8th11c}{Corollaire}{Z/nZCorps}{$\qznz$ est un corps $\Leftrightarrow$ $n$ est premier.}
+	% 	\\ $\forall p$ premier, le corps $\qznz$ est noté $\mathds{F}_p$
+	% 	\vspace*{0.5cm} \\ \thm{ch8th12}{Théorème d'\textsc{Euler}}{ThEuler}{Soit $n\in\N^*$, $a\in\Z$ tel que $a\wedge n=1$ alors $a^{\varphi(n)} \equiv 1[n]$}
+	% 	\begin{proof}
+	% 	$\tilde{a} \in (\Z/n\Z)^*$ de cardinal $\varphi(n)$ et l'ordre de $\tilde{a}$ divise $\varphi(n)$ donc $\tilde{a}^{\varphi(n)}=\tilde{1}$
+	% 	\end{proof}
+	% 	${}$ \\ \thm{ch8th12c}{Corollaire : petit Théorème de \textsc{Fermat}}{PetitThFermat}{$\forall p$ premier, $\forall a\in\Z$ tel que $p\nshortmid a$\\
+	% 	\hspace*{1.5cm} \highlight{$\cm{a^{p-1} \equiv 1[n]}$}} \\
+	% 	\emph{NB} : Soit $p$ premier alors $\forall a\in\Z ,~ a^p\equiv a[n]$ , 
+	% 	donc \emph{dans $\mathbb{F}_p$} , $\forall x\in\mathbb{F}_p ,~x^p=x$ 
+	% \subsection{Sous-Anneaux et Sous-Corps}
+	% 	\traitd
+	% 	\paragraph{Sous-Anneau}
+	% 		Soit $(a,+,\cdot)$ un anneau et $B\subset A$, on dit que \emph{$B$ est un sous-anneau de $A$} si\\
+	% 		\hspace*{2cm} $\rightarrow$ $B$ est stable par les deux lois\\
+	% 		\hspace*{2cm} $\rightarrow$ $B$ muni des deux lois induites est un anneau de même unité que $A$ \trait
+	% 	\thm{ch8th13}{Théorème}{CNSSousAnneau}{Soit $(A,+,\cdot)$ un anneau et $B\subset A$ alors \\
+	% 	$B$ est un sous-anneau de $A$ $\Leftrightarrow \ard ${\scriptsize (1)} $B$ est un sous-groupe additif de $A \\ ${\scriptsize (2)} $B$ est stable par $\cdot \\ $ {\scriptsize (3)} $1_A \in B \arf $ }
+	% 	\begin{proof}
+	% 	Montrons le sens inverse : \\
+	% 	$B$ est bien stable par les deux lois (par $+$ aussi vu sous-groupe), $1_A$ est l'unité de $B$ par unicité et on vérifie avec les axiomes que $B$ est un anneau pour les lois induites. \\Le sens direct découle de la définition.
+	% 	\end{proof} ${}$ \traitd
+	% 	\paragraph{Sous-Corps}
+	% 		Soit $K$ un corps, $L\subset K$. On dit que \emph{$L$ est un sous-corps de $K$} si \\
+	% 		\hspace*{2cm} $\rightarrow$ $L$ est stable par les deux lois et si \\
+	% 		\hspace*{2cm} $\rightarrow$ $L$ muni des deux lois induites est un corps. \trait
+	% 	\thm{ch8L14}{Lemme}{UnicUnite}{Dans ce cas $1_K=1_L$}
+	% 	\vspace*{0.5cm} \\ \thm{ch8th14}{Théorème}{CNSSousCorps}{Soit $K$ un corps et $L\subset K$ alors \\
+	% 	$L$ est un sous-corps de $K$ $\Leftrightarrow$ $\ard $ {\scriptsize (1)} $L$ est un sous-anneau de $K \\ $ {\scriptsize (2)} $L$ est stable par inversion $ \arf$}
+	% 	\begin{proof}
+	% 	exercice
+	% 	\end{proof}
+	% \subsection{Morphismes}
+	% 	\traitd
+	% 	\paragraph{Morphisme d'anneaux}
+	% 		Soient $A,B$ des anneaux et $f:A\to B$, on dit que \emph{$f$ est un morphisme d'anneaux} si \\
+	% 		\hspace*{2cm} $\rightarrow$ $\forall x,y \in A ,~f(x+y)= f(x)+f(y)$\\
+	% 		\hspace*{2cm} $\rightarrow$ $\forall x,y \in A ,~f(xy) = f(x)f(y)$ \\
+	% 		\hspace*{2cm} $\rightarrow$ $f(1_A) = 1_B$  \trait ${}$ \vspace*{-1.5cm} \\ \traitd 
+	% 	\paragraph{Isomorphisme d'anneaux}
+	% 		Un isomorphisme d'anneaux est un morphisme d'anneaux bijectif. \trait
+	% 	\thm{ch8L15}{Lemme}{CompoMorphAnneaux}{$\bullet$ La composée de 2 morphismes d'anneaux est un morphisme d'anneaux \\
+	% 	$\bullet$ La réciproque d'un isomorphisme d'anneaux est un isomorphisme d'anneaux. }
+	% 	\vspace*{0.5cm} \\ \thm{ch8th15}{Théorème Chinois}{ThChinois}{Soient $n,m\in\N^*$ \emph{premiers entre eux} alors \\${}$\\
+	% 	\hspace*{2cm}$\cm{ f ~\left( \begin{array}{ccc}
+	% 	Z/mn\Z & \longrightarrow & \Z/m\Z \times \Z/n\Z \\
+	% 	\tilde{k} & \longmapsto & (\overline{k},\dot{k})
+	% 	\end{array} \right) } $ \\ ${}$ \\
+	% 	est un \emph{isomorphisme d'anneaux}. \\En particulier, $\Z/mn\Z$ est isomorphe à $ \Z/m\Z \times \Z/n\Z $ en tant qu'anneaux, \\ et aussi en tant que groupes additifs.}
+	% 	\begin{proof}
+	% 	$f$ est un morphisme d'anneaux bien défini (exo) \\
+	% 	Soit $\tilde{k}\in \ker f$ on a $f(\tilde{k})=(\overline{0},\dot{0})$ c'est-à-dire $m|k$ et $n|k$ or $m\wedge n=1$ donc par lemme $mn| k$ soit $\tilde{k}=0$
+	% 	Ainsi $\ker f \subset \{0\}$ donc $f$ est bijective.\vspace*{0.2cm}\\
+	% 	Vu l'égalité des cardinaux, $f$ est un isomorphisme d'anneaux.
+	% 	\end{proof}
+	% 	${}$ \\ \thm{ch8th16}{Théorème}{ChinoisMultiple}{Soient $n_1,\dots ,n_r \in \N^*$ \emph{premiers entre eux deux à deux}  alors \\ ${}$ \\
+	% 	\hspace*{2cm} $\cm{\appli{\Z/n_1\cdots n_r\Z}{\tilde{k}}{\Z/n_1\Z \times \cdots \times \Z/n_r\Z}{\big(\overset{\hspace*{0.09cm}\sim_1}{k},\dots ,\overset{\hspace*{0.09cm}\sim_r}{k}\big)} }$ \\${}$\\
+	% 	est un isomorphisme d'anneaux.}
+	% 	\begin{proof}
+	% 	La preuve se fait selon le même schéma avec \[ n_1|k ,\dots , n_r|k ~\Rightarrow ~n_1\times\cdots\times n_r|k \] lorsque $n_1,\dots ,n_r$ sont \emph{premiers entre eux 2 à 2}. \vspace*{0.7cm}
+	% 	\end{proof} 
+	% 	\emph{En pratique} : On suppose $m\wedge n=1$ \\
+	% 	Soient $(x,y)\in\Z^2$ quelconques, alors il existe des $K\in\Z$ tels que $\left\lbrace \ard k\equiv x [m] \\ k\equiv [n] \arf \right.$ \\
+	% 	ces entiers $k$ forment une classe d'équivalence modulo $mn$.\vspace*{0.5cm} 
+	% 	\\ \emph{Pour exhiber un $k$ :}
+	% 	On considère une identité de \textsc{Bézout} $\underbrace{um}_{=k_2} + \underbrace{vn}_{=k_1} =1$ avec $(u,v)\in \Z^2$\\ 
+	% 	On a alors $\left\lbrace \ard k_1\equiv 1[m] \\ k_2\equiv 0[m] \arf \right. $ et $\left\lbrace \ard k_1 \equiv 0 [n] \\ k_2 \equiv 1 [n] \arf \right. ~~$
+	% 	donc $k=x\times k_1 + y\times k_2$ convient. 
+	% 	\vspace*{0.5cm} \\ \thm{ch8L16}{Lemme}{InvProduitAnneaux}{Soient $A,B$ des anneaux quelconques, alors $(A\times B)^* = A^* \times B^*$}
+	% 	\vspace*{0.5cm} \\ \thm{ch8th15c}{Corollaire}{PhiMNPremEntreEux}{Soient $m,n\in\N^*$ tels que $m\wedge n=1$ alors \highlight{$\varphi(m\times n)=\varphi(n)\times\varphi(n)$} $\heartsuit\heartsuit$ }
+	% 	\vspace*{0.5cm} \\ \thm{ch8L17}{Lemme}{PhiPremier}{Soit $p$ un nombre premier, $\alpha\in\N^*$ , alors \fbox{$\varphi(p^{\alpha})= p^{\alpha}-p^{\alpha-1}$} }
+	% 	\vspace*{0.5cm} \\ \thm{ch8th17}{Théorème}{PhiN}{Soit $n\in\N^*$ avec $n=p_1^{\alpha_1} \times \cdots \times p_r^{\alpha_r}$ où $p_1 < \cdots < p_r$ et $\alpha_1,\dots ,\alpha_r \in \N^*$ \\
+	% 	(cette décomposition existe uniquement vu le théorème fondamental de l'arithmétique)\\
+	% 	\hspace*{0.5cm} Alors \highlight{$\varphi(n) = n \times \big(1-\frac{1}{p_1}\big) \times \cdots \times \big( 1-\frac{1}{p_r}\big)$} $\heartsuit\heartsuit$}
+	% 	\begin{proof}
+	% 	On a $\varphi(n) = \prodi{1}{r} \varphi(p_i^{\alpha_i})$ \\
+	% 	par récurrence en appliquant le corollaire précédant vu $\forall i\neq j ,~ p_i^{\alpha_i}\wedge p_j^{\alpha_j} = 1$ \\
+	% 	 Donc $\varphi(n) = \prodi{1}{r} (p_i^{\alpha_i} - p_i^{\alpha_i-1}) = \prodi{1}{r} p_i^{\alpha_i} \big(1-\frac{1}{p_i} \big) = n\prodi{1}{r} \big(1-\frac{1}{p_i} \big)$
+	% 	\end{proof}
+	% \subsection{Idéaux d'un anneau commutatif}
+	% 	\textit{ici, $A$ est un anneau commutatif.}\\
+	% 	\traitd
+	% 	\paragraph{Idéal}
+	% 		$I\subset A$ est dit \emph{idéal de $A$} si $\ard 
+	% 		\bullet$ $(I,+)$ est un sous-groupe additif de $A \\
+	% 		\bullet$ $\forall x\in I,~\forall a\in A ~,~~x.a\in I \arf$ \trait
+	% 	\thm{ch8L18}{Lemme}{KerIdeal}{Soit $f:A\to B$ un morphisme d'anneaux, alors $\ker f$ est un idéal de $A$ }
+	% 	\vspace*{0.5cm} \\ \thm{ch8L19}{Lemme}{SommeIdeaux}{La somme de deux idéaux est un idéal.}
+	% 	\vspace*{0.5cm} \\ \thm{ch8L20}{Lemme}{IntersecIdeaux}{Une intersection quelconque d'idéaux de $A$ est un idéal de $A$}
+	% 	\vspace*{0.5cm} \\ \thm{ch8th18}{Théorème}{IdeauxZ}{Dans $\Z$, les idéaux sont exactement les $n\Z$ où $n\in\N$}
+	% 	\begin{proof}
+	% 	Sois $I$ un idéal de $\Z$, $I$ est un sous-groupe de $\Z$ donc il existe $n\in\N$ tel que $I=n\Z$.\\
+	% 	Inversement, $\forall n\in\N $, $n\Z$ est un idéal de l'anneau $/Z$
+	% 	\end{proof} ${}$ \traitd
+	% 	\paragraph{Idéaux principaux} ${}$ \\
+	% 		$A$ un anneau commutatif, soit $x_0 \in A$ alors $x_0A = \{ x_0.a ~|~a\in A\}$ est un idéal de $A$.\\
+	% 		Un idéal de ce type est dit \emph{idéal principal engendré par $x_0$}, un tel $x_0$ est dit générateur de l'idéal. \trait ${}$ \vspace*{-0.7cm} \traitd
+	% 	\paragraph{Anneau principal} ${}$ \\
+	% 		On appelle anneau principal tout anneau intègre dans lequel tout idéal est principal. \trait
+	% 	\textit{Désormais dans ce paragraphe, $A$ est un anneau intègre.}
+	% 	\traitd
+	% 	\paragraph{Division}
+	% 		Soient $a,b\in A$, on dit que $\left\{\ard a$ \emph{divise} $b \\ b$ \emph{est multiple de} $a \arf \right.$ noté $a|b$\\
+	% 		s'il existe $c\in A$ tel que $b=ca$ \trait
+	% 	\thm{ch8L21}{Lemme}{DivInclu}{Soit $(a,b) \in A^2$ alors $a|b ~\Leftrightarrow ~ bA\subset aA$ }
+	% 	\vspace*{0.5cm} \\ \thm{ch8L22}{Lemme}{ElemAssociee}{$A$ anneau intègre et $a,b\in A$\\
+	% 	Alors $(a|b)$ et $(b|a)$ $\Leftrightarrow$ $\exists u\in A^*$ tel que $b=ua$
+	% 	\\ Dans ce cas, $a$ et $b$ sont dit \emph{associée}.\\
+	% 	La relation d'association ainsi définie est une relation d'équivalence sur $A$}.
+	% 	\vspace*{0.5cm} \\ \thm{ch8L23}{Lemme}{IdealAvec1}{Soit $I$ un idéal de $A$ alors $1_A \in I ~\Leftrightarrow ~I=A$}
+	% 	\vspace*{0.5cm} \\ \thm{ch8th19}{Théorème}{pgcdppcmIdeaux}{Soient $a_1,\dots ,a_r \in A$ ; soient $\ard d=\pgcd (a_1,\dots , a_r) \\ m = \ppcm (a_1,\dots ,a_r) \arf$ \\
+	% 	\hspace*{0.5cm} Alors $\ard $ {\scriptsize (1)} $a_1\Z + \cdots + a_r \Z = d\Z \\ $ {\scriptsize (2)} $a_1 \Z \cap \cdots \cap a_r\Z = m\Z \arf$ }
+	% 	\begin{proof} ${}$ \\
+	% 	{\scriptsize (1)} Soit $I= a_1\Z + \cdots + a_r \Z$ par un lemme $I$ est un idéal de $\Z$, soit donc $k\in\N$ tel que $I=k\Z$\\
+	% 	$\rightarrow$ $\forall i\in\ent{1,r} ,~ a_i \in I$ donc $k$ est un diviseur des $a_i$ \\
+	% 	$\rightarrow$ Soit $\delta\in\Z$ un diviseur des $a_i$ on a vu $k\in I$,
+	% 	$k=\sum_{i=1}^r \lambda_i a_i = \sum_{i=1}^r \lambda_i \delta b_i$ donc $\delta | k$ d'où $k=d$\\
+	% 	{\scriptsize (2)} Soit $J=a_1\Z\cap \cdots \cap a_r\Z = q\Z$ (idéal de $\Z$), vu $q\in J$, $q$ est multiple de tout les $a_i$\\
+	% 	Soit $\mu$ un multiple des $a_i$, $\forall i\in\ent{1,r},~\mu \in a_i\Z$ donc $\mu\in q\Z$ donc $q|\mu$ d'où $q = m$
+	% 	\end{proof}
+	% \section{Les polynômes}
+	% \subsection{L'anneau $\KX$}
+	% 	\textit{Ici, $\K$ est un corps quelconque, on défini :\\
+	% 	\hspace*{2cm} $\bullet$ $\KX$ l'ensemble des suite $\suite{a}\in\K^\N$ à support fini \\
+	% 	\hspace*{2cm} $\bullet$ Une loi $+$ et une loi $\times$ comme dans $\R[X]$ qui font de $\KX$ un anneau commutatif de nul $0=(0,0,0,\dots)$ et d'unité $1=(1,0,0,\dots)$\\
+	% 	\hspace*{2cm} $\bullet$ \highlight{L'indéterminée} $X=(0,1,0,0,\dots ) \in \KX$} \vspace*{0.5cm} \\
+	% 	On constate que $X^n = (\underbrace{0,\dots ,0}_{n~\mathrm{zeros}},1,0,\dots) \in\KX$\\
+	% 	et que $\varphi \appli{(\K ,+,.)}{\lambda}{(\KX , + , \times)}{(\lambda ,0,0,\dots)}$ est un morphisme d'anneaux injectifs donc $\K \simeq \varphi(\K)$\\
+	% 	On identifie alors $\K$ et $\varphi(\K)$ en identifiant $\lambda$ et $(\lambda,0,0,\dots) ,~\forall \lambda\in \K$\vspace*{0.5cm} \\
+	% 	On constate alors que $\forall A\in \KX ,~A=\suite{a}$, \\ on a $A=\suminf a_nX^n$ {\footnotesize (somme finie)} au sens $A=\sum\limits_{n=0}^{n_0} a_nX^n$ où $\forall n\geq n_0 ,~ a_n = 0$ \traitd
+	% 	\paragraph{Degré}
+	% 		Soit $A= \suminf a_nX^n \in\KX$ on défini \emph{$\deg A$ le degré de $A$} : \\
+	% 	\hspace*{2cm} $\bullet$ Si $\{n\in\N ~|~ a_n\neq 0\} \neq \varnothing$ alors on pose $\deg A = \max \{n\in \N ~|~ a_n\neq 0 \}$\\
+	% 	\hspace*{2cm} $\bullet$ Sinon on pose $\deg A = -\infty$ \trait
+	% 	\thm{ch8th20}{Théorème}{DegreSomme}{$\uuline{\forall} A,B \in \KX $, \highlight{$\deg AB = \deg A + \deg B$} }
+	% 	\vspace*{0.5cm} \\ \thm{ch8th20c}{Corollaire}{KXintegre}{$(\KX ,+,\times)$ est un anneau intègre}
+	% 	\vspace*{0.5cm} \\ \thm{ch8L24}{Lemme}{InvKX}{$\KX^* = \K^* = \K\setminus\{0\}$ \\
+	% 	Les inversibles de $\KX$ sont exactement les inversibles de $\K$, \\
+	% 	i.e. les constantes non nulles.}
+	% 	\vspace*{0.5cm} \\ \thm{ch8th21}{Théorème}{DivEuclidKX}{Soit $\K$ un corps quelconque. Soient $A,B\in\KX$ avec $B\neq 0~\heartsuit$ \\
+	% 	Alors $\exists ! (Q,R)\in\KX^2 $ tel que $\ard \bullet A=BQ+R \\ \bullet \deg R < \deg B \arf $ }
+	% 	\begin{proof}
+	% 	Analogue à le preuve pour $\K=\R$ ou $\K=\C$.
+	% 	\end{proof}
+	% \subsection{Idéaux de $\KX$}
+	% 	${}$ \\ \thm{ch8th22}{Théorème}{KXprincipal}{Soit $\K$ un corps quelconque, alors tout les idéaux de $\KX$ sont principaux.}
+	% 	\begin{proof}
+	% 	Soit $I$ un idéal de $\KX$ on a $\{0\} \subset I$ \\
+	% 	$\rightarrow$ Si $I=\{0\}$ alors $I=O.\KX$\\
+	% 	$\rightarrow$ Sinon on considère $P$ de degré $r$ minimal dans $I$ \\ Alors $P.\KX \subset I$ (idéal) et pour tout $M\in I$ on a $P|M$ grâce à la division euclidienne.
+	% 	\end{proof}
+	% 	${}$ \\ \thm{ch9L25}{Lemme}{GenerUnitaire}{Dans $\KX$, tout idéal non nul admet un unique générateur unitaire.} \\ \traitd
+	% 	\paragraph{\textsc{pgcd}}
+	% 		Soient $A,B\in\KX$ quelconques, soit $I=A.\KX + B.\KX $ idéal de $\KX$, donc principal \\ 
+	% 		On défini \emph{le \textsc{pgcd} de $A$ et $B$} $D$ = $\textsc{pgcd}(A,B)=A\wedge B$ par \\
+	% 		\hspace*{2cm} $A.\KX + B.\KX = D.\KX$ avec $D$ unitaire ou nul. \trait
+	% 	\thm{ch8th23}{Théorème}{PGCD}{Soit $A,B\in\KX$, $D=A\wedge B$ \\
+	% 	\hspace*{0.5cm} Alors $\ard $ {\scriptsize (1)} $D$ divise $A$ et $B \\ $ {\scriptsize (2)} Tout diviseur de $A$ et $B$ divise $D \arf $ }
+	% 	\begin{proof}
+	% 	La première propriété est clair vu $A,B \in D.\KX$. On a ensuite $U,V \in \KX$ tels que $D=AU+BV$ donc tout diviseur commun de $A$ et $B$ divise $AU+BV=D$
+	% 	\end{proof} ${}$ 
+	% 	On remarquera que $\forall A,B\in\KX ,~ \exists (U,V)\in\KX^2$ tel que $AU+BV = A\wedge B$ \\
+		
+	% 	\traitd
+	% 	\paragraph{Polynômes premiers entre eux}
+	% 		$A,B\in \KX$ sont dits \emph{premiers entre eux} si $A\wedge B=1$ \trait
+	% 	\thm{ch8th24}{Théorème de \textsc{Bézout}}{ThBézout}{$A,B\in\KX$ alors \\
+	% 	$A$ et $B$ sont premiers entre eux $\Leftrightarrow$ $\exists (U,V) \in\KX$ tels que $AU+BV=1$}
+	% 	\begin{proof}
+	% 	Le sens direct est déjà vu. on a ensuite le sens retour car $1\in I=A.\KX + B.\KX$ donc $I=\KX = 1.\KX$ et $1$ unitaire.
+	% 	\end{proof}
+	% 	\begin{center}
+	% 	\begin{blockarray}{[c]}		
+	% 	\textit{On a sur tout $\KX$ avec $\K$ un corps quelconque l'algorithme d'\textsc{Euclide}, ainsi que sa version} \\ \textit{étendue, le fonctionnement est rigoureusement identique au cas $\K=\R$ ou $\C$,} \\ \textit{on se réfèrera ainsi au cours de sup pour son application.}
+	% 	\end{blockarray}
+	% 	\end{center}
+	% 	\traitd
+	% 	\paragraph{\textsc{ppcm}}
+	% 		Soient $A,B\in\KX$ quelconques, soit $I=A.\KX \cap B.\KX $ idéal de $\KX$, donc principal \\ 
+	% 		On défini \emph{le \textsc{ppcm} de $A$ et $B$} $M$ = $\textsc{ppcm}(A,B)=A\vee B$ par \\
+	% 		\hspace*{2cm} $A.\KX \cap B.\KX = M.\KX$ avec $M$ unitaire ou nul. \trait
+	% 	\thm{ch8th25}{Théorème}{PPCM}{Soit $A,B\in\KX$, $M=A\vee B$ \\
+	% 	\hspace*{0.5cm} Alors $\ard $ {\scriptsize (1)} $M$ est multiple de $A$ et $B \\ $ {\scriptsize (2)} Tout multiple de $A$ et $B$ est multiple de $M \arf $ }
+	% 	\begin{proof}
+	% 	On a $M\in A.\KX$ et $M\in\KX$ donc $M$ est bien multiple de $A$ et $B$. Pour tout $N$ multiple commun de $A$ et $B$, $N\in I$ or $I=M.\KX$ donc $N$ est multiple de $M$.
+	% 	\end{proof} ${}$ \traitd
+	% 	\paragraph{\textsc{pgcd} d'une famille}
+	% 		$A_1,\dots ,A_r \in\KX$, on appelle $\textsc{pgcd}(A_1,\dots , A_r)$ l'unique $D\in\KX$ tel que $A_1.\KX + \cdots + A_r.\KX = D.\KX$ avec $D$ unitaire ou nul. \trait ${}$ \vspace*{-0.7cm} \traitd
+	% 	\paragraph{\textsc{ppcm} d'une famille}
+	% 		$A_1,\dots ,A_r \in\KX$, on appelle $\textsc{ppcm}(A_1,\dots , A_r)$ l'unique $M\in\KX$ tel que $A_1.\KX \cap \cdots \cap A_r.\KX = M.\KX $ avec $M$ unitaire ou nul. \trait
+	% 	\emph{NB} : On remarque que $D$ et $M$ sont bien des \textsc{pgcd} et \textsc{ppcm} au sens de la divisibilité. 
+	% 	\vspace*{0.5cm} \\ \thm{ch8L26}{Lemme de \textsc{Gauss}}{LemmeGauss}{$A,B,C\in \KX$, alors $~~\left( \begin{array}{c} A|B \\ A\wedge B=1 \arf \right) ~\Rightarrow ~A|C$}
+	% 	\begin{center}
+	% 	$\vdots$
+	% 	\end{center}
+	% 	${}$ \\ \thm{ch8L30}{Lemme}{IrredNonAssocies}{$P$ et $Q$ deux polynômes irréductibles et non associés sont premiers entre eux.}
+	% 	\vspace*{0.5cm} \\ \thm{ch8L31}{Lemme}{Deg&Irred}{Soit $\K$ un corps quelconque, alors tout polynôme de $\KX$ de degré $1$ est irréductible.} \vspace*{0.5cm}\\
+	% 	\textsc{Méthode} : Technique des bicarrés : \\
+	% 	Pour décomposer un polynôme $Q=aX^4+bX^2+c \in\R$, on associe $X^4$ et $X^2$ ou $X^4$ et $c$ en écrivant $X^4=(X^2)^{^{2}}$\\
+	% 	\emph{exemple :}\\
+	% 	$X^4-3X^2 + 2 = \left( X^2 - \frac{3}{2}\right) ^2 - \frac{9}{4} +2 = (X^2-2)(X^2-1)$\\
+	% 	$X^4+X^2+1 = (X^2 + 1)^2 - X^2 = (X^2+1-X)(X^2+1+X)$
+	% 	\vspace*{0.5cm} \\ \thm{ch8th28}{Théorème}{8-T28}{Pour $\K$ corps quelconque, tout polynôme de $\KX$ non constant \\ est produit de polynômes unitaires.}
+	% 	\begin{proof}
+	% 	Soit $\mathcal{A}(n)$ : "tout polynôme de degré $n$ est produit d'irréductible"\\
+	% 	$\rightarrow$ $\mathcal{A}(1)$ est vrai\\
+	% 	$\rightarrow$ Soit $n\geq 2$, on suppose $\mathcal{A}(p)$ pour tout $p\in\ent{1,n-1}$. Soit $A\in\KX$ de degré $n$\\
+	% 	\hspace*{0.5cm} - Si $A$ est irréductible c'est trivial\\
+	% 	\hspace*{0.5cm} - Sinon on a $A=UV$ avec $U$ et $V$ des polynômes non constants de degrés $<1$ d'où le résultat.\\
+	% 	On a \textsc{cqfd} par récurrence forte.
+	% 	\end{proof}
+	% 	${}$ \\ \thm{ch8th29}{Théorème}{DecompPolyUnitaires}{Soit $\K$ un corps quelconque, on note $\mathds{P}$ l'ensemble des polynômes irréductibles \\ unitaires sur le corps $\K$. 
+	% 	Alors tout polynôme $A\in\KX$ s'écrit sous la forme \\${}$\\
+	% 	\hspace*{2cm} $\cm{A = \lambda\prod_{p\in\mathds{P}} P^{\alpha(P)} }$\\${}$\\
+	% 	où $\lambda\in\K^*$ et $\alpha(P) \in\N$ nuls sauf pour un nombre fini de $P$. \\ Cette décomposition est unique.}
+	% 	\begin{proof}
+	% 	L'existence est assurée par le théorème précédant en factorisant les coefficients dominants.
+	% 	On a ensuite l'unicité d'abord de $\lambda$ puis par l'absurde de tout les $P$, deux à deux premiers entre eux car irréductibles non associés (unitaires).
+	% 	\end{proof}
+	% 	${}$ \\ \thm{ch8L32}{Lemme}{8-L32}{Soit $P\in\KX$ irréductible et $A,B\in\KX$
+	% 	\\ \hspace*{0.5cm} Alors $P|AB\rightarrow P|A$ ou $P|B$}
+	% \section{La structure d'algèbre}
+	% 	\begin{center}
+	% 	\textit{{\scriptsize C'est comme le dentifrice action intégrale, y'a tout dedans !}}
+	% 	\end{center} \traitd
+	% 	\paragraph{Algèbre}
+	% 		Soit $\K$ un corps quelconque. 
+	% 		On appelle algèbre sur $\K$ tout $(A,+,\cdot ,\ast)$ telle que\\
+	% 		\hspace*{2cm} {\scriptsize (1)} $(A,+,\cdot)$ est un $\K$ espace vectoriel\\
+	% 		\hspace*{2cm} {\scriptsize (2)}	$(A,+,\ast)$ est un anneau\\
+	% 		\hspace*{2cm} {\scriptsize (3)} $\forall (\lambda ,a,b) \in\K\times A\times A~, ~~\lambda (a\ast b)  = (\lambda a)\ast b = a\ast (\lambda b)$ \trait
+	% 	\textit{L'algèbre est dite commutative si $\ast$ l'est.} \\
+	% 	\vspace*{0.5cm} \\ \thm{ch8L33}{Lemme}{EndosAlgebre}{Soit $E$ un $\K$ espace vectoriel\\
+	% 	Alors $\big( \lin(E) , + , \cdot , \circ \big)$ est une $\K$-algèbre d'unité $Id_E$} \\ \traitd
+	% 	\paragraph{Sous-algèbre}
+	% 		Soit $\big( A,+,\cdot , \ast)$ une $\K$-algèbre et $b\subset A$.\\ On dit que \emph{$B$ est une sous-algèbre de $A$ sur $\K$} si \\
+	% 		\hspace*{2cm} $\bullet ~B$ est un sous-espace vectoriel de $A$\\
+	% 		\hspace*{2cm} $\bullet ~B$ est un sous-anneau de $A$ \trait
+	% 	\thm{ch8L34}{Lemme}{SSAlgALg}{Une sous-algèbre d'un $\K$-algèbre est une algèbre sur $\K$}
+	% 	\vspace*{0.5cm} \\ \thm{ch9th30}{Théorème : Caractérisation des sous-algèbres}{CNSSSAlg}{Soit $\big( A,=,\cdot,\ast)$ une $\K$-algèbre et $B\subset A$\\
+	% 	Alors $B$ est une sous-algèbre de $A$ \emph{si et seulement si}\\
+	% 	\hspace*{0.5cm} $\ard $ {\scriptsize (1)} $\forall (x,y)\in B^2 ,~x+y\in B \\ $ {\scriptsize (2)} $\forall \lambda\in\K ,~\forall x\in B ,~\lambda x\in B \\ $ {\scriptsize (3)} $\forall (x,y)\in B^2 ,~x\ast y\in B \\ $ {\scriptsize (4)} $1_A\in B \arf $ }
+	% 	\begin{proof}
+	% 	La condition est immédiatement nécessaire vu la définition et suffisante car $B$ est \textsc{sev} de $A$ ({\scriptsize (1)}, {\scriptsize (2)} et {\scriptsize (4)}) et sous-anneau de $A$ car sous-groupe additif de $A$ (\textsc{sev}) stable par $\ast$ ({\scriptsize (3)}) contenant l'unité de $A$ ({\scriptsize (4)}). d'où \textsc{cqfd}.
+	% 	\end{proof} ${}$ \traitd
+	% 	\paragraph{Morphisme d'algèbre}
+	% 		Soient $A$ et $B$ des $\K$-algèbres et $f: A\to B$. \\ On dit que \emph{$f$ est un morphisme de algèbre sur $\K$} si\\
+	% 		\hspace*{2cm} $\bullet$ $f$ est $\K$-linéaire {\tiny (morphisme de $\K$ espace vectoriel)} \\\ \hspace*{2cm} $\bullet$ $f$ est morphisme d'anneaux \trait
+	% 	\thm{ch8th31}{Théorème}{CNSMorphsimeAlg}{$A,B$ des $\K$-algèbre et $f: A\to B$ alors \\
+	% 	$f$ est un morphisme de $\K$-algèbre \emph{si et seulement si} \\
+	% 	\hspace*{0.5cm} $\ard $ {\scriptsize (1)} $\forall (x,y)\in A^2 ,~f(x+y)=f(x)+f(y) \\ $ {\scriptsize (2)} $\forall \lambda\in\K ,~\forall A\in B ,~f(\lambda x) = \lambda f(x) \\ $ {\scriptsize (3)} $\forall (x,y)\in A^2 ,~f(x\ast y) = f(x)\ast f(y) \\ $ {\scriptsize (4)} $f(1_A) = 1_B \arf $ }
+	% 	\begin{proof}
+	% 	Clair vu la définition
+	% 	\end{proof} ${}$ \\ 
+	% 	\begin{center}
+	% 	\fin
+    %   \end{center}
