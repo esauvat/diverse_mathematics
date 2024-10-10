@@ -23,6 +23,8 @@
 \usepackage{fancyhdr}
 \usepackage{blkarray}
 \usepackage{booktabs}
+\usepackage{eso-pic}
+\usepackage{picture}
 %\usepackage{svg}
 
 \usepackage{amsfonts}
@@ -89,7 +91,7 @@
 \renewcommand\epigraphsize{\normalsize}
 \setlength\epigraphwidth{0.7\textwidth}
 
-\definecolor{titlepagecolor}{cmyk}{1,.60,0,.40}
+\definecolor{titlepagecolor}{cmyk}{0.6,0.6,0.6,0.4}
 
 \DeclareFixedFont{\titlefont}{T1}{ppl}{b}{it}{0.5in}
 
@@ -231,19 +233,19 @@
 
 \newcommand{\ent}[1]{{\llbracket #1 \rrbracket}}                    
 	% Ensemble d'entiers
-\newcommand{\N}{{\mathbf{N}}}                                       
+\newcommand{\N}{{\mathbb{N}}}                                       
 	% Entiers naturels
-\newcommand{\Z}{{\mathbf{Z}}}                                       
+\newcommand{\Z}{{\mathbb{Z}}}                                       
 	% Entiers relatifs
-\newcommand{\R}{{\mathbf{R}}}                                       
+\newcommand{\R}{{\mathbb{R}}}                                       
 	% Réels
-\newcommand{\C}{{\mathbf{C}}}                                       
+\newcommand{\C}{{\mathbb{C}}}                                       
 	% Complexes
-\newcommand{\K}{{\mathbf{K}}}                                       
+\newcommand{\K}{{\mathbb{K}}}                                       
 	% Corps K
-\newcommand{\Q}{{\mathbf{Q}}}                                       
+\newcommand{\Q}{{\mathbb{Q}}}                                       
 	% Rationnels
-\newcommand{\KX}{{\mathbf{K}[X]}}                                   
+\newcommand{\KX}{{\mathbb{K}[X]}}                                   
 	% Polynômes sur K
 \newcommand{\M}{{\mathcal{M}}}                                      
 	% Matrices
@@ -271,6 +273,8 @@
     % Fonction en escalier
 \newcommand{\prehilb}{(E,\scal{.,.})}
     % Espacee préhilbertien
+\newcommand{\Img}{\mathrm{im}}
+	% Image d'une application
 
 
 \newcommand{\norm}[1]{\left\Vert #1 \right\Vert}
@@ -291,6 +295,7 @@
     % Produit en k
 \newcommand{\pdi}[2]{\prod_{i= #1 }^{#2}}
     % Produit en i
+\newcommand{\se}{\sum_{n\geq 0} a_nz^n}
 
 \newcommand{\Ps}{\sum_{k=0}^{+\infty} a_k X^k}
     % Polynôme infini
@@ -397,6 +402,16 @@ et ne saurait en aucun cas y être un quelconque remplacement ! \vspace{10pt}\\
 
 \shorttoc{Chapitres}{0}
 \thispagestyle{empty}
+%
+%\newpage
+%
+%\AddToShipoutPicture*{
+%	\put(\linewidth/2 ,300)
+%	{	
+%		\includegraphics[width = 0.5\textwidth]{../../illustr/butterfly.png} 
+%		
+%	}
+%}
 
 \theoremstyle{plain}
 
@@ -431,17 +446,19 @@ et ne saurait en aucun cas y être un quelconque remplacement ! \vspace{10pt}\\
 
     \input{../2_chapitres/ch2_5_fr}
         
-% \chapter{Intégrales paramétrées}
+\chapter{Intégrales paramétrées}
+	\thispagestyle{empty}
 
-%     \input{../2_chapitres/ch2_6_fr}
+    \input{../2_chapitres/ch2_6_fr}
 
-% \chapter{Séries entières}
+\chapter{Séries entières}
+	\thispagestyle{empty}
 
-%     \input{../2_chapitres/ch2_7_fr}
+    \input{../2_chapitres/ch2_7_fr}
 
-% \chapter{Algèbre}
+\chapter{Algèbre}
 
-%     \input{../2_chapitres/ch2_8_fr}
+    \input{../2_chapitres/ch2_8_fr}
 
 % \chapter{Réduction des endomorphismes}
 

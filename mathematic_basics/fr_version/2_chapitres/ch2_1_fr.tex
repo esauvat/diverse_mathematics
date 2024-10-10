@@ -41,7 +41,11 @@
 		\paragraph{Boule ouverte et fermée} Soient $a\in E,~r\in\mathbf{R}$ On pose
 			\[B(a,r) = \left\{ x\in E ~|~ d(x,a)<r\right\} \hspace*{1.5cm} B_f (a,r) = \left\{ x\in E ~|~ d(x,a) \leq r\right\}\]
 			\hspace*{0.6cm} Les \emph{boules ouverte et fermée} de centre $a$ et de rayon $r$. 
-		\traitdouble
+		\trait
+		
+		\newpage
+		
+		\traitd
 		\paragraph{Segment et ensemble convexe} Soit $E$ un $\mathbf{K}$ espace vectoriel quelconque \vspace*{0.2cm}\\
 			\hspace*{0.5cm} -> Pour $(a,b)\in E^2$ on défini le \emph{segment} : $[a,b]=\left\{ (1-t)a +tb ~\vert ~t\in [0,1]\right\}$ \\
 			\hspace*{0.5cm} -> $\mathcal{C} \subset E$ est dit \emph{convexe} si $\forall (a,b)\in \mathcal{C}^2,~[a,b]\subset \mathcal{C}$
@@ -158,7 +162,8 @@
 		} \\
 		{\small \emph{Attention !} La réciproque est fausse !}
 
-		\vspace{-15pt}
+		\newpage
+		
 		\traitd
 		\paragraph{Suite bornée}
 			Soit $\left(u_n\right)_{n\in\mathbf{N}} \in E^{\mathbf{N}}$ on dit que $\left(u_n\right)$ est bornée si
@@ -185,8 +190,6 @@
 			$\ell\in E$ est une valeur d'adhérence de $u$ s'il existe une suite extraite de $u$ qui converge vers $\ell$.
 			On notera $\mathcal{V}_u$ l'ensemble des valeurs d'adhérence de $u$. 
 		\trait
-		
-		\newpage
 		
 		\theorem{thm}{
 			Soit $u\in E^{\mathbf{N}}$ si $u$ \\
@@ -310,13 +313,11 @@
 
 		Soit $u = (u_n) \in E^{\mathbf{N}}$ ; pour $n \in \mathbf{N}$ on pose $U_n = \sum_{k=1}^{n} u_k$. 
 		
+		\newpage
+		
 		\traitd
 		\paragraph{Sommes partielles} La suite $(U_n)$ est dite suite des \emph{sommes partielles} associée à $u$.
-		\trait
-		
-		\newpage
-
-		\traitd
+		\traitdouble
 		\paragraph{Série convergente} On dit que la \emph{série de terme général $u_n$} converge si $\left(U_n\right)$ converge.
 			\\\hspace*{2cm} Dans ce cas on pose $~$ \highlight{$\sum_0^{+\infty}~=~\underset{n\rightarrow +\infty}{\lim} U_n~\in E$}
 		\trait
@@ -356,7 +357,8 @@
 			\\ si $\sum \norm{u_n}$ converge.
 		\trait 
 		
-		\vspace{-10pt}
+		\newpage
+		
 		\remarque{Vu $dimE < \infty$, ceci ne dépend pas du choix de la norme} \medskip
 		
 		\theorem{thm}{
@@ -455,11 +457,11 @@
 			
 		\begin{proof}
 			{\small 1)} Supposons $u_n \to \lambda$ alors $u_n - \lambda = \circ (1)$, on pose ensuite $v_n = 1$ alors $\sum v_n$ diverge 
-			et d'après le théorème de sommation en cas divergent \\ $\sum_{k=0}^{n} u_k - \lambda = \circ ( \underbrace{\sum_{k=0}^{n} 1}_{=n+1} ) ~
+			et d'après le théorème de sommation en cas divergent \\ $\sum_{k=0}^{n} u_k - \lambda = \circ ( \sum_{k=0}^{n} 1 ) ~
 			\Rightarrow ~\frac{1}{n+1} ( \sum_{k=0}^{n} u_k ) - \lambda \to 0$ \\
 			{\small 2)} Supposons $u_n \to +\infty$ et posons $a_n = \frac{1}{n+1} \sum_{k=0}^{n} u_k$
-			Soit $A\in\mathbf{R}$ et $A'=A+1$ \\ Soit $n_0 \in\mathbf{N} ~:~\forall n\geq n_0 ,~u_n >A'$ , puis pour $n\geq n_0$ :\\
-			$a_n = \frac{1}{n+1} ( \underbrace{\sum_{k=0}^{n_0-1} u_k}_{=C} + \underbrace{\sum_{k=n_0}^{n} u_k}_{>A'(n-n_0+1} )$ 
+			Soit $A\in\mathbf{R}$ et $A'=A+1$ \\ Soit $n_0 \in\mathbf{N} ~:~\forall n\geq n_0 ,~u_n >A'$ , puis pour $n\geq n_0$ avec $C = \sk{0}{n_0-1} u_k$ :\\
+			$a_n = \frac{1}{n+1} ( C + \sum_{k=n_0}^{n} u_k)$ 
 			donc $a_n > \frac{C}{n+1} + A'\frac{n+1-n_0}{n+1} = A' + \frac{C-n_0A'}{n+1}$ \\ 
 			Soit $n_1\geq n_0$ tel que $\forall n\geq n_1 ,~\abs{\frac{C-A'n_0}{n+1}} <1$ alors $\forall n\geq n_1 ,~a_n > A$ d'où $a_n \to +\infty$
 		\end{proof} \medskip

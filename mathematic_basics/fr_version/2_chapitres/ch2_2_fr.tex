@@ -35,6 +35,8 @@
 			Dans $(E,N)$ on appelle \emph{ouvert} (ou \emph{partie ouverte}) \textbf{toute} réunion de boules ouvertes.
 		\trait
 		
+		\newpage
+		
 		\namedtheorem{Théorème : Caractérisation des ouverts}{Soit $U\subset E$ alors\\
 		$\left( U ~ ouvert \right) ~\Leftrightarrow ~\left( \forall x\in U ,~\exists r>0 ~:~B(x,r) \subset U \right)$
 		}{CarOuverts}
@@ -102,9 +104,7 @@
 		
 		\namedtheorem{Lemme : Croissance de l'adhérence}{
 			Soit $A,B\in E$ alors $A\subset b ~\Rightarrow ~\overline{A} \subset \overline{B}$
-		}{AdherCroiss} 
-		
-		\newpage
+		}{AdherCroiss} \medskip
 		
 		\theorem{thm}{
 			Soit $\alpha \in E$ alors $\alpha \in \overline{A} \Leftrightarrow \exists \suite{a} \in A^{\mathbf{N}} : a_n \underset{n}{\to} \alpha$
@@ -159,7 +159,7 @@
 		}
 		
 		\begin{proof}
-		On sait que la convergence d'une suite est invariante par norme équivalente %(Page \pageref{1.3.1}) 
+		On sait que la convergence d'une suite est invariante par norme équivalente (Page \pageref{1.3.1}) 
 		donc on a l'invariance des notions "point adhérent" et "adhérence" ainsi que "point intérieur" par le complémentaire de l'adhérence (Page \pageref{2.1.5}) puis par 
 		caractérisation séquentielle des fermés on a l'invariance de la notion "fermé" ainsi que "ouvert" par le complémentaire.
 		\end{proof}
@@ -173,8 +173,6 @@
 		\paragraph{Frontière}
 		Soit $A\subset E$ on définie sa \emph{frontière} comme \fbox{$F_r(A)= \overline{A} \backslash \mathring{A}$} 
 		\trait
-		
-				\newpage
 		
 		\theorem{lem}{
 			$\forall A\subset E$ , $F_r(A)$ est fermée et \fbox{$F_r(A) = \overline{A} \cap \overline{{^cA}}$}
@@ -360,18 +358,20 @@
 			Soit $f : A(\subset E) \rightarrow F$ et $a\in A$ \emph{alors} \\
 			$f$ est continue au point $a$ si et seulement si $\left(\forall\suite{a} \in A^{\N} ,~a_n 
 		\underset{n}{\to} a ~\Rightarrow~f(a_n \underset{n}{\to} f(a) \right)$
-		}{CarSeqCont}
+		}{CarSeqCont}\label{CarSeqCont}
 		
 		\begin{proof}
 		Caractérisation séquentielle d'une limite Page \pageref{CarSeqLim} et Lemme.
-		\end{proof} 
-		
-		\newpage
+		\end{proof} \medskip
 		
 		\traitd
 		\paragraph{Continuité}
 			$f$ est dite continue si $\forall a\in A$, $f$ est continue au point $a$.
-		\traitdouble
+		\trait
+		
+		\newpage
+		
+		\traitd
 		\paragraph{Fonction lipschitzienne}
 			Soit $f:A(\subset E) \rightarrow F$ et $k\in \R^+$
 			\begin{itemize}
@@ -551,9 +551,7 @@
 		L'idée générale est ici de travailler dans $A$ munie de la distance induite par la norme de $E$.
 		
 		\remarque{Soit $a\in A$ et $r\in \mathbf{R}+$ alors on note $B^A(a,r)=\{x\in A ,~d(x,a) <r\} = A\cap B(a,r)$
-		} \vspace{-25pt}
-
-		\newpage
+		}
 		
 		\traitd
 		\paragraph{Voisinage relatif}
@@ -584,6 +582,8 @@
 		\paragraph{Fermé relatif}
 			Soit $\Phi \subset A$ alors $\Phi$ est dit fermé relatif de $A$ si $A\backslash \Phi$ est un ouvert relatif de $A$. 
 		\trait
+		
+		\newpage
 		
 		\namedtheorem{Théorème : Caractérisation des fermés relatifs}{
 			Soit $\Phi \subset A$ alors :\\

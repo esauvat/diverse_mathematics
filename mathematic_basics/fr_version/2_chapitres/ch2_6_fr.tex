@@ -2,66 +2,129 @@
 % Chapitre 6 : Intégrales paramétrées
 
 \minitoc
-	\section{Théorème de convergence dominée}
-		${}$ \\ \thm{ch6th1}{Théorème}{ThConvDom}{Soit $I$ i.r.n.t et $\suite{f} \in (K^I)^{^\N}$, $f\in K^I$ on suppose que \\
-		{\tiny (1)} $\forall n\in \N , ~f_n\in\cpm (I,K)$ \hfill {\tiny (2)} $f\in \cpm (I,K)$ \hfill ${}$ \\
-		{\tiny (3)} $(f_n)$ converge simplement sur $I$ vers $f$  \\ 
-		{\tiny (4)} $\exists \varphi \in L^1 (I,K)$ telle que $\forall n\in\N ,~ \forall x\in I ,~ 
-		\mc{f_n(x)} \leq \varphi(x)$  \\ ${}$ \vspace*{-0.2cm} \\
-		Alors $~~\left\{ \ard ${\tiny (i)} $\forall n\in \N ,~f_n \in L^1(I,K)$ et $f\in L^1(I,K) \\ ${\tiny (ii)} $\cm{\int_I f_n \ston \int_I f }
-		\arf \right. $}
-		\\ \textit{ \small Ce théorème est admis.}
-		\vspace*{0.5cm} \\ \thm{ch6th1c}{Corollaire}{IntegrFamillFc}{Soient $I,J$ des i.r.n.t. et $(f_\gl)_{_{\gl\in J}}$ une famille de fonctions.
-		\\ Soit $\gl_0\in\overline{J}$ ou borne infinie de $J$, avec \\
-		{\tiny (1)} $\forall \gl\in J ,~f_\gl \in\cpm (I,K)$ \\ {\tiny (2)} $\forall t\in I,~f_\gl (t)\underset{\gl\to\gl_0}{\longrightarrow} f(t)$
-		\\ {\tiny (3)} $f\in\cpm (I,K)$\\
-		{\tiny (4)} $\exists \phi \in L^1 (I,K)$ telle que $\forall \gl\in J ,~\mc{f_\gl} \leq \phi$ \\
-		Alors $~~\left\{ \ard ${\tiny (i)} Les $f\l$ et $f$ sont intégrables sur $I \\ ${\tiny (ii)} $\cm{\int_I f_\gl 
-		\underset{\gl\to\gl_0}{\longrightarrow} \int_I f } \arf \right. $}
-	\section{Intégration terme à terme}
+
+\section{Théorème de convergence dominée}
+
+	\theorem{thm}{
+		Soit $I$ i.r.n.t et $\suite{f} \in (\K^I)^{^\N}$, $f\in \K^I$ on suppose que 
+		\begin{itemize}
+			\item $\forall n\in \N , ~f_n\in\cpm (I,K)$ 
+			\item $f\in \cpm (I,K)$
+			\item $(f_n)$ converge simplement sur $I$ vers $f$
+			\item $\exists \varphi \in L^1 (I,\K)$ telle que $\forall n\in\N ,~ \forall x\in I ,~ \abs{f_n(x)} \leq \varphi(x)$
+		\end{itemize}\medskip
+		
+		Alors $~~\left\{ \ard 
+			${\scriptsize (i)} $\forall n\in \N ,~f_n \in L^1(I,\K)$ et $f\in L^1(I,\K) \\ 
+			${\scriptsize (ii)} $\displaystyle{\int_I f_n \ston \int_I f }
+		\arf \right. $
+	}
+	
+	\textit{ \small Ce théorème est admis.} \medskip \\
+	
+	\theorem{cor}{
+		Soient $I,J$ des i.r.n.t. et $(f_\lambda)_{\lambda\in J}$ une famille de fonctions. \\ 
+		Soit $\lambda_0\in\overline{J}$ ou $\lambda$ est une borne infinie de $J$ avec
+		\begin{itemize}
+			\item $\forall \lambda\in J ,~f_\lambda \in\cpm (I,\K)$
+			\item $\forall t\in I,~f_\lambda (t)\underset{\lambda\to\lambda_0}{\longrightarrow} f(t)$ \vspace{-3pt}
+			\item $f\in\cpm (I,\K)$
+			\item $\exists \phi \in L^1 (I,\K)$ telle que $\forall \lambda\in J ,~\abs{f_\lambda} \leq \phi$
+		\end{itemize} \medskip
+		
+		Alors $~~\left\{ \ard 
+			${\scriptsize (i)} Les $f_\lambda$ et $f$ sont intégrables sur $I \\ 
+			${\scriptsize (ii)} $\displaystyle{\int_I f_\lambda \underset{\lambda\to\lambda_0}{\longrightarrow} \int_I f } 
+		\arf \right. $
+	} \medskip
+	
+	
+\section{Intégration terme à terme}
+	
 	\subsection{Cas positif}
-		${}$ \\ \thm{ch6th2}{Théorème}{IntTATpos}{Soit $I$ un intervalle réelle non trivial, on suppose \\
-		{\tiny (1)} $\forall n\in\N , ~g_n \in L^1 (I,\R)$  \\ {\tiny (2)} $\sum g_n$ converge simplement sur $I$ \hfill {\tiny (3)} $\suminft g_n \in 
-		\cpm (I,\R)$ \\ {\tiny (4)} $\forall n\in\N ,~g_n \geq 0$ \\ Alors \hspace*{0.5cm} $\cm{\int_I\suminf g_n = \suminf\int_I g_n }$ dans 
-		$[0,+\infty[$ \\ En particulier, $\suminft g_n$ est intégrable $\Leftrightarrow$ $\suminft \int_I g_n < + \infty$ }
-		\\ \textit{ \small Ce théorème est admis.}
+		
+		
+		\theorem{thm}{
+			Soit $I$ un intervalle réelle non trivial, on suppose 
+			\begin{itemize}
+				\item $\forall n\in\N , ~g_n \in L^1 (I,\R)$
+				\item $\sum g_n$ converge simplement sur $I$
+				\item $\suminf g_n \in \cpm (I,\R)$
+				\item $\forall n\in\N ,~g_n \geq 0$
+			\end{itemize}
+			Alors $\displaystyle{\int_I\suminf g_n = \suminf\int_I g_n }$ dans $[0,+\infty[$ \\ 
+			En particulier, $\suminf g_n$ est intégrable $\Leftrightarrow$ $\suminf \int_I g_n < + \infty$ 
+		}
+		
+		\textit{ \small Ce théorème est admis.}
+		
 	\subsection{Cas réel ou complexe}
-		${}$ \\ \thm{ch6th3}{Théorème}{IntTAT}{Soit $I$ un intervalle réelle non trivial, on suppose \\
-		{\tiny (1)} $\forall n\in\N , ~g_n \in L^1 (I,\R)$  \\ {\tiny (2)} $\sum g_n$ converge simplement sur $I$ \hfill $\suminft g_n \in 
-		\cpm (I,\R)$ \\ {\tiny (4)} La série \highlight{$\sum_{n\geq 0} \int_I \mc{g_n}$} converge $\heartsuit$ \\ 
-		Alors \hspace*{0.5cm} $ \ard ${\tiny (i)} $\suminf g_n \in L^1(I,K) \\ ${\tiny (ii)} $ \sum\limits_{n\geq 0} g_n $ converge $ \\ 
-		${\tiny (iii)} $ \int_I\suminf g_n = \suminf \int_I g_n \arf $ }
-		\\ \textit{ \small Ce théorème est admis.}
-	\section{Continuité et dérivation d'une intégrale paramétrée}
-		\uline{Position du problème :} on s'intéresse à des fonctions du type $\cm{ \Phi : x\mapsto \int_a^b f(x,t) \dd t }$ dont on veut étudier 
-		la continuité et la dérivabilité.
-		\vspace*{0.5cm} \\ \thm{ch6th4}{Théorème 1 $\heartsuit$}{ContIntPar}{Soit $I$ un i.r.n.t. avec $a<b$ ses bornes.\\
-		$A\subset E$ une partie quelconque de $E$ un espace vectoriel normé de dimension finie.\\
-		$f ~\appli{A\times I}{(x,t)}{\K}{f(x,t)} ~~$ avec \\ $ \ard $ {\tiny (1)} $ \forall x\in A ,~f(x,\cdot ) \in \cpm(I,\K) \\ $ {\tiny (2)} $ 
-		\forall t\in I, ~f(\cdot ,x) \in \cont^0 (A ,\K) \\ $ {\tiny (3)} \uline{Hypothèse de domination :} $ \\ \hspace*{0.5cm} \exists \varphi \in L^1 (I,\K)$ 
-		telle que $ \forall (x,t) \in I\times A ,~\mc{ f(x,t) } \leq \varphi (t) \arf $ \\ ${}$ \\
-		Alors $ \cm{ \Phi ~\appli{A}{x}{\K}{\int_a^b f(x,t) \dd t} } ~~ $ est continue. }
-		\begin{proof}
-		On a $f(x, \cdot) \in L^1(I,\K)$ vu {\tiny(1)} et {\tiny (2)} donc l'application est bien définie.\\
-		Soit $\alpha \in A$ et on considère $\suite{x}$ telle que $x_n \ston \alpha$, on a alors $\Phi(x_n) \ston \Phi(\alpha)$ par le théorème de 
-		convergence dominée puis par caractérisation séquentielle de la continuité (\ref{CarSeqCont}) \\ $\Phi$ est continue en $\alpha$ d'où 
-		\textsc{cqfd} \end{proof}
-		${}$ \\ \thm{ch6th5}{Théorème 2 $\heartsuit$}{DerIntPar}{Soit $I$ un i.r.n.t. avec $a<b$ ses bornes et $A$ i.r.n.t. \\
-		Soit $f : A\times I\to K$, on suppose\\
-		$ \ard $ {\tiny (1)} $ \forall x\in A ,~f(x,\cdot ) \in L^1(I,\K) \\ $ {\tiny (2)} $ \frac{\partial f}{\partial x}$ est bien définie sur $A\times I$ et vérifie les hypothèses du Théorème 1.$ \arf $ \\ ${}$ \\
-		Alors $\Phi$ est bien définie sur $A$, $\Phi \in\cont^1(A,K)$ et $\forall x\in A$, \highlight{$\cm{\Phi'(x) = \int_a^b \frac{\partial f}{\partial x} (x,t) \dd t}$} }\\
-		\textit{Cette égalité est dite "formule de \textsc{Leibniz}"}
-		\begin{proof}
+		
+		\theorem{thm}{
+			Soit $I$ un intervalle réelle non trivial, on suppose 
+			\begin{itemize}
+				\item $\forall n\in\N , ~g_n \in L^1 (I,\R)$
+				\item $\sum g_n$ converge simplement sur $I$
+				\item $\suminf g_n \in \cpm (I,\R)$
+				\item La série \highlight{$\sum_{n\geq 0} \int_I \abs{g_n}$} converge $\heartsuit$
+			\end{itemize} \medskip 
+			Alors $ \left\{ \ard 
+				${\scriptsize (i)} $\displaystyle \suminf g_n \in L^1(I,K) \\ 
+				${\scriptsize (ii)} $ \displaystyle \sum_{n\geq 0} \int_I g_n $ converge $ \\ 
+				${\scriptsize (iii)} $ \displaystyle \int_I\suminf g_n = \suminf \int_I g_n 
+			\arf \right. $ 
+		}
+		
+		\textit{ \small Ce théorème est admis.} \medskip \\
+		
+
+\section{Continuité et dérivation d'une intégrale paramétrée}
+	
+	\uline{Position du problème :} on s'intéresse à des fonctions du type $\displaystyle{ \Phi : x\mapsto \int_a^b f(x,t) dt }$ dont on veut étudier la continuité et la dérivabilité.
+	
+	\namedtheorem{Théorème 1 $\heartsuit$}{
+		Soit $I$ un i.r.n.t. avec $a<b$ ses bornes et $A\subset E$ une partie quelconque de $E$ un espace vectoriel normé de dimension finie.\\
+		On considère $f ~\appli{A\times I}{(x,t)}{\K}{f(x,t)} ~~$ avec 
+		\begin{itemize}
+			\item $ \forall x\in A ,~f(x,\cdot ) \in \cpm(I,\K)$
+			\item $ \forall t\in I, ~f(\cdot ,x) \in \cont^0 (A ,\K)$
+			\item \uline{Hypothèse de domination :} $ \\ 
+			\exists \varphi \in L^1 (I,\K)$ telle que $ \forall (x,t) \in I\times A ,~\abs{ f(x,t) } \leq \varphi (t)$
+		\end{itemize} \medskip
+		
+		Alors $ \displaystyle{ \Phi ~\appli{A}{x}{\K}{\int_a^b f(x,t) dt} } ~~ $ est continue. 
+	}{ContIntPar}
+	
+	\begin{proof}
+		On a $f(x, \cdot) \in L^1(I,\K)$ donc l'application est bien définie.\\
+		Soit $\alpha \in A$, on considère $\suite{x}$ telle que $x_n \ston \alpha$ et on a alors $\Phi(x_n) \ston \Phi(\alpha)$ par le théorème de convergence dominée puis par caractérisation séquentielle de la continuité (\ref{CarSeqCont})\\ 
+		$\Phi$ est continue en $\alpha$ d'où \textsc{cqfd} 
+	\end{proof} \medskip
+	
+	\namedtheorem{Théorème 2 $\heartsuit$}{
+		Soit $I$ un i.r.n.t. avec $a<b$ ses bornes et $A$ un i.r.n.t. quelconque. \\
+		Soit $f : A\times I\to K$, on suppose
+		\begin{itemize}
+			\item $ \forall x\in A ,~f(x,\cdot ) \in L^1(I,\K)$
+			\item $ \frac{\partial f}{\partial x}$ est bien définie sur $A\times I$ et vérifie les hypothèses du Théorème 1.
+		\end{itemize} \medskip
+		
+		Alors $\Phi$ est bien définie sur $A$, $\Phi \in\cont^1(A,K)$ et \\
+		$\forall x\in A$, \highlight{$\Phi'(x) = \int_a^b \frac{\partial f}{\partial x} (x,t) dt$} 
+	}{DerIntPar}
+	
+	\textit{Cette égalité est dite "formule de \textsc{Leibniz}"} \medskip \\
+	
+	\begin{proof}
 		On a l'existence de $\Phi :A\to K$ en tant qu'application.\\
-		On considère alors $\alpha \in A$ et on note $T(x) = \frac{\Phi(x)-\Phi(\alpha)}{x-\alpha} ,~\forall \alpha\in A/backslash \{\alpha\}$. On applique alors le théorème de convergence dominée à $T(x_n)$ où $\suite{x} \in A^\N$ converge vers $\alpha$.\\
-		Par caractérisation séquentielle d'une limite on à la dérivabilité de $\Phi$ au point $\alpha$ avec $\Phi'(\alpha) = \int_a^b \frac{\partial f}{\partial x} (x,t) \dd t$ puis sur $A$. 
-		Vu la formule pour $\Phi'(x)$ et le théorème 1, on a $\Phi'\in\cont^1(A,K)$
-		\end{proof}
+		On considère alors $\alpha \in A$ et on note $T(x) = \frac{\Phi(x)-\Phi(\alpha)}{x-\alpha} ,~\forall \alpha\in A\setminus \{\alpha\}$. On applique alors le théorème de convergence dominée à $T(x_n)$ où $\suite{x} \in A^\N$ converge vers $\alpha$.\\
+		Par caractérisation séquentielle d'une limite on a $\Phi^\prime(x) = \int_a^b \frac{\partial f}{\partial x}(x,t) dt$ et vu la formule pour $\Phi'(x)$ et le théorème 1 ; $\Phi'\in\cont^1(A,K)$
+	\end{proof}
+	
 	\paragraph{Fonction $\Gamma$ d'\textsc{Euler}}
-		On pose $\cm{\Gamma(x) = \int_0^{\infty} t^{x-1}e^{-t} \dd t ~,~~x\in\R}$ la fonction $\Gamma$ d'\textsc{Euler}. Cette fonction est définie sur $\R_+^*$.\\
-		On a $\cm{\Gamma(x+1) = \int_a^b t^xe^{-t}\dd t = [-e^{-t}t^x]_0^{+\infty} - \int_0^{+\infty} -e^{-t}xt^{x-1} \dd t = x\Gamma(x) }$\\
-		Puis ainsi \highlight{$\cm{\Gamma(n) = (n-1)! ~,~\forall n\in\N}$} , on en déduit $\Gamma \underset{0}{\sim} \frac{1}{x}$\\
-		De plus, on peut montrer par le théorème 2 que $\Gamma\in\cont^{\infty}(\R_+^*,\R)$ \vspace*{0.5cm} \\ 
-		\begin{center}
-		\fin
-		\end{center}
+		On pose $\displaystyle{\Gamma(x) = \int_0^{\infty} t^{x-1}e^{-t} dt ~,~~x\in\R}$ la fonction $\Gamma$ d'\textsc{Euler}. Cette fonction est définie sur $\R_+^*$.\\
+		On a $\Gamma(x+1) = \int_a^b t^xe^{-t}dt = [-e^{-t}t^x]_0^{+\infty} - \int_0^{+\infty} -e^{-t}xt^{x-1} dt = x\Gamma(x)$ donc  \highlight{$\displaystyle{\Gamma(n) = (n-1)! ~,~\forall n\in\N}$}. \\ 
+		On en déduit $\Gamma \underset{0}{\sim} \frac{1}{x}$ et on peut montrer par le théorème 2 que $\Gamma\in\cont^{\infty}(\R_+^*,\R)$ \vspace*{0.5cm} \\ 
+		
+		
+\fin
