@@ -1,0 +1,341 @@
+
+% Chapitre 7 : Séries entières
+
+\minitoc
+
+\section{Rayon de convergence}
+	
+	\subsection{Définition}
+		
+		\vspace{-25pt}
+		\traitd
+		\paragraph{Série entière}
+			Soit $\suite{a}\in\C^\N$ , on appelle \uline{série entière associée à cette suite} la série de fonctions
+			\vspace{-5pt}
+			\begin{center}
+			\highlight{ \Large$\sum_{n\geq 0} a_n z^n$}
+			\end{center}
+		\vspace{-10pt}
+		\trait
+		
+		\namedtheorem{Lemme d'\textsc{Abel}}{
+			Soit $\suite{a}\in\C^\N$ et $z_0\in\C$ tel que $(a_nz_0^n)_{_{n\geq 0}}$ soit bornée,\\
+			Alors $\forall z\in\C ~,~~ \abs{z} < \abs{z_0} ~ \Rightarrow ~ \sum_{n\geq 0} a_nz^n$ converge absolument.
+		}{LemmeAbel}
+		
+		\traitd
+		\paragraph{Rayon de convergence $\heartsuit$} ${}$ \\
+			Soit une série entière $\se$ , on note $\mathscr{B}=\{r\in\R^+ ~;~ (a_nr^n)$ est bornée $\}$
+			\begin{itemize}
+				\item Si $\mathscr{B}$ est \uline{majorée} on pose \highlight{$R=\mathrm{sup}\mathscr{B}$}
+				\item Sinon on pose \highlight{$R=+\infty$}
+			\end{itemize}
+			$R$ est dit \uline{rayon de convergence de la série entière}
+		\trait
+		
+		\theorem{thm}{
+			Soit une série entière $\se$ et $R$ son rayon de convergence \\
+			alors pour $z\in\C $ ,
+			\begin{itemize}
+				\item $\abs{z} < R ~\Rightarrow ~ \se $ converge absolument.
+				\item $\abs{z} > R ~\Rightarrow ~ \se $ diverge grossièrement.
+			\end{itemize}
+		}
+		
+		\begin{proof}
+		On suppose $\abs{z} < R$ alors $\abs{z}$ n'est pas un majorant de $\mathscr{B}$ et par le Lemme d'Abel on a le résultat.\\
+		Si $\abs{z} > R$ alors $\abs{z} \notin \mathscr{B}$ donc $(a_nz^n)$ n'est pas bornée et a fortiori ne tends pas vers $0$
+		\end{proof} \medskip
+		
+		\paragraph{Critères de détermination de $R$} Soit $r\in \R^+$ \\
+		
+		$\bullet$ $\sum_{n\geq 0} a_n r^n$ converge $\Rightarrow$ $r<R$ et $\sum_{n\geq 0} a_n r^n$ diverge $\Rightarrow$ $r>R$ 
+		
+		$\bullet$ $(a_nr^n)$ bornée $\Rightarrow$ $r<R$ et $(a_nr^n)$ non bornée $\Rightarrow$ $r>R$. \medskip \\
+		
+		
+	\subsection{Continuité de la somme}
+		
+		\theorem{thm}{
+			Soit $\se$ une série entière et $R$ son rayon de convergence, \\ 
+			Alors $\se$ converge normalement sur tout disque fermé $D_f(0,r)$ où $r<R$
+		}
+		
+		\begin{proof}
+		On considère $r<R$ et on pose pour $n \in \N, \alpha_n = \abs{a_n}r^n$. On a alors sur $D(0,r)$, $\se$ converge normalement.
+		\end{proof}
+		
+		\theorem{cor}{
+			La fonction $S:z\mapsto \suminf a_nz^n$ est bien définie et continue sur le disque ouvert de convergence $D(0,R)$
+		} \medskip 
+		
+		\namedtheorem{Lemme : Cas de la variable réelle}{
+			$\suite{a}\in\C^\N$, $R$ le rayon de convergence de la série entière
+			\begin{itemize}
+				\item $\sum a_nx^n$ converge normalement sur tout $[a,b] \subset ]-R,R[$
+				\item $x\mapsto \suminf a_nx^n$ est $\cont^0$ sur $]-R,R[$
+			\end{itemize}
+		}{VarRe} \medskip
+		
+		
+	\subsection{Utilisation de la règle de d'\textsc{Alembert}}
+	
+		\namedtheorem{Lemme de suppression des termes nuls}{
+			Soit $E$ un espace vectoriel normé quelconque, $\suite{a}\in E^\N$ et $\varphi$ une extractrice. On suppose $\forall k\in\N\backslash\varphi(\N)$ on a $a_k=0$ alors
+			\begin{itemize}
+				\item $\displaystyle \sum_{k\geq 0} a_k$ converge $\displaystyle \Leftrightarrow$ $\sum_{n\geq 0} a_{\varphi(n)}$ converge.
+				\item Dans ce cas $\displaystyle \suminf a_n = \suminf a_{\varphi(n)}$
+			\end{itemize} 
+		}{SupprTermNul} \medskip
+		
+		\theorem{lem}{
+			Soit une série entière $\sum a_nz^n$ et $R$ son rayon de convergence \\
+			Soit $\mu \in\R^+$, on suppose $\forall r\in [0,\mu[ ~,~~\sum a_nz^n$ converge  \\
+			\hspace*{20pt} Alors \highlight{$R\geq \mu$}
+		}\label{MinorR} \medskip
+		 
+		\namedtheorem{Théorème : Règle de d'\textsc{Alembert} pour les séries entières}{
+			Soit une série entière $\se$ avec $a_n\neq 0 ,~\forall n\geq n_0$ \\ 
+			On suppose l'existence de $\lambda\in [0,_\infty]$ tel que $\frac{\abs{a_{n+1}}}{\abs{a_n}} \ston \lambda$ \\ 
+			\hspace*{20pt} Alors \highlight{$R=\frac{1}{\lambda}$}
+		}{DAlembSE}
+		 
+		\begin{proof}
+		Soit $r\in\R_+^*$ et $u_n = a_nr^n$ alors $u_n$ est positif à partir d'un certain rang et $\frac{\abs{u_{n+1}}}{\abs{u_n}} = r\frac{\abs{a_{n+1}}}{\abs{a_n}} \ston l$ \\
+		On utilise ensuite le critère 2 de détermination de $R$ et on a le résultat par disjonction de cas.	 
+		\end{proof} \medskip
+		
+		
+	\subsection{Rayon de convergence d'une somme, d'un produit de \textsc{Cauchy}}
+		
+		\theorem{thm}{
+			Soit les séries entières 
+			$\left\{\ard 
+				\se$ de rayon de convergence $R_1 \\ 
+				\sum_{n\geq 0} b_n z^n$ de rayon de convergence $R_2 
+			\arf \right.$ \\
+			On note $R$ le rayon de convergence de $\sum\limits_{n\geq 0} (a_n+b_n)z^n$, on a alors 
+			\begin{itemize}
+				\item $R\geq \min \{R_1,R_2\}$
+				\item $R_1\neq R_2 \Rightarrow R=\min \{R_1,R_2\}$ 
+			\end{itemize}
+		}
+		
+		\begin{proof}
+		On suppose $R_1\geq R_2$ et on note $c_n=a_n+b_n$ 
+		Soit $r\in\R_+$, on suppose $r<R_1$, alors $\sum_{n\geq 0} c_nr^n$ converge, donc $R\geq R_1 = \min\{R_1,R_2\}$ \\
+		On suppose maintenant $R_1\neq R_2$ et $R>R_1$, on a alors l'existence de $r_0\in ]R_1,\min\{R,R_2\} $ tel que $\sum_{n\geq 0} a_n r_0^n$ converge or $r_0>R_1$ donc par l'absurde $R=\min\{R_1,R_2\}$ 
+		\end{proof} \newpage
+		
+		\traitd
+		\paragraph{Produit de \textsc{Cauchy}}
+			Soient $\se$ et $\sum_{n\geq 0} b_n z^n$ des séries entières quelconques, on appelle \uline{produit de \textsc{Cauchy} de ces deux séries entières} la série entière 
+			\[
+				\sum_{n\geq 0} c_nz^n \text{ où } c_n=\sk{0}{n} a_kb_{n-k}
+			\vspace{-15pt}
+			\] 
+		\trait
+		
+		\theorem{lem}{
+			Soient les \emph{séries entières} $\se$ et $\sum_{n\geq 0} b_nz^n$. On note $\sum_{n\geq 0} c_nz^n$ leur produit de \textsc{Cauchy}. On a alors $\forall z\in\C$ \\
+			La \emph{série} $\sum c_n z^n$ est aussi le produit des \emph{séries} $\sum a_nz^n$ et $\sum b_nz^n$
+		}
+		
+		\theorem{thm}{
+			Soient deux séries entières $\se$ et $\sum_{n\geq 0} b_nz^n$ de rayons de convergence respectifs $R_1$ et $R_2$. On note $\sum_{n\geq 0} c_nz^n$ leur produit de \textsc{Cauchy}, de rayon de convergence $R$, alors
+		\begin{itemize}
+			\item Pour tout $z\in \C$ tel que $\abs{z}<\min\{R_1,R_2\}$ on a \\ 
+				$\displaystyle\left( \suminf a_nz^n \right) \times \left( \suminf b_nz^n\right) = \left( \suminf c_nz^n \right)$
+			\item \highlight{$R\geq \min \{R_1,R_2\}$}
+		\end{itemize} 
+		}
+		
+		\begin{proof}
+		Soit $z\in\C$, on suppose $\abs{z} <\min \{R_1,R_2\}$ alors on a la convergence absolue des deux séries puis par théorème de leur produit de \textsc{Cauchy}. \\
+		La propriété (2) se déduit clairement du Lemme de minoration de $R$ (\ref{MinorR})
+		\end{proof} \medskip
+		
+		\traitd
+		\paragraph{Dérivée}
+			Soit une série entière $\se$ on appelle \emph{série entière dérivée de $\se$} la série entière 
+			\[ 
+				\sum_{n\geq 0} (n+1)a_{n+1}z^n 
+			\vspace{-15pt}
+			\] 
+		\trait
+		
+		\theorem{thm}{
+			Une série entière et sa dérivée on le même rayon de convergence.
+		}
+		
+		\begin{proof}
+		Soit $\se$ un série entière, $R$ son rayon de convergence et $\sum_{n\geq 0} b_nz^n$ sa dérivée. On a $\forall n\in\N ,~ b_n=(n+1)a_{n+1}$. \\
+		Ainsi pour $r\in\R_+^*$, $\abs{b_nr^n} = \frac{1}{r} \abs{a_{n_1} r^{n_1} }(n+1) \geq \frac{1}{r} \abs{a_kr^k}$ où $k=n+1$ \\
+		$\bullet$ Si $r>R$, alors $(a_nr^n)$ n'est pas bornée et $(b_nr^n)$ non plus.\\
+		$\bullet$ Si $r<R$ on fixe $\rho \in ]r,R[$ et $\abs{b_nr^n} = \frac{1}{r}\vert\underbrace{a_{n+1}}_{\text{bornée}}\rho^{n+1}\vert(n+1)\left( \frac{r}{\rho}\right)^{n+1} \ston 0$\\
+		On a alors la résultat par le critère 2.
+		\end{proof} \medskip
+		
+		\theorem{lem}{
+			Pour toute série entière $\se$, \\
+			$\se$ et $\sum_{n\geq 0} na_nz^n$ ont le même rayon de convergence.
+		} \medskip
+		
+		
+	\subsection{Coefficients comparables}
+		
+		\theorem{lem}{
+			Soient les séries entière 
+			$\left\lbrace \ard 
+				\se $ de rayon de convergence $R_a \\ 
+				\sum_{n\geq 0} b_nz^n$ de rayon de convergence $R_b 
+			\arf \right. $
+			\begin{itemize}
+				\item $a_n = \bigcirc_{n\to+\infty} (b_n) ~\Rightarrow ~R-a \geq R_b$
+				\item $a_n \underset{\infty}{\sim} b_n ~\Rightarrow ~ R_a=R_b$
+			\end{itemize}
+		} \medskip
+		
+		
+\section{Série entière de la variable réelle}
+	
+	On considère ici $S : x (\in\R) \mapsto S(x) = \suminf a_nx^n$ avec $\suite{a}\in\C^\N$
+	
+	\subsection{Dérivation et intégration}
+		
+		\theorem{thm}{
+			Soit une série entière $\se$ de rayon de convergence $R>0$, \\
+			On définie $S$ sur $]-R,R[$, alors $S$ est dérivable sur $]-R,R[$ avec $\forall x\in]-R,R[ ,~ S^\prime (x) = \sum\limits_{n=1}^{+\infty} na_{n-1}x^{n-1}$ 
+		}
+		
+		\begin{proof}
+		C'est une conséquence du théorème (\ref{DerSeriesFonctions}) de dérivation des séries de fonctions.
+		\end{proof} \medskip
+		
+		\theorem{cor}{
+			Soit $\se$ une série entière de rayon de convergence $R>0$, on note $I=]-R,R[$, alors \\
+			$\ard 
+				\bullet$ $S\in\cont^{\infty}(I,\R)$ et $\forall k\in\N$, $S^{(k)}$ s'obtient par dérivation terme à terme.$ \\ 
+				\bullet$ Une primitive de $S$ sur $]-R,R[$ est $T:x\mapsto \suminf \frac{a_n}{n+1}x^{n+1} 
+			\arf$
+		} \medskip
+		
+		\theorem{lem}{
+			Soit $\delta>0$ et $\suite{a}\in\C^\N$, on suppose que $\forall x\in ]-\delta,\delta[, ~f(x) = \suminf a_nx^n$, alors $f|_{]-\delta,\delta[}$ est $\cont^{\infty}$ et \\
+			\hspace*{20pt} \highlight{$\forall n\in\N ,~ a_n=\frac{f^{(n)}(0)}{n!}$}
+		} \medskip
+		
+		\namedtheorem{Corollaire $\heartsuit \heartsuit$}{
+			On suppose que $\se= \sum_{n\geq 0} b_nx^n$ pour tout $x$ dans \uline{un voisinage de $0$}, alors $\forall n\in\N, a_n=b_n$
+		}{UniCoeffSE} \medskip
+		
+		\theorem{lem}{
+			Soit \fbox{$\delta>0$}, $\suite{a},\suite{b} \in\C^\N$ on suppose que $\forall x\in ]0,\delta[, ~\suminf a_nx^n = \suminf b_nx^n$, alors $\forall n\in\N ,~a_n=b_n$
+		} \medskip
+		
+		\namedtheorem{Théorème d'\textsc{Abel} radial}{
+			Soit $\se$ une série entière de rayon de convergence $R\in\R_+^*$\\
+			On suppose que $\sum a_n R^n$ converge \\
+			Alors $\suminf a_nx^n \stox{R} \suminf a_nR^n$
+		}{ThAbelRadial}
+		
+		\begin{proof} (HP)\\
+		On note $S(x) = \suminf a_nx^n ,~\forall x\in ]-R,R[$, on suppose $R=1$ (sans perte de généralité)\\
+		Notons $S=\suminf a_n$ (convergente) et $R_n = \sum_{k=n+1}^{+\infty} a_k$\\
+		Pour tout $x\in[0,R[$ on a par transformation d'Abel \fbox{$S-S(x) = \sum_{n=0}^{+\infty} R_n (x^n-x^{n+1})$}\vspace*{0.3cm}\\
+		Soit $\varepsilon >0$ ; soit $N\in\N$ tel que $\forall m\geq N ,~\abs{R-n}<\frac{\varepsilon}{2}$, alors $\forall x\in[0,R[$ 
+		\[ \abs{S-S(x)} \leq \abs{Q(x)} + \sum_{n=N}^{+\infty} \frac{\varepsilon}{2} (x^n - x^{n+1}) = \abs{Q(x)} + \frac{\varepsilon}{2} x^N \] 
+		où $Q(x) = \sum_{n=0}^{n-1} R_n(x^n - x^{n+1})$, avec $Q(x) \stox{1} 0$ (somme finie) \vspace*{0.2cm} \\
+		Soit alors $\theta \in [0,1[$ tel que $\forall x\in ]\theta,1[ ,~ \abs{Q(x)} <\frac{\varepsilon}{2}$. Alors $\forall x\in ]\theta,1[,~ \abs{S-S(x)} <\varepsilon$ \vspace*{0.2cm} \\
+		D'où $S(x) \stox{1} S$
+		\end{proof} \medskip
+		
+		
+	\subsection{Développement en série entière}
+		
+		\vspace{-15pt}
+		\traitd
+		\paragraph{Fonction développable $\heartsuit$}
+			Une fonction $f$ de la variable réelle est dite \uline{développable en série entière en $x_0$} ($DSE_0$) s'il existe $\delta>0$ et $\suite{a}\in\C^\N$ tels que 
+			\[ 
+				\forall x\in ]x_0-\delta , x_0+\delta[ ,~ f(x) = \suminf a_n(x-x_0)^n 
+			\vspace{-15pt}
+			\]
+		\trait
+		
+		\remarque{Quitte à considérer $t\mapsto f(x_0+t)$, il suffit de traiter le cas $x_0 = 0$} \medskip
+		
+		\remarque{$f$ est $DSE_0$ $\Rightarrow$ $f$ est $\cont^{\infty}$ sur un voisinage de $0$} 
+		\textsc{Attention !} La réciproque est fausse !! 
+		
+		\traitd
+		\paragraph{Série de \textsc{Taylor}}
+			Lorsque $f$ est $\cont^{\infty}$ sur un voisinage de $0$, la série entière $\sum_{n=0}^{+\infty} \frac{f^{(n)}(0)}{n!}$ est dite \uline{série de \textsc{Taylor} en $0$} 
+		\trait
+		
+		\newpage
+		
+		\textsc{Attention !} Elle ne coïncide pas toujours avec $f$ sur un voisinage de $0$ !!
+		
+		\traitd
+		\paragraph{Fonction complexe développable}
+			Soit $z_0\in\C$. Une fonction $f$ de la variable complexe est dite développable en série entière en $z_0$ s'il existe $\delta>0$ et $\suite{a}\in\C^\N$ tels que 
+			\[ 
+				\forall z\in D(z_0 , \delta ) ,~ f(z) = \suminf a_nz^n 
+			\vspace{-15pt}
+			\] 
+		\trait
+		
+		
+	\subsection{Développements en série entière de référence}
+		
+		On pose d'autorité $\forall z\in\C ,~\exp (z) = \suminf \frac{z^n}{n!}$ avec $R=+\infty$ \\
+		
+		\theorem{lem}{
+			Si $\delta>0$ et $\forall x\in ]-\delta,\delta[ ,~f(x) = \sum_{n\geq 0} a_nx^n$, alors
+			\begin{itemize}
+				\item $f$ est paire (sur $]-\delta,\delta[$) $\Leftrightarrow ~\forall k\in\N ,~a_{2k+1} = 0$
+				\item $f$ est impaire (sur $]-\delta,\delta[$) $\Leftrightarrow ~\forall k\in\N ,~a_{2k} = 0$
+			\end{itemize}
+		}
+		
+		\theorem{thm}{
+			$\forall x\in\R$, \\
+			\hspace*{20pt} $\begin{array}{ll}
+				\cos (x) = \suminf \frac{(-1)^n}{(2n)!} x^{2n} ~=~1-\frac{x^2}{2} + \frac{x^4}{24} + \cdots & R=+\infty \\ 
+				\sin (x) = \suminf \frac{(-1)^n}{(2n+1)!}x^{2n+1} ~=~ x-\frac{x^3}{6} + \cdots & R=+\infty
+			\end{array}$ 
+		}
+		
+		\begin{proof}
+		Soit $x\in\R$ {\footnotesize (c'est en fait vrai sur $\C$)} \\
+		\hspace*{0.5cm} $\rightarrow$ $\cos (x) = \frac{1}{2} (e^{\imath x} + e^{-\imath x}) = \suminf \frac{1}{2} \imath^n \big(1+(-1)^n \big) \frac{x^n}{n!} = \suminf (\imath^2)^{^n} \frac{x^{2n}}{(2n)!}$\\
+		On a de même pour le sinus.
+		\end{proof} \medskip
+		
+		\theorem{thm}{ 
+			$\forall x\in\R$, on peut définir avec des séries entières
+			\begin{itemize}
+				\item $\cosh (x) = \suminf \frac{x^{2n}}{(2n)!}$
+				\item $\sinh (x) = \suminf \frac{x^{2n+1}}{(2n+1)!}$
+			\end{itemize} 
+			Avec dans les deux cas $R=+\infty$
+		} \medskip
+		
+		\theorem{thm}{
+			$\forall x\in ]-1,1] ,~ \ln (1+x) \sum\limits_{n=1}^{+\infty} (-1)^n \frac{x^n}{n}$ avec $R=1$ $\heartsuit$
+		}
+
+		\begin{proof}
+		On pose $h(x) = \ln(1+x) , ~\forall x>-1$, on a alors $h'(x) = \frac{1}{1+x}$ est bien définie $\forall x>-1$. Par théorème, on a en posant $T(x) = \sum_{n=1}^{+\infty} (-1)^n \frac{x^{n+1}}{(n+1)!}$, $(T-h)'=0$ et vu $T(0)=0=h(0)$ alors $T(x) = h(x)$ d'où le résultat.
+		\end{proof} \medskip
+		
+		\theorem{thm}{
+			Soit $\alpha\in\R$ alors \\
+			\hspace*{10pt} $\forall x\in ]-1,1[ ,~ (1+x)^{\alpha} = 1 + \sum\limits_{n=1}^{+\infty} \alpha(\alpha-1)\cdots (\alpha-n+1) \frac{x^n}{n!}$\\
+		Notons $R$ son rayon de convergence alors :\\
+		$\bullet $ si $\alpha\in\N$ on a $R=+\infty$ (binôme de \textsc{Newton}) \\
+		$\bullet $ si $\alpha\in\R\setminus\N$ on a $R=1$ }
+		\begin{proof}
+			À compléter.
+		\end{proof}

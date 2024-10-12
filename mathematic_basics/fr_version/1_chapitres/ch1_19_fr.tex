@@ -1,0 +1,143 @@
+
+% Chapitre 19 : Espaces préhilbertiens réels
+
+\textsl{Dans ce chapitre, $E$ est un $\R$-espace vectoriel.}
+\minitoc
+	\section{Produit scalaire}
+		\traitd
+		\paragraph{Définition}
+			Un \uline{produit scalaire $\scal{x,y}$} est une application $\varphi : E\times E ~\rightarrow ~\mathbb{R}$ telle que 
+			\\ \hspace*{2cm} {\small 1) } $\varphi$ est \underline{bilinéaire} $\left\vert \ar* \varphi (\lambda x+\lambda 'x' , y) ~=~ \lambda\varphi (x,y) + \lambda '\varphi (x',y) \\ \varphi (x, \mu y + \mu 'y') ~=~ \mu\varphi (x,y) + \mu '\varphi (x,y') \ar\right.$\vspace*{3pt}\\
+			\hspace*{2cm} {\small 2) } $\varphi$ est \underline{symétrique} $~\forall (x,y) \in E^2 ~,~~ \varphi (x,y) ~=~ \varphi (y,x)$ \vspace*{3pt}\\
+			\hspace*{2cm} {\small 3) } $\varphi$ est \underline{définie positif} $~\varphi (x,x) \geqslant 0 ~\wedge ~ \varphi (x,x) = 0 ~\Leftrightarrow ~ x=0_E$\trait ${}$ \vspace*{-1.2cm} \traitd
+		\paragraph{Espace euclidien}
+			Soit $\left( E, \scal{.,.} \right)$ un espace préhilbertien réel, on dit que \uline{$(E,\scal{.,.})$ est un espace euclidien} si $E$ est de \textbf{dimension finie}. \trait
+		\paragraph{Produit scalaires canoniques}
+		\subparagraph{Sur $\mathbb{R}^n$}
+		$\cm{~~\scal{x,y} ~=~ \scal{\si{1}{n} x_i , \si{1}{n} y_i } ~=~ \si{1}{n} x_i.y_i}$
+		\subparagraph{Sur $\mathcal{M}_{np} \left(\mathbb{R}\right)$}
+		$\cm{~~\scal{X,Y} ~=~ \mathrm{tr} \big(X\times{^TY}\big) ~=~ \si{1}{p}\sk{1}{n} a_{ki}.b_{ki}}$
+		\subparagraph{Sur $\mathcal{C}^{0}\left([a,b],\mathbb{R}\right) ~~(a<b)$}
+		$\cm{~~\scal{f,g} ~=~ \int_a^b f(t).g(t)\mathrm{d} t}$\\
+		On a aussi sur $\mathbb{R}_n[X]$, $\cm{~~\varphi (P,Q) ~=~ \sk{0}{n} P(k).Q(k)~~}$ et $\cm{~~\psi (P,Q) ~=~ \sk{0}{n} P^{(k)}(0).Q^{(k)}(0)}$ \\
+	\section{Norme associée à un produit scalaire}
+		\traitd
+		\paragraph{Norme}
+			Si $E$ est un $\R$-espace vectoriel on dit que \uline{$N : E\to \R^+$ est une norme} si \\
+			\hspace*{2cm} \un $\forall x\in E ,~\forall \lambda\in \R ,~N(\lambda x) = \abs{\lambda}.N(x)$\\
+			\hspace*{2cm} \deux $\forall x\in E,~ N(x) = 0~\Leftrightarrow~ x=0_E$\\
+			\hspace*{2cm} \trois $\forall (x,y) \in E^2 ,~ ~N(x+y)\leqslant N(x)+N(y)$
+			\trait ${}$ \vspace*{-1.2cm} \traitd
+		\paragraph{Distance}
+			Si $E$ est un $\R$-espace vectoriel on dit que \uline{$d: E\times E\to \R^+$ est une distance} si \\
+			\hspace*{2cm} \un $\forall (x,y)\in E^2 ,~d(x,y)=d(y,x)$\\
+			\hspace*{2cm} \deux $\forall (x,y)\in E^2,~ d(x,y)=0 ~\Leftrightarrow~x=y$\\
+			\hspace*{2cm} \trois $\forall (x,y,z)\in E^3 ,~d(x,z)\leqslant d(x,y)+d(y,z)$ \trait \vspace*{-1cm} \\
+		\uline{Rq} : Si $(E,N)$ est un espace normé alors $d~\appli{E\times E}{(x,y)}{R}{N(x-y)}$ est une distance.
+		\vspace*{0.5cm} \\ \thm{ch20th1}{Théorème : Inégalité de \textsc{Cauchy-Schwartz}}{InegCS}{Soit $\prehilb$ un espace préhilbertien réel alors \\
+		\hspace*{2cm} $\cm{\forall (x,y)\in E^2 ,~\scal{x,y}^2 \leqslant \scal{x,x}\scal{y,y}}$\\
+		Avec égalité si et seulement si $x$ et $y$ sont liés (égaux à un scalaire près)}
+		\begin{proof}
+		On pose pour tout $\lambda\in\R$, $P(\lambda) = \scal{x+\lambda y,x+\lambda y} \geqslant \in \R[X]$\\
+		On a alors $P(\lambda) = \lambda^2 \scal{y,y} + 2\lambda \scal{x,y} + \scal{x,x}$\\
+		\hspace*{2cm} $\bullet$ Si $\scal{y,y}=0$ alors $y=0$ et on a l'égalité.\\
+		\hspace*{2cm} $\bullet$ Sinon vu $p(\lambda) \leqslant 0$ on a $\Delta =4\big(\scal{x,y}^2 - \scal{x,x}\scal{y,y} \big) \leqslant 0$ \\
+		Si on a égalité alors il existe $\lambda_0\in\R$ tel que $P(\lambda_0) = 0 ~\Rightarrow~x+\lambda_0 y = 0$\\
+		Réciproquement si $x=\lambda y$ alors $\scal{x,y}^2 = \lambda\scal{y,y}\times\lambda\scal{y,y} = \scal{\lambda y,\lambda y}\scal{x,x} = \scal{x,x}\scal{y,y}$ 
+		\end{proof}
+		${}$ \\ \thm{ch20P1}{Proposition}{NormEuclid}{Si $\prehilb$ est un espace préhilbertien réel\\
+		Alors $x\mapsto \sqrt{\scal{x,x}}$ est une norme sur $E$ dite \uline{norme euclidienne} ($~\norm{.}~$) }
+		\vspace*{0.5cm} \\ \thm{ch20P2}{Propriété}{InegTriAmelio}{$\forall (x,y)\in E^2$ si $N$ est la norme euclidienne associée à $\scal{.,.}$\\
+		$N(x+y) \leqslant N(x) + N(y)$ avec égalité si et seulement si \\il existe $\lambda\in \R^+$ tel que $x=\lambda y$ ou $y = \lambda x$ }
+		\vspace*{0.5cm} \\ \thm{ch20P3}{Propriété}{IdRemNorm}{Soit $\prehilb$ un espace préhilbertien réel et $\norm{.}$ la norme euclidienne associée.\\
+		On a les identités remarquables suivantes :\\
+		\hspace*{0.5cm} $\forall (x,y)\in E^2 ,~ \left\{ \ard \norm{x+y}^2 = \norm{x}^2 + 2\scal{x,y} + \norm{y}^2 \\ \norm{x-y}^2 = \norm{x}^2 -2\scal{x,y} + \norm{y}^2 \\ \norm{x+y}^2 + \norm{x-y}^2 = 2\big( \norm{x}^2 + \norm{y}^2\big) \arf \right.$ \\
+		${}$ \\ On en déduit les formules de polarisation suivantes :\\
+		\hspace*{0.5cm} $\forall (x,y)\in E^2,~ \left\{ \ard \scal{x,y} = \frac{1}{2} \big( \norm{x+y}^2 - \norm{x}^2 - \norm{y}^2\big) \\ \scal{x,y} = \frac{1}{2} \big( \norm{x}^2 + \norm{y}^2 - \norm{x-y}^2 \big) \\ \scal{x,y} = \frac{1}{4} \big( \norm{x+y}^2 - \norm{x-y}^2 \big) \arf \right. $ }
+		\\ \uline{Rq} : $N : E\to \R^+$ est une norme euclidienne sur $E$ si et seulement si \\ \hspace*{2cm} $\varphi(x,y) = \frac{1}{4}\big(N^2(x+Y) - N^2(x-y)\big)$ est un produit scalaire.
+	\section{Orthogonalité}
+	\subsection{Résultats théoriques}
+		\traitd
+		\paragraph{Vecteur orthogonal}
+			Si $\prehilb$ est un espace préhilbertien réel, \uline{$x$ et $y$ sont orthogonaux} si $\scal{x,y} = 0$. On note alors $x\perp y$ \trait ${}$ \vspace*{-1.2cm} \traitd
+		\paragraph{Ensemble orthogonal}
+			Si $\prehilb$ est un espace préhilbertien réel et $F\in \mathcal{P}(E)$ on appelle \uline{orthogonal de $F$} noté $F^\perp$ l'ensemble 
+			\[ \{ y\in E ~|~\forall x\in F,~y\perp x \} \] \trait
+		\thm{ch20P4}{Proposition}{OrthSousEspace}{$\forall F\in \mathcal{P}(E) ,~F^\perp$ est un sous-espace de $E$}
+		\vspace*{0.5cm} \\ \thm{ch20P5}{Propriété}{20-P5}{Soit $\prehilb$ un espace préhilbertien réel, \\${}$ \vspace*{-0.4cm} \\
+		\hspace*{0.5cm} \un $\forall (F,G) \in \mathcal{P}^2(E) ,~F\subset G ~\Rightarrow~G^\perp \subset F^\perp$ \\
+		\hspace*{0.5cm} \deux $F^\perp = \big( \mathrm{Vect}(F)\big)^\perp$ \\
+		\hspace*{0.5cm} \trois $F\subset\big( F^\perp \big)^{^{\perp}}$ avec égalité si et seulement si $F$ est une sous-espace vectoriel.} \newpage \traitd
+		\paragraph{Famille orthogonale}
+			Soit $I$ un ensemble, $\prehilb$ un espace préhilbertien réel et $\big(x_i\big)_{_{i\in I}}$ une famille de vecteurs de $E$.\\
+			On dit que \uline{$\big(x_i\big)_{_{i\in I}}$ est orthogonale} si 
+			\[ \forall (i,j)\in I^2,~i\neq j ~\Rightarrow~x_i\perp x_j \]
+			On dit de plus que \uline{la famille est orthonormée} (ou orthonormale) si les vecteurs sont \textbf{normés} (ou unitaires), càd 
+			\[ \forall i\in I ,~ \norm{x_i} = 1 ~~\Leftrightarrow ~~\forall (i,j)\in I^2 ,~\scal{x_i,x_j} = \delta_{i,j} \] \trait
+		\thm{ch20P6}{Proposition}{FamOrthoNonNulleLibre}{Toute famille $\big(x_i\big)_{_{i\in I}}$ d'un espace préhilbertien réel \textbf{orthogonale} \\et ne contenant pas le vecteur nul est libre.\\
+		Toute famille \textbf{orthonormée} est libre.}
+		\vspace*{0.5cm} \\ \thm{ch20th2}{Théorème de \textsc{Pythagore}}{ThPythagore}{Soit $\prehilb$ un espace préhilbertien réel\\
+		\hspace*{0.5cm} \un $x\perp y ~ \Leftrightarrow~ \norm{x+y}^2 = \norm{x}^2+\norm{y}^2$ \\ \hspace*{0.5cm} \deux Si $\big(x_i\big)_{_{i\in I}}$ est une famille orthogonale alors \\ \hspace*{2cm} \highlight{$\cm{\forall \big(\lambda_i\big)_{_{i\in I}} \in \R^{(I)} ,~ \norm{\sum_{i\in I} \lambda_i x_i }^2 = \sum_{i\in I} \lambda_i^2 \norm{x_i}^2}$}}
+		\begin{proof}
+		$\forall (x,y)\in E^2$\\
+		\un $x\perp y ~\Leftrightarrow ~\scal{x,y} = 0 ~\Leftrightarrow~ \frac{1}{2}\big( \norm{x+y}^2 - \norm{x}^2 - \norm{y}^2 \big)=0 ~\Leftrightarrow~\norm{x+y}^2 = \norm{x}^2 + \norm{y}^2$\\
+		\deux $\norm{\sum_{i\in I} \lambda_ix_i}^2 = \scal{\sum_{i\in I}\lambda_ix_i ~,~\sum_{j\in I} \lambda_jx_j} = \sum_{i\in I}\sum_{j\in I}\lambda_i\lambda_j \scal{x_i,x_j} = \sum_{i\in I} \lambda_i^2 \norm{x_i}^2$
+		\end{proof}
+	\subsection{Procédé d'orthonormalisation de \textsc{Gram-Schmidt}}
+		\uline{Objectif} : Transformer par un algorithme une famille $\big(e_i)\big)_{_{i\in\ent{1,n}}}$ libre \\en une famille $\big( \varepsilon>0 \big)_{_{i\in\ent{1,n}}}$ orthonormée de telle sorte que \[ \forall k\in \ent{1,n} ,~F_k = \mathrm{Vect}\big(\{e_1,\dots ,e_k\} \big) = \mathrm{Vect}\big( \{\varepsilon_1,\dots ,\varepsilon_k\} \big ) = F_k'\]
+		${}$ \\ Pour tout $k\in \ent{1,n}$ on pose $\cm{u_k = \si{1}{k-1} \scal{\varepsilon_i , e_k} \varepsilon_i }$
+	\paragraph{Construction par récurrence} ${}$ \\
+		\subparagraph{Initialisation}
+			$\{e_1\}$ est libre car $e_1\neq 0$ on pose donc $\varepsilon_1 = \dfrac{e_1}{\norm{e_1}}$ qui convient.\\
+		\subparagraph{Hérédité}
+			Soit $k\in\ent{1,n}$ tel que $(\varepsilon_1 , \dots ,\varepsilon_{k-1})$ vérifie les contraintes et on considère $u_k' = e_k-u_k$. 
+			On peut vérifier que $u_k' \in F_{k-1}'^\perp$ ; en effet : \\
+			\[\forall l\in \ent{1,k-1}~,~~\scal{u_k',\varepsilon_k} = \scal{e_k-\si{1}{k-1} \scal{\varepsilon_i,e_k}\varepsilon_i ~,~\varepsilon_l } = \scal{e_k,\varepsilon_l} - \underbrace{\si{1}{k-1} \scal{\varepsilon_i,,e_l}\scal{\varepsilon_i,\varepsilon_l} }_{=\scal{\varepsilon_k,e_l}} = 0\]
+			On a par contraposée $u'_k\neq 0$ (sinon $e_k\in F_{k-1}$), on peut donc considérer \fbox{$\varepsilon_k = \dfrac{u_k'}{\norm{u_k'}}$}. \\ Vérifions que $\varepsilon_k$ convient : \\
+			On a déjà $(\varepsilon_1,\dots ,\varepsilon_k)$ est orthonormée vu $\varepsilon_k \in F_{k-1}'^\perp$. De plus $u_k'\in F_k$ d'où $\varepsilon_k\in F_k$ donc $F_k'\subset F_k$. Réciproquement $F_{k-1}'=F_{k-1}$ et $e_k\in \mathrm{Vect}(\varepsilon_1,\dots ,\varepsilon_{k-1}, u_k')$ d'où $F_k\subset F_k'$\\
+			${}$ \\ On a ainsi une famille $\big( \varepsilon_i\big) _{_{i\in I}}$ orthonormée vérifiant les contraintes.
+	\section{Bases orthonormées}
+		${}$ \\ \thm{ch20th3}{Théorème}{BaseOrthEEuclid}{Tout espace euclidien admet une base orthonormée.}
+		\begin{proof}
+		Tout espace $E$ euclidien admet une base (dimension finie) donc on peut construire avec le procédé d'orthonormalisation de \textsc{Gram-Schmidt} une famille orthonormée génératrice de $E$ donc une base orthonormée de $E$
+		\end{proof}
+		${}$ \\ \thm{ch20th4}{Théorème de la base orthonormée incomplète}{ThBaseOrthoIncomplete}{Si $\prehilb$ est un espace euclidien de dimension $n$,\\
+		pour tout $k\in\ent{1,n}$, soit $(e_1,\dots ,e_k)$ une famille orthonormée de vecteurs de $E$\\
+		Alors cette famille peut être complétée en une base orthonormée de $E$.}
+		\begin{proof}
+		Comme $(e_1,\dots,e_k)$ est orthonormée elle est libre, on peut donc la compléter en une base de $E$ à laquelle on pourra appliquer le procédé d'orthonormalisation de \textsc{Gramm-Schmidt} pour obtenir une base orthonormée de $E$. \end{proof}
+		${}$ \\ \thm{ch20P7}{Propriété}{CoordBase}{Si $\prehilb$ est un espace euclidien muni d'une base \\$(e_1,\dots ,e_n)$ orthonormée on a \\
+		\hspace*{0.5cm} \un $\cm{\forall x\in E~,~~ x=\si{1}{n} \scal{x,e_i}.e_i} $\\
+		\hspace*{0.5cm} \deux $\cm{\forall (x,y)\in E^2 ~,~~ \scal{x,y} = \si{1}{n}\scal{x,e_i}\scal{y,e_i} } $ }
+		\vspace*{0.5cm} \\ \thm{ch20P7c}{Corollaire 1}{20-P7c}{Si $\prehilb$ est un espace euclidien rapporté à une base orthonormée $e$ \\
+		\hspace*{0.5cm} Alors $~~\varphi~\appli{E}{x}{\M_{n,1}(\R)}{
+		\left( \ard \scal{x,e_1} \\ \vdots \\ \scal{x,e_n} \arf\right)} ~~~~ $
+		\begin{minipage}{5cm}
+		 est un isomorphisme d'espaces vectoriel tel que \\ $(\scal{x,y}) = \varphi(x)\times {^T\varphi(y)} $
+		\end{minipage}		}
+		\newpage ${}$ \\ \thm{ch20P7c2}{Corollaire 2}{NormBaseE}{Si $x\in E$, $E$ euclidien rapporté à une base $(e_1,\dots , e_n)$ orthonormée\\
+		\hspace*{2cm} Alors $\cm{ \norm{x}^2 = \si{1}{n}\scal{x_i,e_i}^2 } $ }
+	\section{Projection orthogonale sur un sous-espace de dimension finie}
+		${}$ \\ \thm{ch20P8}{Proposition}{SupplOrtho}{Si $F$ est un sous-espace de dimension finie de $\prehilb$ espace préhilbertien réel\\
+		Alors $f^\perp $ est un supplémentaire de $F$ dans $E$ appelé \uline{supplémentaire orthogonal}\\
+		de $F$ dans $E$. On note $F\overset{\perp}{\oplus} F^\perp$ }
+		\vspace*{0.5cm} \\ \thm{ch20P8c}{Corollaire}{ThRangOrtho}{Si $F$ est un sous-espace vectoriel d'un espace $\prehilb $ euclidien \\
+		\hspace*{2cm} Alors $\dim F^\perp = \dim E -\dim F$\\
+		En particulier si $H$ est un hyperplan de $E$ tout vecteur \textbf{non nul} de $H^\perp$ \\ est dit \uline{vecteur normal à $H$} } \\
+		\traitd
+		\paragraph{Projection orthogonale}
+			Si $F$ est un sous-espace de dimension finie d'une espace préhilbertien réel $\prehilb$ rapporté à une base orthonormée $(e_1,\dots ,e_p)$, alors
+			$ \si{1}{p} \scal{x,e_i}e_i $
+			est la projection de $x$ sur $F$ parallèlement  à $F^\perp$ autrement appelée \uline{projection orthogonale de $x$ sur $F$} parfois notée $p_F^{~\perp}(x)$
+		\trait ${}$ \vspace*{-1.2cm} \traitd
+		\paragraph{Distance à un ensemble}
+			Si $F$ est un sous-espace de dimension finie d'un espace préhilbertien réel $\prehilb$, pour $x\in E$, on appelle \uline{distance de $x$ à $F$} et on note $d(x,F)$ le réel définit par \[ d(x,F) = \underset{y\in F}{\inf} \big\{ \norm{x-y} \big\} \] \trait
+		\thm{ch20P9}{Propriété}{EcritureDistanceEnsemble}{Si $F$ est rapporté à une base orthonormée $(e_1,\dots ,e_p)$ \\
+		\hspace*{0.5cm} Alors \fbox{$d(x,F) =\norm{x-p_F^{~\perp}(x)} = \norm{p_{F^\perp}^{~\perp}(x)}$} $= \norm{ x- \si{1}{p} \scal{x,e_i}e_i } $ }
+		\vspace*{0.5cm} \\ \thm{ch20P10}{Proposition}{20-P10}{Si $u$ est un vecteur non nul d'un espace euclidien $\prehilb$ on a :\\
+		\hspace*{2cm} $\cm{\forall x\in E ,~p_{(\mathrm{Vect(u))^\perp}}^{~\perp}(x) = x-\frac{\scal{x,u}u}{\norm{u}^2} } $ \\
+		\hspace*{2cm} et $~~~~\cm{ d\big(x, (\mathrm{Vect}(u))^\perp \big) = \frac{\abs{\scal{x,u}}}{\norm{u}} } $ }
+		\vspace*{0.5cm} \\ 
+		\begin{center}
+			\fin
+		\end{center}

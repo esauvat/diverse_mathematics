@@ -1,0 +1,354 @@
+
+% Chapitre 10 : Espaces préhilbertiens réels
+
+\minitoc
+	\newpage
+	\paragraph{Révisions essentielles de trigonométrie}
+		\subparagraph{$\bullet$} $\forall x\in \R,~\cos (2x) = 2\cos^2 x-1 = 1 -\sin^2 x$ $~~\heartsuit\heartsuit$
+		\subparagraph{$\bullet$} $\forall x\in \R ,~\sin (2x) = 2\sin x\cos x$ $~~\heartsuit$
+		\subparagraph{$\bullet$} $\forall a,b \in \R ,~\left\{ \ard \cos (a+b) = \cos a\cos b - \sin a \sin b \\ \sin (a+b) = \sin a\cos b + \cos a\sin b \arf\right. $
+		\subparagraph{$\bullet$} $\forall a,b \in \R$ tels que $\mathbf{\tan a ,\tan b , \tan (a+b)}$ existent, $\tan(a+b) = \dfrac{\tan a + \tan b}{1-\tan a\tan b}$
+		\subparagraph{Technique}
+			Transformer $f(x) = a\cos x + b\sin x$ où $(a,b)\in\R^2 \setminus\{(0,0)\}$\\
+			\[ f(x) \underbrace{\sqrt{a^2 +b^2}}_{=R} ( \underbrace{\frac{a}{\sqrt{a^2 +b^2}}}_{=\alpha}\cos x + \underbrace{\frac{b}{\sqrt{a^2+b^2}}}_{=\beta} ) \]
+			On a $R>0$ sinon $a=b=0$ donc $(\alpha,\beta) \in  \mathcal{C}$ le cercle unité donc $\exists \varphi \in \R $ tel que $\left\{ \ard \alpha = \cos \varphi \\ \beta = \sin \varphi \arf \right.$\\
+			d'où $\cm{ f(x) = R\cos (x-\varphi) }$
+		\subparagraph{$\bullet$} Soit $x\in \R \setminus (\pi +2\pi \Z)$ on pose $t=\tan (\dfrac{x}{2})$ \\
+		\hspace*{2.5cm} Alors \highlight{ $\cm{ \cos x = \frac{1-t^2}{1+t^2} ~~~~~~~ \sin x=\frac{2t}{1+t^2} }$}\\
+		\uline{Rq} : On a là un paramétrage par des fractions rationnelles du cercle unité. \vspace*{0.5cm} \\
+		\begin{center}
+			{\Huge $\thicksim ~~~ \thicksim ~~~ \thicksim $}
+		\end{center}
+		${}$ \\
+		\textit{Dans ce chapitre, $E$ est $\R$-espace vectoriel muni d'un produit scalaire $\varphi$\\
+		$(E,\varphi)$ est dit \uline{espace préhilbertien réel}}
+	\section{Rappels}
+	\subsection{Produit scalaire}
+		Soit $E$ un $\R$-espace-vectoriel
+		\traitd
+		\paragraph{Produit scalaire}
+			$\varphi :E^2\to \R$ est dite \uline{produit scalaire sur $E$} si \\
+			\hspace*{2.5cm} $\bullet$ $\varphi$ est bilinéaire : 
+			{\scriptsize $\left\{\ard \forall x\in E ,~\varphi(x,\cdot) \in\lin(E) \\ \forall y\in E ,~\varphi(\cdot,y)\in\lin(E) \arf \right. $ }\\
+			\hspace*{2.5cm} $\bullet$ $\varphi$ est symétrique : {\scriptsize $\forall (x,y)\in E^2 ,~\varphi(x,y)=\varphi(y,x)$}\\
+			\hspace*{2.5cm} $\bullet$ $\varphi$ est positive : {\scriptsize $\forall x\in E ,~ \varphi(x,x) \geqslant 0$ }\\
+			\hspace*{2.5cm} $\bullet$ $\varphi$ est définie : {\scriptsize $\forall x\in E ,~\varphi(x,x) =0 \Rightarrow x=0$ } \trait
+		\vspace*{-1.1cm} \\ On note alors $\varphi(x,y) = \scal{x}{y}$ et on pose $\norm{x}=\norm{x}_2 = \sqrt{\scal{x}{x}}$ la norme euclidienne sur l'espace.
+		\vspace*{0.5cm} \\ \thm{ch10th1}{Théorème : Inégalité de \textsc{Cauchy-Schwartz}}{ICS}{Soit $(E,\varphi)$ un espace préhilbertien réel\\
+		\hspace*{0.5cm} Alors $\ard $ \un $ \mc{\scal{x}{y}} \leqslant \norm{x}.\norm{y} \\ 
+		$ \deux $\big(\mc{\scal{x}{y}} = \norm{x}.\norm{y} \big)\Leftrightarrow (x,y)$ liée $ \arf $}
+		\\\textit{ Penser à "$\scal{x}{y} = \norm{x}.\norm{y} .\cos\theta $"}	 
+		\begin{center} \textbf{Dans la suite, $(E,\varphi)$ est un espace préhilbertien réel.} \end{center}
+		\paragraph{Identités de polarisation} $\heartsuit \heartsuit$\\
+		Soit $x,y\in E$, on a $\norm{x+y}^2 = \scal{x+y}{x+y} = \norm{x}^2 + \norm{y}^2 + 2\scal{x}{y}$\\
+		puis de même $\norm{x-y}^2 = \scal{x+y}{x+y} = \norm{x}^2 + \norm{y}^2 - 2\scal{x}{y}$\vspace*{0.2cm} \\
+		\hspace*{2cm} d'où $\ard $ \un \highlight{$\scal{x}{y} = \sfrac{1}{2} \big( \norm{x+y}^2 - \norm{x}^2-\norm{y}^2 \big)$} $ \\ 
+		$ \deux \highlight{$ \scal{x}{y} = \sfrac{1}{4} = \big( \norm{x+y}^2 - \norm{x-y}^2 \big)$} $\arf $ \vspace*{0.2cm}\\
+		\uline{Bilan} : Tout produit scalaire peut s'exprimer uniquement en terme de norme. \\
+		\paragraph{Identité du parallélogramme} ${}$ \\
+		Soit $(E,\varphi)$ un espace préhilbertien réel et $(x,y)\in E^2$\\
+		\hspace*{2cm} Alors \highlight{$\norm{x+y}^2 + \norm{x-y}^2 = 2\norm{x}^2 + \norm{y}^2$}
+		\vspace*{0.5cm} \\ \thm{ch10L1}{Lemme}{SupplOrthDimInf}{$(E,\varphi)$ un espace préhilbertien réel\\
+		On suppose les SEV $F$ et $G$ supplémentaires et orthogonaux, i.e. $\left\{ \ard E=F\oplus F \\ F\perp G \arf\right.$\\
+		\hspace*{2cm} Alors $G=F^\perp$ }
+		\vspace*{0.5cm} \\ \thm{ch10L1c}{Corollaire}{10-L1c}{Tout SEV de $E$ admet au plus $1$ supplémentaire orthogonal }
+		\\ \textsc{Attention !} Il n'y a pas toujours existence !!
+		\vspace*{0.5cm} \\ \thm{ch10L1c2}{Corollaire}{DoublePerpSO}{Si $E=F\plusorth G$ alors $F^{\perp\perp} = F$}
+	\subsection{Projections orthogonales}
+		${}$ \\
+		\thm{ch10th2}{Théorème}{SODimFinie}{Si $F$ est un SEV de $E$ avec $\dim F <\infty$ alors \highlight{$E=F\plusorth F^\perp$}}
+		\\ Dans ce cas on pose $p_F$ la \uline{projection sur $F$ parallèlement à $F^\perp$} appelée projection orthogonale sur $F$.
+		\subparagraph{Formule}
+			Soit $\varepsilon=(\varepsilon_1,\dots,\varepsilon_r)$ une base orthonormée (BON) de $F$,\\
+			\hspace*{2cm} Alors \fbox{$\forall x\in E ,~ p_F(x) = \sum_{i=1}^{r} \scal{x}{\varepsilon_i}\varepsilon_i$}
+		\vspace*{0.5cm} \\ \thm{ch10th3}{Théorème}{DistSEV}{Soit $F$ un SEV de $E$ avec $\dim F<\infty$ ; soit $x\in E$\\
+		\hspace*{2cm} Alors $\delta_x ~\appli{F}{y}{\R}{\dd (x,y) = \norm{x-y} }$\\
+		Admet un minimum sur $F$, atteint en l'unique point $p_F(x)$, \\
+		on définit ainsi $\dd (x,F) = \inf \{\norm{x-y} ~;~ y\in F\} = \norm{x-p_F(x)}$ }
+	\subsection{Suites orthonormales}
+		$(E,\varphi)$ préhilbertien réel
+		\vspace*{0.5cm} \\ \thm{ch10th4}{Théorème : Procédé d'orthonormalisation de \textsc{Gramm-Schmidt}}{GrammSchmidt}{Soit $\suite{x}\in E^\N$ une famille libre\\
+		Alors il existe une et une seule famille orthonormale $\suite{y}\in E^\N$ telle que \\
+		\hspace*{2cm} $\forall k\in \N ,~\left\{ \ard $ \un $ \Vect(x_0,\dots ,x_k) = \Vect(y_0,\dots ,y_k) \\ $ \deux $\scal{x_k}{y_k} \geqslant 0 \arf\right.$ }
+		\\ On a le théorème analogue pour une famille $(x_0,\dots ,x_n)$ libre. ($n\in\N^*$) \\
+		\paragraph{Algorithme d'orthonormalisation}  On part de $\suite{x}$ libre \vspace*{0.2cm} \\
+		\hspace*{2cm}$\bullet$ Étape initiale : $y_0 \leftarrow \dfrac{x_0}{\norm{x_0}}$ \\
+		\hspace*{2cm}$\bullet$ Étape courante : \textit{(ayant construit $y_0,\dots ,y_k$)}\\
+		\hspace*{3cm} $\ast$ $v\leftarrow x_{k+1} - \si{0}{k}\scal{y_i}{x_{k+1}} y_i$\\
+		\hspace*{3cm} $\ast$ $y_{k+1} \leftarrow \dfrac{v}{\norm{v}}$
+	\section{Espaces euclidiens}
+		Ici $(E,\varphi)$ est un espace euclidien, i.e. un espace préhilbertien réel de dimension finie.
+	\subsection{Généralités}
+		${}$ \\ \thm{ch10L2}{Lemme}{FSDForth}{Soit $F$ un SEV de $E$ alors $E=F\oplus F^\perp$ et $\dim (F^\perp) = \dim E - \dim F$ }
+		\vspace*{0.5cm} \\ \thm{ch10L2c}{Corollaire}{Fdoubleorth}{Pour tout $F$ SEV de $E$, $F^{\perp\perp} = F$}
+		\vspace*{0.5cm} \\ \thm{ch10exo1}{"Exo"}{OpePerp}{Soient $F,G$ des SEV de $E$ euclidien\\
+		\hspace*{2cm} Alors $\ard $ \un $ (F+G)^\perp = F^\perp \cap G^\perp \\ $ \deux $ (F\cup G)^\perp : F^\perp + G^\perp \\ 
+		$ \trois $ F\subset G \Leftrightarrow G^\perp \subset F^\perp \arf$ }
+		\vspace*{0.5cm} \\ \thm{ch10th5}{Théorème}{ScalDIso}{L'application $\Phi ~\appli{E}{a}{E^*}{\scal{x}{\cdot}}$ est un isomorphisme }
+		\begin{proof}
+		$\Phi$ est bien défini de $E$ dans $E^*$, qui sont des $\R$-espaces vectoriels, et linéaire puis\\
+		$\forall a\in \ker \Phi$ on a $\scal{a}{x}=0$, $\forall x\in E$ et en particulier $\scal{a}{a} = 0 \Rightarrow a=0_E$\\
+		on a de plus $\dim E = \dim E^* <\infty$ d'où \textsc{cqfd}
+		\end{proof}
+		${}$ \\ \thm{ch10L3}{Lemme}{CoordBONScal}{Soit $e=(e_1,\dots ,e_n)$ une base orthonormée de $E$\\
+		\hspace*{0.5cm} Alors $\forall x\in E,~$\highlight{$e_i^*(x) = \scal{x}{e_i}$} $\forall i\in \ent{1,n}$}
+		\vspace*{0.5cm} \\ \thm{ch10L4}{Lemme}{PSAvecMat}{Soit $e=(e_A,\dots ,e_n)$ une base orthonormée de $E$ \\
+		Soient $x,y\in E$, on note $X=M_e(x) \in \M_n(\R)$\\
+		\hspace*{2cm} Alors \highlight{$\scal{x}{y} = {^tX}Y$} }
+	\subsection{Adjoint}
+		\traitd
+		\paragraph{Définition}
+			Soit $u\in\lin(E)$, on appelle adjoint de $u$ tout $v\in\lin(E)$ tel que 
+			\[ \forall (x,y)\in E^2,~ \scal{u(x)}{y} = \scal{x}{v(y)} \] \trait
+		\thm{ch10th6}{Théorème}{AdjointUnique}{Soit $u\in\lin(E)$ , $E$ euclidien, alors $u$ admet un et un seul adjoint. \\
+		\hspace*{0.5cm} On le note $u^*$, ainsi $u^*\in \lin(E)$ et $\forall (x,y)\in E^2,~ \scal{u(x)}{y} = \scal{x}{u^*(y)}$ }
+		\begin{proof}
+		Avec $\Phi$, soit $v\in \lin(E)$ alors \\
+		$\forall (x,y)\in E^2,~ \scal{u(x)}{y} = \scal{x}{u^*(y)} \Leftrightarrow \forall y\in E,~\forall x\in E,~\scal{v(y)}{x}=\scal{y}{u(x)}$\\
+		$\Leftrightarrow \forall y\in E,~ \Phi\big( v(y)\big) = \Phi(y) \circ u \Leftrightarrow \forall y\in E ,~v(y) = \Phi^{-1}\big(\Phi(y)\circ u\big)$\\
+		d'où l'unicité vu $\Phi$ isomorphisme ; l'existence se vérifie point par point en considérant $v_0 ~\appli{E}{y}{E}{\Phi^{-1}\big(\Phi(y)\circ u\big)}$ 
+		\end{proof}
+		${}$ \\ \thm{ch10th7}{Théorème}{MatAdjoint}{Soit $e=(e_1,\dots ,e_n)$ une base orthonormée de $E$, $u\in\lin(E),~A=M_e(u)$\\
+		\hspace*{2cm} Alors $M_e(u^*) = {^tA}$ }
+		\begin{proof}
+		$\forall x,y \in E$, en notant $X=M_e(x)$ et $Y=M_e(y)$ on a $\scal{u(x)}{y} = {^t(AX)}Y = {^tX}{^tA}Y$\\
+		Soit alors $v\in\lin(E)$ telle que $M_e(v) = {^tA}$ alors $v$ convient comme adjoint et par unicité, $v=u^*$
+		\end{proof}
+		${}$ \\ \thm{ch10th7c}{Corollaire}{OpeAdjoint}{\un $u\to u^*$ est linéaire \\ \deux $\forall u\in \lin(E) ,~ u^{**} = u$ \\
+		\trois $\forall u,v\in\lin(E) ,~ (u\circ v)^* = v^* \circ u^*$ }
+		\vspace*{0.5cm} \\ \thm{ch10L5}{Lemme}{ForthStabl}{Soit $u\in\lin(E) ,~ F\subset E$ SEV\\
+		\hspace*{0.5cm} Alors $F$ stable par $u$ $\Rightarrow$ $F^\perp$ stable par $u^*$}
+		\vspace*{0.5cm} \\ \thm{ch10exo2}{"Exo"}{KIRAdjoint}{Soit $u\in \lin(E)$ alors $~~\ard $ \un $\ker(u^*) = (\Img u)^\perp \\ 
+		$ \deux $\Img (u^*) = (\ker u)^\perp \\ $ \trois $\rg (u^*) = \rg (u) \arf$ }
+	\subsection{Endomorphismes autoadjoints}
+		\traitd 
+		\paragraph{Endomorphisme symétrique} 
+			$u$ est dit \uline{symétrique} si \[ \forall x,y\in E,~\scal{u(x)}{y} = \scal{x}{u(y)} \] \trait 
+		\vspace*{-1.1cm} \\ On note $\Sym(E)$ l'ensemble des $u\in\lin(E)$ symétriques \newpage\traitd
+		\paragraph{Endomorphisme autoadjoint}
+			$u$ est dit autoadjoint si $u^*=u$ \trait
+		\thm{ch10L6}{Lemme}{10-L6}{Soit $u\in\lin(E)$ alors \\
+		\hspace*{0.5cm} $u$ est autoadjoint $\Leftrightarrow$ $u$ est symétrique }
+		\vspace*{0.5cm} \\ \thm{ch10th8}{Théorème}{uSymMSym}{Soit $e$ une base orthonormée de $E$ et $u\in\lin(E)$ \\
+		\hspace*{0.5cm} Alors $u$ est symétrique $\Leftrightarrow$ $M_e(u)$ est symétrique }
+		\begin{proof}
+		$u\in\Sym(E) \Leftrightarrow u^* = u \Leftrightarrow M_e(u^*) = M_e(u) \Leftrightarrow {^tM_e(u)}=M_e(u) \Leftrightarrow M_e(u)\in\Sym_n(\R)$
+		\end{proof}
+		${}$ \\ \thm{ch10L7}{Lemme}{SEPOrth}{Soit $u\in\Sym(E)$ alors ses SEP sont 2 à 2 orthogonaux}
+		\vspace*{0.5cm} \\ \thm{ch10L8}{Lemme}{CNSProjOrth}{Soit $p\in\lin(E)$ un projecteur\\
+		\hspace*{0.5cm} Alors $p$ est un projecteur orthogonal $\Leftrightarrow$ $p^*=p$\\
+		Soit $s\in\lin(E)$ une symétrie\\
+		\hspace*{0.5cm} Alors $s$ est une symétrie orthogonale $\Leftrightarrow$ $s^* = s$ }
+	\subsection{Groupe orthogonal}
+		Soit $n\in \N^*$ \traitd
+		\paragraph{Groupe orthogonal}
+			On pose $\Orth_n(\R) = \{M\in\M_n(\R) ~|~^tMM = I \}$\\
+			$\Orth_n(\R)$ est appelé \uline{groupe orthogonal d'ordre $n$}, ses éléments sont appelés \uline{matrices orthogonales} \trait
+		\vspace*{-1.1cm} \\ \uline{NB} : $\Orth_n(\R)$ est bien un groupe comme sous-groupe de $(\GL_n(\R) , \times)$
+		\vspace*{0.5cm} \\ \thm{ch10L9}{Lemme}{10-L9}{$M\in \Orth_n(\R) \Leftrightarrow \big( M\in \GL_n(\R)$ et $M^{-1} = ^tM\big)$ }
+		\vspace*{0.5cm} \\ \thm{ch10L10}{Lemme}{OnStableTransp}{$M\in\Orth_n(\R) \Leftrightarrow ^tM \in \Orth_n(\R)$ }
+		\vspace*{0.5cm} \\ \thm{ch10th9}{Théorème}{CNSMOrtho}{Soit $M\in \M_n(\R)$, on note $C_1,\dots ,C_n$ ses colonnes\\
+		\hspace*{0.5cm} Alors $M\in \Orth_n(\R) \Leftrightarrow (C_1,\dots ,C_n)$ est orthonormée.}
+		\begin{proof}
+		$\forall i,j \in \ent{1,n} ,~ (^tMM)_{i,j} = \skt{1}{n} (^tM)_{i,k} M_{k,j} = \skt{1}{n} m_{k,i}m_{k,j} = \scal{C_i}{C_j}$\\
+		du coup $M\in \Orth_n(\R) \Leftrightarrow \forall i,j \in \ent{1,n},~ \scal{C_i}{C_j} = (I)_{i,j} = \delta_{i,j} \Leftrightarrow (C_1,\dots , C_n)$ orthonormée.
+		\end{proof}
+		Retenir $\forall M\in \M_n(\R),~ (^tMM)_{i,j} = \scal{C_i}{C_j}$ \vspace*{0.2cm}\\
+		On a un théorème analogue sur les lignes vu $^tM \in \Orth_n(\R)$
+		\vspace*{0.5cm} \\ \thm{ch10th10}{Théorème}{MatPassageOrth}{Soit $E$ un espace euclidien de dimension $n$ et $e$ une base orthonormée de $E$\\
+		\hspace*{0.5cm} Soit $\varepsilon$ une base de $E$ alors $P_e^{\varepsilon}\in\Orth_n(\R) \Leftrightarrow \varepsilon$ orthonormée.}
+		\begin{proof}
+		Notons $P=P_e^\varepsilon$ alors\\
+		$\forall (i,j) \in\ent{1,n}^2$, vu $e$ base orthonormée, $\scal{\varepsilon_i}{\varepsilon_j} = \skt{1}{n}P_{k,i}P_{k,j} = (^tPP)_{i,j}$\\
+		ainsi $\varepsilon$ orthonormée $\Leftrightarrow ~ \forall i,j ,~\scal{\varepsilon_i}{\varepsilon_j} = \delta_{i,j} \Leftrightarrow 
+		\forall i,j \in \ent{1,n} ,~(^tPP)_{i,j} = (I_n)_{i,j} \Leftrightarrow ^tPP = I_n \\ \Leftrightarrow P\in \Orth_n(\R)$ 
+		\end{proof} ${}$ \traitd
+		\paragraph{Isométries}
+			Soit $E$ euclidien de dimension $n$, on pose $\Orth(E) = \{f\in \lin(E) ~|~f$ conserve la norme\footnotemark{1} $\}$\\
+			Les éléments $f\in\Orth(E)$ sont appelé \uline{isométrie} ou \uline{automorphismes orthogonaux} \trait
+		\footnotetext[1]{i.e. $\forall x\in E,~ \norm{f(x)} = \norm{x}$}
+		\thm{ch10L11}{Lemme}{GrOrthE}{$\Orth(E)$ est un sous-groupe de $(\GL(E) ,\circ)$ dit \uline{groupe orthogonal de $E$} }
+		\vspace*{0.5cm} \\ \thm{ch10L12}{Lemme}{IsoConservScal}{Soit $f\in\Orth(E)$ alors $f$ conserve le produit scalaire, i.e.\\
+		\hspace*{2cm} $\forall x,y\in E,$ \highlight{$\scal{f(x)}{f(y)} = \scal{x}{y}$} }
+		\vspace*{0.5cm} \\ \thm{ch10th11}{Théorème $\heartsuit$}{OrthEEgalOrthMnR}{$\dim E = n,~ f\in \lin(E)$, soit $e$ une base orthonormée de $E$\\
+		\hspace*{0.5cm} Alors $f\in\Orth(E) \Leftrightarrow f(e)$ base orthonormée de $E \Leftrightarrow M_e(f) \in\Orth_n(\R)$ }
+		\begin{proof}
+		${}$ \\ \un $\Rightarrow$ \deux : Supposons $f\in\Orth(E) ,~f\in \GL(E)$ donc $((f(e_1),\dots ,f(e_n))$ base de $E$ et 
+		$\forall i,j \in \ent{1,n} , \\ \scal{f(e_i)}{f(e_j)} = \scal{e_i}{e_j} = \delta_{i,j}$
+		d'où $f(e)$ est une base orthonormée de $E$\\
+		\deux $\Rightarrow$ \trois : Supposons $f(e)$ base orthonormée, alors $M_e(f) = P_e^{f(e)} \in \Orth_n(\R)$ par théorème\\
+		\trois $\Rightarrow$ \un : Notons $M=M_e(f)$, on suppose $M\in \Orth_n(\R)$\\
+		Soit $x\in E$, soit $X=M_e(x)$ on a $\norm{f(x)}^2 = ^t(MX)(MX) = ^tX{^tM}MX = ^tXX = \norm{x}^2$\\
+		donc $\forall x\in E,~\norm{f(x)} = \norm{x}$ et $f\in \lin(E)$ donc $f\in \Orth(E)$
+		\end{proof}
+		${}$ \\ \thm{ch10th11c}{Corollaire}{CNSFiso}{$f\in\Orth(E) \Leftrightarrow f\in \GL(E)$ et $f^{-1}=f^*$ }
+		\\ \uline{NB} : Toutes les symétrie orthogonales sont des isométries (vectorielles) \\ \traitd
+		\paragraph{Réflexion}
+			Soit $E$ euclidien, on appelle \uline{réflexion de $E$} toute symétrie orthogonale par rapport à un hyperplan de $E$ \trait
+	\subsection{Théorème spectral}
+		${}$ \\ \thm{ch10L13}{Lemme}{SpectreMSym}{ \fbox{ $\forall M\in \Sym_n(\R) ,~Sp_\C(M) \subset \R$ } }
+		\vspace*{0.5cm} \\ \thm{ch10L14}{Lemme}{FOrthStableUSym}{Pour tout $u\in \Sym(E)$ endomorphisme symétrique,\\
+		\hspace*{0.5cm} $\forall F$ SEV de $E$, $F$ stable par $u \Rightarrow F^\perp$ stable par $u$ }
+		\vspace*{0.5cm} \\ \thm{ch10th12}{\highlight{Théorème spectral} $\heartsuit\heartsuit$}{ThSpectral}{Soit $E$ euclidien de dimension $n\in\N^*$\\
+		Soit $u\in\lin(E)$ alors \\
+		\hspace*{2cm} $u^*=u \Leftrightarrow u$ est diagonalisable dans un base orthonormée.}
+		\begin{proof}
+		Le sens retour est clair car une matrice diagonale est égale à sa transposée.\\
+		On montre le sens direct par récurrence sur $n$ la dimension de l'espace. $\rightarrow$ OK pour $n=1$\\
+		Soit $n\geqslant 2$, supposons $A(n-1)$. Soit alors $E$ euclidien de dimension $n$ et $u\in\lin(E)$\\
+		On suppose $u^*=u$ et on considère $e$ une base orthonormée quelconque, on a alors $A=M_e(u) \in\Sym_n(\R)$\\
+		\hspace*{0.5cm} $\left| \ard \chi_A$ est scindé sur $\C$ de degré $\geqslant 1 \\ 
+		$Soit $\lambda\in \C$ tel que $\chi_A(\lambda)=0$, ainsi $\lambda\in Sp_\C(A) \subset \R$ par lemme $\arf\right.$\\
+		donc $\lambda\in\R$ et $\chi_A(\lambda)=0$ d'où $\lambda\in Sp(u)$ donc $\exists x\in E\setminus\{0\}$ tel que $u(x)=\lambda x$\\
+		posons $\varepsilon_1 = \sfrac{x}{\norm{x}}$ et $F=\R.\varepsilon_1$. On considère alors $G=F^\perp$ stable par $u$ et on applique $A(n-1)$ à $u_G$.\\
+		Soit donc $\varepsilon = (\varepsilon_2,\dots ,\varepsilon_n)$ une base orthonormée de $G$ telle que $M_\varepsilon(u_G) \in \mathscr{D}_{n-1}(\R)$\\
+		Soit $\varepsilon'=(\varepsilon_1,\varepsilon_2,\dots ,\varepsilon_n)$, c'est une base orthonormée de $E=F\plusorth G$\\
+		et $M_{\varepsilon'}(u) = $ \begin{blockarray}[t]{[cccc]} $~\lambda$& & & \\ &$\ast$&$(0)$& \\ &$(0)$&$\ddots$& \\ & & &$\ast~$ \end{blockarray} 
+		d'où $A(n)$
+		\end{proof}
+		${}$ \\ \thm{ch10th12c}{Corollaire}{SDSEPUSym}{$u^* = u \Leftrightarrow E=\overset{\perp}{\bigoplus\limits_{\lambda\in Sp(u)}} E_\lambda (u)$ }
+		\vspace*{0.5cm} \\ \thm{xh10th13}{Théorème spectral (matriciel)}{ThSpectralMat}{\hspace*{0.5cm} $M\in \Sym_n(\R) \Leftrightarrow$\\
+		$\exists P\in \Orth_n(\R) ,~\exists D \in\mathscr{D}_n(\R)$ telles que $M=PDP^{-1}$ }
+		\begin{proof}
+		\fbox{$\Leftarrow$} Clair\\
+		\fbox{$\Rightarrow$} On suppose $M\in \Sym_n(\R)$ et on considère $u$ l'endomorphisme de $\R^n$ canoniquement associé. On a vu $^tM=M$, $u^* =u$ 
+		donc par le théorème spectral soit $\varepsilon$ une base de $\R^n$ telle que $M_\varepsilon(u)=D \in\mathscr{D}_n(\R)$\\
+		Alors $D = P^{-1}MP$ où $P=P_e^{\varepsilon} \in\Orth_n(\R)$ vu $e$ et $\varepsilon$ orthonormées d'où \textsc{cqfd}
+		\end{proof}
+		\textit{"Toute matrice symétrique réelle est orthodiagonalisable" $\heartsuit\heartsuit\heartsuit$}\vspace*{0.2cm} \\
+		\textsc{Attention !} C'est faux sur $\C$ !!
+	\subsection{Endomorphismes autoadjoints positifs}
+		\uline{NB} : ici $u\in\lin(E)$ i.e. $i\in\lin(E)$ symétrique, soit encore $u^*=u$\\ \traitd
+		\paragraph{Endomorphisme positif}
+			$u\in\Sym(E)$ est dit \\
+			\hspace*{2cm} $\bullet$ \uline{positif} si $\forall x\in E,~\scal{u(x)}{x} \geqslant 0$ \\
+			\hspace*{2cm} $\bullet$ \uline{défini positif} si $\forall x\in E\setminus\{0\},~ \scal{u(x)}{x} >0$ \trait ${}$ \vspace*{-1.3cm} \traitd
+		\paragraph{Matrice positive}
+			$A\in\Sym_n(\R)$ est dite \\
+			\hspace*{2cm} $\bullet$ \uline{positive} si $\forall X\in\M_{n,1}(\R) ,~^tXAX \geqslant 0$\\
+			\hspace*{2cm} $\bullet$ \uline{définie positive} si $\forall X\in\M_{n,1}(\R)\setminus\{0\} ,~^tXAX >0$ \trait
+		\thm{ch10L17}{Lemme}{EquivUMPos}{Soit $e$ une base orthonormée de $E$, $u\in\lin(E) ~;~A=M_e(u)$\\
+		\hspace*{0.5cm} Alors $\ard $ \un $u$ positif $\Leftrightarrow Ã$ positive $ \\ $ \deux $u$ défini positif $\Leftrightarrow ~A$ définie positive$\arf $}
+		\\ On note\\
+		$\rightarrow ~\Sym^+(E)=$ l'ensemble des endomorphismes symétriques positifs de $E$\\
+		$\rightarrow ~\Sym^{++}(E)=$ l'ensemble des endomorphismes symétriques définis positifs de $E$\\
+		On défini de même $\Sym_n^+(\R)$ et $\Sym_n^{++}(\R)$ pour les matrices 
+		\vspace*{0.5cm} \\ \thm{ch10th14}{Théorème}{SpectrEndoPos}{Soit $u\in\Sym(E)$ alors \\
+		\hspace*{0.5cm} $u\in\Sym^+(E) \Leftrightarrow Sp(u)\subset \R^+$ \\ \hspace*{0.5cm} $u\in\Sym^{++}(E) \Leftrightarrow Sp(u)\subset \R_+^*$ }
+		\begin{proof}
+		Montrons \un : \\ \fbox{$\Rightarrow$} Supposons $u$ positif, on considère $\lambda$ une valeur propre de $u$ et $x_0$ un vecteur propre associé. \\
+		Vu $x_0\neq 0$ on a $\lambda=\dfrac{\scal{u(x_0)}{x_0}}{\norm{x_0}^2} \in \R^+$\\
+		\fbox{$\Leftarrow$} On suppose $Sp(u)\subset\R^+$, vu $u\in\Sym(E)$ $u$ est diagonalisable dans une base $\varepsilon$ orthonormée.\\ Soit $x\in E$ on écrit
+		 $x=\skt{1}{n} x_i\varepsilon_i$ alors $\scal{u(x_0)}{x_0} = \skt{1}{n}\lambda_i x_i^2$ avec $\lambda_i\in Sp(u)$ d'où $\scal{u(x_0)}{x_0}\geqslant 0$
+		\end{proof}
+		${}$ \\ \thm{ch10th14c}{Corollaire}{SpectrMatPos}{Soit $A\in\M_n(\R)$ alors\\
+		\hspace*{0.5cm} \un $A\in \Sym_n^+(\R) \Leftrightarrow Sp(A\subset \R^+$ \\ \hspace*{0.5cm} \deux $A\in\Sym_n^{++}(\R) \Leftrightarrow Sp(A)\subset \R_+^*$}
+	\section{Réduction des endomorphismes}
+	\subsection{Groupe spécial orthogonal}
+		Ici, $n\in\N^*$ et $E$ est un espace euclidien de dimension $n$
+		\vspace*{0.5cm} \\ \thm{ch10L18}{Lemme}{SpectreFOrth}{$\forall f\in \Orth(E) ,~Sp(f)\subset \{-1,1\}$}
+		\vspace*{0.5cm} \\ \thm{ch10L19}{Lemme}{DetMOrth}{$\forall M\in \Orth_n(\R) ,~ \det M = \pm 1$}
+		\\ \traitd
+		\paragraph{Groupe spécial orthogonal}
+			On note $\SO_n(\R) = \{ M\in\M_n(\R) ~|~\det M = 1\}$ dit \uline{groupe spécial orthogonal d'ordre $n$} \trait
+		\vspace*{-1.1cm} \\ C'est bien un groupe comme sous-groupe de $(\Orth_n(\R),\times)$ via la restriction de l'application déterminant au groupe orthogonal d'ordre $n$.
+		\vspace*{0.5cm} \\ \thm{ch10L20}{Lemme}{DetFOrth}{$\forall f\in \Orth{E} ,~\det f = \pm 1$}
+		\\ \traitd
+		\paragraph{Rotations}
+			Le groupe $\SO(E) =\{ f\in\Orth(E) ~|~ \det f =1 \}$ est dit \uline{groupe spécial orthogonal de $E$}.\\
+			Ses éléments $f$ sont dits $ \ard ~\bullet$ isométries directes$\\~\bullet$ isométries positives $\\~\bullet$ \uline{rotations}$\arf$\vspace*{0.25cm}\trait
+	\subsection{Orientation d'un $\R$ espace vectoriel de dimension finie}
+		Soit $E$ un $\R$-ev de dimension $n\in\N^*$, soit $\mathcal{B}$ l'ensemble des bases de $E$.\\
+		Pour $e,e'\in\mathcal{B}$ on pose $e\mathcal{R} e'$ si $\det (P_e^{e'})>0$
+		\vspace*{0.5cm} \\ \thm{ch10L21}{Lemme}{RDetEquiv}{$\mathcal{R}$ est une relation d'équivalence}
+		\\ Il y a exactement deux classes d'équivalences dans $\mathcal{B}$, en effet :\\
+		fixons $e=(e_1,e_2,\dots ,e_n)$ et $\tilde{e}=(-e_1,e_2,\dots ,e_n)$ alors 
+		$\forall \varepsilon\in\mathcal{B}$, $\varepsilon\mathcal{R} e$ ou $\varepsilon\mathcal{R} \tilde{e}$ et $e\mathcal{\cancel{R}} \tilde{e}$\\\traitd
+		\paragraph{Orientation}
+			Orienter $E$, c'est choisir l'une des deux classes dans $\mathcal{B}$, disons $\mathcal{C}$\\
+			\hspace*{2cm} $\bullet$ Les bases $e\in\mathcal{C}$ sont dites \uline{directes} \\ 
+			\hspace*{2cm} $\bullet$ Les bases $e\notin\mathcal{C}$ sont dites \uline{indirectes} \trait ${}$ \vspace*{-1.3cm} \traitd
+		\paragraph{Produit mixte} ${}$ \\
+		\hspace*{1.5cm} \begin{minipage}{12.71cm} ${}$ \vspace*{0.15cm}\\ \hspace*{0.21cm} \begin{blockarray}{|l} 
+		Soit $E$ euclidien de dimension $n$ orienté ($n\in\N^*$)\\
+		Pour $x = (_1,\dots ,x_n)\in E^n$ le réel $\det_e (x_1,\dots ,x_n)$ \\où $e$ est une base orthonormée directe ne dépend pas du choix de la base.\\
+		On l'appelle \uline{produit mixte de $(x_1,\dots,x_n)$} noté $[x_1,\dots ,x_n]$ \end{blockarray} \end{minipage} 
+		\vspace*{-0.1cm} \trait 
+		\vspace*{-1.4cm} \begin{proof}
+		Soient $e,\varepsilon$ des bases orthonormées directes\\
+		On note $\Lambda_n^*(E)$ l'espace des formes $n$-linéaires alternées sur $E$. Rappel : \fbox{$\dim \big( \Lambda_n^*(E)\big) = 1$} $\heartsuit$\\
+		Soit donc $\lambda \in\R$ tel que $\det_\varepsilon=\lambda\det_e$ on a $\lambda =\lambda \det_e(e) = \det_\varepsilon(e)=\det(P_\varepsilon^e)$\\
+		Or $e$ et $\varepsilon$ sont directes donc $P_\varepsilon^e$ est positive et $P_\varepsilon^e\in\Orth_n(\R)$ donc $\det(P_\varepsilon^e)=1=\lambda$\\
+		Ainsi $\det_e=\det_\varepsilon$
+		\end{proof} ${}$
+	\subsection{Isométries du plan}
+		${}$ \\ \thm{ch10th16}{Théorème}{DescripSO2R}{\un $\SO_2(\R) = \left\{ R_\theta = \left[ \begin{array}{cc} \cos\theta & -\sin\theta \\ \sin\theta & \cos\theta
+		\end{array} \right] ~;~\theta\in\R \right\} $ \\
+		\deux $\forall \theta_1, \theta_2\in\R ,~R_{\theta_1}\times R_{\theta_2} = R_{\theta_1+\theta_2}$ \\
+		\trois $\SO_2(\R)$ est un groupe abélien }
+		\begin{proof}
+		\un \fbox{$\supset$} OK car colonnes orthonormées et $\det R_\theta = 1$ \\
+		\fbox{$\subset$} Soit $M\in\SO_2(\R)$, on note $M=\left( \begin{array}{cc} a&b \\ c&d \end{array}\right)$\\
+		vu les colonnes orthonormées, $\exists \theta,\varphi\in \R$ tels que $(a,c)= (\cos\theta, \sin\theta)$ et $(b,d)=(\cos\varphi,\sin\varphi)$\\
+		Par ailleurs $\det M=1 = \sin(\varphi-\theta)$ donc $\varphi-\theta \equiv \frac{\pi}{2} [2\pi]$ d'où $M=R_\theta$\\
+		\deux OK Par le calcul avec les formules d'addition\\
+		\trois Commutativité de $+$ sur $\R$ avec \un et \deux
+		\end{proof}
+		\uline{NB} : $\big( \SO_2(\R),\times \big) \simeq \big( \mathds{U} , \times \big)$ via $\Phi ~:~ \appli{\mathds{U}}{e^{\imath\theta}}{\SO_2(\R)}{R_\theta}$
+		\vspace*{0.5cm} \\ \thm{ch10L22}{Lemme}{RotAngleTheta}{Soit $E$ un plan vectoriel orienté ($\dim=2$) et $f\in \SO(E)$ une rotation\\
+		Alors $\exists \theta\in \R$ tel que $\forall\varepsilon$ base orthonormée directe de $E$, $M_\varepsilon(f)=R_\theta$\\
+		Un tel $\theta$ est unique modulo $2\pi$, \\
+		on dit alors que \uline{$f$ est la rotation (vectoriel) d'angle $\theta$}.} \newpage \traitd
+		\paragraph{Angle orienté} ${}$ \\
+		\hspace*{1.5cm} \begin{minipage}{12.71cm} ${}$ \vspace*{0.15cm}\\ \hspace*{0.21cm} \begin{blockarray}{|l} 
+		Soit $E$ un plan euclidien orienté et $u,v\in E\setminus\{0\}$\\
+		\hspace*{0.5cm} Alors il existe $1!$ rotation $f\in\SO(E)$ telle que $f\left(\dfrac{u}{\norm{u}}\right) = \dfrac{v}{\norm{v}}$\\
+		Soit $\theta\in\R$ tel que $f$ soit la rotation d'angle $\theta$,\\
+		On appelle \uline{angle orienté $(u,v)$} la classe de $\theta$ modulo $2\pi$ \end{blockarray} \end{minipage} 
+		\vspace*{-0.1cm} \trait 
+		\vspace*{-1.4cm} \begin{proof}
+		On pose $e_1= \frac{u}{\norm{u}}$ qu'on complète avec $e_2$ en une base orthonormée directe. \\On écrit $\varepsilon = \frac{v}{\norm{v}}=\alpha e_1+\beta e_2$
+		\\Pour $f\in\SO(E)$ soit $\theta$ tel que $M_e(f) = R_\theta$ vu $\alpha^2+\beta^2 =1$ on note $\varphi$ l'angle de $(\alpha,\beta)$ \\
+		Alors $f\left( \frac{u}{\norm{u}}\right) = \frac{v}{\norm{v}}$ si et seulement si $f(e_1)=\varepsilon$ $\Leftrightarrow$ $\varphi\equiv\theta [2\pi]$
+		\end{proof}
+		${}$ \\ \thm{ch10L23}{Lemme}{ScalAngleOriente}{Soient $u,v\in E\setminus\{0\}$ et $\theta$ une mesure de l'angle orienté $(u,v)$\\
+		\hspace*{0.5cm} Alors \highlight{$\scal{u}{v} = \norm{u}.\norm{v}.\cos \theta$} }
+		\\ \subparagraph{Notation} On note \\
+		${}$ \hfill $\bullet \Orth_n^+(\R) = \SO_n(\R)$ \hfill $\bullet \Orth^+(E) = \SO(E)$ \hfill ${}$\\
+		${}$ \hfill $\bullet \Orth_n^-(\R) = \Orth_n(\R)\setminus\Orth_n^+(\R)$ \hfill $\bullet \Orth^-(E) = \Orth(E) \setminus\Orth^+(E)$ \hfill ${}$
+		\vspace*{0.5cm} \\ \thm{ch10th18}{Théorème}{DescripO2-R}{$M\in\Orth^-(\R) \Leftrightarrow \exists \theta\in \R$ tel que $M=\left[\begin{array}{cc}
+		\cos\theta & \sin\theta \\ \sin\theta & -\cos\theta \end{array} \right]$}
+		\begin{proof}
+		\fbox{$\Leftarrow$} Colonnes orthonormée et $\det M=1$\\
+		\fbox{$\Rightarrow$} Soit $M=[C_1 | C_2] \in \Orth_n^-(\R)$, on pose $\tilde{M} = [C_1 | -C_2]$ alors $\tilde{M}\in \Orth_n^+(\R)$ d'où le résultat.
+		\end{proof}
+		\uline{NB} : Pour $\dim E=2$, $\Orth^-(E)$ est exactement l'ensemble de réflexions de $E$ et si $f\in\Orth^-(E)$ est telle que $M_e(f)$ soit la matrice décrite dans le théorème alors $f$ est la réflexion d'axe $\R u\left(\frac{\theta}{2}\right)$ où $u(\alpha) = \cos\alpha e_1 + \sin\alpha e_2$
+		\vspace*{0.5cm} \\ \textbf{exercice} : \\
+		Dans un plan, toute rotation est le produit de $2$ réflexions, dont l'une peut être choisie arbitrairement.
+	\subsection{Réduction des isométries en dimension $n$}
+		Soit $E$ euclidien de dimension $n$
+		\vspace*{0.5cm} \\ \thm{ch10L24}{Lemme}{FOrthStableIso}{Soit $u\in\Orth(E)$ et $F$ un SEV de $E$\\
+		\hspace*{0.5cm} Alors $F$ stable par $u$ $\Rightarrow$ $F^\perp$ stable par $u$}
+		\vspace*{0.5cm} \\ \thm{ch10L25}{Lemme}{ExisteSEVdim12}{Soit $E$ un $\R$ espace vectoriel de dimension $n\in\N^*$ et $u\in\lin(E)$\\
+		\hspace*{0.5cm} Alors $u$ admet un SEV stable de dimension $1$ ou $2$}
+		\vspace*{0.5cm} \\ \thm{ch10th19}{Théorème}{MOnRDiagbloc}{Soit $E$ euclidien de dimension $n\in\N^*$ et $u\in\Orth(E)$ isométrie\\
+		\hspace*{0.5cm} Alors $\exists e$ une base orthonormée directe de $E$ telle que \\
+		$M_e(u) = \mathrm{Diagblocs}(B_1,\dots ,B_r)$ où $B_i\in \{[1],[-1] , R_{\theta_i}\}$ avec $\theta_i \not\equiv 0[\pi] ,~\forall i$}
+		\begin{proof}
+		On montre $T(n)$ par récurrence\\
+		$\bullet ~ T(1)$ Supposons $\dim E =1$, $u\in \Orth(E)$, soit $e=(e_1)$ base orthonormée, $M_e(u) = [a]$ et $a^2=1$ donc $a = \pm 1$\\
+		$\bullet ~ T(2)$ Supposons $\dim E = 2$, $u\in \Orth(E)$\\
+		$\rightarrow$ Si $u$ est une rotation, $M_e(u) = R_\theta$ et si $\theta \equiv 0[\pi]$, alors $\cos\theta = \pm 1$\\
+		$\rightarrow$ Si $u$ est une réflexion alors on a le résultat en considérant une base orthonormée adaptée à la décomposition $E=\Delta\oplus\Delta^\perp$
+		$\bullet$ Soit $n\geqslant 3$, supposons $T(1),\dots , T(n-1)$ \\
+		Soit $E$ euclidien de dimension $n$ et $u\in\Orth(E)$, par le lemme on écrit $E=F\oplus F^\perp$ avec $F$ stable par $u$ et $\dim F\in \{1,2\}$\\
+		Par lemme $F^\perp$ est stable par $u$ donc on a le résultat avec $T(1)$ et $T(n-1)$ ou $T(2)$ et $T(n-2)$
+		\end{proof}
+		${}$ \\ \thm{ch10th19c}{Corollaire}{MOnRSemblDiagbloc}{Toute matrice $M\in\Orth_n(\R)$ est orthosemblable à une telle matrice\\
+		\hspace*{2cm} \fbox{$M ~\mathscr{S}_\perp ~ \mathrm{Diagblocs}(R_{\theta_1},\dots ,R_{\theta_2} ,\dots , \pm 1,\dots ,\pm 1)$} }
+		\vspace*{0.5cm} \\ \thm{ch10th19c2}{Corollaire}{MO3RDiagbloc}{$E$ euclidien de dimension $3$, $u\in \SO(E)$\\
+		\hspace*{0.5cm} Alors $\exists e$ une base orthonormée de $E$ et $\theta \in \R$\\
+		\hspace*{2cm} tels que $M_e(u) = \left[ \begin{array}{ccc} \cos\theta & -\sin\theta & 0 \\ \sin\theta & \cos\theta & 0 \\ 0 & 0 & 1 \end{array}\right]$\\
+		Ainsi :\\ \hspace*{0.5cm} $\bullet$ $H=\Vect(e_1,e_2)$ est stable par $u$ \\ et $u_H$ est une rotation de $H$\\
+		\hspace*{0.5cm} $\bullet$ $\Delta = \Vect(e_3)$ est stable par $u$\\
+		On dit que \uline{$u$ est une rotation d'axe $\Delta$} }

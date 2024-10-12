@@ -1,0 +1,154 @@
+
+% Chapitre 6 : Nombres réels et suites numériques
+
+\minitoc
+	\section{Ensembles de nombres réels}
+		\traitd
+		\paragraph{Entiers naturels}
+			$0,1,2, \dots$ avec $\leqslant$ une relation d'ordre totale \trait
+		\thm{ch7P1}{Propriété : Principe de bon ordre}{BonOrdreN}{{\scriptsize (i)} Toute partie non vide de $\N$ admet un plus petit élément.\\
+		{\scriptsize (ii)} Tout partie non vide et majorée de $\N$ admet un plus grand élément.}
+		\newpage ${}$ \\ \thm{ch7P2}{Proposition : Division euclidienne sur $\N$}{DivEuclN}{$\forall (a,b)\in\N\times\N^*, ~\exists (q,r)\in \N^2$, unique tel que \\
+		\hspace*{2cm} $\cm{a=bq+r}$ avec \uline{$0\leqslant r<b$}} \\ \traitd
+		\paragraph{Entiers relatifs}
+			$\Z = \N \cup (-\N) = \{\dots , -2,-1,0,1,2,\dots\}$ \trait
+		\vspace*{-1.1cm} \\ \textit{La division euclidienne reste valable sur $\Z$}
+		\traitd
+		\paragraph{Nombres rationnels}
+			$\Q = \{ \dfrac{p}{q} ~|~ p\in\Z ,~ q\in \N^* \}$ On dit que $\frac{p}{q}$ est irréductible si $p$ et $q$ sont sans diviseurs communs. \trait
+		\thm{ch7P3}{Propriété}{QStable}{$\Q$ est stable par somme, différence et produit.}
+		\vspace*{0.5cm} \\ \thm{ch7P4}{Proposition}{EncadrDecimal}{$\forall x\in \R^+ ,~ \exists (x_k)_{_{k\in\N}} \in \N^\N$ unique telle que $\forall n\in \N$ on a \\
+		\hspace*{2cm} $\cm{\sk{0}{n} x_k.10^{-k} \leqslant x < \sk{0}{n} x_k.10^{-k} + 10^{-n}} $ \\
+		On a de plus $(x_k)_{_{k\in\N^*}} \in \ent{0,9}^\N$ non stationnaire à $9$}
+		\traitd \paragraph{Approximation décimale propre}
+			Soit $x\in \R$, avec les même notations, on appelle \uline{approximation décimale propre de $x$ à $10^{-n}$ près} la somme $\sk{0}{n}x_k.10^{-k}$\vspace*{0.2cm} \\ On appelle \uline{approximation décimale propre de $x$} la \textbf{limite} : 
+			\[ \limit{n}{+\infty} \sk{0}{n} x_k.10^{-k} = x_0,x_1x_2\dots x_n\dots \]
+			\trait ${}$ \vspace*{-1.2cm} \traitd
+		\paragraph{Nombres décimaux}
+			On appelle \uline{nombres décimaux} l'ensemble des nombres réels dont l'approximation décimale propre est \textbf{stationnaire à $0$}. Leur ensemble est noté $\mathds{D}$ avec
+			\[ \mathds{D} = \{ x\in\R ~|~ \exists n\in\N ~:~ x\times 10^{n} \in\Z\}\subset \Q \] \trait ${}$ \vspace*{-1.2cm} \traitd
+		\paragraph{Densité}
+			On dit que $X\in\mathcal{P}(\R)$ est \uline{dense dans $\R$} si pour tout $a<b$ de $\R$ on a $]a,b[ \cap X \neq \varnothing$ \trait
+		\thm{ch7P5}{Propriété}{RatIrratDenses}{$\Q$ et $\R\setminus\Q$ sont denses dans $\R$.} \newpage \traitd
+		\paragraph{Borne supérieure}
+			Soit $X$ un ensemble. \textbf{Sous réserve d'existence}, la borne supérieure de $X$, notée $\sup X$ est le plus petit éléments de l'ensemble des majorants de $X$. \trait
+		\thm{ch7th1}{Théorème}{SupNonVideMajR}{Toute partie non vide et majorée de $\R$ admet une borne supérieure.}
+		\vspace*{0.5cm} \\ \thm{ch7P6}{Proposition : Caractérisation de la borne supérieure}{CarSup}{Soit $A$ une partie de $\R$, $\alpha$ est la borne supérieure de $A$ si et seulement si \\
+		$\forall x\in A,~x\leqslant\alpha$ et $\forall\varepsilon>0 ,~ \exists x'\in A$ tel que $x'> \alpha-\varepsilon$} \\ \traitd
+		\paragraph{Intervalle}
+			On appelle \uline{intervalle} toute partie $X$ de $\R$ vérifiant 
+			\[ \forall (a,b)\in X^2 ~avec~ a\leqslant b,~ [a,b] \subset X\] \trait
+		\thm{ch7P7}{Propriété}{EcritureSegment}{$\forall (a,b)\in\R^2$ avec $a\leqslant b$ on a $[a,b] = \{\lambda a + (1-\lambda ) b ~|~\lambda\in [0,1] \}$}
+		\vspace*{0.5cm} \\ \thm{ch7P8}{Propriété}{IntersecInterv}{L'intersection de deux intervalles est un intervalle.\\
+		Toute intersection (même infinie) d'intervalles est un intervalle.}
+	\section{Suites réelles}
+	\subsection{Généralités}
+		\traitd
+		\paragraph{Suite stationnaire}
+			Une suite réelle $\suite{u}$ est dite \uline{stationnaire} si
+			\[\exists n_0\in\N ~:~\forall n\in \N ,~ (n\geqslant n_0 \Rightarrow u_n = u_{n_0})\] \trait
+		\thm{ch7P9}{Propriété}{SuiteBornée}{Une suite $\suite{u}$ est bornée si et seulement si $\big(\mc{u_n}\big)_{_{n\in\N}}$ est majorée.} \\ \traitd
+		\paragraph{Convergence}
+			Si $\ell\in\R$ et $\suite{u}$ est une suite réelle, \\
+			$\bullet$ On dit que \uline{$u$ converge vers $l$} si 
+			\[ \forall\varepsilon>0 ,~\exists n_0\in\N ~:~\forall n\in \N,~\big( n\geqslant n_0 \Rightarrow \mc{u_n-\ell}\leqslant\varepsilon \big) \] 
+			$\bullet$ On dit que \uline{$u$ tend vers $+\infty$} (resp. $-\infty$) si 
+			\[ \forall A\in \R ,~\exists n_0\in\N ~:~\forall n\in\N ,~\big( n\geqslant n_0 \Rightarrow u_n \geqslant A \big) ~~(resp.~u_n\leqslant A) \] 
+			\trait \newpage \traitd
+		\paragraph{Divergence}
+			Une suite réelle est dite \uline{divergente} si elle ne converge pas. \trait
+		\thm{ch7P10}{Propriété : Unicité de la limite}{UniLim}{Si $\suite{u}$ tend vers $\ell_1$ et vers $\ell_2$ alors $\ell_1=\ell_2$}
+		\vspace*{0.5cm} \\ \thm{ch7P11}{Propriété}{ConvImplBorn}{Toute suite réelle convergente est bornée.}
+		\vspace*{0.5cm} \\ \thm{ch7P12}{Propriété}{ProdBornLimNulle}{Le produit d'une suite bornée et d'une suite de limite nulle \\ est une suite de limite nulle.}
+		\vspace*{0.5cm} \\ \thm{ch7P13}{Propriétés}{OpeLim}{Si $\suite{u}$ et $\suite{v}$ sont deux suites réelles convergentes dans $\overline{\R}$ \\
+		Alors pour tout $\lambda,\mu \in\R$, $\big(\lambda u_n + \mu v_n\big)_{_{n\in\N}}$ et $\big( u_nv_n\big)_{_{n\in\N}}$ convergent \footnotemark[1] avec \\
+		\hspace*{2cm} $\bullet ~\lim (\lambda u_n + \mu v_n) = \lambda\lim u_n + \mu \lim v_n$
+		\\ \hspace*{2cm} $\bullet ~ \lim (u_nv_n) = (\lim u_n )(\lim v_n)$ }
+		\footnotetext{Si la somme et/ou le produit ne sont pas des formes indéterminée de $\overline{\R}$}
+		\vspace*{0.5cm} \\ \thm{ch7P14}{Propriété}{QuotientLim}{Si $\suite{u}$ tend vers $\ell\in\overline{\R}\setminus\{0\}$ \\
+		Alors $\suite{u}$ est non nulle à partir d'un certain rang $n_0$ \\
+		et $\big(\frac{1}{u_n}\big)_{_{n\geqslant n_0}}$ converge vers $\frac{1}{\ell} \in \overline{\R}$}
+		\vspace*{0.5cm} \\ \thm{ch7L1}{Lemme}{7-L1}{Soit $\suite{u}$ une suite réelle avec $u_n \ston \ell$ alors $\mc{u_n} \ston \mc{\ell}$}
+		\vspace*{0.5cm} \\ \thm{ch7th2}{Théorème : Passage à la limite dans les inégalités larges}{PassLimInegLarges}{\textsc{à compléter}}
+		\begin{proof}
+		On peut noter que si $\suite{u}$ une suite réelle quelconque est à termes positif à partir d'un certain rang et si $(u_n)$ tends vers $\ell\in \overline{\R}$ alors $\ell \geqslant0$, en effet : par unicité de la limite, $\ell = \mc{\ell}\geqslant 0$\vspace*{0.2cm}\\
+		Soit donc $\suite{u}$ et $\suite{v}$ deux suites réelles convergente respectivement vers $\ell$ et $\ell'$ avec $u_n\geqslant v_n$ à partir d'un certain rang alors\\
+		\hspace*{0.5cm} $\bullet$ Si $\ell=\ell'=+\infty$ ou si $\ell=\ell'=-\infty$ alors $\ell=\ell'$ et on a le résultat\\
+		\hspace*{0.5cm} $\bullet$ Sinon on note $w_n = u_n-v_n$ et on a ainsi $w_n\geqslant 0$ à partir d'un certain rang donc vu $(w_n)$ converge vers $\ell''=\ell-\ell'$ alors $\ell\geqslant\ell'$
+		\end{proof}
+		${}$ \\ \thm{ch7P15}{Propriété}{CarConv}{Soit $\suite{u}$ et $\suite{v}$ deux suites réelles telles que $(v_n)$ converge vers $0$.\\
+		On suppose qu'il existe $\ell\in\R$ tel que \textsc{apcr} $\mc{u_n-\ell} \leqslant v_n$\\
+		\hspace*{2cm} Alors $(u_n)$ converge vers $\ell$}
+		\vspace*{0.5cm} \\ \thm{ch7th3}{Théorème d'encadrement}{ThEncadr}{Soit $(u_n),(v_n),(w_n)$ trois suites réelles telles que \textsc{apcr} $v_n \leqslant u_n\leqslant w_n$.\\
+		On suppose que $(v_n)$ et $(w_n)$ converge vers une même limite.\\
+		\hspace*{0.5cm} Alors $(u_n)$ converge vers cette limite commune.}
+		\begin{proof}
+		On a à partir d'un certain rang $0\leqslant u_n-v_n \leqslant w_n-v_n$ et $(w_n-v_n)$ converge vers $0$ donc d'après la propriété précédente $(u_n-v_n)$ converge vers $0$, or pour tout $n\in\N$, $u_n = (u_n-v_n)+v_n$ d'où $\lim u_n = \lim (u_n-v_n) + \lim v_n = \lim v_n$
+		\end{proof}
+		${}$ \\ \thm{ch7P16}{Proposition}{LimMinorMaj}{Soit $(u_n)$ et $(v_n)$ deux suites réelle, on suppose \textsc{apcr} $u_n\leqslant v_n$\\
+		\hspace*{2cm} Alors $\left\{\ard $Si $u_n\ston +\infty$ alors $v_n \ston +\infty \\ $Si $v_n \ston -\infty$ alors $u_n \ston -\infty \arf \right.$ }
+		\vspace*{0.5cm} \\ \thm{ch7th4}{\highlight{Théorème de la limite monotone}}{ThLimMonot}{Toute suite croissante et majorée (resp. décroissante et minorée) converge.}
+		\begin{proof}
+		Soit $\suite{u}$ une suite réelle, on note $X=\{u_n ~|~n\in\N\}$ partie non vide et majorée de $\R$, on note donc $\ell$ sa borne supérieur (qui existe). On a alors par croissance de $(u_n)$ et caractérisation de la borne supérieur $u_n \ston \ell$.
+		\end{proof} ${}$ \traitd
+		\paragraph{Suites adjacentes}
+			Deux suites réelles $\suite{u}$ et $\suite{v}$ sont dites \uline{adjacentes} si elles sont de monotonies contraires et si $\lim (u_n-v_n)=0$\trait
+		\thm{ch7L2}{Lemme}{7-L2}{Si $\suite{u}$ et $\suite{v}$ sont adjacentes avec $(u_n)$ croissante et $(v_n)$ décroissante.\\
+		\hspace*{2cm} Alors $\forall (p,q)\in \N^2 ,~u_p\leqslant v_q$}
+		\vspace*{0.5cm} \\ \thm{ch7th5}{Théorème des suite adjacentes}{ThSuitesAdjacentes}{Deux suites adjacentes convergent vers une même limite.}
+		\begin{proof}
+		Soit $(u_n)$ et $(v_n)$ deux suites adjacentes. On suppose sans perte de généralité $(v_n)$ décroissante. D'après le lemme on a alors $(u_n)$ croissante majorée par $v_0$ donc d'après le théorème de la limite monotone $(u_n)$ converge vers $\ell\leqslant v_0$. De même $(v_n) $ converge vers $\ell' \geqslant u_0$ puis vu $\lim (u_n-v_n) = 0$ on a $\ell = \ell'$
+		\end{proof} ${}$ \traitd
+		\paragraph{Extractrice}
+			On a appelle extractrice toute application $\sigma : \N\to\N$ strictement croissante. \trait
+		\thm{ch7P17}{Propriété}{ExtracSupN}{Si $\sigma :\N\to\N$ est une extractrice alors $\forall n\in\N ,~\sigma(n) \geqslant n$} \newpage \traitd
+		\paragraph{Suite extraite}
+			Soit $\suite{u}$ et $\suite{v}$ deux suites réelles. On dit que \uline{$(v_n)$ est extraite de $(u_n)$} s'il existe $\sigma :\N\to\N$ un extractrice telle que \[\forall n\in\N, ~v_n = u_{\sigma(n)} \] \trait
+		\thm{ch7P18}{Proposition}{LimStableExtrac}{Si une suite possède une limite, toute ses suites extraites \\ possèdent la même limite.} 
+		\vspace*{0.5cm} \\ \thm{ch7P19}{Propriété}{SousSuitePairImpair}{Soit $\suite{u}$ une suite réelle\\ On suppose que $(u_{2n})$ et $(u_{2n+1})$ tendent vers une même limite $\ell$. \\
+		\hspace*{2cm} Alors $(u_n)$ tend vers $\ell$}
+		\vspace*{0.5cm} \\ \thm{ch7th6}{\highlight{Théorème de \textsc{Bolzano-Weierstrass}}}{ThBW}{Tout suite réelle bornée admet une suite extraite qui converge.}
+		\begin{proof}
+		Soit $\suite{u}$ une suite bornée. \\
+		On considère $A=\{p\in\N ~|~ \forall n\in\N,~ n\geqslant p \Rightarrow u_n <u_p \}$\\On construit alors une extractrice $\sigma$ telle que $(u_{\sigma(n)})$ est strictement décroissante :\\
+		$\bullet$ Si $A$ est infinie, on pose $\sigma(0) = \min A$ (principe de bon ordre) puis $\forall p\in\N$, on pose \\$\sigma(p+1) = \min \big(A\cap \rrbracket \sigma(p), + \infty \llbracket \big)$\\
+		On a alors $(u_{\sigma(n)}$ strictement décroissante et minorée donc convergent d'après le théorème de la limite monotone. \\
+		$\bullet$ Si $A$ est fini, on pose $\sigma(0) = \left\{\ard 0$ si $A$ est vide$ \\ \max A+1$ sinon$ \arf \right. $ \\ On a alors vu $\sigma(0)\notin A$, $\exists n>\sigma(0) ~:~u_n\geqslant u_{\sigma(0)}$, ainsi on pose pour tout $p\in\N, \\ \sigma(p+1) = \min \{n>\sigma(p) ~|~ u_n \geqslant u_{\sigma(p)} \}$ (qui existe vu $\sigma(p) \notin A$ \\
+		$(u_{\sigma(p)})$ est donc croissante et majorée et par suite convergente.
+		\end{proof} ${}$ \traitd
+		\paragraph{Convergence (cas complexe)}
+			Soit $\suite{u}\in\C^\N$ on dit que \uline{$(u_n)$ converge vers $\ell\in\C$} si \[\forall\varepsilon>0, ~\exists n_0\in\N ~:~\forall n\in\N ,~\big( n\geqslant n_0 \Rightarrow \mc{u_n-\ell}\leqslant\varepsilon\big) \] \trait
+		\thm{ch7P20}{Proposition}{CNSConvCompl}{Soit $\suite{u}\in\C^\N$ une suite complexe, alors $(u_n)$ converge ssi \\
+		$ \big(\Im (u_n)\big)_{n\in\N}$ et $\big(\Re (u_n)\big)_{n\in\N}$ convergent.\\
+		\hspace*{2cm} On a alors $\left\{ \ard \Re(\lim u_n) = \lim \Re (u_n) \\ \Im (\lim u_n) = \lim \Im (u_n) \arf \right. $ }
+		\newpage ${}$ \thm{ch7th7}{Théorème de \textsc{Bolzano-Weierstrass : cas complexe}}{ThBWCompl}{De toute suite complexe bornée on peut extraire une suite qui converge.}
+		\begin{proof}
+		Clair avec le théorème dans le cas réel vu $\forall z\in\C,~ \Re z \leqslant\mc{z}$ et $\Im z \leqslant \mc{z}$
+		\end{proof}
+		${}$ \\ \thm{ch7P21}{Proposition : Caractérisation séquentielle de la densité}{CarSeqDensite}{Un partie $X$ de $\R$ est dense dans $\R$ si et seulement si tout réel \\ peut s'écrire comme une suite d'éléments de $X$.}
+	\subsection{Suites particulières}
+		\traitd \paragraph{Suite arithmétique}
+			On dit que \uline{$\suite{u}\in\K^\N$ est une suite arithmétique} si la suite $(u_{n+1}-u_n)_{n\in\N}$ est une suite constante appelée \uline{raison de la suite arithmétique}. \trait
+		\thm{ch7P22}{Propriété}{7-P22}{Si $u$ est une suite arithmétique de raison $r$ on a\\
+		\hspace*{2cm} $\forall (p,q)\in\N^2 ,~ u_p = u_q +  r(p-q)$} \\ 
+		\traitd \paragraph{Suite géométrique}
+			On dit que \uline{$\suite{u}\in\K^\N$ est une suite géométrique} si $u$ est stationnaire à $0$ où si $u$ est telle que $\big( \frac{u_{n+1}}{u_n}\big)_{n\in\N}$ est une suite bien définie constante appelée \uline{raison de la suite géométrique}. \trait
+		\thm{ch7P23}{Propriété}{7-P23}{Si $u$ est une suite géométrique de raison $q$ alors \\ \hspace*{2cm} $\forall (m,n)\in\N^2 ,~ u_m = u_n\times q^{m-n}$ \\
+		\hspace*{2cm} $\cm{\sk{n}{m} u_k } = \left\{ \begin{array}{ll} (m-n+1)\times u_n & si ~ q=1 \\ \frac{u_n-u_m+1}{1-q} & sinon \arf \right. $} \\ \traitd
+		\paragraph{Suite arithmético-géométrique}
+			On dit que \uline{$\suite{u}\in\K^\N$ est une suite arithmético-géométrique} s'il existe $a\in\K\setminus\{1\}$ et $b\in\K$ tels que $u_0\in\K$ et $\forall n\in\N ,~u_{n+1} = au_n + b$ \trait
+		\thm{ch7P24}{Propriété}{EcritureArthGeo}{Soit $\suite{u}\in\K^\N$ une suite arithmético-géométrique, alors avec les mêmes notations\\
+		\hspace*{2cm} $\forall \in\N ,~ u_n = a^n\big( u_0 - \frac{b}{1-a}\big) \frac{b}{1-a}$ } \newpage \traitd
+		\paragraph{Suite récurrente linéaire d'ordre $2$}
+			On dit que \uline{$\suite{u}\in\K^\N$ est récurrente linéaire d'ordre $2$} si $\exists (a,b) \in \K^2$ tel que $\forall n\in\N ,~ u_{n+2} = au_{n} +bu_n$ \trait
+		\thm{ch7P25}{Propriété}{SuiteRecLin2}{Soit $\suite{u}\in\K^\N$ une suite récurrente linéaire d'ordre $2$. \\
+		On considère $(E) ~:~ z^2 = az +b$ l'équation caractéristique associée alors \\
+		\hspace*{0.5cm} $\rightarrow$ Si $\Delta \neq 0,~ (z_1,z_2)\in\C^2$ les racines distinctes de $(E)$ alors \\
+		\hspace*{2cm} $\exists (\lambda , \mu)\in \C^2$ tel que $\forall n\in\N ,~ u_n = \lambda z_1^n + \mu z_2^n$ \\
+		\hspace*{0.5cm} $\rightarrow$ Si $\Delta = 0,~z_0$ la racine double de $(E)$ alors \\ \hspace*{2cm} $\exists (\lambda,\mu)\in\C^2$ tel que $\forall n\in \N ,~u_n = (\lambda n+\mu) z_0^n$ }
+		\\ \uline{Rq} : Si $\suite{u}\in\R^\N$ et $\Delta <0$ alors $\lambda$ et $\mu$ sont conjugué et on a en écrivant $z_1=\rho+\imath .\omega$\\
+		 $\exists (\lambda_r,\mu_r)\in\R^2$ tel que $\forall n\in\N ,~ u_n = \rho^n \big( \lambda_r \cos (n\omega)+\mu_r \sin(n\omega) \big)$
+		 \vspace*{0.5cm} \\
+		 \begin{center}
+		 	\fin
+		 \end{center}

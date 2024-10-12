@@ -1,0 +1,212 @@
+
+% Chapitre 10 : Calcul matriciel et systèmes linéaires
+
+\minitoc
+	\section{Opérations sur les matrices}
+		\paragraph{Définition d'une matrice}
+			$Soit~(n,p)\in (\mathbb{N}^{*})^{2}$ \\
+			Une matrice à $n$ lignes et $p$ colonnes est une application
+			\[M\left( \begin{array}{l}
+			\llbracket 1,n\rrbracket \times \llbracket 1,p\rrbracket ~\rightarrow\mathbb{K}\\ 
+			\hspace*{15pt}(i,j)\mapsto M_{i,j} 
+			\end{array} \right) \]
+			\[On~note~ \hspace*{40pt}
+			M~=~ \left( \begin{array}{ccc}
+			m_{1,1} & \cdots & m_{1,p} \\
+			m_{2,1} & \ddots & \vdots \\
+			\ddots & m_{i,j} & \vdots \\
+			m_{n,1} & \dots & m_{n,p}
+			\end{array} \right) \]
+	\subsection{Somme et Produit matriciel}
+		\traitd
+	 	\paragraph{Somme}
+	 	 	$~~\forall (A,B) \in \mathcal{M}_{n,p}^{2} (\mathbb{K} ),$ \\ \hspace*{2.5cm} $ ~A + B = C ~\Longleftrightarrow  ~
+	 	 	\forall (i,j) \in \llbracket 1,n\rrbracket \times \llbracket 1,p\rrbracket , 
+	 	 	~~ a_{i,j} + b_{i,j} = c_{i,j} $ \trait
+	 	\thm{ch11P1}{Structure}{StructMnpK}{
+		$\forall (n,p)\in (\mathbb{N}^*)^{^2} ~~ (\mathcal{M}_{n,p} (\mathbb{K} ) , + )$
+	 	est un groupe abélien et $0_{\mathcal{M}_{n,p} (\mathbb{K} )} = 0_{n,p}$} \vspace*{0.3cm}\traitd
+		\paragraph{Combinaison linéaire}
+	 		Si $l\in\mathbb{N}^* , ~
+	 	 	(A_i)_{_{i \in \llbracket 1, l \rrbracket }} \in \mathcal{M}_{n,p}^l
+	 	 	(\mathbb{K} ),~(\lambda _i)_{_{i \in \llbracket 1, l \rrbracket }} 
+	 	 	\in\mathbb{K}^l$ \\
+	 	 	\hspace*{2.5cm}
+	 	 	$\sum\limits_{i=1}^l \lambda_i A_i$ est une combinaison linéaire de 
+	 	 	$(A_i)_{_{i \in \llbracket 1, l \rrbracket }}$ \trait ${}$ \vspace*{-1.4cm} \traitd
+	 	\paragraph{Produit}
+	 	 	On peut effectuer le produit matriciel de A et B si A a autant de colonnes 
+	 	 	que B a de lignes. Soit donc
+	 	 	$ A \in \mathcal{M}_{n,p} (\mathbb{K} ), ~B \in \mathcal{M}_{p,q} (\mathbb{K} ), 
+	 	 	~C = A.B \in \mathcal{M}_{n,q} (\mathbb{K} ) $\\ \hspace*{2.5cm}
+	 	 	$\forall (i,j) \in \llbracket 1,n\rrbracket \times \llbracket 1,q\rrbracket ~~
+	 	 	c_{i,j} = \sum\limits_{k=1}^{p} a_{i,k} b_{k,j} $ \trait
+	 	\subparagraph{Note}
+	 	 	 Le produit matriciel est bilinaire et associatif.
+	 	 	 \[ \forall (A,A') \in\mathcal{M}_{n,p}^2 (\mathbb{K} ),~\forall 
+	 	 	 B\in\mathcal{M}_{p,q} (\mathbb{K} ),~\forall (\lambda ,\lambda ')
+	 	 	 \in\mathbb{K}^2 ~~~~ (\lambda A + \lambda 'A').B = \lambda AB + \lambda 'A'B\]
+	 	 	 \[\forall (A,B,C) \in \mathcal{M}_{n,p} (\mathbb{K} ) \times 
+	 	 	 \mathcal{M}_{p,q} (\mathbb{K} ) \times \mathcal{M}_{q,l} (\mathbb{K} )~~~~ 
+	 	 	 ((A.B).C) = (A.(B.C)\]
+	\subsection{Matrice élémentaire}
+		Les matrices élémentaires de $\mathcal{M}_{n,p} (\mathbb{K} )$ sont les matrices 
+		$(E_{i,j})_{_{(i,j)\in\llbracket 1,n\rrbracket \times \llbracket 1,p \rrbracket }}$ 
+		dont tout le coefficients sont nuls celui en ligne $i$ et colonne $j$ qui vaut 1.
+		 \[ \forall (k,l)\in \llbracket 1,n \rrbracket \times \llbracket 1,p \rrbracket ~~~~
+		E_{i,j} (k,l) = \delta_{i,k} \delta_{j,l} \]
+		\thm{ch11P2}{Propriété}{CombLinEij}{
+		Toute matrice de $\mathcal{M}_{n,p} (\mathbb{K} )$ est une combinaison linéaire 
+		de matrices élémentaires. \\ De plus, cette décomposition est unique.}
+		\begin{proof}
+		$A = (a_{i,j}))_{_{(i,j)\in\llbracket 1,n\rrbracket \times 
+		\llbracket 1,p \rrbracket }} \in\mathcal{M}_{n,p} (\mathbb{K} )$
+		donc $A = \sum\limits_{i=1}^n \sum\limits_{j=1}^p a_{i,j} E_{i,j}$ \\
+		et $(\sum\limits_{i=1}^n \sum\limits_{j=1}^p m_{i,j} E_{i,j} )(k,l) = m_{k,l}$
+		donc $\sum\limits_{i=1}^n \sum\limits_{j=1}^p a_{i,j} E_{i,j} = 
+		\sum\limits_{i=1}^n \sum\limits_{j=1}^p a'_{i,j} E_{i,j}$
+		si et seulement si $\forall (i,j)\in\llbracket 1,n\rrbracket \times 
+		\llbracket 1,p \rrbracket $ on a $a_{i,j} = a'_{i,j}$
+		\end{proof} \newpage \traitd
+		\paragraph{Produit de matrices élémentaires}
+			Si $(E_{i,j}^{n,p})_{_{(i,j)\in\llbracket 1,n\rrbracket \times \llbracket 1,p 
+			\rrbracket }}$ sont les matrices élémentaires de 
+			$\mathcal{M}_{n,p} (\mathbb{K} )$
+			et $(E_{k,l}^{p,q})_{_{(k,l)\in\llbracket 1,p\rrbracket \times \llbracket 1,p 
+			\rrbracket }}$ celles de $\mathcal{M}_{p,q} (\mathbb{K} )$.
+			\[E_{i,j}^{n,p} \times E_{k,l}^{p,q} ~=~ \delta_{j,k} E_{i,l}^{n,q}\] \trait
+	\subsection{Matrices colonnes}
+		Une matrice colonne est $X\in\mathcal{M}_{n,1} (\mathbb{K} )$ soit
+		\[X= \left( \begin{array}{l}
+		x_1 \\ \hspace*{4pt} \vdots \\ x_n
+		\end{array} \right) \]
+		\thm{ch11P3}{Produit matriciel $AX$}{ProdMatCol}{
+		Si $(A,X)\in\mathcal{M}_{n,p} (\mathbb{K} )\times\mathcal{M}_{p,1} (\mathbb{K} )$
+		\\ Alors $AX$ est une combinaison linéaire des colonnes de $A$.}
+		\begin{proof}
+		\[ A = (C_1 ~~\cdots ~~C_2) = \left( \begin{array}{l}
+		a_{1,1} \hspace*{40pt} \\ \hspace*{20pt}\ddots \\ \hspace*{40pt} a_{n,p} 
+		\end{array} \right)\]
+		\[ A \left( \begin{array}{l} x_1 \\\hspace*{4pt} \vdots \\ x_n 
+		\end{array} \right) = (C_1 ~~\cdots ~~C_2) \left( \begin{array}{l} x_1 \\
+		\hspace*{4pt} \vdots \\ x_n \end{array} \right) = \left( 
+		\begin{array}{l} y_1 \\\hspace*{4pt} \vdots \\ y_n \end{array}\right) = Y\]
+		avec $\forall j\in \llbracket 1,n\rrbracket ,~ y_j = \sum\limits_{k=1}^p 
+		a_{j,k} x_k $ donc $Y = \sum\limits_{k=1}^p x_k C_k$
+		\end{proof}
+	\subsection{Matrice transposée}
+		\traitd
+		\paragraph{Définition}
+			Le transposée de $A\in\mathcal{M}_{n,p} (\mathbb{K} )$ notée $A^T$ est la matrice 
+			$B\in\mathcal{M}_{p,n} (\mathbb{K} )$ telle que
+			\[\forall (i,j) \in \llbracket 1,n\rrbracket \times \llbracket 1,p \rrbracket ,~
+			a_{i,j}=b_{j,i} \] \trait
+		\thm{ch11P5}{Calculs}{CalcsTranspo}{
+		$\rightarrow ~~ \forall (A,B)\in \big(\mathcal{M}_{n,p} (\mathbb{K} )\big)^2,~
+		\forall (\lambda ,\mu)\in\mathbb{K}^2 ,~~ (\lambda A+\mu B)^T = \lambda A^T + \mu B^T$ \\
+		$\rightarrow ~~ \forall A\in\mathcal{M}_{n,p} (\mathbb{K} ),~
+		\forall B\in\mathcal{M}_{p,q} (\mathbb{K} ) ,~~ (AB)^T = B^T A^T $ }
+		\begin{proof} ${}$\\
+		\hspace*{30pt} $\rightarrow$ Si $\begin{array}{l} A = (a_{i,j}) 
+		\hspace*{20pt} A^T = (a'_{i,j})\\ B = (b_{i,j}) \hspace*{20pt}
+		B^T = (b'_{i,j}) \end{array} ~~~~
+		\forall (i,j)\in \llbracket 1,n\rrbracket \times \llbracket 1,p \rrbracket $
+		\[(\lambda A +\mu B)^T(i,j) = (\lambda A +\mu B)(j,i) 
+		= \lambda A(j,i) + \mu B(j,i)\]  \[= \lambda (a'_{i,j}) 
+		+\mu (b'_{i,j}) = \lambda A^T(i,j) + \mu B^T(i,j)\vspace*{20pt} \]
+		\hspace*{30pt} $\rightarrow$ $A = (a_{i,j}),~B = (b_{i,j}),~C = AB = (c_{i,j})
+		~~~~\forall (i,j)\in \llbracket 1,n\rrbracket \times \llbracket 1,p \rrbracket $
+		\[C^T(i,j) = c_{j,i} = \sum\limits_{k=1}^p a_{k,i} b_{j,k}
+		=\sum\limits_{k=1}^p b'_{i,k} a'_{i,j} = B^TA^T(i,j)\]
+		\end{proof}
+	\section{Opérations élémentaires}
+		\traitd Pour $i\neq j$ des indices de lignes ou colonnes on considère les 4 opérations élémentaires suivantes :\\
+		${} \hfill L_i \leftrightarrow L_j \hfill L_i \leftarrow L_i + L_j \hfill {} \\
+		{} \hfill L_i \leftarrow \lambda L_i (\lambda \neq 0) \hfill L_i \leftarrow L_i + \lambda L_j \hfill {}$ \trait
+		\thm{ch11P6}{Proposition}{EquivOpElemMat}{Chacunes des opérations ci-dessus sur les lignes (resp. les colonnes) d'une \\ matrice 
+		$A\in \M_{n,p} (\K)$ se traduit par la multiplication à gauche (resp. à droite) \\ par la matrice obtenue en effectuant cette opération sur 
+		$I_n$ (resp. $I_p$)}
+		\\ \underline{ex} : \\ \hspace*{-0.9cm}
+		{\scriptsize $L_i \leftrightarrow L_j ~:~ \begin{blockarray}{cccccccc}
+		& C_1 & & C_i & & C_j & & C_p \\ 
+		\begin{block}{c(ccccccc)}
+		L_1 & 1 & 0 & & \cdots & & & 0 \\ & 0 & \ddots & \ddots & & & & \\ L_i & & \ddots & 0 & & 1 & & \\ & \vdots & & & \ddots & & & \vdots
+		\\ L_j & & & 1 & & 0 & & \\ & & & & & & \ddots & 0 \\ L_n & 0 & & & \cdots & & 0 & 1  \\
+		\end{block}
+		\end{blockarray} ~~~~~~~~ L_i \leftarrow L_i+ \lambda L_j ~:~
+		\begin{blockarray}{cccccccc}
+		& C_1 & & C_i & & C_j & & C_p \\ 
+		\begin{block}{c(ccccccc)}
+		L_1 & 1 & 0 & & \cdots & & & 0 \\ & 0 & \ddots & \ddots & & & & \\ L_i & & \ddots & 1 & & \lambda & & \\ & \vdots & & & \ddots & & & \vdots
+		\\ L_j & & & \ddots & & 1 & & \\ & & & & & & \ddots & 0 \\ L_n & 0 & & & \cdots & & 0 & 1  \\
+		\end{block}
+		\end{blockarray} $ } \vspace*{0.5cm} \\
+		\thm{ch11L1}{Lemme}{ProdMatDistrib}{$\forall A\in\M_{n,p}(\K ) ,~\forall (B,C) \in \big( \M_{p,q} (\K ) \big)^2$ on a $A(B+C) = AB + AC$ }
+	\section{Systèmes linéaires}
+		On considère le système linéaire d'inconnues $(x_1 , \dots , x_p ) \in \K^p$ suivant : \\
+		\hspace*{2.5cm} $ \big( S \big) ~=~ \left\{ \begin{array}{ccccccc}
+		a_{1,1}x_1 & + & \cdots & + & a_{1,p} x_p & = & b_1 \\ \vdots & & & & \vdots & & \vdots \\ a_{n,1}x_1 & + & \cdots & + & a_{n,p}x_p &=&b_n
+		\end{array} \right.$
+		\\ En notant $A=\big(a_{i,j} \big)_{_{(i,j) \in\ent{1,n}\times\ent{1,p} }} \in \M_{n,p} (\K ) ~; \\ B = \big( b_i \big)_{_{i\in\ent{1,n}}} 
+		\in\M_{n,1} (\K ) ~~~;~~~ X = \big( x_j \big)_{_{j\in\ent{1,p}}} \in\M_{p,1} (\K )$ on a \[ \big( S \big) \Leftrightarrow AX=B \] \newpage \traitd
+		\paragraph{Système homogène}
+			Le système \underline{homogène associé à $\big( S \big)$} est : \\ ${} \hfill \big( S_0 \big) =  \left\{ \begin{array}{ccccccc}
+			a_{1,1}x_1 & + & \cdots & + & a_{1,p} x_p & = & 0 \\ \vdots & & & & \vdots & & \vdots \\ a_{n,1}x_1 & + & \cdots & + & a_{n,p}x_p &=&0
+			\end{array} \right. ~~\Leftrightarrow ~~ AX=0 \in\M_{n,1} (\K ) \hfill {}$ \trait ${}$ \vspace*{-1.3cm } \traitd
+		\paragraph{Système compatible} Un système est dit compatible s'il admet au moins une solution. \trait
+		\thm{ch11P7}{Propriété}{CompBCombLinColA}{Si $\big( S \big)$ s'écrit matriciellement $AX=B$ \\ Alors $\big( S \big)$ est compatible si $B$ 
+		est une combinaison linéaire des colonnes de $A$.}
+		\vspace*{0.5cm} \\ \thm{ch11P8}{Structure le l'ensemble des solutions d'un système compatible}{StructSolSComp}{Les solutions du système 
+		compatible $AX=B$ sont les matrices $X_0+Y$ \\ où $X_0$ est une solution particulière du système et $Y$ décrit l'ensemble \\ des solutions 
+		du système associé.}
+	\section{Anneau des matrices carrées}
+		Soit $n\in\N^*$, $\M_n(\K )$ est l'ensemble des matrices carrée d'ordre $n$ \vspace*{0.5cm} \\
+		\thm{ch11P9}{Propriété}{MnKAnneau}{$\Big( \M_n (\K ) , + , . \Big)$ est un anneau non commutatif si $n\geq 2$}
+		\vspace*{-1.2cm} \\ \textit{Cet anneau n'est pas intègre.}
+		\traitd 
+		\paragraph{Matrice scalaire} On appelle \underline{matrice scalaire d'ordre $n$} toute matrice de la forme \\ \[ A=\lambda I_n = 
+			\begin{blockarray}{(ccc)} \lambda & & (0) \\ & \ddots & \\ (0) & & \lambda \end{blockarray} ~~\lambda\in\K \] \trait ${}$ \vspace*{-1.2cm} \traitd
+		\paragraph{Matrice symétrique} On appelle \underline{matrice symétrique d'ordre $n$} toute matrice $A \in\M_n (\K )$ telle que $A^T=A$ et 
+			on note $\mathcal{S}_n (\K )$ l'ensemble des matrices symétriques d'ordre $n$ \trait ${}$ \vspace*{-1.3cm} \traitd
+		\paragraph{Matrice antisymétrique} On appelle \underline{matrice antisymétrique d'ordre $n$} toute matrice $A\in\M_n(\K )$ telle que 
+			$A^T=-A$ et on note $\mathcal{A}_n (\K )$ l'ensemble des matrices antisymétriques d'ordre $n$ \trait
+		\thm{ch11P10}{Propriété}{A=U+V}{$\forall	 A\in\M_n(\K )$, $\exists (U,V)\in\mathcal{S}_n(\K) \times \mathcal{A}_n(\K)$ unique tel que 
+		$A=U+V$}
+		\newpage ${}$ \\ \thm{ch11P11}{Proposition}{IdRemarq}{$\forall (A,B) \in \M_n^2 (\K)$ tel que $A.B=B.A$ Alors on a \\
+		{\footnotesize 1)} $\forall p\in\N ,~ A^p-B^p = (A-B) \sk{1}{p-1} A^kB^{p-k}$ \\{\footnotesize 2)} $\forall p\in\N ,~
+		(A+B)^p=\sk{0}{p} \binom{p}{k} A^kB^{p-k}$ }
+		\vspace*{0.5cm} \\ \thm{ch11L2}{Lemme}{MScalCommut}{Les matrices scalaires commuttent avec toutes les matrices.} \traitd
+		\paragraph{Matrice diagonale} $A\in\M_n(\K)$ est dite diagonale si $\forall (i,j) \in \ent{1,n}^2 ,~i\neq j\Rightarrow A(i,j)=0$ \trait
+		\thm{ch11P12}{Propriété}{DiagoStable}{Le produit de deux matrices diagonales d'ordre $n$ est une matrice diagonale \\ d'ordre $n$ ;  
+		en particulier, \\si $A\in\M_n(\K) ,~A = \begin{blockarray}{(ccc)} d_1 & & (0) \\ & \ddots & \\ (0) & & d_n \end{blockarray} ~; ~\forall 
+		p\in\N ,~A^p = \begin{blockarray}{(ccc)} d_1^{~p} & & (0) \\ & \ddots & \\ (0) & & d_n{~p} \end{blockarray}$ } \traitd
+		\paragraph{Matrice triangulaire} On dit que $A\in\M_n(\K)$ est triangulaire supérieure (resp. inférieure) \\
+			si $\forall (i,j)\in\ent{1,n}^2,~ i>j \Rightarrow A(i,j) = 0$ \big(resp. $i<j \Rightarrow A(i,j) =0 $\big) \\
+			On note $\mathcal{T}_n^+(\K)$ \big(resp. $\mathcal{T}_n^-(\K)$\big) l'ensemble des matrices triangulaires supérieures 
+			(resp. inférieures) \trait
+		\thm{ch11P13}{Propriété}{MTriStable}{$\forall n\in\N^* ,~\mathcal{T}_n^+(\K)$ et $\mathcal{T}_n^-(\K)$ sont stable par produit matriciel.}
+		\\ \traitd
+		\paragraph{Matrice inversible} On dit que $A\in\M_n(\K)$ est inversible s'il existe $B\in\M_n(\K)$ telle que $A.B=B.A=I_n$ et on note 
+			$\mathcal{GL}_n(\K)$ le groupe des matrices inversibles d'ordre $n$. \trait
+		\thm{ch11P14}{Propriété}{TranspoInversible}{$\forall A\in\M_n(\K) ,~A\in\mathcal{GL}_n(\K) \Rightarrow A^T\in\mathcal{GL}_n(\K)$ et 
+		$\big( A^T\big)^{-1} = \big( A^{-1} \big)^T$}
+		\vspace*{0.5cm} \\ \thm{ch11P15}{Propriété}{MOpéElemInv}{Les matrices correspondantes aux opérations élémentaires sont inversibles. \\
+		$\forall n\in\N^*,~\forall (i,j)\in\ent{1,n}^2 ~;~{\footnotesize \ard P_n(i,j) = I_n -E_{i,i}-E_{j,j} +E_{i,j} + E_{j,i} \\ 
+		T_{i,j}(\lambda ) = I_n + \lambda E_{i,j} \\ D_n(\lambda ) = I_n + (\lambda -1)E_{i,i} \arf }~~ \in\mathcal{GL}_n(\K)$}
+		\vspace*{0.5cm} \\ \thm{ch11P15c}{Corollaire}{OpéElemPresInv}{Les opérations élémentaires préservent l'inversibilité.}
+		\vspace*{0.5cm} \\ \thm{ch11th1}{Théorème}{MTriInvCNSnd}{Une matrice triangulaire est inversible \underline{si et seulement si} tout ses 
+		coefficients \\ diagonaux sont non nuls.}
+		\begin{proof}
+		$\rightarrow$ voir Chapitre 15 %(\ref{MatTriInvCNS})
+		\end{proof}
+		${}$ \\ \thm{ch11P16}{Propriété}{11-P16}{Soit $A\in\M_n(\K)$, alors \\
+		$A\in\mathcal{GL}_n(\K) ~\Leftrightarrow ~\Big( \forall X\in\M_{n,1}(\K),~(AX=O \Rightarrow X=0 ) \Big)$}
+		\vspace*{0.5cm} \\ \thm{ch11P16c}{Corollaire}{MDiagInvCNS}{Une matrice $A\in\M_n(\K)$ diagonale est inversible \underline{si et seulement 
+		si} ses \\ coefficients diagonaux sont tous non nuls. Son inverse est alors la matrice \\ diagonale des inverses des coefficients 
+		diagonnaux de $A$.}
+		\vspace*{0.5cm} \\ \thm{ch11P17}{Propriété}{InvMatTriTri}{Si une matrice triangulaire supérieure (resp. inférieure) est inversible \\
+		alors son inverse est une matrice triangulaire supérieure (resp. inférieure)}
+		\vspace*{0.5cm} \\ 
+		\begin{center}
+		\fin
+		\end{center}

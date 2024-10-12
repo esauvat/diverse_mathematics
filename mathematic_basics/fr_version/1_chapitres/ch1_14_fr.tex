@@ -1,0 +1,155 @@
+
+% Chapitre 14 : Matrices 2
+
+\minitoc
+	\section{Matrices et applications linéaires}
+	\subsection{Matrice d'une application linéaire dans des bases}
+		\traitd
+		\paragraph{Matrice représenntative d'un vecteur}
+			Soit $E$ un $\K$ espace vectoriel de dimension finie et $B=(e_1,\dots ,e_n)$ une base de $E$.\\
+			On considère $x=\sum_{i=1}^n x_ie_i \in E$. La \underline{matrice représentative de $x$ dans la base $B$} \\ est la matrice colonne 
+			$X=\left( \ard x_1 \\ \vdots \\ x_n \arf \right) =~ $\highlight{$Mat_B(x)$}$ ~\in\M_n(\K)$ \trait \newpage \traitd
+		\paragraph{Matrice représentative d'une famille}
+			Soit $E$ un $\K$ espace vectoriel de dimension finie et $B=(e_1,\dots ,e_n)$ une base de $E$.\\
+			On considère $(x_1, \dots ,x_p)$ une famille de $p$ vecteurs de $E$. La \underline{matrice représentative de cette famille}\\ 
+			\underline{dans cette base} est la matrice de $\M_{n,p}(\K)$ notée $Mat_B(x_1,\dots ,x_p)$ dont la $j^{\mathrm{e}}$ colonne est donnée 
+			par $Mat_B(x_j)$, $\forall j\in\ent{1,p}$ \trait ${}$ \vspace*{-1.3cm} \traitd
+		\paragraph{Matrice représentative d'une application linéaire}
+			Soit $E$ et $F$ deux $\K$ espaces vectoriels de dimensions finies respectives $p$ et $n$ avec $\ard e=(e_1,\dots ,e_p)$ une base de $E 
+			\\ f=(f_1,\dots ,f_n)$ une base de $F \arf $ \\
+			On considère $u\in\lin(E,F)$. La \underline{matrice représentative de $u$ dans les bases $e$ et $f$} est la matrice de $\M_{n,p}(\K)$ 
+			notée $Mat_{e,f}(u)$ définie par \highlight{ $Mat_{e,f}(u) = Mat_f\big( u(e_1),\dots ,u(e_p) \big)$ }\trait 
+		\vspace*{-1.35cm} \\ \textit{Si $u\in\lin(E)$ on note $Mat_e(u) = Mat_{e,e}(u) = Mat_e\big( u(e_1,\dots ,u(e_n)\big)$}
+		\vspace*{0.5cm} \\ \thm{ch15P1}{Proposition}{MatIsoEV}{Si $E$ et $F$ sont des $\K$-ev de dimensions $p$ et $n$ 
+		rapportés à des bases $e$ et $f$, alors\\
+		 $\Phi ~~ \begin{blockarray}[t]{(ccc)} \lin(E,F) & \longrightarrow & \M_{n,p}(\K) \\ u & \mapsto & Mat_{e,f}(u) \end{blockarray}$ est un 
+		isomorphisme d'espace vectoriel.}
+		\vspace*{0.5cm} \\ \thm{ch15P1c}{Corollaire}{IsoInduitBase}{Le choix d'une base $B$ sur $E$ induit un iomorphisme de $\lin(E)$ sur 
+		$\M_n(\K)$ : \\ \hspace*{1.5cm} $\appli{\lin(E)}{u}{\M_n(\K)}{Mat_B(u)}$ }
+		\vspace*{0.5cm} \\ \thm{ch15P2}{Proposition}{ApLinMat}{Soit $E,F$ deux $\K$-ev de dimensions $p$ et $n$ rapportés à des 
+		bases $e$ et $f$ \\ Soit $u\in\lin(E,F) ~;~x\in E$, on considère $y=u(x) ~\in F$ et on note \\$X=Mat_e(x) ~; ~Y=Mat_f(y)~;~A=Mat_{e,f}(u)$ 
+		Alors $Y=AX$}
+		\vspace*{0.5cm} \\ \thm{ch15P3}{Proposition}{MatComposee}{$E$ de dimension $p$ et $e=(e_1,\dots ,e_p)$ une base de $E$. \\ 
+		$F$ de dimension $q$ et $f=(f_1,\dots ,f_q)$ une base de $F$. \\ $G$ de dimension $n$ et $g=(g_1,\dots ,g_n)$ une base de $G$.\\
+		Soit $u\in\lin(E,F) ,~v\in\lin(F,G) ~;~ A=Mat_{e,f}(u) ,~B=Mat_{f,g}(v)$ \\ Alors $C=Mat_{e,g}(v\circ u) = AB$}
+		\vspace*{0.5cm} \\ \thm{ch15th1}{Théorème}{EndoInvMatInv}{Soit $E$ et $F$ deux $\K$-ev de dimension finie $n$ rapportés à des bases $e$ et 
+		$f$ \\Soit $u\in\lin(E,F)$ on a $~~(u$ est un isomorphisme$)~\Leftrightarrow ~(Mat_{e,f}(u)$ est inversible$)$ \\ Dans ce cas on a 
+		$\big( Mat_{e,f}(u) \big)^{-1} = Mat_{e,f} \big( u^{-1} \big)$} \newpage
+	\subsection{Application linéaire canoniquement associée}
+		\traitd
+		\paragraph{Définition}
+			Si $A\in\M_{n,p}(\K)$ on appelle \underline{Application linéaire canoniquement associée à $A$} l'unique application linéaire, notée 
+			$u_A$ telle que \highlight{$Mat_{C(\K^p) , C(\K^n)}(u_A) = A$} \trait ${}$ \vspace*{-1.3cm} \traitd
+		\paragraph{Noyau, image et rang}
+			Si $A\in\M_{n,p}(\K)$ on appelle \\ \hspace*{2cm} $\bullet$ \underline{noyau de $A$} noté $Ker(A)$ défini par $Ker(A)=Ker(u_A)$ \\ 
+			\hspace*{2cm} $\bullet$ \underline{image de $A$} notée $Im(A)$ définie par $Im(A)=Im(u_A)$ \\ \hspace*{2cm} $\bullet$ 
+			\underline{rang de $A$} noté $rg(A)$ défini par $rg(A)=rg(u_A)$ \trait
+		\thm{ch15P4}{Propriété}{ImKerColLign}{Les colonnes de $A$ engendre $Im(A)$ et ses lignes donnent un système \\d'équation de $Ker(A)$}
+		\vspace*{0.5cm} \\ \thm{ch15P5}{Proposition}{AInvCNS}{Soit $A\in\M_n(\K)$ alors $~~~~~~A\in\GL_n(\K) ~\Leftrightarrow $\\$ Ker(A)= \{ 0 \} 
+		~\Leftrightarrow ~ \K^n=Vect \big( C_1(A),\dots ,C_n(A) \big) ~\Leftrightarrow ~rg(A)=n $ }
+		\vspace*{0.5cm} \\ \thm{ch15P5c}{Corollaire}{MatTriInvCNS}{Une matrice triangulaire est inversible \underline{si et seulement si} ses 
+		coefficients \\ diagonnaux sont tous non nuls.}
+		\begin{proof}
+		Soit $A\in\mathcal{T}^+(\K)$ \\ \fbox{$\Leftarrow$} Si les coefficients $(a_jj)_{_{1\leq j\leq n}}$ sont tous non nuls alors 
+		$(C_1,\dots ,C_n)$ est une famille libre donc une base de $\K^n$ d'où $A\in\GL_n\K$\\
+		\fbox{$\Rightarrow$} Par contraposée si $\exists k_0 \in\ent{1,n}$ tel que $a_{k_0,k_0} = 0$ alors $\mathrm{dim}\big( 
+		Vect(C_1,\dots ,C_{k_0} )\big) \leq k_0-1$ donc $\mathrm{dim}A \leq n-1$ d'où $A\notin \GL_n(\K)$
+		\end{proof}
+		${}$ \\ \thm{ch15P6}{Propriété}{15-P6}{Si $E$ est un $\K$-ev de dimension $n$ rapporté à une base $B$\\ Soit $(x_1,\dots ,x_p)$ une famille 
+		de $p$ vecteurs de $E$ \\ Alors $rg(x_1,\dots ,x_p) = \mathrm{dim}\Big( Vect\big( Mat_B(x_1) ,\dots , Mat_B(x_p) \big)\Big) $\\$ = 
+		\mathrm{dim}\Big(Im \big(X_1 \cdots X_p \big)\Big) = rg(u_A) ~$ Où $A=\big( X_1 ~X_2 \cdots X_p \big) ~\in\M_{n,p}(\K)$}
+		\vspace*{0.5cm} \\ \thm{ch15P7}{Propriété}{InvDG}{Une matrice $A\in\M_n(\K)$ inversible à gauche ou à droite est inversible.}
+	\subsection{Systèmes linéaires}
+		$ \big( S \big) ~=~ \left\{ \begin{array}{ccccccc}
+		a_{1,1}x_1 & + & \cdots & + & a_{1,p} x_p & = & b_1 \\ \vdots & & & & \vdots & & \vdots \\ a_{n,1}x_1 & + & \cdots & + & a_{n,p}x_p &=&b_n
+		\end{array} \right. ~~\Leftrightarrow ~~ A \times ~\begin{blockarray}[t]{(c)} x_1 \\ \vdots \\ x_p \end{blockarray} = 
+		\begin{blockarray}[t]{(c)} b_1 \\ \vdots \\ b_n \end{blockarray}$
+		\newpage \textit{Résoudre le système homogène associé à $\big( S \big)$ c'est déterminer le noyau de $A$\\
+		Par le théorème du rang, la dimension de l'espace des solutions du système homogène est donnée par $p-rg(A) ~(\geq p-n )$}
+		\vspace*{0.2cm} \\ L'ensemble des solution de $\big( S \big)$ à une structure de sous-espace affine de $\K^p$ 
+		\underline{si il est compatible}, soit si $X_0$ est une solution particulière \begin{center}
+		\highlight{ $\mathcal{S} = X_0 + Ker(A) ~\subset \K^p$ } \end{center}
+		\traitd
+		\paragraph{Système de \textsc{Cramer}} Si $A\in\GL_n(\K)$ alors le systèle $\big( S\big)$ est compatible et admet une unique solution 
+		$A^{-1} \times B$. \trait
+	\section{Changement de bases}
+		\traitd
+		\paragraph{Matrice de passage}
+			On appelle \underline{matrice de passage d'une base $e$ à un base $e'$} d'un même espace vectoriel $E$ et on note $P_e^{e'}$ la matrice 
+			de $\M_n(\K)$ représentative des vecteurs de $e'$ dans la base $e$ \\
+			${} \hfill P_e^{e'} = ~\begin{blockarray}[t]{(ccc)} a_{1,1} & \cdots & a_{1,n} \\ \vdots & \ddots & \\ a_{n,1} & & a_{n,n} 
+			\end{blockarray} \hfill \forall j\in\ent{1,n} ,~e'_j = \si{1}{n} a_{i,j} e_i \hfill {}$ \trait
+		\thm{ch15P8}{Propriété}{MatPassInv}{Si $P\in\M_n(\K)$ est la matrice de passage de $e$ à $e'$ alors $P$ est inversible \\et $P^{-1}$ est la 
+		matrice de passage de $e'$ à $e$.}
+		\vspace*{0.5cm} \\ \thm{ch15P9}{Propriété}{MatPassUtil}{Soit $E$ un $\K$-ev rapporté successivement à des bases $e$ et $e'$\\ On considère 
+		$x\in E$ avec $X=Mat_e(x)$ ; $X'=Mat_{e'}(x)$ et $P=P_e^{e'}$ \\Alors $X=P\times X'$}
+		\vspace*{0.5cm} \\ \thm{ch15th2}{Théorème}{MatPassApL}{Soit $E$ et $F$ deux $\K$-ev de dimensions finies $p$ et $n$ \\ rapporté 
+		successivement à des bases $e,e'$ et $f,f'$. Soit $u\in\lin(E,F)$ \\ On note $A=Mat_{e,f}(u) ~;~A'=Mat_{e',f'}(u)$ et $~ Q=P_f^{f'} ~;~
+		P=P_e^{e'}$ \\ Alors $A'=Q^{-1} \times A \times P$}
+		\begin{proof}
+		Soit $(x,y)\in E\times F$ tel que $y=u(x) $ alors on a $Y=AX \Leftrightarrow Y'=A'X' $ \\avec $Y=QY' ~;~ X=PX'$\\
+		Ainsi $Y=AX \Leftrightarrow QY'=APX' \Leftrightarrow Y'=Q^{-1}APX' \Leftrightarrow A'=Q^{-1}AP$
+		\end{proof}
+		${}$ \\ \thm{ch15th2c}{Corollaire}{MatPassEndo}{Soit $E$ un $\K$-ev de dimension $n$ rapporté à deux bases $e$ et $e'$\\
+		Soit $u\in\lin(E) $, on note $A=Mat_e(u) ~;~A'=Mat_{e'}(u)$ et $~P=P_e^{e'}$ \\Alors \highlight{$A'=P^{-1}\times A \times P$} }
+	\section{Équivalence et similitude}
+	\subsection{Matrices équivalentes et rang}
+		${}$ \\ \thm{ch15P10}{Proposition}{EquiJr}{Soit $E$ et $F$ deux $\K$-ev de dimensions $p$ et $n$ et $u\in\lin(E,F)$ \\Soit $r\in\ent{1,n}$, 
+		si $rg(u)=r$ alors il existe un couple de base $(e,f)$ \\ tel que $Mat_{e,f}(u) = J_r ~\in\M_{n,p}(\K)$}
+		\begin{proof}
+		D'après la forme géométrique du théorème du rang %(\ref{a completer}) 
+        $u$ induit un isomorphisme de $S$ sur $Im(u)$ où $S$ est un 
+		supplémentaire de $Ker(u)$\\ Soit $(e_1,\dots ,e_n)$ une base de $E$ adaptée à $Ker(u) \oplus S$ avec $(e_1,\dots ,e_r)$ base de $S$.
+		On a alors $\big(f_1=u(e_1) ,\dots ,f_r=u(e_r) \big)$ une base de $Im(u)$ que l'on complète %(\ref{a completer}) 
+        en une base de $F$
+		\end{proof} ${}$ \traitd
+		\paragraph{Équivalence}
+			Deux matrice $A,B \in\M_{n,p}(\K)$ sont dites \underline{équivalentes} \\si il existe $Q\in\GL_n(\K)$ et $P\in\GL_p(\K)$ tels que 
+			$B=Q^{-1} AP$. On note \highlight{$A\sim B$} \trait
+		\thm{ch15P11}{Proposition}{CNSrgr}{Une matrice $A\in\M_{n,p}(\K)$ est de rang $r$ si et seulement $A\sim J_r$.}
+		\vspace*{0.5cm} \\ \thm{ch15th3}{Théorème}{RgInvTranspo}{Le rang d'une matrice est invariant par transposition.} 
+		\begin{proof}
+		Soit $A\in\M_n(\K)$ ; ${^t\big(J_r^{n,p}\big)}=J_r^{p,n}$ \vspace*{0.2cm} \\ On a alors $rg(A)=r \Leftrightarrow \exists (Q,P)\in\GL_n(\K)
+		\times\GL_p(\K) ~:~A=Q^{-1}J_r^{n,p}P \vspace*{0.2cm} \\ \Leftrightarrow {^tA} = \underbrace{^tP}_{\in\GL_p(\K)} \times {^t\big(J_r^{n,p}
+		\big)}\times \underbrace{^t\big( Q^{-1}\big)}_{\in\GL_n(\K)} = Q'^{-1} J_r^{p,n} P' \Leftrightarrow rg({^tA} = r$
+		\end{proof} \traitd
+		\paragraph{Matrice extraite}
+			Si $A\in\M_{n,p}(\K)$ on appelle matrice extraite de $A$ toute matrice obtenue à partir de $A$ par suppression de lignes et/ou 
+			colonnes de $A$. \\$\Big( ~A'=\big(a_{i,j}\big)_{_{(i,j)\in I\times J}}$ où $I\subset\ent{1,n}$ et $J\subset\ent{1,p} ~\Big)$ \trait
+		\thm{ch15P12}{Propriété}{RgExtrait}{Si $A'$ est extraite de $A$ alors on a $rg(A')\leq rg(A)$ }
+		\vspace*{0.5cm} \\ \thm{ch15P13}{Proposition}{15-P14}{Si $A\in\M_{n,p}(\K)$ alors \\
+		$rg(A) = \mathrm{max}\{k\in\N ~|~A'\in\GL_k(\K)$ et $A'$ extraite de $A \}$}
+		\vspace*{0.5cm} \\ \thm{ch15P14}{Propriété}{OpeElemPresImKer}{Les opérations élémentaires sur les colonnes préservent l'image.\\
+		Celles sur les lignes préservent le noyau.}
+		\vspace*{0.5cm} \\ \thm{ch15P14c}{Corollaire}{OpeElemPresRg}{Les opérations élémentaires sur les lignes ou les colonnes \\
+		de $A$ conservent le rang de $A$.} \traitd
+		\paragraph{Matrice échelonnée}
+			Une matrice \underline{échelonnée en ligne} est une matrice $A=\big(a_{i,j}\big)_{_{(i,j)\in\ent{1,n}\times\ent{1,p}}}$ telle que si on 
+			note $l_i(A)=\mathrm{min}\{j\in\ent{1,p} ~|~a_{i,j}\neq 0\}~\forall i\in\ent{1,n}$ (par convention $\mathrm{min}\varnothing = +\infty$) 
+			\\ Alors $\big(l_i(A)\big)_{_{1\leq i\leq n}}$ est une suite croissante. \trait
+	\subsection{Matrices semblables et trace}
+		\traitd
+		\paragraph{Matrices semblables}
+			Deux matrices $A,B\in\M_n(\K)$ sont dites semblables \\ s'il existe $P\in\GL_n(\K)$ telle que $B=P^{-1}AP$. \trait
+		\vspace*{-1.3cm} \\ \textit{Deux matrices semblables sont équivalentes.}
+		\vspace*{0.5cm} \\ \thm{ch15P15}{Propriété}{SemblCNS}{Deux matrices $A$ et $B$ sont semblables \underline{si et seulement si} elles
+		représentent \\ un même endomorphisme d'un $\K$-ev de dimension finie dans deux bases différentes.} \traitd
+		\paragraph{Trace}
+			Si $A=\big( a_{i,j}\big)_{_{1\leq i,j\leq n}} ~\in\M_n(\K)$ on appelle \underline{trace de $A$} le scalaire $tr(A)=\si{1}{n} a_{i,i}$. 
+		\trait
+		\thm{ch15P16}{Propriété}{TrFLin}{$tr \in \big( \M_n(\K) \big)^*$ avec $\forall (A,B) \in \big(\M_n(\K) \big)^2 ,~tr(AB) = tr(BA)$}
+		\vspace*{0.5cm} \\ \thm{ch15th4}{Théorème}{TrInvSim}{La trace est invariante par similitude.  $\Big( ~\forall (A,B)\in\big( 
+		\M_n(\K) \big)^2 ,$ \\ $\big( \exists P\in\GL_n(\K)$ telle que $B=P^{-1}AP \big) \Rightarrow \big( tr(B) = tr(A) \big) ~\Big)$}
+		\begin{proof}
+		Soit un tel couple $(A,B)\in \big(\M_n(\K) \big)^2$ \\ Alors $tr(B)=tr(P^{-1}AP) = tr(APP^{-1})=tr(A)$
+		\end{proof} \traitd
+		\paragraph{Trace d'un endomorphisme}
+			Si $u$ est un endomorphisme d'un $\K$-ev de dimension finie $E$, on appelle \underline{trace de $u$} le scalaire 
+			$tr(u) = tr\big(Mat_e(u)\big)$ où $e$ est une base de $E$. \trait
+		\thm{ch15P17}{Propriété}{TrFLinEndo}{$tr\in\big(\lin(E) \big)^*$ avec $\forall (u,v) \in\big(\lin(E)\big)^2 ,~tr(uv) = tr(vu)$}
+		\vspace*{0.5cm} \\ \thm{ch15P18}{Proposition}{TrProjecteur}{Soit $E$ un $\K$-ev de dimension finie et $p$ un projecteur de $E$ \\ Alors 
+		$tr(p)=rg(p)$}
+		\vspace*{0.5cm} \\ 
+		\begin{center}
+		\fin
+		\end{center}

@@ -1,0 +1,37 @@
+
+% Chapitre 3 : Nombres complexes
+ 
+ On définit $i$ tel que $i^2 = -1$ \hspace*{20pt} \underline{\textsc{Attention}} On ne peut pas écrire $i = \sqrt{-1}$
+ \minitoc
+ \section{Calcul dans $\C$}
+ \paragraph{Puissances de $i$}
+ $\forall p\in \mathbb{Z} , ~~\ar* i^{4p} ~=~ 1 \hspace*{40pt} i^{4p+1} ~=~ i \\ i^{4p+2} ~=~ -1 \hspace*{22pt} i^{4p+3} ~=~ -i \ar$
+ \paragraph{Identitées remarquables} ${}$\\
+ \hspace*{25pt} Si $z\in\mathbb{C} ~,~~ n\in\mathbb{N} ~,~~ \sk{0}{n} z^k ~=~ \left\{ \ar* n+1 ~si~ z=1 \\ \frac{1-z^{n+1}}{1-z} ~~sinon \ar\right.$ \\
+ \hspace*{25pt} Si $(a,b)\in\mathbb{C}^2 ~,~~ n\in\mathbb{N}^* ~,~~ a^n -b^n ~=~ (a-b) \sk{0}{n-1} a^k b^{n-1-k} $\\
+ \hspace*{25pt} Si $(a,b)\in\mathbb{C}^2 ~,~~ n\in\mathbb{N}^* ~,~~ (a+b)^n ~=~ \sk{0}{n} \binom{n}{k} a^k b^{n-k}$
+ \section{Conjugaison et module}
+ \subsection{Opération de conjugaison}
+ On définit l'opération \textbf{involutive} de \textbf{conjugaison} :\\ $\forall z=a+ib ~\in\mathbb{C} ~~\varphi : a+ib ~\mapsto  ~a-ib~~$ et $~~ \varphi \circ \varphi ~=~ Id_{\mathbb{C}}$\vspace*{10pt}\\
+ Avec $~~\forall (z_1, \cdots , z_n) \in\mathbb{C}^n ,~~ \overline{\sk{0}{n} z_k} ~=~ \sk{0}{n} \overline{z_k}~~$ et $~~ \overline{\pk{0}{n} z_k} ~=~ \pk{0}{n} \overline{z_k}$
+ \paragraph{Parties réelles et imaginaires} $~~\forall z\in\mathbb{C} ~$ on a $~\Re (z) ~=~ \frac{z+\overline{z}}{2} ~$ et $~\Im (z) ~=~ \frac{z-\overline{z}}{2}$
+ \subsection{Module du complexe}
+ On définit le \textbf{module} de $z\in\mathbb{C}$ comme le \textbf{réel} positif qui vérifie $\abs{z}^2 ~=~ z\overline{z}$\\On a alors l'égalité $\abs{z} ~=~ \sqrt{a^2 + b^2}$
+ \subsection{Inégalité triangulaire}
+ \paragraph{Propriété préliminaire} On a $~\forall z\in\mathbb{C} ~,~~ \left\{ \ar* \abs{\Re (z)} ~\leq ~ \abs{z} \\ \abs{\Im (z)} ~\leq ~ \abs{z} \ar\right.$\vspace*{5pt}\\
+ \thm{th5.1}{Inégalité Triangulaire}{InegT1}{${}$\\$\forall (z,z') \in\mathbb{C}^2 ~~$ on a $~~\abs{z+z'} ~\leq ~\abs{z} + \abs{z'}$\\ Avec égalité dans l'inégalité si et seuleument si $\exists \lambda \in \mathbb{R}^+ $ tel que $z = \lambda z'$ ou si $z' =0$}
+ \begin{proof}
+ $\forall (z,z') \in\mathbb{C}^2  ~~~~ \abs{z+z'}^2 = \abs{z}^2 + 2\Re (z\overline{z'}) + \abs{z'}^2$ \\ avec $~\Re (z\overline{z'}) \leq \abs{\Re (z\overline{z'})} \leq \abs{zz'} = \abs{z}\abs{z'}$ d'où $\abs{z+z'}^2 \leq \left(\abs{z} + \abs{z'} \right)^2$\vspace*{5pt}\\
+ avec égalité si et seulement si $\Re (z\overline{z'}) = \abs{\Re (z\overline{z'})} = \abs{z\overline{z'}}$ soit $z\overline{z'}\in\mathbb{R}^+$\vspace*{5pt}\\ Si $z\neq 0$ alors $z\overline{z'}\in\mathbb{R}^+ ~\Leftrightarrow ~ z\frac{\overline{z'} z'}{z'}\in\mathbb{R}^+ ~\Leftrightarrow ~ z\frac{\abs{z'}^2}{z'} \in\mathbb{R}^+ \\ \Leftrightarrow ~z = \lambda z'$ avec $ \lambda = \frac{z}{z'} \in\mathbb{R}^+$
+ \end{proof} ${}$\\
+ \thm{th5.2}{Seconde inégalité triangulaire}{InegT2}{${}$\\  $\forall (z,z') \in \mathbb{C}^2 ~,~~ \left\{ \ar* \abs{z-z'} \geq \abs{z} - \abs{z'} \\ \abs{z'-z} \geq \abs{z'} - \abs{z} \ar\right. ~~\Rightarrow ~ \abs{z-z'} ~\geq ~\abs{\abs{z} - \abs{z'}}$}
+ \section{Unimodulaires et trigonométrie}
+ Dans le plan complexe le cercle trigonométrique $\mathcal{C} (0,1)$ est l'ensemble des nombres complexes unimodulaires noté $\mathbb{U} ~=~ \{z\in\mathbb{C} ~\vert ~\abs{z} = 1 \}$ \\ \hspace*{25pt} -> $\mathbb{U} ~=~ \{\cos\theta +i\sin\theta ~\vert ~\theta \in [0, 2\pi [ \} ~=~ \{e^{i\theta } ~\vert ~\theta \in [0,1\pi [ \}$
+ \paragraph{Calculs} $\mathbb{U} \subset \mathbb{C}^*$ est stable par produit et quotient et $\forall z\in \mathbb{U} ~,~~ \frac{1}{z} = \overline{z}$
+ \paragraph{Formules d'Euler} $\forall z\in \mathbb{U} ~,~~ z=e^{i\theta } ~~(\theta \in \mathbb{R} )$
+ \col{$\Re (z) = \frac{z+\overline{z}}{2} ~\Leftrightarrow ~\cos\theta ~=~ \frac{e^{i\theta }+e^{-i\theta }}{2}$}{$\Im (z) = \frac{z-\overline{z}}{2i} ~\Leftrightarrow ~ \sin\theta ~=~ \frac{e^{i\theta } - e^{-i\theta }}{2i}$}
+ \subsection{Technique de l'angle moitié} 
+ ${}$\\
+ \thm{th5.3}{Angle moitié 1}{AngleMoitié}{${}$\\ $\forall t \in \mathbb{R} \ar* 1+e^{it} = 2\cos (\frac{t}{2} )e^{i\frac{t}{2}} \\ 1-e^{it} = 2i\sin (-\frac{t}{2} )e^{i\frac{t}{2} } \ar ~\left\vert ~~ \forall (p,q) \in \mathbb{R}^2 \ar* e^{ip} + e^{iq} = 2\cos (\frac{p-q}{2} )e^{i\frac{p+q}{2} } \\ e^{ip} - e^{iq} = 2i\sin (\frac{p-q}{2} e^{i\frac{p-q}{2}}\ar \right.$}
+ \\${}$\\
+ \thm{th5.4}{Angle moitié 2}{AngleMoitié2}{$~~\forall (p,q) \in \mathbb{R}^2$\\ $\ar* \cos p + \cos q = 2\cos\frac{p-q}{2}\cos\frac{p+q}{2} \vspace*{3pt} \\ \sin p + \sin q = 2\cos\frac{p-q}{2}\sin\frac{p+q}{2} \ar ~\left\vert ~~ \ar* \cos p - \cos q = -2\sin\frac{p-q}{2}\sin\frac{p+q}{2} \vspace*{3pt} \\ \sin p - \sin q = 2\sin\frac{p-q}{2}\cos\frac{p+q}{2} \ar \right.$}

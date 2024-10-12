@@ -1,0 +1,97 @@
+
+% Chapitre 1 : Ensemble et applications
+
+\minitoc
+	\section{Opérations sur les Parties}
+	\subsection{Notations}
+		\traitd
+		\paragraph{Complémentaire}
+			Le complémentaire de A dans E est $E\backslash A=\overline{A} =A^c$
+			\[E\backslash A=\{x \in E \mid x \notin A \}\] \vspace*{-0.7cm} \trait ${}$ \vspace*{-1.4cm} \traitd
+		\paragraph{Union}
+			L'union de deux ensembles est \[A \cup B = \{ x \in E \mid x \in A \vee x \in B\} \] 
+			\vspace*{-0.7cm} \trait \newpage \traitd
+		\paragraph{Intersection}
+			L'intersection de deux ensembles est \[A \cap B = \{ x \in E \mid x \in A \wedge x \in B\} \]
+			\vspace*{-0.7cm} \trait ${}$ \vspace*{-1.4cm} \traitd
+		\paragraph{Différence}
+			La différence de deux ensemble est \[ A \backslash B = \{ x \in E \mid x \in A \wedge x \notin B \} = A \cap \overline{B} \] 
+			\vspace*{-0.7cm} \trait
+	\subsection{Propriétés}
+		Soit A et B deux parties de E
+ 		\col{$E \backslash (E \backslash A) \equiv A $ \\$A \cap (B \cap C) \equiv (A \cap B) \cap C$ \\ $A\cap (B\cup C) \equiv (A\cap B)\cup 
+ 		(B\cap C)$ \\ $E\backslash (A\cap B)\equiv (E\backslash A)\cap (E\backslash B)$}{$A \cup (B \cup C) \equiv (A \cup B) \cup C $\\$ A \cup 
+ 		(B\cap C) \equiv (A\cup B)\cap (A\cup C)$\\$ E\backslash (A\cup B)\equiv (E\backslash A)\cup (E\backslash B)$}
+	\section{Recouvrement disjoint et Partitions}
+	Soit $E$ un ensemble et $\big(A_i \big)_{_{i\in I}}$ une famille d'éléments de $E$.
+		\traitd
+		\paragraph{Famille de parties disjointes de E}
+			\underline{$(A_i)$ est une famille de parties disjointes de $E$} si 
+			\[\left\{ \begin{array}{l} \forall (i,j)\in I^2,~i\neq j~\Rightarrow A_i\cap A_j=\varnothing \\ \forall i\in I,~A_i \in \mathcal{P}(E)
+			\end{array} \right. \] \vspace*{-0.7cm} \trait ${}$ \vspace*{-1.4cm} \traitd
+		\paragraph{Recouvrement disjoint de B}
+			\underline{$(A_i)$ est un recouvrement disjoint de $B$} si \vspace*{0.3cm}\\ les $A_i$ sont deux à deux disjoints et 
+			$B\subset \bigcup\limits_{i\in I} A_i = \{x\in E \mid\exists i\in I : x\in A_i\}$ \trait ${}$ \vspace*{-1.4cm} \traitd
+		\paragraph{Partition de E}\label{def partition}
+			$(A_i)_{_{i\in I}}$  est une partition de E si
+			\[E=\bigcup\limits_{i\in I} A_i  ~~~~\wedge ~~~~
+			\left\{ \begin{array}{l} \forall i\in I, A_i \in \mathbb{P}(E)\\
+			\forall i\in I, A_i \neq \varnothing\\
+			\forall (i,j)\in I^2,~i\neq j~\Rightarrow A_i\cap A_j=\varnothing \end{array} \right.\] \vspace*{-0.7cm} \trait
+		\thm{ch2P1}{Propriétés : Lois de Morgan}{LoisMorgan}{
+		Soit E un ensemble, $(A_i)_{_i\in I)}$ une famille de parties de E \\ \hspace*{0.5cm}
+		Alors $\Big(\bigcup\limits_{i\in I} A_i \Big)^c \equiv \bigcap\limits_{i\in I} A_i^c $ et $ \Big(\bigcap\limits_{i\in I} A_i\Big)^c \equiv 
+		\bigcup\limits_{i\in I} A_i^c $ }
+	\section{Éléments applicatifs}
+	\subsection{Graphe}
+		Soit un fonction $f\in\mathcal{F}(E,F)$, son graphe est :\begin{center} \highlight{$ \displaystyle{ \Gamma =\{ (x,f(x))\mid x\in E \}\in 
+		\mathcal{P} (E\times F) } $ } \end{center}
+	\subsection{Indicatrice}
+		\traitd
+ 		\paragraph{Définition}
+ 			On définit l'indicatrice de A dans E comme 
+ 			\[\mathbb{1} _A \left( \begin{array}{l} E\longrightarrow \{0;1\} \\ x\mapsto \left\{ \begin{array}{l} 1~si~x\in A \\ 0~si~x\in A^c 
+ 			\end{array} \right. \end{array} \right)\] \vspace*{-0.7cm} \trait
+ 		\hspace*{1.5cm} \newtheorem*{ch2P2}{Propriétés}  \begin{minipage}{12.71cm} \begin{ch2P2} ${}$ \vspace*{0.15cm}\\ \hspace*{0.21cm} 			
+ 		\begin{blockarray}{|ll}
+ 		Soit $A$ et $B$ deux parties d'un ensemble & \hspace*{-0.25cm}$E$ on a  \\
+ 		$A \equiv B ~\Leftrightarrow ~ \mathbb{1}_A = \mathbb{1}_B$ & $\mathbb{1}_{A\cap B } = \mathbb{1}_A \cdot \mathbb{1}_B$ \\ 
+ 		$\forall x\in E ,~\mathbb{1}_A + \mathbb{1}_{E\backslash A} = \mathbb{1}_E = 1$ & $\mathbb{1}_{A\cup B} = \mathbb{1}_A + \mathbb{1}_B - 
+ 		\mathbb{1}_{A\cap B}$
+ 		\end{blockarray} \end{ch2P2} \end{minipage} \vspace*{-0.25cm} ${}$
+	\section{Relations binaires}
+		\traitd
+		\paragraph{Définition}
+			Une relation binaire sur $E$ est la donné d'une partie $\Gamma$ de $E\times E$ telle que \\
+			\[ \forall (x,y) \in E^2 ~,~~x\mathcal{R} y ~\Leftrightarrow ~(x,y) \in \Gamma \] \vspace*{-0.7cm} \trait
+		\vspace*{-1.1cm} \\ $\Gamma$ est appelé graphe de la relation binaire $\mathcal{R}$ 
+		\\ -> \underline{ex}: $\Gamma \subset \mathbb{R}^2 ~~~~ (x,y) \in \Gamma ~\Leftrightarrow ~ y \leq x$ 
+		\traitd
+		\paragraph{Caractéristiques} Soit $\mathcal{R}$ une relation binaire sur un ensemble $E$
+			\\ \hspace*{2.5cm} {\small 1)} $\mathcal{R}$ est \underline{réflexive} si $~~\forall x\in E ~,~~ x\mathcal{R} x$
+			\\ \hspace*{2.5cm} {\small 2)} $\mathcal{R}$ est \underline{symétrique} si $~~\forall (x,y) \in E^2 ~,~~ x\mathcal{R} y 
+			~\Leftrightarrow ~ y\mathcal{R} x$ \\ \hspace*{2.5cm} {\small 3)} $\mathcal{R}$ est \underline{antisymétrique} si $~~\forall (x,y) 
+			\in E^2 ~,~~ x\mathcal{R} y ~\wedge ~y\mathcal{R} x ~\Rightarrow ~x=y$ \\ \hspace*{2.5cm} {\small 4)} $\mathcal{R}$ est 
+			\underline{transitive} si $~~\forall (x,y,z) \in E^3 ~,~~ x\mathcal{R} y \wedge y\mathcal{R} z ~\Rightarrow ~ x\mathcal{R} z$ \trait
+		\traitd
+		\paragraph{Relation d'ordre}
+			Un relation binaire $\mathcal{R}$ est une relation d'ordre si \\ $\mathcal{R}$ est \underline{réflexive, antisymétrique et transitive}.
+			\trait
+		->\underline{ex}: $\forall (z,z') \in \mathbb{C}^2 \\ \Big(\Re(z)<\Re(z')\Big) \vee \Big(\Re(z)=\Re(z') \wedge \Im(z)\leq\Im(z')\big) $ 
+		est une relation d'ordre sur $\mathbb{C}$
+		\subparagraph{Caractère total}
+			Une relation d'ordre $\mathcal{R}$ est dite totale si $~\forall (x,y) \in E^2 ,~~ x\mathcal{R} y ~\vee ~y\mathcal{R} x$
+		\traitd
+		\paragraph{Relation d'équivalence}
+			Un relation binaire $\mathcal{R}$ est une relation d'ordre si \\ $\mathcal{R}$ est \underline{réflexive, symétrique et transitive}.
+			\trait
+		->\underline{ex}: Si $a\in \mathbb{R}$, $\forall (x,y) \in \mathbb{R}^2 ,~~ x\mathcal{R} y ~\Leftrightarrow ~\exists k\in \mathbb{Z} ~:~
+		y-x = ka$ \\ $\mathcal{R}$ est appelée relation de congruence modulo $a$ et on note $x \equiv y [a]$
+		\traitd
+		\paragraph{Classe d'équivalence} 
+			Si $x\in E$ l'ensmeble $\{y\in E ~\vert ~x\mathcal{R} y\}$ souvent noté $Cl(x)$ est la classe d'équivalence de $x$ \trait
+		\thm{ch2P3}{Propriété}{ClEqPartE}{Si $E\neq \varnothing$, les classes d'équivalence forment une partition de $E$}
+		\vspace*{0.5cm} \\ 
+		\begin{center}
+		\fin
+		\end{center}

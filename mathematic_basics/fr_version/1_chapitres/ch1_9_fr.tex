@@ -1,0 +1,107 @@
+
+% Chapitre 9 : Structures algébriques usuelles
+
+\minitoc
+	\section{Lois de composition interne}
+		\traitd
+		\paragraph{Définition}
+			Une \underline{loi de composition interne sur un ensemble $E$} est une application \\
+			\[ * ~~ \appli{E\times E}{(x,y)}{E}{x*y}\] \vspace*{-0.7cm} \trait \vspace*{-0.8cm} \\ 
+		\hspace*{2cm} $\rightarrow ~*$ est \underline{associative} si $\forall (x,y,z)\in E^3 ,~ (x*y)*z = x*(y*z)$ \\
+		\hspace*{2cm} $\rightarrow ~*$ est \underline{commutative} si $\forall (x,y) \in E^2 ,~x*y = y*x$ \\
+		\hspace*{2cm} $\rightarrow ~*$ admet un \underline{élément neutre $e$} si $\forall x\in E ,~e*x=x*e=x$ \\
+		\hspace*{2cm} $\rightarrow ~x\in E$ est dit \underline{inversible} s'il existe $e$ un élément neutre \\ \hspace*{3cm} et $x'\in E 
+		~:~x*x'=x'*x=e$ 
+		\\ \textit{\small Sous réserve d'existence, l'élément neutre et l'inverse sont uniques et on note $x'=x^{-1}$}
+		\subparagraph{Exemple} 
+		{\small $\times $ sur $\Z$ est une loi de composition interne associative et commutative de neutre $1$. \\ Les seuls éléments inversible 
+		pour $\times$ sur $\Z$ sont $1$ et $-1$. }
+		\vspace*{0.5cm} \\ \thm{ch10P1}{Propriété}{ProdInv}{Soit $E$ muni d'une loi de composition interne associative $*$. \\ Si $x$ et $y$ sont 
+		deux éléments inversibles de $E$ \\ Alors $x*y$ est inversible et $(x*y)^{-1} = y^{-1}*x^{-1}$} \traitd
+		\paragraph{Partie stable}
+			Soit $E$ muni d'une loi de composition interne $*$. On dit que $F\in\mathcal{P}(E)$ est stable pour $*$ si \[ \forall (x,y)\in 
+			E\times F ,~x*y \in F ~et ~y*x\in F \] \vspace*{-0.7cm}\trait \vspace*{-1.5cm}
+	\section{Structure de groupe}
+		\traitd 
+		\paragraph{Groupe}
+			Soit un ensemble $G$ muni d'un loi de composition interne $*$, on dit que \underline{$(G,*)$ est un groupe} si
+			$*$ est associative ; $e \in G$ est un élément neutre pour $*$ et tout élément $x\in G$ est inversible.\trait ${}$ \vspace*{-1.2cm} \traitd
+		\paragraph{Groupe abélien}
+			On dit que $(G,*)$ est un \underline{groupe abélien (ou commutatif)} si $(G,*)$ est un groupe et $*$ est commutative sur $G$. \trait
+		${}$ \vspace*{-1.4cm} \traitd
+		\paragraph{Groupe produit}
+			Soit $(G_1,*_1)$ et $(G_2,*_2)$ deux groupes on appelle \underline{groupe produit de $G_1$ et $G_2$} l'ensemble $G_1\times G_2$ muni 
+			de la loi $*$ définie par \[\forall \big( (x_1,y_1),(x_2,y_2)\big) \in G_1^2\times G_2^2 ,~(x_1,x_2)*(y_1,y_2) = 
+			(x_1*_1y_1 , x_2*_2y_2)\] \vspace*{-0.7cm} \trait
+		\thm{ch10P2}{Propriété}{GrProdGr}{$G_1\times G_2 , *)$ est un groupe.} \traitd
+		\paragraph{Sous-groupe}
+			Soit $(G,*)$ un groupe. On dit que \underline{$F\subset G$ est un sous-groupe de $G$} \\ si $F\neq \varnothing ~;~F$ est stable par $*$ 
+			et $\forall x\in F ,~x^{-1} \in F$. \trait
+		\thm{ch10P3}{Propriété}{SGGr}{Si $F$ est un sous-groupe de $(G,*)$ alors $(F,*)$ est un groupe.}
+		\vspace*{0.5cm} \\ \thm{ch10P4}{Propriété}{CarSG}{Soit $F\subset G$ alors \\ $F$ est un sous-groupe de $G$ $\Leftrightarrow ~F\neq 
+		\varnothing$ et $\forall (x,y) \in F^2 ,~x*y^{-1} \in F$} \newpage\traitd
+		\paragraph{Morphisme de groupe}
+			Soit $(G_1,*-1)$ et $(G_2,*_2)$ deux groupe et $f: G_1 \rightarrow G_2$. On dit que \underline{$f$ est un morphisme de groupe} si 
+			\[\forall (x,y) \in G_1^2 ,~f(x *_1 y) = f(x) *_2 f(y) \] \vspace*{-0.7cm} \trait
+		\thm{ch10P5}{Propriété}{ImSGMorph}{Soit $(G_1,*_1)$ et $(G_2,*_2)$ deux groupes et $f: G_1 \rightarrow G_2$ un morphisme de groupe \\
+		Alors $ \left\{ \ard \forall F_1\subset G_1$ sous-groupe de $G_1$, $f(F_1)$ est un sous-groupe de $G_2 \\ \forall F_2\subset G_2$ sous-
+		groupe de $G_2$, $f^{-1} (F_2)$ est un sous-groupe de $G_1 \arf \right.$} \traitd
+		\paragraph{Image et noyau}
+			Soit $(G_1,*_1)$ et $(G_2,*_2)$ deux groupes et $f: G_1 \rightarrow G_2$ un morphisme de groupe, on défini l'image et le noyau de $f$ 
+			et on note respectivement $Im(f)=f(G_1)$ et $Ker(f)=f^{-1} (\{e_2\})$ \hspace*{0.5cm}(\textit{\small $Im(f)$ et $Ker(f)$ sont des 
+			sous-groupes respectifs de $G_2$ et $G_1$})\trait
+		\thm{ch10P6}{Proposition}{MorphSurjInj}{Soit $(G_1,*_1)$ et $(G_2,*_2)$ deux groupes et $f: G_1 \rightarrow G_2$ un 
+		morphisme de groupe \\ Alors $\left\{ \ard f$ est surjectif $\Leftrightarrow ~Im(f)=G_2 \\ f$ est injectif $\Leftrightarrow ~Ker(f) = 
+		\{e_1\} \arf \right.$ } \\ \traitd
+		\paragraph{Isomorphisme de groupe} 
+			Soit $f:(G_1,*_1)\rightarrow (G_2,*_2)$ un morphisme de groupe. On suppose que $f$ est bijectif, alors $f^{-1} : (G_2,*_2)\rightarrow 
+			(G_1,*_1)$ est un morphisme de groupe bien défini.\\ On appelle \underline{isomorphisme} un tel morphisme. \trait \vspace*{-1.3cm}
+		\begin{proof}
+		Soient $x',y' \in G_2$ ; soient $x,y\in G_1$ tels que $x=f^{-1}(x')$ et $y=f^{-1}(y')$, \\ on a $f(x*_1 y) = f(x)*_2f(y) = x' *_2 y'$ donc 
+		$f^{-1}(x' *_2 y') = x *_1 y = f^{-1}(x') *_1 f^{-1}(y')$ \\ d'où \textsc{cqfd}
+		\end{proof}
+	\section{Structure d'anneau et de corps}
+	\subsection{Structure d'anneau}
+		\traitd
+		\paragraph{Loi distributive}
+			Soit $E$ un ensemble muni de deux lois de composition interne $\oplus$ et $\otimes$. \\On dit que $\otimes$ est distributive par rapport 
+			à $\oplus$ si \[ \forall (x,y,z)\in E^3 ,~\left\{ \ard x\otimes (y\oplus z) = (x\otimes y)\oplus (x\otimes z) \\ (x\oplus y) \otimes z 
+			=(x\otimes z) \oplus (y\otimes z) \arf \right. \] \vspace*{-0.7cm} \trait \newpage \traitd
+		\paragraph{Anneau}
+			Soit $A$ un ensemble muni de deux lois de composition internes $\oplus$ et $\otimes$. \\On dit que $(A,\oplus ,\otimes )$ est un anneau 
+			si \\ \hspace*{2.5cm} $\ard \bullet ~(A,\oplus)$ est un groupe abélien $ \\ \bullet ~\otimes$ est associative et distributive par 
+			rapport à $\oplus \\ \bullet ~$Il existe un élément neutre $1_A$ pour $\otimes \arf$ \trait
+		\vspace*{-0.8cm}\\ \textit{\small On notera maintenant de manière équivalente $\otimes$, $\times$ et $.$ ainsi que $\oplus $ et $+$}
+		\vspace*{0.5cm} \\ \thm{ch10P7}{Propriété}{A*Gr}{Soit $(A,+,\times )$ un anneau, si on note $A^*$ l'ensemble des éléments inversible \\
+		de $A$ alors $(A,\times )$ est un groupe.} \traitd
+		\paragraph{Anneau intègre}
+			Soit $(A,+,.)$ un anneau, on dit que \underline{$(A,+,.)$ est intègre} si \[\forall (a,b)\in A^2 ,~ab=0 \Leftrightarrow a=0~ou~b=0 \] 
+		\vspace*{-0.7cm} \trait ${}$ \vspace*{-1.4cm} \traitd
+		\paragraph{Sous-anneau}
+			Soit $A(+,\times)$ un anneau et $B\subset A$ alors $B$ est un sous-anneau de $A$ si $B$ est un sous-groupe de $A$ pour $+$, $1_A\in B$ 
+			et $B$ est stable par $\times$. \trait 
+		\thm{ch10P8}{Propriété}{SAAnn}{Un sous-anneau est un anneau pour les lois induites.} \\ \traitd
+		\paragraph{Morphisme d'anneau}
+			Soit $(A_1,+_1,\times_1)$ et $(A_2,+_2,\times_2)$ deux anneaux et $f:A_1\rightarrow A_2$, Alors $f$ est un morphisme d'anneaux si
+			\[ \forall (x,y) \in A_1^2 ,~\ard f(x+_1y) = f(x) +_2 f(y) \\ f(x\times_1y) = f(x)\times_2 f(y) \\ f(1_{A_1}) = 1_{A_2} \arf \] 
+		\vspace*{-0.7cm} \trait
+		\thm{ch10P9}{Propriétés}{PropMorphAnn}{Soit $(A_1,+_1,\times_1)$ et $(A_2,+_2,\times._2)$ deux anneaux et $f:A_1\rightarrow A_2$ un 
+		morphisme d'anneaux \\ Alors $\forall a\in A_1^*,~f(a) \in A_2^*$ avec $\big( f(a) \big)^{-1} = f\big( a^{-1} \big)$} \\
+	\subsection{Structure de corps}
+		\traitd
+		\paragraph{Corps}
+			Soit $K$ un ensemble muni de deux lois de compositions interne $+$ et $\times$ on dit que $(K,+,\times)$ est un corps si \\
+			\hspace*{2.5cm} $\ard \bullet ~(K,+,\times)$ est un anneau commutatif $\\ \bullet ~ $Tout élément de $K$ différent de $0_K$ est 
+			inversible ($K^* = K\backslash \{0\}$) $\arf$ \trait \newpage \traitd
+		\paragraph{Sous-corps}
+			Soit $(K,+,\times)$ un corps et $P\subset K$ alors $P$ est un sous-corps si $P$ est un sous-anneau de $K$, $P^*=P\backslash\{0\}$ et 
+			$\forall x\in P^* ,~x^{-1} \in P$ \trait
+		\thm{ch10P10}{Propriété}{10-P10}{Soit $(K,+,\times)$ un corps et $P\subset K$, les trois assertions suivantes sont équivalentes : \\
+		{\small 1)} $P$ est un sous-corps de $K$ \hspace*{2cm} {\small 2)} $(P,+,\times)$ est un corps \\ {\small 3)} $P$ est un sous-groupe de $K$ 
+		pour $+$ et $P\backslash \{0\} $ est un sous groupe de $K^*$ pour $\times$ }
+		\vspace*{0.5cm} \\ \thm{ch10P11}{Propriété}{10-P11}{Soit $(K,+_1,\times_1)$ un corps et $(A,+_2,\times_2)$ un anneau \\ Soit 
+		$f: K \rightarrow A$ un morphisme d'anneaux, alors $f$ est injectif}
+		\vspace*{0.5cm} \\ 
+		\begin{center}
+		\fin
+		\end{center}

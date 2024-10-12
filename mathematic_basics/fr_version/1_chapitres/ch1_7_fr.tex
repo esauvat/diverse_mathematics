@@ -1,0 +1,233 @@
+
+% Chapitre 7 : Fonctions d'une variable réelle
+
+\textsl{Les fonctions considérées sont définies sur un intervalle I de $\mathbb{R}$ non réduit à un point à valeur dans $\mathbb{R}$ sauf indications contraires.} 
+\minitoc ${}$ \traitd
+ \paragraph{Voisinage}
+    Une propriété portant sur $f$ définie sur I est vraie au voisinage de a si elle est vraie sur $]a+\delta , a-\delta[$ pour un certain $\delta>0$ si $a\in\mathbb{R}$ ; sur $]A, +\infty [$ ou $]-\infty , A[$ sinon. \trait 
+
+\section{Limites et Continuité}
+\subsection{Limite d'une fonction en un point}
+       \traitd
+       \paragraph{Limite d'une fonction}
+           Soit f une fonction, f admet une limite $\ell$ en $a\in D_{f}$ notée $\lim \limits_{x \to a} f(x)=\ell$ si: 
+           \[\forall \varepsilon , \exists \delta < 0 : \forall x \in I,~ \big(\vert x-a \vert \leq \delta \Rightarrow \vert f(x)-\ell \vert \leq \varepsilon\big)\] \trait
+    \thm{ch8P1}{Propriété : Unicité de la limite}{LimUniq}{
+    Si la limite de f en a existe alors elle est unique}
+%    	\begin{proof}
+%    	$a\in\mathbb{R} , (l_{1}, l_{2})\in\mathbb{R}^{2}$ soit $\varepsilon >0$, il existe $(\delta_{1} , \delta_{2} ) \in (\mathbb{R}_{+}^{*} )^{*} : \forall x\in I$, 
+%    	$$(\vert x-a \vert \leq \delta_{1} \Rightarrow \vert f(x)-l_{1} \vert \leq \frac{\varepsilon}{2} )$$ 
+%    	$$(\vert x-a \vert \leq \delta_{2} \Rightarrow \vert f(x)-l_{2} \vert \leq \frac{\varepsilon}{2} )$$ 
+%    	donc si $0< \delta_{0} \leq min(\delta_{1} , \delta_{2} )$ 
+%    	$$\forall x\in I ~~ (\vert x-a \vert \leq \delta_{0} \Rightarrow \vert l_{1} - l_{2} \vert \leq \vert f(x) - l_{1} \vert + \vert f(x) - l_{2} \vert = \varepsilon )$$ 
+%    	Soit $l_{1} = l_{2} $ \end{proof}
+    \vspace*{0.5cm} \\ \thm{ch8P2}{Proposition : Continuité en un point}{ContA}{Si $f$ est définie en $a$ et admet une limite en $a$ alors \\
+    \hspace*{2cm} $\cm{\limit{x}{a} = f(a) } $\\
+    On dit alors que \uline{$f$ est continue en $a$} }
+    \vspace*{0.5cm} \\ \thm{ch8P3}{Propriété}{LimBorneVois}{Si $f$ possède une limite finie en un point $a$ \\alors $f$ est bornée sur un voisinage de $a$ }
+       \vspace*{0.5cm} \\ \thm{ch8P4}{Propriété : Signe au voisinage de a}{SignVoisLimit}{
+    Si f admet une limite finie non nulle en $a$ alors f est du signe (strict) \\
+    de cette limite sur un voisinage de $a$}
+%    	\begin{proof}
+%    	$\left\{ 
+%    	\begin{array}{l}
+%    	a\in \mathbb{R}\\
+%    	\ell\in\mathbb{R}_{+}^{*}
+%    	\end{array} \right.
+%    	\hspace{20pt} \exists \delta >0 : \forall x\in I$
+%    	$$
+%    	\begin{array}{l}
+%    	\vert x-a \vert \leq \delta \Rightarrow \vert f(x) -l\vert \leq \frac{\vert l\vert}{2} = \frac{l}{2}\\
+%    	\hspace*{50pt}\Rightarrow f(x) - l \geq -\frac{l}{2}\\
+%    	\hspace*{50pt}\Rightarrow f(x) \geq \frac{l}{2} >0
+%    	\end{array}$$
+%    	\end{proof}
+       \vspace*{0.5cm} \\ \thm{ch8th1}{Théorème de caractérisation séquentielle de la limite}{CarSeqLim}{
+    $f$ admet $\ell$ comme limite en $a\in I$ si, et seulement si \\ pour toute suite $(u_{n})_{_{n\in \mathbb{N} }} \in I^{\mathbb{N}}$ qui tend vers a, $f(u_{n})$ tend vers $\ell$.}
+    \begin{proof} Soit $\ell$ la limite de $f$ en $a\in I$ \\
+    \fbox{$\Rightarrow$} Soit $\varepsilon>0$ ; soit $\delta>0$ vérifiant la propriété de limite.\\
+    On considère $n_0\in\N$ tel que $\forall n\geqslant n_0 ,~\mc{u_n-a}<\delta$ et on a ainsi \[\forall n\in\N ,~n\geqslant n_0 ~\Rightarrow~ \mc{f(u_n) - \ell}<\varepsilon \]
+    \fbox{$\Leftarrow$} Par contraposée, on considère $\varepsilon_0>0$ tel que\\
+    $\forall n\in\N,~ \exists x_, \in I$ tel que $\mc{x_n-a}\leqslant\frac{1}{n+1}$ et $\mc{f(x_n)-\ell} >\varepsilon_0 $\\
+    On a ainsi $\suite{x}\in I^\N$ convergente vers $a$ avec $\big(f(x_n)\big)$ qui ne converge pas vers $\ell$. \vspace*{0.2cm} \\
+    Les preuves pour pour les limites infinies et/ou en l'infini sont analogue.
+    \end{proof}
+    ${}$ \\ \thm{ch8P5}{Proposition : opérations sur les limites}{OpeLim}{L'opérateur "limite" est stable par somme, produit, quotient\footnotemark[1] \\et composition.}
+    \footnotetext[1]{Dans ce cas seulement si la limite au dénominateur est non nulle et que le quotient n'est pas une forme indéterminée de $\overline{\R}$}
+    \newpage ${}$ \\ \thm{ch8P6}{Proposition}{LimInegLarge}{Soit $a$ un point de $I$\\ On suppose que $f\leqslant g$ sur un voisinage de $a$, $f(x)\stox{a}\ell$ et $g(x)\stox{a} \ell'$\\
+    Alors $\ell\leqslant \ell'$}
+    \vspace*{0.5cm} \\ \thm{ch8th2}{Théorème d'encadrement}{ThEncadr}{Soit $f,g,h$ trois fonctions telles que sur un voisinage de $a\in I$ \\
+    on a $h\leqslant f\leqslant g$. On suppose que $h$ et $g$ converge vers \\ une même limite $\ell$ en $a$, alors $f$ converge vers $\ell$ en $a$}
+    \begin{proof}
+    Clair avec la définition et en considérant le plus petit $\delta$
+    \end{proof}
+    ${}$ \\ \thm{ch8th3}{\highlight{Théorème de la limite monotone}}{ThLimMonot}{Soit $(a,b) \in \R^2$ avec $a<b$ et $f$ une fonction croissante sur $]a,b[$. \\ 
+    Alors $f$ admet une limite à gauche et une limite à droite \\ en tout point $x_0\in ]a,b[$ avec \\
+    \hspace*{2cm} $\cm{ \limit{x}{x_0^-} f(x) \leqslant f(x_0)\leqslant \limit{x}{x_0^+} f(x) }$ \\
+    Si de plus $f$ est majorée (resp. minorée) sur $]a,b[$ alors elle admet \\ une limite à gauche en $b$ (resp. à droite en $a$)}
+    \begin{proof}
+    Soit $x_0 \in ]a,b[$, on considère $f_d\big(]a,x_0[\big)$ et $\ell$ sa borne supérieure (existe). On peut ensuite montrer que $f(x)\stox{x_0^-} \ell$ puis on fait de même avec $f_d\big(]x_0,b[\big)$
+    \end{proof}
+\subsection{Continuité en un point}
+    \traitd
+    \paragraph{Continuité}
+        Soit $f$ définie sur $I$ à valeur réelles, on dit que \uline{$f$ est continue au point $a\in I$} si $f(x)\stox{a} f(a)$ \trait ${}$ \vspace*{-1.5cm} \\ \traitd 
+    \paragraph{Prolongement par continuité}
+        Si $f$ admet une limite finie $l$ en un point $a$ de $\R$ et si $f$ n'est pas définie en $a$, on appelle \uline{prolongement par continuité de $f$ en $a$} la fonction égale à $f$ sur son domaine de définition et à $l$ en $a$. \trait
+    \thm{ch8P7}{Proposition : caractérisation séquentielle de la continuité}{CarSeqCont}{$f$ est continue en $a\in I$ si et seulement si pour toute suite $\suite{u}\in I^\N$ \\qui converge vers $a$, $\big( f(u_n)\big)_{_{n\geqslant 0}}$ converge vers $f(a)$}
+    \vspace*{0.5cm} \\ \thm{ch8P8}{Propriété}{OpeFCont}{Si $f$ et $g$ sont deux fonction continues en un point $a$ de $I$, alors $f+g$ et $fg$ \\sont continues en $a$. Si de plus $g(a)\neq 0$ alors $\frac{f}{g}$ est continue en $a$. \\ 
+    Si $h$ est continue en $f(a)$ alors $h\circ f$ est continue en $a$} \newpage
+\subsection{Continuité sur un intervalle}
+    \traitd \paragraph{Définition}
+        On dit que \uline{$f$ est continue sur $I$} si elle est continue en tout point de $I$.\\
+        On note $\cont^0 (I,\R)$ l'ensemble des fonctions continue sur $I$ à valeur dans $\R$ \trait
+    \thm{ch8th4}{\highlight{Théorème des valeurs intermédiaires}}{TVI}{Si $f\in \CO (I,\R)$ et $(a,b) \in I^2$ \\ Alors $f$ prend sur $I$ toute les valeurs comprises entre $f(a)$ et $f(b)$.}
+    \begin{proof}
+    On considère $\alpha = \sup \{ x\in[a,b] ~|~ f(x)<c\}$ et on a alors par continuité de $f$ $\neg (f(\alpha)<c \vee f(\alpha)>c)~\Leftrightarrow ~f(\alpha)=c$
+    \end{proof}
+    ${}$ \\ \thm{ch8P9}{Propriété}{ContSegBorn}{Soit $f$ une fonction continue sur un segment alors $f$ est bornée \\ sur ce segment et $f$ atteint ses bornes.}
+    \vspace*{0.5cm} \\ \thm{ch8P9c}{Corollaire}{ImgSegFCont}{L'image d'un segment par une fonction continue est un segment.}
+    \vspace*{0.5cm} \\ \thm{ch8P10}{Proposition}{8-P9}{Soit $f$ est continue sur $I$ à valeurs réelles, on suppose $f$ est injective sur $I$\\
+    Alors $f$ est strictement monotone sur $I$}
+    \begin{proof}
+    Soit $(a,b) \in I^2$ avec $a<b$, on suppose sans perte de généralité que $f(a)<f(b)$ alors $f$ est strictement croissante sur $[a,b]$, en effet : \vspace*{0.2cm} \\
+    Par l'absurde, soit $(x,y)\in ]a,b[^2$ tel que $a<x<y<b$ et $f(x)>f(y)$\\
+    On considère alors $g~\appli{[0,1]}{t}{\R}{f\big((ta+(1-t)x\big) - f\big( tb+(1-t)y\big)}$  continue sur $[0,1]$\\
+    Vu $g(0) = f(x)-f(y)>0$ et $g(1) = f(a)-f(b)<0$ par le TVI $g$ s'annule au moins une fois sur $]0,1[$ donc $f$ prend deux fois la même valeur en deux points distincts de $[a,b]$ ce qui est impossible d'où \textsc{cqfd}
+    \end{proof}
+    ${}$ \\ \thm{ch8th5}{Théorème de la bijection réciproque}{ThBijReciproque}{Toute fonction réelle définie et continue strictement monotone sur un intervalle \\admet une fonction réciproque de même monotonie sur l'intervalle image.}
+    \begin{proof}
+    Soit $f$ strictement croissante et continue sur $I$ alors $f$ réalise un bijection de $I$ sur $J=f_d(I)$. On considère alors $f^{-1}$\\
+    D'après le théorème de la limite monotone $f^{-1}$ est continue à droite et à gauche en tout point de l'intervalle ouvert et par injectivité ces limites sont égales donc $f^{-1}$ est continue sur l'intervalle ouvert puis fermé donc strictement monotone avec les monotonie clairement identiques.
+    \end{proof}
+\subsection{Fonctions à valeurs complexes}
+    $f : I \rightarrow \C$ et $x_0$ un point ou une extrémité de $I$. $f$ admet une limite $\ell\in \C$ en $x_0$ si \[ \forall \varepsilon >0 ,~\exists \delta>0 ~:~\forall x\in I,~\big( \mc{x-x_0} \leqslant\delta ~\Rightarrow~\mc{f(x)-\ell}\leqslant\varepsilon\big)\]
+    Si $x_0\in I$ alors $f(x_0) = \ell$ et $f$ est \uline{continue en $x_0$}. On note $\ell = \limit{x}{x_0} f(x)$
+    \vspace*{0.5cm} \\ \thm{ch8th6}{Théorème : caractérisation des limites par les parties réelles et imaginaires}{CarLimComplexe}{$f : I\rightarrow \C$ admet une limite $\ell\in \C$ en $x_0$ si et seulement si \\ $\Re(f)$ et $\Im(f)$ admettent des limites $(\ell_r,\ell_i) \in R^2$.\\
+    On a alors $\ell=\ell_r+\imath \ell_i$}
+    \begin{proof}
+    Clair vu $\forall z\in \C ,~\mc{z} \leqslant \mc{\Re(z)} + \mc{\Im(z)}$ et $\max \big(\mc{\Re(z)} , \mc{\Im(z)} \big) \leqslant \mc{z}$
+    \end{proof}
+\section{Dérivabilité}
+    \traitd \paragraph{Dérivabilité en un point}
+        $f$ est dérivable en un point $a$ de $I$ si \[\tau_a(f)~\appli{I\setminus\{a\}}{x}{\R}{\frac{f(x)-f(a)}{x-a}}\] le taux d'accroissement de $f$ en $a$ admet une une limite finie $\ell\in \R$ quand $x$ tend vers $a$.\\
+        On note $f'(a)$ cette limite. \trait
+    \thm{ch8P11}{Proposition}{DerImplCont}{Si $f$ est dérivable en $a$ alors $f$ est continue en $a$.}
+    \vspace*{0.5cm} \\ \thm{ch8P12}{Propriété}{CarDer}{$f$ est dérivable en $a$ si et seulement si il existe une fonction $\varepsilon$ \\ définie sur un voisinage de $0$ telle que \\
+    \hspace*{2cm} $\cm{f(a+h) = f(a) + h\times \ell + h\varepsilon(h) }$ \\
+    où $\ell\in \R$ et $\limit{h}{0} \varepsilon(h) = 0$. On a alors $\ell=f'(a)$} \\
+    \traitd \paragraph{Dérivabilité sur un intervalle}
+        On dit que $f$ est dérivable sur $I$ si elle est dérivable en tout point de $I$. On note alors $f'$ sa fonction dérivée qui à tout point $a$ de $I$ associe $f'(a)$ \trait
+    \thm{ch8P13}{Propriétés}{OpeFDer}{Soit $f,g$ deux fonction dérivables en $a$ alors \\
+    $\bullet$ $f+g$ est dérivable en $a$ et $(f+g)'(a) = f'(a)+g'(a)$\\
+    $\bullet$ $fg$ est dérivable en $a$ et $(fg)'(a) = f'(a)g(a) + f(a)g'(a)$\\
+    $\bullet$ Si $g'(a)\neq 0$ alors $\frac{f}{g}$ est dérivable en $a$ et $\left(\frac{f}{g}\right)'(a) = \frac{f'(a)g(a)-f(a)g'(a)}{\big(g(a)\big)^2}$ \\
+    Soit $h$ dérivable en $f(a)$ \\ Alors $h\circ f$ est dérivable en $a$ et $(h\circ f)'(a) = f'(a)\times h'\big( f(a)\big)$ }
+    \newpage ${}$ \\ \thm{ch8P14}{Proriété}{DerBij}{Si $f$ est bijective de $I$ sur $J$ dérivable en $a\in I$ \\
+    Alors $f^{-1}$ est dérivable en $f(a)=b$ si et seulement si $f(a)\neq 0$. \\
+    On a alors $\big( f^{-1}\big)'(b) = \dfrac{1}{f'(a)}$} \\
+\subsection{Extremum local et point critique}
+    \traitd
+    \paragraph{Extremum local}
+        \subparagraph{Maximum} On dit que \uline{$f$ présente un maximum local en $a\in I$} s'il existe $\delta>0$ tel que 
+        \[\forall x\in [a-\delta,a+\delta] \cap I ,~f(x)\leqslant f(a) \]
+        \subparagraph{Minimum} La définition est analogue \trait ${}$ \vspace*{-1.5cm} \\ \traitd 
+    \paragraph{Point critique}
+        Un \uline{point critique} est un zéro de la dérivée. \trait
+    \thm{ch8P15}{Propriété}{ExtremumCritique}{Soit $a$ est un point intérieur à $I$ et $f$ dérivable en $a$.\\
+     On suppose que $f$ présente un extremum local en $a$, alors $a$ est un point critique.} \\
+     \uline{Rq} : Si $a$ un point intérieur à $I$ est un point critique et si $f$ ne présente pas d'extremum local en $a$, on dit que \uline{$a$ est un point d'inflexion de $f$}. \\
+\subsection{Théorèmes de Michel \textsc{Rolle} et des accroissements finis}
+       ${}$ \hspace*{-1cm} \fbox{ \begin{minipage}{15.7cm} 
+    \thm{ch8th7}{\highlight{Théorème de Michel \textsc{Rolle}}}{ThRolle}{Soit $a,b \in \R$ avec $a<b$ et $f$ continue sur $[a,b]$ et \\dérivable sur $]a,b[$ à valeurs réelles. On suppose $f(a) = f(b)$ \\
+    \hspace*{2cm} Alors il existe $c\in ]a,b[$ tel que $f'(c) = 0$ }
+    \end{minipage}    }
+    \begin{proof}
+    Si $f$ est constante sur $[a,b]$ c'est vrai.\\
+    Sinon l'image continue de $5a,b]$ par $f$ est un segment $[M,m]$ avec $M$ ou $m$ différent de $f(a) = f(b)$ atteint en $c\in ]a,b[$ qui est alors un point critique de $f$ d'où \textsc{cqfd}
+    \end{proof}
+    ${}$ \\ \thm{ch8th8}{Théorème des accroissements finis}{ThAccrFinis}{Soit $a,b \in \R$ avec $a<b$ et $f$ continue sur $[a,b]$ \\à valeurs réelles et dérivable sur $]a,b[$\\
+    Alors $\exists c\in ]a,b[$ tel que \highlight{$f(b)-f(a) = f'(c)(b-a)$}}
+    \begin{proof}
+    On considère $h_{a,b}$ la corde à $\mathcal{C}_f$ joignant les points d'abscisse $b$ et $a$. Soit ensuite 
+    \[ g : x\mapsto f(x) - h_{a,b}(x) = f(x) - \Big( f(a) + (x-a) \dfrac{f(b)-f(a)}{b-a} \Big) \]
+    On a alors $g$ continue sur $[a,b]$ et dérivable sur $]a,b[$ avec $g(a) = 0 =g(b)$ soit donc d'après le théorème de Michel \textsc{Rolle} né à Ambert en 1652 $c\in ]a,b[$ tel que $g'(c) = 0$ \\or $g'(c) = f'(c) - \frac{f(b) - f(a)}{b-a}$ d'où \textsc{cqfd}
+    \end{proof}
+    ${}$ \\ \thm{ch8th8c}{Corollaire : Inégalité des accroissements finis}{InegAccrFinis}{Soit $f$ continue sur $[a,b]$ et dérivable sur $]a,b[$ à valeurs dans $\R$ ou $\C$, \\
+    On suppose $\exists k\in R$ tel que $\forall x\in ]a,b[ ,~\mc{f'(x)} \leqslant k $\\
+    \hspace*{2cm} Alors $\mc{f(b) - f(a) } \leqslant k\mc{b-a}$ } \\
+    \traitd \paragraph{Fonction lipschitzienne}
+        On dit que \uline{$f$ est $k$-lipschitzienne sur $I$} si \[ \forall x\in ]x,y[ \in I^2 , ~\mc{f(x)-f(y)} \leqslant k \mc{x-y} \]
+        On dit que \uline{$f$ est lipschitzienne sur $I$} s'il existe $k\in \R$ tel que $f$ est $k$-lipschitzienne \trait
+    \thm{ch8P16}{Propriété}{LipCont}{Si $f$ est lipschitzienne sur $I$ alors $f$ est continue sur $I$}
+    \vspace*{0.5cm} \\ \thm{ch8P17}{Propriété}{InegAFLip}{Si $f$ est dérivable sur $I$ telle que $\forall x\in I ,~\mc{f'(x)} \leqslant k$ \\ Alors $f$ est $k$-lipschitzienne sur $I$}
+    \vspace*{0.5cm} \\ \thm{ch8P18}{Propriété}{8-P18}{Soit $f$ dérivable sur $I$ à valeurs réelles \\
+    \un $f$ est constante sur $I$ si et seulement si $f'$ est identiquement nulle sur $I$.\footnotemark[1] \\
+    \deux $f$ est croissante sur $I$ si et seulement si $f'$ est positive sur $I$. \\
+    \trois $f$ est strictement croissante sur $I$ si et seulement si \\
+    \hspace*{0.5cm} $\left\{ \ard f'$ est positive sur $I \\ $Il n'existe pas $J\subset I$ contenant deux points distincts avec $f'$ nulle sur $J \arf \right.$ }
+    \footnotetext[1]{Ceci reste vrai si $f$ est définie sur $I$ à valeurs complexes}
+    \vspace*{0.5cm} \\ \thm{ch8th9}{Théorème de la limite de la dérivée}{ThLimDer}{Soit $a\in I$. Si $f$ est continue sur $I$ et dérivable sur $I\setminus\{a\}$\\
+    On suppose $f'(x) \stox{a} \ell\in \R$ alors $f$ est dérivable en $a$ et $f'(a) = \ell$}
+    \begin{proof}
+    Pour tout $x\in I\setminus\{a\}$, il existe par le théorème des accroissements finis $c_x$ strictement compris entre $x$ et $a$ tel que $f(x)-f(a) = f'(c_x)\times (x-a)$ .\\
+    Si $x$ tend vers $a$ alors par encadrement $c_x$ tend vers $a$ et par composition de limites $f(c_x)$ tend vers $\ell$.\\
+    Ainsi $\tau_a(f)(x) \stox{a} \ell = f'(a)$
+    \end{proof}
+    ${}$ \\ \thm{ch8th9c}{Corollaire}{8-th9c}{Si $f$ est continue sur $I$ et dérivable sur $I\setminus\{a\}$ avec $\limit{x}{a} f'(x) = +\infty$ \\Alors $f$ n'est pas dérivable en $a$ et $\mathcal{C}_f$ admet une tangente verticale en $a$}
+\subsection{Fonctions de classe $\Ck ,~(k\in\N\cup\{+\infty\})$}
+    \traitd
+    \paragraph{Définitions}
+        Une fonction $f$ est dite de \uline{classe $\CO$ sur $I$} si elle est continue sur $I$.\\
+        Elle est dite de \uline{classe $\Ck$ sur $I$} si elle est $k$ fois dérivable sur $I$ et si sa dérivée $k$-ième est continue sur $I$.
+        Elle est dite de \uline{classe $\Cinf$ sur $I$} si elle est de classe $\Ck$ sur $I$ pour tout $k\in\N$ \trait
+    \thm{ch8P19}{Propriété}{ExsFCinf}{\un Les fonction polynômiales sont de classe $\Cinf$ sur $\R$. \\
+    \deux Les fonction rationnelles (quotient de fonctions polynômiales) \\sont de classe $\Cinf$ sur leur ensemble de définition.\\
+    \trois Les fonctions $\sin$ et $\cos$ sont de classe $\Cinf$ sur $\R$\\
+    \quatre Les fonction exponentielles sont de classe $\Cinf$ sur $\R$ \\
+    {\scriptsize (5)} Les fonction logarithme et puissances sont de classe $\Cinf$ sur $\R^+$ } 
+    \vspace*{0.5cm} \\ \thm{ch8P20}{Proposition}{ClasseP+Q}{Soit $f$ une fonction et $(p,q)\in \N^2$ \\
+    Alors $f$ est de classe $\cont^{p+q}$ sur $I$ si et seulement si $f^{(p)}$ est de classe $\cont^q$ sur $I$\\
+    \hspace*{2cm} On a alors $\big( f^{(p)} \big)^{^{(q)}} = f^{(p+q)}$ }
+    \vspace*{0.5cm} \\ \thm{ch8P21}{Proposition}{SommeClassCk}{Soit $k\in \N$. Soit $f,g \in \Ck(I,\R)$ \\
+    Alors $f+g \in \Ck(I,\R)$ et $(f+g)^{(k)} = f^{(k)} + g^{(k)}$}
+    \vspace*{0.5cm} \\ \thm{ch8th10}{Théorème : Formule de \textsc{Leibniz}}{FormuleLeibniz}{Soit $n\in\N$ ; soit $f$ et $g$ deux fonctions de classe $\cont^n$ sur $I$ \\
+    Alors $fg$ est de classe $\cont^n$ sur $I$ et \\
+    \hspace*{2cm} $\cm{(fg)^{(n)} = \sk{0}{n}\binom{n}{k} f^{(n)}g^{(n-k)}}$ }
+    \begin{proof}
+    Clair par récurrence sur $n$.
+    \end{proof}
+    ${}$ \\ \thm{ch8P22}{Proposition : Formule de Faa \textsc{Di Bruno}}{CompClasseCn}{Soit $n\in\N^*$, si $f$ est de classe $\cont^n$ sur $I$ à valeur dans 
+    \\ un intervalle $J$ non trivial, $g$ est de classe $\cont^n$ sur $J$ \\
+    Alors $g\circ f$ est de classe $\cont^n$ }
+    \vspace*{0.5cm} \\ \thm{ch8P22c}{Corollaire}{1/FCn}{Soit $n\in\N^*$, si $f$ et $g$ sont de classe $\cont^n$ sur $I$ avec $0\notin g_d(I)$ \\
+    \hspace*{2cm} Alors $\dfrac{1}{g}$ et $\dfrac{f}{g}$ sont de classe $\cont^n$ sur $I$}
+    \vspace*{0.5cm} \\ \thm{ch8P23}{Proposition}{BijRecCn}{Soit $n\in\N^*$, si $f$ est bijective de $I$ sur $J$ de classe $\cont^n$ sur $I$ \\
+    et si $f$ ne s'annule pas sur $I$ alors $f^{-1}$ est de classe $\cont^n$ sur $J$. } \\
+\section{Convexité}
+\subsection{Généralités}
+    \traitd
+    \paragraph{Fonction convexe}
+        Soit $f$ une fonction à valeurs réelles. On dit que \uline{$f$ est convexe sur $I$} si \[ \forall (x,y)\in I^2 ,~\forall \lambda\in [0,1],~ f\big( \lambda x+(1-\lambda)y) \leqslant\lambda f(x) + (1-\lambda- f(y) \] \trait ${}$ \vspace*{-1.5cm} \\ \traitd 
+    \paragraph{Fonction concave}
+     On dit que \uline{$f$ est concave sur $I$} si $-f$ est convexe sur $I$ \trait
+    \thm{ch8th11}{Théorème : Inégalité de \textsc{Jensen}}{InegJensen}{Si $f$ est convexe sur $I$ alors $\forall n\in\N ,~n\geqslant 2$ \\
+    $\forall (x_1,\dots ,x_n)\in I^n ,~\forall (\lambda_1, \dots ,\lambda_n )\in \R_+^n$ avec $\sk{1}{n} \lambda_k = 1$\\
+    \hspace*{2cm} $\cm{ f\Big( \si{1}{n} \lambda_ix_i \Big) \leqslant \si{1}{n} \lambda_i f(x_i) } $ }
+    \begin{proof}
+    On a le résultat par récurrence en barycentrant en divisant par $1-\lambda_{n+1}$ (cas $\lambda_n+1 = 1$ trivial) puis en appliquant la propriété au rang $2$ (inégalité de convexité)
+    \end{proof}
+    ${}$ \\ \thm{ch8P24}{Propriété : Lemme des pentes}{LemmePentes}{Soit $f: I\rightarrow \R$ on a équivalence entre les propriétés suivantes :\\
+    \un $f$ convexe sur $I$\\
+    \deux $\forall (a,b,c)\in I^3 $ avec $a<b<c$, $\frac{f(b)-f(a)}{b-a}\leqslant\frac{f(c)-f(a)}{c-a} \leqslant \frac{f(c)-f(b)}{c-b}$\\
+    \trois $\forall x_0 \in I,~ \tau_{x_0}(f)$ est croissant }
+\subsection{Fonctions convexes dérivables et deux fois dérivables}
+    ${}$ \\ \thm{ch8P25}{Proposition : Caractérisation des fonctions convexes dérivables}{CarFConvexeDer}{Soit $f$ un fonction dérivable sur $I$ alors \\
+    $f$ est convexe sur $I$ si et seulement si $f'$ est croissante sur $I$.}
+    \vspace*{0.5cm} \\ \thm{ch8P25c}{Corollaire}{CfConvexeSurTang}{Si $f$ est convexe sur $I$ alors $\mathcal{C}_f$ est située au-dessus de ses tangentes.}
+    \vspace*{0.5cm} \\ \thm{ch8P26}{Proposition}{CarFConvexe2Der}{Soit $f$ une fonction deux fois dérivable sur $I$ alors \\
+    $f$ est convexe sur $I$ si et seulement si $f''$ est positive sur $I$.}
+    \vspace*{0.5cm} \\
+    \begin{center}
+    \fin
+    \end{center}

@@ -1,1 +1,18 @@
 .DS_store
+
+# Temporary removing pdf
+*.pdf
+
+#Latex extensions
+
+*.aux
+*.fdb_latexmk
+*.fls
+*.lof
+*.log
+*.maf
+*.mtc*
+*.out
+*.synctex.gz
+*.toc
+*.tex.swp

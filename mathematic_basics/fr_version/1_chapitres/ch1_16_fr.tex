@@ -1,0 +1,140 @@
+
+% Chapitre 16 : Intégration
+
+\minitoc
+\textit{Dans tout le chapitre, $(a,b)\in\R^2$ avec $a<b$}
+	\section{Continuité uniforme}
+		\traitd
+		\paragraph{Définition}
+			Soit $I\subset\R$ intervalle et $f:I\rightarrow \R$, $f$ est dite \underline{uniformément continue sur $I$} si
+			\[ \forall \varepsilon >0 ,~\exists \delta>0 ~tel~que~\forall (x,y)\in I^2,~\big( \abs{x-y}\leq \delta \Rightarrow \abs{f(x)-f(y)}\leq 
+			\varepsilon \] \vspace*{-0.7cm} \trait
+		\thm{ch17P1}{Propriété}{LipschImplUC0}{Soit $f: I\rightarrow \R$ on a \\ {\small 1)} Si $f$ est lipschitzienne sur $I$ alors $f$ est 
+		uniformément continue sur $I$ \\ {\small 2)} Si $f$ est uniformément continue sur $I$ alors $f$ est continue sur $I$}
+		\vspace*{0.5cm} \\ \thm{ch17th1}{\highlight{Théorème de \textsc{Heine}}}{ThHeine}{Soit $(a,b)\in\R^2 ,~a<b$ \\ Si $f$ est continue sur 
+		$[a,b]$ alors $f$ est uniformément continue sur $[a,b]$.}
+		\begin{proof}
+		Par l'absurde : \\On suppose $\exists \varepsilon >0$ tel que $\forall n\in\N^* ,~\exists (x_n,y_n)\in [a,b]^2$ tq $\big( \abs{x_n-y_n} 
+		\leq \frac{1}{n}$ et $\abs{f(x_n)-f(y_n)} > \varepsilon$ \\ D'après le théorème de Bolzano-Weierstrass %(\ref{a completer}) 
+        $\exists 
+		\varphi :\N \rightarrow\N$ et $\psi : \N\rightarrow\N$ extractrices tels que $x_{\varphi(n)} \ston l \in [a,b]$ et $y_{\varphi(\psi(n))} 
+		\ston l' \in[a,b]$ donc $\abs{x_{\varphi(\psi(n))}-y_{\varphi(\psi(n))}}\leq \frac{1}{\varphi(\psi(n))} \leq \frac{1}{n}$ d'où $l=l'$ \\
+		Ainsi par continuité de $f$ on a $f(x_{\varphi(\psi(n))}) - f(y_{\varphi(\psi(n))}) \ston f(l)-f(l') = 0 >\varepsilon >0$
+		\end{proof} ${}$
+	\section{Intégrations des fonctions en escalier}
+	On note $\mathcal{Esc}([a,b],\R)$ l'ensemble des fonctions en escalier de $[a,b]$ dans $\R$.
+	\subsection{Subdivision d'un segment}
+		\traitd
+		\paragraph{Définition}
+			Une \underline{subdivision de $[a,b]$} est une suite finie strictement croissante $\sigma = (c_0=a<c_1<\cdots 
+			<c_n=b)$. \\ On note $\delta(\sigma )$ le pas de $\sigma$ définit par $\delta(\sigma)= \underset{0\leq i\leq n-1}{\mathrm{max}} 
+			(c_{i+1}-c_i)$. \\ On dit que $\sigma$ est à pas constant si la suite $(c_i)_{_{0\leq i \leq n}}$ est arithmétique. \trait
+		Soit $\sigma'$ une subdivision de $[a,b]$, on dit que $\sigma'$ est \underline{plus finie} que $\sigma$ si tout point de $\sigma$ est un 
+		point de $\sigma'$. On notera ici \highlight{$\sigma \subset \sigma'$}. \traitd
+		\paragraph{Subdivision adaptée}
+			Soit $f: [a,b] \rightarrow \R$ une fonction en escalier sur $[a,b]$, on considère $\sigma = (c_0 , \dots ,c_n)$ une subdivision de 
+			$[a,b]$. On dit que \underline{$\sigma$ est adaptée à $f$} si \[ \forall i\in\ent{0,-1} ,~\exists \lambda_i \in \R ~:~ 
+			f|_{]c_i,c_{i+1}[} = \widetilde{\lambda_i} \] \vspace*{-0.7cm} \trait
+		\thm{ch17P2}{Proposition}{EscaStable}{$\Esc$ est stable par somme, produit et passage à la valeur absolue.}
+		\traitd
+		\paragraph{Intégrale d'une fonction en escalier}
+			Soit $f \in \Esc$ ; soit $\sigma = (c_0,\dots ,c_n)$ une subdivision adaptée à $f$. \\ On appelle \underline{intégrale de $f$ sur 
+			$[a,b]$} le scalaire \[ \int_{[a,b]}  f = \sum_{i=0}^{n-1} \lambda_i (c_{i+1}-c_i)\] \vspace*{-0.7cm} \trait
+		\thm{ch17P3}{Propriétés}{17-P3}{Soit $f$ et $g$ des fonctions en escalier sur $[a,b]$ \\ {\small 1)} Si $f \geq 0$ sur $[a,b]$ alors 
+		$\int_[a,b] f \geq 0$ \\ {\small 2)} Si pour tout $x\in [a,b] ,~f(x)\geq g(x)$ alors $\int_[a,b] f \geq \int_[a,b] g$ \\ 
+		{\small 3)} $\abs{\int_[a,b] f} \ leq \int_[a,b] \abs{f} \leq (b-a) \underset{[a,b]}{\mathrm{sup}} \abs{f}$}
+		\vspace*{0.5cm} \\ \thm{ch17P4}{Proposition}{ChaslesEsc}{Soit $f\in\Esc$ et $c\in[a,b]$ alors 
+		$\int_{[a,b]} f = \int_{[a,c]} f|_{[a,c]} + \int_{[c,b]} f|_{[c,b]}$} \\
+	\section{Fonctions continues par morceaux}
+	\subsection{Généralités}
+		\traitd
+		\paragraph{Définition}
+			Soit $f : [a,b] \rightarrow \R$, on dit que $f$ est continue par morceaux sur $[a,b]$ s'il existe $\sigma = (c_0,\dots ,c_n)$ une 
+			subdivision de $[a,b]$ telle que $\forall i\in\ent{0,n-1} ,~f|_{]c_i,c_{i+1}[}$ est continue et prolongeable par continuité en $c_i$ et 
+			$c_{i+1}$. \trait \vspace*{-1.1cm} \\
+		On note $\cpm$ l'ensemble des fonctions continues par morceaux de $[a,b]$ dans $\R$.
+		\vspace*{0.5cm} \\ \thm{ch17P5}{Propriété}{CpmBornee}{Si $f\in\cpm$ alors $f$ est bornée sur $[a,b]$}
+		\vspace*{0.5cm} \\ \thm{ch17L1}{Lemme}{CpmEntreEsc}{Si $f\in\cpm$ alors $\forall \varepsilon >0,\exists (\varphi,\psi)\in\Big(\Esc\Big)^2$ 
+		telles que \\ $\forall x\in[a,b] ,~\varphi(x) \leq f(x) \leq \psi(x)$ et $\psi(x) - \varphi(x) \ leq \varepsilon $}
+		\vspace*{0.5cm} \\ \thm{ch17P6}{Propriété}{CpmStable}{$\cpm$ est stable par produit, combinaison linéraire et valeur absolue.}
+	\subsection{Intégrale d'une fonction continue par morceaux}
+		\traitd
+		\paragraph{Définition}
+			Soit $f\in\cpm$ \\On note $\mathcal{I}^+(f)=\Big\{ \int_{[a,b]} \psi ~|~\psi$ en escalier sur $[a,b]$ et $f\leq \psi \Big\} $ \\
+			Alors $\mathrm{inf}\big(\mathcal{I}^+(f)\big)$ existe, on appelle intégrale de $f$ sur $[a,b]$ notée $\int_{[a,b]} f$ cette valeur.
+			\trait\vspace*{-1.1cm} \\ 
+		\underline{Rq} : $\int_{[a,b]} f = \mathrm{inf}\big(\mathcal{I}^+(f)\big) = \mathrm{sup}\big(\mathcal{I}^-(f)\big)$
+		\vspace*{0.5cm} \\ \thm{ch17P7}{Propriété}{LineInt}{Soit $(f,g)\in\Big(\cpm\Big)^2 ~;~ (\alpha,\beta \in\R^2$ alors \\
+		$\int_{[a,b]}\alpha f+\beta g = \alpha\int_{[a,b]} f + \beta\int_{[a,b]} g$}
+		\vspace*{0.5cm} \\ \thm{ch17th2}{Théorèmes opératoires}{ThOperInt}{Soit $f,g \in\Big(\cpm\Big)^2$ on a \\ 
+		{\small 1)} Si $f\geq 0$ sur $[a,b]$ alors $\int_{[a,b]} f \geq 0$ \\ {\small 2)} Si $\forall x\in[a,b],~g(x)\geq f(x)$ alors $\int_{[a,b]} 
+		g \geq \int_{[a,b]} f$ \\ {\small 3)} $\abs{\int_{[a,b]} f} \leq \int_{[a,b]} \abs{f} \leq \underset{x\in [a,b]}{\mathrm{sup}}\abs{f(x)}$}
+		\begin{proof}
+		Clair d'après le lemme %(\ref{CpmEntreEsc})
+        .
+		\end{proof}
+		${}$ \\ \thm{ch17th3}{Théorème : Inégalité de \textsc{Cauchy-Schwartz}}{InegCauchySchwartz}{Soient $f,g\in\cpm$ alors 
+		$\Big(\int_{[a,b]} fg \Big)^2 \leq \int_{[a,b]} f^2 \times \int_{[a,b]} g^2$}
+		\begin{proof}
+		On pose $P(\lambda)=\int_{[a,b]} (\lambda f+g)^2 = \lambda^2 \int_{[a,b]} f^2 + 2\lambda \int_{[a,b]} fg + \int_{[a,b]} g^2 \geq 0$\\
+		\underline{Si $\int_{[a,b]} f^2 =0$} alors $2\int_{[a,b]} fg=0$ et l'inégalité est vrai \\
+		\underline{Sinon $\int_{[a,b]} f^2 >0$} et $\Delta = 4\Big( \big( \int_{[a,b]} fg \big)^2 - \int_{[a,b]} f^2 \times\int_{[a,b]} g^2 \leq 0$ 
+		\end{proof} \traitd
+		\paragraph{Valeur moyenne}
+			Soit $f\in\cpm$ on appelle \underline{valeur moyenne de $f$ sur $[a,b]$} le scalaire \[ \frac{1}{b-a} \int_{[a,b]} f \]\vspace*{-0.7cm}
+			\trait
+		\thm{ch17P8}{Proposition}{IntNulle}{Soit $f$ une fonction \highlight{continue sur $[ab]$} à valeur dans $\R^+$\\ On suppose $\int_{[a,b]} 
+		f=0 $ alors $f=0$}
+		\vspace*{0.5cm} \\ \thm{ch17P9}{Propriété}{EgCSLiee}{Soit $f,g\in\cpm$ alors \\ $\big(\int_{[a,b]} fg \big)^2 = \int_{[a,b]} f^2 \times 
+		\int_{[a,b]} g^2 ~\Leftrightarrow ~(f,g)$ sont liées.}
+		\vspace*{0.5cm} \\ \thm{ch17P10}{Propriété}{ChgtVarInt}{ Soit $f\in\cpm$ et $\forall u\in\R$ on pose $f_u~\appli{[a+u,b+u]}{x}{\R}{f(x-u)}$
+		\\ alors $\int_{[a+u,b+u]}f_u = \int_{[a,b]} f$}
+		\vspace*{0.5cm} \\ \thm{ch17th4}{Théorème : Relation de \textsc{Chasles}}{RelChasles}{Soit $f$ continue par morceaux sur un segment $S$ de 
+		$\R$ et $(a,b,c)\in S^3$ \\ alors $\int_a^b f(x)dx = \int_a^c f(x) dx + \int_c^b f(x) dx$}
+		\vspace*{0.5cm} \\ \thm{ch17P11}{Propriété}{IntFcImpaire}{Soit $a\in\R ~;~f\in\cont^0_pm\big([-a,a],\R\big)$, on suppose que $f$ est paire 
+		(resp. impaire) \\ alors $\int_{-a}^a f(x) dx = 2\int_0^a f(x) dx$ $\big($resp. $\int_{-a}^a f(x) dx=0\big) $}
+		\vspace*{0.5cm} \\ \thm{ch17P12}{Propriété}{IntTperio}{Soit $f$ continue par morceaux sur $I\subset\R$, on suppose que $f$ est $T$-
+		périodique \\ alors $\forall a\in I ,~\int_a^{a+T} f(x) dx = cte $ (ne dépend pas de $a$) } \\
+	\section{Sommes de \textsc{Riemman}}
+		\traitd
+		\paragraph{Définition}
+			Si $f$ est continue sur $[a,b]$ et $\sigma = (c_0,\dots ,c_n)$ est une subdivision de $[a,b]$, on appelle \underline{somme de 
+			\textsc{Riemman} associée à $f$ sur $[a,b]$} l'expression \[\si{0}{n-1} (c_{i+1} -c_i )\times f(\xi_i ) ~avec ~\xi_i\in[c_i,c_{i+1}]\] 
+			\vspace*{-0.6cm} \trait ${}$ \vspace*{-1.3cm} \traitd
+		\paragraph{Somme de \textsc{Riemman} associée}
+			Soit $f\in\cpm$ et $\sigma = (c_0,\dots c_n)$ une subdivision adaptée à $f$ sur $[a,b]$ on pose pour $i\in\ent{0,n-1} , ~\varphi_i = 
+			f|_{]c_i,c_{i+1}[}$ que l'on prolonge par continuité sur $[c_i,c_{i+1}]$. \\ On appelle \underline{somme de Riemmann associée} 
+			une somme de sommes de Riemman associées aux $\varphi_i$ \trait
+		\thm{ch17P13}{Propriété}{LimSommRiemman}{Soit $f\in\cpm$ alors $\frac{b-a}{n}\sk{0}{n-1} f\big(a+k\frac{b-a}{n} \big) ~\ston ~\int_a^b f(t) 
+		dt$ }
+	\section{Lien entre intégrales et primitives}
+		${}$\\ \thm{ch17th5}{\highlight{Théorème fondamental du calcul intégral}}{ThFondInt}{Soit $f$ un fonction continue sur un intervalle $I$ de 
+		$\R$ et $a\in I$, \\ Alors $F : x\mapsto \int_a^x f(t) dt$ est l'unique primitive de $f$ qui s'annulle en $a$.}
+		\begin{proof}
+		$F$ est bien définiesur $I$, on considère alors $c\in I$ ; soit $x\in I\backslash\{c\}$ \\ Il existe alors $\xi_x$ compris entre $x$ et $c$ 
+		tel que $\frac{F(x)-F(c)}{x-c} = f(\xi_x) \stox{c} f(c)$ par $\cont^0$ de $f$ en $c$ \\ Donc $F$ est dérivable en $c$ et $f'(c)=f(c)$
+		\end{proof}
+		${}$ \\ \thm{ch17th5c}{Corollaire}{IntDifPrim}{Pour toute primitive $F$ de $f$ sur $I$ on a $\int_a^b f(t)dt = F(b)-F(a) = [F(t)]_a^b$}
+		\vspace*{0.5cm} \\ \thm{ch17th5c2}{Corollaire}{DL1f}{Soit $f$ continue sur $I$ et $a\in I$, on suppose $f\in\cont^1(I,\R)$ \\ alors $
+		\forall x\in I ,~f(x) = f(a) + \int_a^x f'(t) dt$} \\
+	\section{Formules de \textsc{Taylor} globales}
+		${}$ \\ \thm{ch17th6}{Théorème : Formule de \textsc{Taylor} avec reste intégral}{FormTaylRstInt}{Soit $f\in\cont^{n+1}\big(I,\R\big),
+		~a\in I$ \\ Alors $\forall x\in I ,~\displaystyle{ f(x) = \sk{0}{n} \frac{(x-a)^k}{k!}f^{(k)}(a) + \int_a^x 
+		\frac{(x-t)^n}{n!} f^{(n+1)}(t) dt} $ }
+		\begin{proof}
+		Par récurrence sur $n$ : \\
+		\underline{Initialisation} : $f(x) = f(a) + \int_a^x f'(t) dt$ d'après le corollaire précédant %(\ref{DL1f}) 
+        \\
+		\underline{Hérédité} : On suppose la propriété vraie au rang $n$ et on considère $f\in\cont^{n=2}(I,\R)$. \\ Comme $f\in\cont^{n+1}(I,\R)$ 
+		on a $f(x) = \sk{0}{n} \frac{(x-a)^k}{k!}f^{(k)}(a) + \int_a^x \frac{(x-t)^n}{n!} f^{(n+1)}(t) dt $ \vspace*{0.2cm} \\ 
+		$= \sk{0}{n} \frac{(x-a)^k}{k!}f^{(k)}(a) + \big[ -\frac{(x-t)^{n+1}}{(n+1)!}f^{(n+1)}(t) \big]_a^x + \int_a^x \frac{(x-t)^{n+1}}{(n+1)!}
+		f^{(n+2)}(t) dt$ \vspace*{0.2cm} \\ $ = \sk{0}{n+1} \frac{(x-a)^k}{k!}f^{(k)}(a) + \int_a^x \frac{(x-t)^{n+1}}{(n+1)!} f^{(n+2)}(t) 
+		dt $ par IPP
+		\end{proof}
+		${}$\\ \thm{ch17th6c}{Corollaire : Inégalité de \textsc{Taylor-Lagrange}}{InegTaylLagr}{Soit $f\in\cont^{n+1}(I,\R), ~a\in I$ et $M$ un 
+		majorant de $\abs{f^{(n+1)}}$ sur $I$ \\ Alors $\forall x\in I ,~ \Big| f(x) - \sum\limits_{k=0}^n \frac{(x-a)^k}{k!} f^{(k)}(a)\Big| \leq 
+		M\times \frac{\abs{x-a}^{n+1}}{(n+1)!}$}
+		\vspace*{0.5cm} \\ 
+		\begin{center}
+		\fin
+		\end{center}
