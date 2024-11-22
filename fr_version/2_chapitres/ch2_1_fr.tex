@@ -11,10 +11,10 @@
 	
 		\vspace{-15pt}
 		\traitd
-		\paragraph{Norme} Une \emph{norme} sur $E$ est une application $N: E \rightarrow\mathbf{R}$ vérifiant : 
+		\paragraph{Norme} Une \emph{norme} sur $E$ est une application $N: E \rightarrow\R$ vérifiant : 
 			\begin{itemize}
-				\item $\forall x\in E, ~N(x) = 0_{\mathbf{R}} ~\Leftrightarrow ~x=0_E$
-				\item $\forall x\in E, ~\forall \lambda \in \mathbf{K} , ~N(\lambda .x) = \abs{\lambda}N(x)$
+				\item $\forall x\in E, ~N(x) = 0_{\R} ~\Leftrightarrow ~x=0_E$
+				\item $\forall x\in E, ~\forall \lambda \in \K , ~N(\lambda .x) = \abs{\lambda}N(x)$
 				\item $ \forall x,y \in E, ~N(x+y) \leq N(x)+N(y)$ 
 			\end{itemize}
 		\trait 
@@ -24,7 +24,7 @@
 			}
 			
 		\traitd
-		\paragraph{Distance} Une \emph{distance} sur $X$ est une application $d:X^2\rightarrow\mathbf{R}$ vérifiant:
+		\paragraph{Distance} Une \emph{distance} sur $X$ est une application $d:X^2\rightarrow\R$ vérifiant:
 			\begin{itemize}
 				\item $\forall x,y\in E, ~d(x,y) = 0 ~\Leftrightarrow ~x=y$
 				\item $\forall x,y\in E, ~d(x,y)~=~d(y,x)$
@@ -38,7 +38,7 @@
 			}
 			
 		\traitd
-		\paragraph{Boule ouverte et fermée} Soient $a\in E,~r\in\mathbf{R}$ On pose
+		\paragraph{Boule ouverte et fermée} Soient $a\in E,~r\in\R$ On pose
 			\[B(a,r) = \left\{ x\in E ~|~ d(x,a)<r\right\} \hspace*{1.5cm} B_f (a,r) = \left\{ x\in E ~|~ d(x,a) \leq r\right\}\]
 			\hspace*{0.6cm} Les \emph{boules ouverte et fermée} de centre $a$ et de rayon $r$. 
 		\trait
@@ -46,7 +46,7 @@
 		\newpage
 		
 		\traitd
-		\paragraph{Segment et ensemble convexe} Soit $E$ un $\mathbf{K}$ espace vectoriel quelconque \vspace*{0.2cm}\\
+		\paragraph{Segment et ensemble convexe} Soit $E$ un $\K$ espace vectoriel quelconque \vspace*{0.2cm}\\
 			\hspace*{0.5cm} -> Pour $(a,b)\in E^2$ on défini le \emph{segment} : $[a,b]=\left\{ (1-t)a +tb ~\vert ~t\in [0,1]\right\}$ \\
 			\hspace*{0.5cm} -> $\mathcal{C} \subset E$ est dit \emph{convexe} si $\forall (a,b)\in \mathcal{C}^2,~[a,b]\subset \mathcal{C}$
 		\trait 
@@ -57,22 +57,22 @@
 		
 
 	\subsection{Normes euclidiennes}
-		Ici $E$ est un $\mathbf{R}$ espace vectoriel muni d'un produit scalaire\footnotemark[1] 
+		Ici $E$ est un $\R$ espace vectoriel muni d'un produit scalaire\footnotemark[1] 
 		\[
-			\Phi :  \appli{E^2}{(x,y)}{\mathbf{R}}{\scal{x}{y}}
+			\Phi :  \appli{E^2}{(x,y)}{\R}{\scal{x,y}}
 		\]
 			
 		\footnotetext[1]{Un produit scalaire est une forme bilinéaire symétrique définie positive}
 		
-		On a alors par théorème\footnote[2]{Voir cours de sup} ,  $x\mapsto \sqrt{\scal{x}{x}}$ est une norme sur $E$.  
-		On notera \begin{center} \highlight{ $\norm{x}_2 = N_2(x) = \sqrt{\scal{x}{x}}$ } \end{center} 
+		On a alors par théorème\footnote[2]{Voir cours de sup} ,  $x\mapsto \sqrt{\scal{x,x}}$ est une norme sur $E$.  
+		On notera \begin{center} \highlight{ $\norm{x}_2 = N_2(x) = \sqrt{\scal{x,x}}$ } \end{center} 
 		
 		\remarque{L'inégalité triangulaire pour $\norm{.}_2$ est dite inégalité de \emph{Minkovsky}} \medskip
 			
-		\theorem{lem}{Si $E=\mathbf{C}^n ,~z=\left(z_1,\dots ,z_n\right) ~, ~N(z) = \sqrt{\sum\limits_{k=1}^n\abs{z_k}^2}$ est une norme
+		\theorem{lem}{Si $E=\C^n ,~z=\left(z_1,\dots ,z_n\right) ~, ~N(z) = \sqrt{\sum_{k=1}^n\abs{z_k}^2}$ est une norme
 			} \medskip
 		
-		\theorem{lem}{$E = \cont^0\left([a,b],\mathbf{C}\right)$ Soit $f\in E$ on pose \\
+		\theorem{lem}{$E = \cont^0\left([a,b],\C\right)$ Soit $f\in E$ on pose \\
 			$N(f) = \sqrt{\int_a^b \abs{f(x)}^2\mathrm{d}x}$ \hspace*{1cm} alors $N$ est une norme sur $E$
 			} \medskip
 			
@@ -81,22 +81,22 @@
 
 		\paragraph{Norme $N_{\infty}$ :} ~
 		
-			Dans $E=K^n$ soit $x=(x_1,\dots ,x_n) ,~ N_{\infty}(x) = 
-			\underset{i\in\ent{1,n}}{\mathrm{max}} \abs{x_i}$
+			Dans $E=\K^n$ soit $x=(x_1,\dots ,x_n) ,~ N_{\infty}(x) = 
+			\underset{i\in\ent{1,n}}{\max} \abs{x_i}$
 		
-			Dans $E=\cont^0([a,b],K)$ soit $f\in E,~N_{\infty} (f) = \underset{x\in [a,b]}{\mathrm{sup}} \abs{f(x)}$
+			Dans $E=\cont^0([a,b],\K)$ soit $f\in E,~N_{\infty} (f) = \underset{x\in [a,b]}{\sup} \abs{f(x)}$
 			
 		\paragraph{Norme $N_1$ :} ~
 
-			Dans $E=K^n$ soit $x=(x_1,\dots ,x_n) ,~ N_1(x) = \sum_{i=1}^n \abs{x_i} $
+			Dans $E=\K^n$ soit $x=(x_1,\dots ,x_n) ,~ N_1(x) = \sum_{i=1}^n \abs{x_i} $
 			
-			Dans $E=\cont^0([a,b],K)$ soit $f\in E,~N_1 (f) = \int_a^b \abs{f(x)} \mathrm{d}x$
+			Dans $E=\cont^0([a,b],\K)$ soit $f\in E,~N_1 (f) = \int_a^b \abs{f(x)} \mathrm{d}x$
 			
 		\paragraph{Norme $N_2$ :} ~
 
-			Dans $E=K^n$ soit $x=(x_1,\dots ,x_n) ,~ N_2(x) = \sqrt{\sum_{i=1}^n x_i^{~2}} $
+			Dans $E=\K^n$ soit $x=(x_1,\dots ,x_n) ,~ N_2(x) = \sqrt{\sum_{i=1}^n x_i^{~2}} $
 			
-			Dans $E=\cont^0([a,b],K)$ soit $f\in E,~N_2 (f) = \sqrt{\int_a^b \left( f(x)\right)^2 \mathrm{d}x}$
+			Dans $E=\cont^0([a,b],\K)$ soit $f\in E,~N_2 (f) = \sqrt{\int_a^b \left( f(x)\right)^2 \mathrm{d}x}$
 		
 		\medskip
 
@@ -106,12 +106,12 @@
 		\vspace{-15pt}
 		\traitd 
 		\paragraph{Suite convergente}	
-			Soit $u=\left( u_n\right)_{_{n\in\mathbf{N}}} \in E^{\mathbf{N}}$ et $\ell\in E$.
+			Soit $u=\left( u_n\right)_{_{n\in\N}} \in E^{\N}$ et $\ell\in E$.
 			On dit que $u$ converge vers $\ell$ et on note 
 			\[
 				u_n \underset{n\rightarrow +\infty}{\longrightarrow} \ell ~\mathrm{ssi}~\forall 
-				\varepsilon >0 ,~\exists n_0 \in \mathbf{N} ~:~ \forall n\geq n_0,~d(u_n ,\ell) <\varepsilon
-			\vspace{-25pt}
+				\varepsilon >0 ,~\exists n_0 \in \N ~:~ \forall n\geq n_0,~d(u_n ,\ell) <\varepsilon
+			\vspace{-15pt}
 			\] 
 		\trait 
 			
@@ -123,25 +123,25 @@
 		\begin{proof}
 			Par l'absurde, on suppose $\ell_1\neq \ell_2$.\\
 			Soit $\varepsilon = \frac{1}{2} d(\ell_1,\ell_2) >0$
-			On a alors $\ard n_1 \in \mathbf{N} ~:~\forall n\geq n_1 ,~d(u_n,\ell_1) < \varepsilon \\  
-			n_2 \in \mathbf{N} ~:~\forall n\geq n_2 ,~d(u_n,\ell_2) < \varepsilon \arf $  et soit $p=max(n_1,n_2)$ \vspace*{0.1cm}\\
+			On a alors $\ard n_1 \in \N ~:~\forall n\geq n_1 ,~d(u_n,\ell_1) < \varepsilon \\  
+			n_2 \in \N ~:~\forall n\geq n_2 ,~d(u_n,\ell_2) < \varepsilon \arf $  et soit $p=max(n_1,n_2)$ \vspace*{0.1cm}\\
 			$d(\ell_1,\ell_2) \leq d(\ell_1,u_p) + d(\ell_2,u_p) < 2\varepsilon = d(\ell_1,\ell_2)$  \emph{impossible}
 		\end{proof} \medskip
 		
 		\theorem{lem}{
-			Soit $\left(u_n\right) _{_{n\in \mathbf{N} }} \in E^{\mathbf{N}} ,~\ell\in E $\hspace*{0.2cm} 
+			Soit $\left(u_n\right) _{_{n\in \N }} \in E^{\N} ,~\ell\in E $\hspace*{0.2cm} 
 			Alors $u_n \underset{n}{\rightarrow} \ell ~\Leftrightarrow ~\norm{u_n - \ell} \underset{n}{\rightarrow} 0$
 		}
 		
 		\begin{proof}
 			Notons $v_n = \norm{u_n-\ell}$ et $\lambda = 0$
 			Alors $d(u_n,\ell) = \norm{u_n - \ell} = v_n = \norm{v_n - \lambda} = d(v_n,\lambda )$ \\
-			or $u_n \underset{n}{\rightarrow} \ell$ \emph{ssi} : $\forall \varepsilon >0 ,~\exists n_0 \in \mathbf{N} ~:~ 
+			or $u_n \underset{n}{\rightarrow} \ell$ \emph{ssi} : $\forall \varepsilon >0 ,~\exists n_0 \in \N ~:~ 
 			\forall n\geq n_0,~d(u_n ,\ell) <\varepsilon ~\Rightarrow ~ d(v_n,\lambda)<\varepsilon ~\Rightarrow ~ v_n \underset{n}{\rightarrow} 0$
 		\end{proof} \medskip
 
 		\theorem{lem}{
-			Soient $u_n ,~v_n \in E^{\mathbf{N}} ~$ et $ \lambda\in K$ si on a 
+			Soient $u_n ,~v_n \in E^{\N} ~$ et $ \lambda\in K$ si on a 
 			$u_n \underset{n}{\rightarrow} \alpha$ et $v_n \underset{n}{\rightarrow} \beta$\\ 
 			\hspace*{0.2cm} Alors $\lambda u_n + v_n \underset{n}{\rightarrow} \lambda\alpha + \beta$
 		} \medskip
@@ -151,13 +151,13 @@
 		}{InegTriRenv}
 
 		\begin{proof}
-			$N(x)\leq N(x-y) + N(y) \Rightarrow ~ \underbrace{N(x) - N(y)}_{t\in \mathbf{R}} \leq N(x-y)$\\
+			$N(x)\leq N(x-y) + N(y) \Rightarrow ~ \underbrace{N(x) - N(y)}_{t\in \R} \leq N(x-y)$\\
 			On conclut alors par agument de symétrie.
 		\end{proof} \medskip
 
 			
 		\theorem{lem}{
-			Soit $u_n \in E^{\mathbf{N}} ,~\alpha\in K$ 
+			Soit $u_n \in E^{\N} ,~\alpha\in K$ 
 			on a $u_n\underset{n}{\rightarrow} \alpha ~\Rightarrow ~ \norm{u_n}\underset{n}{\rightarrow}\norm{\alpha}$ 
 		} \\
 		{\small \emph{Attention !} La réciproque est fausse !}
@@ -166,12 +166,12 @@
 		
 		\traitd
 		\paragraph{Suite bornée}
-			Soit $\left(u_n\right)_{n\in\mathbf{N}} \in E^{\mathbf{N}}$ on dit que $\left(u_n\right)$ est bornée si
-			$\exists M \in \mathbf{R} ~:~ \forall n\in\mathbf{N} ,~\norm{u_n}\leq M$. 
+			Soit $\left(u_n\right)_{n\in\N} \in E^{\N}$ on dit que $\left(u_n\right)$ est bornée si
+			$\exists M \in \R ~:~ \forall n\in\N ,~\norm{u_n}\leq M$. 
 		\trait
 
 		\theorem{lem}{
-			Toute suite $\left(u_n\right)_{n\geq 0} \in E^{\mathbf{N}}$ convergente est bornée
+			Toute suite $\left(u_n\right)_{n\geq 0} \in E^{\N}$ convergente est bornée
 		} \medskip
 
 		\theorem{lem}{
@@ -181,8 +181,8 @@
 		
 		\traitd
 		\paragraph{Suite extraite}
-			Soit $u \in E^{\mathbf{N}}$ on appelle \emph{suite extraite} (ou sous-suite) de $u$ toute suite
-			$\left(u_{\varphi (n)}\right)_{n\in \mathbf{N}}$ où $\varphi : \mathbf{N} \rightarrow \mathbf{N}$ 
+			Soit $u \in E^{\N}$ on appelle \emph{suite extraite} (ou sous-suite) de $u$ toute suite
+			$\left(u_{\varphi (n)}\right)_{n\in \N}$ où $\varphi : \N \rightarrow \N$ 
 			est une extractrice (injection croissante) \\ \textit{\small NB : en fait $\left(v_n\right)_{n\geq0} = 
 			\left(u_{\varphi (n)} \right)_{n\geq 0} ~\Leftrightarrow ~v= u\circ\varphi$} 
 		\traitdouble
@@ -192,15 +192,15 @@
 		\trait
 		
 		\theorem{thm}{
-			Soit $u\in E^{\mathbf{N}}$ si $u$ \\
+			Soit $u\in E^{\N}$ si $u$ \\
 			converge vers $\ell\in K$ 
 			alors toute suite extraite de $u$ converge vers $\ell$
 		}
 		
 		\begin{proof}
-			Soit $\varphi : \mathbf{N} \rightarrow \mathbf{N}$ une extractrice et 
+			Soit $\varphi : \N \rightarrow \N$ une extractrice et 
 			$\left(v_n\right)_{n\geq 0} = \left(u_{\varphi (n)} \right)_{n\geq 0}$ \\
-			Soit $\varepsilon >0$ et $ n_0 \in\mathbf{N} ~:~ \forall n\geq n_0 ,~d(u_n ,\ell)<\varepsilon$ 
+			Soit $\varepsilon >0$ et $ n_0 \in\N ~:~ \forall n\geq n_0 ,~d(u_n ,\ell)<\varepsilon$ 
 			donc $\varphi (n) \geq n_0$ et ainsi $d\left( u_{\varphi (n)},\ell\right)<\varepsilon$ et $v_n \underset{n}{\rightarrow} \ell$
 		\end{proof} \medskip
 
@@ -215,21 +215,21 @@
 		
 	\vspace{-15pt}
 		\traitd \vspace{-7pt}~\\
-			Soit $E$ un $K$ espace vectoriel, $N$ et $N'$ deux normes sur $E$.
-			$N$ et $N'$ sont dites \\équivalentes ($N\sim N'$) si $\exists \alpha ,\beta \in \mathbf{R} ~:~ \alpha N \leq N'\leq \beta N$
+			Soit $E$ un $\K$ espace vectoriel, $N$ et $N'$ deux normes sur $E$.
+			$N$ et $N'$ sont dites \\équivalentes ($N\sim N'$) si $\exists \alpha ,\beta \in \R ~:~ \alpha N \leq N'\leq \beta N$
 		\trait
 
 		\vspace{-10pt}
 		\remarque{On peut aussi l'écrire $	N'\leq \beta N$ et $N\leq \frac{1}{\alpha} N'$\\} 
 		
 		\theorem{lem}{
-			Soit $N,N'$ des normes équivalentes sur $E$, $u\in E^{\mathbf{N}} ,~\ell\in E$ alors\\
+			Soit $N,N'$ des normes équivalentes sur $E$, $u\in E^{\N} ,~\ell\in E$ alors\\
 			1) $u_n \underset{n}{\rightarrow}\ell$ dans $(E,N)$ $\Leftrightarrow$ $u_n \underset{n}{\rightarrow}\ell$ dans $(E,N')$ \\
 			2) $u$ est bornée dans $(E,N)$ $ \Leftrightarrow$ $u$ est bornée dans $(E,N')$
 		}\label{1.3.1} \medskip
 		
 		\theorem{lem}{
-			Sur $K^n$, $N_1$, $N_2$ et $N_{\infty}$ sont équivalentes et plus précisément
+			Sur $\K^n$, $N_1$, $N_2$ et $N_{\infty}$ sont équivalentes et plus précisément
 			\\ \hspace*{2cm} $N_{\infty} \leq N_1 \leq \sqrt{n}N_2 \leq nN_{\infty}$
 		} \medskip
 
@@ -240,13 +240,13 @@
 			libre et génératrice, c'est alors une base de $E$.} \medskip
 			
 		\theorem{thm}{
-			Sur un $K$-ev de dimension finie, 
+			Sur un $\K$-ev de dimension finie, 
 			toutes les normes sont équivalentes.
 		} \\
 		\textit{\small Sera démontré ultérieurement.} \\
 
 		\theorem{cor}{
-			Dans un $K$ espace vectoriel de dimension finie, 
+			Dans un $\K$ espace vectoriel de dimension finie, 
 			la notion de convergence \\
 			ne dépend pas de la norme.
 		} \\ 
@@ -254,15 +254,15 @@
 
 		\theorem{lem}{
 			Soit $E$ de dimension finie et $e = (e_1,\dots ,e_p)$ une base de $E$. \\
-			Soit $\left(x_n\right)_{n\geq 0} \in E^{\mathbf{N}}$ et $\alpha \in E$.
+			Soit $\left(x_n\right)_{n\geq 0} \in E^{\N}$ et $\alpha \in E$.
 			On écrit $\left\{\ard x_n = x_{1,n}e_1 + \cdots + x_{p,n}e_p \\ \alpha = \alpha_1e_1 + \cdots + \alpha_pe_p \arf\right.$\\
 			On a alors $x_n \underset{n}{\rightarrow} \alpha ~\Leftrightarrow ~\forall k \in \ent{1,p} ,~x_{k,n} \underset{n}{\rightarrow} \alpha_k$
 		} \medskip
 		
 		\theorem{thm}{
-			Soient $p,q,r \in \mathbf{N}^*$
-			\hspace*{0.3cm}$\left\{\begin{array}{ll} A_n \underset{n}{\rightarrow} A & dans~\mathcal{M}_{p,q}\left(\mathbf{R}\right) \\ 
-			B_n \underset{n}{\rightarrow} B & dans~\mathcal{M}_{q,r}\left(\mathbf{R}\right) \end{array}\right.$ \hspace*{0.3cm}
+			Soient $p,q,r \in \N^*$
+			\hspace*{0.3cm}$\left\{\begin{array}{ll} A_n \underset{n}{\rightarrow} A & dans~\mathcal{M}_{p,q}\left(\R\right) \\ 
+			B_n \underset{n}{\rightarrow} B & dans~\mathcal{M}_{q,r}\left(\R\right) \end{array}\right.$ \hspace*{0.3cm}
 			Alors $A_nB_n \underset{n}{\rightarrow} AB$
 		}
 		
@@ -276,19 +276,21 @@
 
 \section{Comparaisons asymptotiques}
 	
-		Soient $\left(u_n\right)_{n\geq n_0} ,\left(v_n\right)_{n\geq n_0} \in \mathbf{C}^{\mathbf{N}}$ 
+		Soient $\left(u_n\right)_{n\geq n_0} ,\left(v_n\right)_{n\geq n_0} \in \C^{\N}$ 
 		
 		\vspace{-10pt}
 		\traitd
 		\paragraph{Négligeabilité}
-			On dit que $u_n$ est négligeable devant $v_n$ quand $n\rightarrow +\infty$ noté $u_n \underset{n\rightarrow +\infty}{=} \circ (v_n)$ s'il existe $n_0 \in \mathbf{N}$ et $\left(\delta_n\right)_{n\geq n_0}$ tel que
+			On dit que $u_n$ est négligeable devant $v_n$ quand $n\rightarrow +\infty$ noté \\
+			$u_n \underset{n\rightarrow +\infty}{=} \circ (v_n)$ s'il existe $n_0 \in \N$ et $\left(\delta_n\right)_{n\geq n_0}$ tel que
 			\begin{itemize}
 				\item $\forall n\geq n_0 ,~u_n = \delta_nv_n$
 				\item $\delta_n \underset{n\rightarrow +\infty}{\longrightarrow} 0$
 			\end{itemize}
 		\traitdouble
 		\paragraph{Domination}
-			On dit que $u_n$ est dominée par $v_n$ quand $n\rightarrow +\infty$ noté $u_n \underset{n\rightarrow +\infty}{=} \bigcirc (v_n)$ s'il existe $n_0 \in \mathbf{N}$ et $\left(B_n\right)_{_{n\geq n_0}}$ tel que
+			On dit que $u_n$ est dominée par $v_n$ quand $n\rightarrow +\infty$ noté \\
+			$u_n \underset{n\rightarrow +\infty}{=} \bigcirc (v_n)$ s'il existe $n_0 \in \N$ et $\left(B_n\right)_{_{n\geq n_0}}$ tel que
 			\begin{itemize}
 				\item $\forall n\geq n_0 ,~u_n = B_nv_n$ 
 				\item $\left( B_n \right)_{_{n\geq n_0}}$ est bornée
@@ -305,13 +307,13 @@
 
 		\remarque{$u_n \sim v_n ~\Leftrightarrow ~u_n = v_n + \circ (v_n)$}
 		
-\section{Séries dans un K espace vectoriel de dimension finie}
+\section{Séries dans un $\K$ espace vectoriel de dimension finie}
 		
 		\remarque{On note par abus " $dim E < \infty$ "}
 		
 		Le cas scalaire est abordé en MPSI. \\
 
-		Soit $u = (u_n) \in E^{\mathbf{N}}$ ; pour $n \in \mathbf{N}$ on pose $U_n = \sum_{k=1}^{n} u_k$. 
+		Soit $u = (u_n) \in E^{\N}$ ; pour $n \in \N$ on pose $U_n = \sum_{k=1}^{n} u_k$. 
 		
 		\newpage
 		
@@ -337,23 +339,23 @@
 		\namedtheorem{Théorème : Reste d'une série convergente}{
 			On suppose $\sum u_n$ converge, on note $S = \suminf u_n$ \\
 			la "limite de la somme" et $R_n = \sum_{k=n+1}^{+\infty} u_k$ le "reste d'ordre $n$". \\
-			Alors $\left\vert \ard \forall n\in \mathbf{N}$, $S=U_n + R_n \\ R_n \to 0 \arf \right.$
+			Alors $\left\vert \ard \forall n\in \N$, $S=U_n + R_n \\ R_n \to 0 \arf \right.$
 		}{RestSérie}
 			
 		\begin{proof}
-			bien-fondé ?\\Soit $n\in\mathbf{N}$ pour $m\geq n+1$, $\sum_{k=n+1}^{m} u_k = U_m - U_n \underset{m}{\rightarrow} S-U_n$ donc $R_n$ existe 
+			bien-fondé ?\\Soit $n\in\N$ pour $m\geq n+1$, $\sum_{k=n+1}^{m} u_k = U_m - U_n \underset{m}{\rightarrow} S-U_n$ donc $R_n$ existe 
 			avec $R_n = S-U_n$ \\d'où $S=U_n+R_n$ 
 			puis $R_n = S-U_n \to S-S=0$
 		\end{proof} \medskip
 		
 		\theorem{lem}{
-			Soit $(u_n) ,~ (v_n) ~\in E^{\mathbf{N}}$ et $\lambda\in K$\\
+			Soit $(u_n) ,~ (v_n) ~\in E^{\N}$ et $\lambda\in \K$\\
 			On suppose que $\sum u_n$ et $\sum v_n$ convergent alors : \\ \hspace*{2cm} -> $\sum \lambda u_n + v_n$ converge \\
 			\hspace*{2cm} -> $\suminf \lambda u_n + v_n = \lambda \suminf u_n + \suminf v_n$
 		}
 		
 		\traitd
-		\paragraph{Convergence absolue} Soit $(u_n) ~\in E^{\mathbf{N}}$ on dit que $\sum u_n$ \emph{converge absolument} 
+		\paragraph{Convergence absolue} Soit $(u_n) ~\in E^{\N}$ on dit que $\sum u_n$ \emph{converge absolument} 
 			\\ si $\sum \norm{u_n}$ converge.
 		\trait 
 		
@@ -362,7 +364,7 @@
 		\remarque{Vu $dimE < \infty$, ceci ne dépend pas du choix de la norme} \medskip
 		
 		\theorem{thm}{
-			Dans un $K$ espace vectoriel de \emph{dimension finie}, 
+			Dans un $\K$ espace vectoriel de \emph{dimension finie}, 
 			toute série absolument \\ convergente est convergente {\small " CVA $\Rightarrow$ CV "}
 		} \medskip \\ \textit{\small Sera démontré ultérieurement.}\footnote[1]{ 
 			TODO : add ref	
@@ -371,13 +373,13 @@
 		\emph{Attention !} Faux dans un EVN quelconque ! \\
 			
 		\theorem{lem}{
-			Soit $(E,N)$ un $K$ espace vectoriel normé de dimension finie \\ On supposons que 
+			Soit $(E,N)$ un $\K$ espace vectoriel normé de dimension finie \\ On supposons que 
 			$\sum u_n$ CVA. Alors $\norm{\suminf u_n} \leq \suminf \norm{u_n}$
 		} \medskip
 		
 \section{Complément sur les séries numériques}
 
-		\rappel{Soit $z\in \mathbf{C}$ alors $\sum z^n$ CV $ \Rightarrow$ $\abs{z} <1$}
+		\rappel{Soit $z\in \C$ alors $\sum z^n$ CV $ \Rightarrow$ $\abs{z} <1$}
 
 		\hspace*{2.5cm} -> Lorsque $\abs{z} < 1$ on a \highlight{$\suminf z^n = \frac{1}{1-z}$}
 		
@@ -387,20 +389,20 @@
 	
 		\medskip
 		\namedtheorem{Théorème : Règle de \emph{Dalembert}}{
-			Soit $(u_n) \in\left(\mathbf{C}^*\right)^{\mathbf{N}}$ \\
-			On suppose l'existence de $\ell \in \mathbf{R}\cup \{+\infty \}$ tel que $\abs{\frac{u_{u+1}}{u_n}} \to \ell$ \\
+			Soit $(u_n) \in\left(\C^*\right)^{\N}$ \\
+			On suppose l'existence de $\ell \in \R\cup \{+\infty \}$ tel que $\abs{\frac{u_{u+1}}{u_n}} \to \ell$ \\
 			\emph{Alors} : \hspace*{11pt} {\small 1)} $\ell<1~\Rightarrow~\sum u_n$ CVA \\ 
 			\hspace*{50pt} {\small 2)} $\ell>1~\Rightarrow~\sum u_n$ DVG
 		}{RglDalemb}
 
 		\begin{proof}
 			{\small 1)} On suppose $\ell<1$ et on note $r_n = \abs{\frac{u_{u+1}}{u_n}}$. On pose $\theta \in [\ell,1] $ et $\varepsilon = \theta -\ell$
-			On a alors \\ $\exists n_0 \in \mathbf{N} ~:~ \forall n\geq n_0 ,~\abs{r_n -\ell} <\varepsilon$  soit en particulier $r_n < \ell+\varepsilon 
+			On a alors \\ $\exists n_0 \in \N ~:~ \forall n\geq n_0 ,~\abs{r_n -\ell} <\varepsilon$  soit en particulier $r_n < \ell+\varepsilon 
 			=\theta$ Ainsi $\forall n\geq n_0 ,~\abs{u_{n+1}} < \theta\abs{u_n}$ \\ et $ \abs{u_n} \leq \theta^{n-n_0} \abs{u_{n_0}}$ {\small (REC) }
 			On a alors $\forall n\geq n_0 ,~\abs{u_n} \leq \underbrace{\theta^{-n_0} \abs{u_{n_0}}}_{\mathrm{cte}} \theta^n$ 
 			or $\sum\theta^n$ converge car $\theta \in ]0,1[$ \\donc par théorème de comparaison $\sum \abs{u_n} $ converge.
-			\vspace*{0.2cm}\\ {\small 2)} On suppose $\ell>1$ et on fixe $\theta \in \mathbf{R}$ tel que $ 1<\theta <\ell$, 
-			on a alors $\exists n_0 \in \mathbf{N} ~:~\forall n\geq n_0 ,~r_n > \theta$ (\dots)\\
+			\vspace*{0.2cm}\\ {\small 2)} On suppose $\ell>1$ et on fixe $\theta \in \R$ tel que $ 1<\theta <\ell$, 
+			on a alors $\exists n_0 \in \N ~:~\forall n\geq n_0 ,~r_n > \theta$ (\dots)\\
 			on obtient $\abs{u_n} \to +\infty$ donc $u_n \underset{n}{\nrightarrow} 0$ donc $\sum u_n$ DVG
 		\end{proof} \medskip 
 		
@@ -410,8 +412,8 @@
 		\vspace{-15pt}
 		\traitd
 		\paragraph{Défnition}
-			La série réelle $\sum u_n$ est dite \emph{alternée} si $\left\{\ard \forall n\in \mathbf{N} ,~u_n = (-1)^n \abs{u_n} \\
-			\forall n\in\mathbf{N},~u_n = (-1)^{n+1} \abs{u_n} \arf\right.$ 
+			La série réelle $\sum u_n$ est dite \emph{alternée} si $\left\{\ard \forall n\in \N ,~u_n = (-1)^n \abs{u_n} \\
+			\forall n\in\N,~u_n = (-1)^{n+1} \abs{u_n} \arf\right.$ 
 		\trait
 	
 		\namedtheorem{Théorème : Critère spécial des série alternées}{
@@ -419,7 +421,7 @@
 			{\small 1)} $\sum u_n$ est alternée \\ 
 			{\small 2)} $u_n \rightarrow 0 $ \\
 			{\small 3)} $\left( \abs{u_n}\right)_{n\geq 0}$ décroit.  \\
-			alors \highlight{$\sum u_n$ converge } et de plus, $\forall n\in \mathbf{N}$ \\
+			alors \highlight{$\sum u_n$ converge } et de plus, $\forall n\in \N$ \\
 			-> $\abs{R_n} \leq \abs{u_{n+1}}$ \\
 			-> $R_n$ et $u_{n+1}$ ont le même signe \\ 
 			-> $S$ est compris entre $U_n$ et $U_{n+1}$ 
@@ -428,7 +430,7 @@
 	\subsection{Sommation des relations de comparaisons}
 			
 		\namedtheorem{Théorème : Cas convergent}{
-			Soit $(u_n) ,~(v_n) \in\mathbf{R}^{\mathbf{N}}$ 
+			Soit $(u_n) ,~(v_n) \in\R^{\N}$ 
 			et $v_n\geq 0,~\forall n\geq n_0$. On suppose que \\
 			$\sum u_n$ et $\sum v_n$ converge et on pose $R_n =\sum_{k=n+1}^{+\infty} u_n$ 
 			et $R'_n =\sum_{k=n+1}^{+\infty} v_n$ \\ 
@@ -439,7 +441,7 @@
 		}{SumCompCV} \medskip
 		
 		\namedtheorem{Théorème : Cas divergent}{
-			Soit $(u_n) ,~(v_n) ~\in\mathbf{R}^{\mathbf{N}}$ 
+			Soit $(u_n) ,~(v_n) ~\in\R^{\N}$ 
 			et $v_n\geq 0,~\forall n\geq n_0$. On suppose que \\
 			$\sum u_n$ et $\sum v_n$ diverge et on note $U_n = \sum_{k=0}^{n} u_n$ 
 			et $V_n = \sum_{k=0}^{n} v_n$ \\
@@ -450,8 +452,8 @@
 		}{SumCompDV} \medskip
 			
 		\namedtheorem{Théorème de \emph{Cesàro}}{
-			Soit $(u_n) \in\mathbf{R}^{\mathbf{N}}$\\
-			{\small 1)} Si $u_n \to \lambda$ avec $\lambda \in\mathbf{R}$, alors $\frac{1}{n+1} \sum_{k=0}^{n} u_k \to \lambda$ \\
+			Soit $(u_n) \in\R^{\N}$\\
+			{\small 1)} Si $u_n \to \lambda$ avec $\lambda \in\R$, alors $\frac{1}{n+1} \sum_{k=0}^{n} u_k \to \lambda$ \\
 			{\small 2)} Si $u_n \to +\infty$ alors $\frac{1}{n+1} \sum_{k=0}^{n} u_k \to +\infty$
 		}{THMCesaro}
 			
@@ -460,7 +462,7 @@
 			et d'après le théorème de sommation en cas divergent \\ $\sum_{k=0}^{n} u_k - \lambda = \circ ( \sum_{k=0}^{n} 1 ) ~
 			\Rightarrow ~\frac{1}{n+1} ( \sum_{k=0}^{n} u_k ) - \lambda \to 0$ \\
 			{\small 2)} Supposons $u_n \to +\infty$ et posons $a_n = \frac{1}{n+1} \sum_{k=0}^{n} u_k$
-			Soit $A\in\mathbf{R}$ et $A'=A+1$ \\ Soit $n_0 \in\mathbf{N} ~:~\forall n\geq n_0 ,~u_n >A'$ , puis pour $n\geq n_0$ avec $C = \sk{0}{n_0-1} u_k$ :\\
+			Soit $A\in\R$ et $A'=A+1$ \\ Soit $n_0 \in\N ~:~\forall n\geq n_0 ,~u_n >A'$ , puis pour $n\geq n_0$ avec $C = \sk{0}{n_0-1} u_k$ :\\
 			$a_n = \frac{1}{n+1} ( C + \sum_{k=n_0}^{n} u_k)$ 
 			donc $a_n > \frac{C}{n+1} + A'\frac{n+1-n_0}{n+1} = A' + \frac{C-n_0A'}{n+1}$ \\ 
 			Soit $n_1\geq n_0$ tel que $\forall n\geq n_1 ,~\abs{\frac{C-A'n_0}{n+1}} <1$ alors $\forall n\geq n_1 ,~a_n > A$ d'où $a_n \to +\infty$
@@ -473,7 +475,7 @@
 		\traitd
 		\paragraph{Produit de \emph{Cauchy}}
 			Soient $\sum u_n$ et $\sum v_n$ des séries quelconques (convergentes ou non) de nombres complexes.\\
-			On pose $\forall n \in \mathbf{N}$ : $w_n = \sum\limits_{i+j=n} u_i v_j = \sum_{k=0}^{n} u_k v_{n-k}$ (somme finie !) \\
+			On pose $\forall n \in \N$ : $w_n = \sum\limits_{i+j=n} u_i v_j = \sum_{k=0}^{n} u_k v_{n-k}$ (somme finie !) \\
 			La série $\sum w_n$ est appelée \emph{produit de \emph{Cauchy}} de $\sum u_n$ et $\sum v_n$.
 		\trait
 				
@@ -498,8 +500,8 @@
 		
 		\textit{Toute suite peut-être envisagée comme une série}
 			
-		Ici $(E,N)$ est un EVN de dimension finie.\\${}$ \\On pose $\forall n\in\mathbf{N}^* ~~ \left\{ \ard  b_0 = a_0 \\ b_n = a_n - a_{n-1} \arf
-			\right.~~$ On a alors pour $n\in \mathbf{N}$ \\
+		Ici $(E,N)$ est un EVN de dimension finie.\\${}$ \\On pose $\forall n\in\N^* ~~ \left\{ \ard  b_0 = a_0 \\ b_n = a_n - a_{n-1} \arf
+			\right.~~$ On a alors pour $n\in \N$ \\
 			\[ \sum_{k=0}^{n} b_k = b_0 + \sum_{k=1}^{n} (a_k - a_{k-1} ) = a_0 +a_n - a_0 = a_n ~~~~\mathrm{soit} ~~~~ a_n = \sum_{k=0}^{n} b_k\]
 			On sait ensuite que $(a_n)$ converge si et seulement si $\sum b_k$ converge donc 
 			

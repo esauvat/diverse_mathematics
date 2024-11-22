@@ -44,7 +44,7 @@
 			\item $\int_{\underline{a}}^b f(t) dt$ converge $\Leftrightarrow ~F$ est majorée.
 			\item Lorsque $\int_{\underline{a}}^b f(t) dt$ diverge on a $F(x) \stox{b} +\infty$. \footnotemark[1]
 		\end{itemize}
-	} \medskip
+	}\label{l512} \medskip
 		
 	\footnotetext[1]{On écrira dans ce cas $\int_a^b f(t) dt = +\infty$}
 		
@@ -53,13 +53,13 @@
 		\[
 			\int_a^{\underline{b}} g \text{ converge } \Rightarrow ~\int_a^{\underline{b}} f \text{ converge }
 		\] 
-	}{ThCompFcPos}
+	}{ThCompFcPos}\label{ThCompFcPos}
 	
 	\begin{proof}
 		On note $\forall x\in[a,b[ ,~F(x) = \int_a^x f(t) dt$ et $G(x) = \int_a^x g(t) dt$ \\
 		\hspace*{0.5cm} $\left|\ard$ \underline{Supposons $\int_a^b g$ converge}, soit donc $\mu\in\R$ tel que $G\leq\mu \\
 		$ Alors $\forall x\in[a,b[,~F(x) = \int_a^x f(t) dt \leq \int_a^x g(t) dt = G(x) \leq \mu \arf \right.$ \\
-		Ainsi $F$ est majorée et par le Lemme 5.1.2 $\int_a^{\underline{b}} f$ converge
+		Ainsi $F$ est majorée et par le Lemme 5.2.1 (\Cpageref{l512}) $\int_a^{\underline{b}} f$ converge
 	\end{proof} \medskip
 	
 	\theorem{thm}{
@@ -155,7 +155,7 @@
 		Donc $\int_a^{\uline{b}} f^+ - f^- = \int_a^{\uline{b}} f$ converge.\\
 		\fbox{Cas complexe} Soit $f\in\cpm\big([a,b],\C\big)$ telle que $\int_a^{\uline{b}} \abs{f}$ converge avec $f=u+\imath v$ alors \\ 
 		On a $0\leq\abs{u}\leq\abs{f}$ donc $\int_a^{\uline{b}} \abs{u}$ converge et d'après le cas réel $\int_a^{\uline{b}} u$ converge.\\
-		De même $\int_a^{\uline{b}} v$ converge et avec le Lemme 5.1.6 on a $\int_a^{\uline{b}} f$ converge
+		De même $\int_a^{\uline{b}} v$ converge et avec le Lemme 5.1.6 (\Cpageref{IntComplConv}) on a $\int_a^{\uline{b}} f$ converge
 	\end{proof} \medskip
 	
 \section{Espace des fonctions intégrables sur $I$}
@@ -175,7 +175,8 @@
 		\hspace*{0.5cm}\begin{blockarray}{|l}
 			$~\bullet ~0\in L^1(I,K)$ \\ 
 			$~\bullet$ Soient $f,g\in L^1(I,K)$ et $\lambda\in K$ on pose $h=\lambda f+g$ avec $\abs{h}\leq \abs{\lambda}\abs{f}\abs{g} = w$ \\ 
-			Comme $\int_a^{\uline{b}} w$ cv, par théorème de comparaison (\ref{ThCompFcPos}) on a $h\in L^1(I,K)$  
+			Comme $\int_a^{\uline{b}} w$ cv, par le théorème de comparaison des fonctions positives (\Cpageref{ThCompFcPos}) \\
+			on a $h\in L^1(I,K)$  
 		\end{blockarray}\\
 		La linéarité de $\Delta$ est connue.
 	\end{proof} \medskip
